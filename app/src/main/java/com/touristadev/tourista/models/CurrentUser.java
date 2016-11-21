@@ -38,4 +38,24 @@ public final class CurrentUser {
     public String getPhotoUrl() {
         return photoUrl;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setUserFacebookId(String userFacebookId) {
+        this.userFacebookId = userFacebookId;
+    }
+
+    public void setUserFirebaseId(String userFirebaseId) {
+        this.userFirebaseId = userFirebaseId;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
 }
