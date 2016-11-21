@@ -153,6 +153,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (!task.isSuccessful()) {
+                            //do nothing
+                        } else {
+                            Intent intent = new Intent(RegisterActivity.this, ChooseTribeActivity.class);
+                            startActivity(intent);
                         }
                     }
                 });
