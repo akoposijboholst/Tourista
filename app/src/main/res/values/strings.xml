@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Tourista</string>
+    <string name="facebook_app_id">376098946064922</string>
+    <string name="fb_login_protocol_scheme">fb376098946064922</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="register">REGISTER</string>
+    <string name="title_activity_register">Register</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="register2">Register</string>
+    <string name="by_clicking_proceed_you_agree_to_our">By clicking proceed, you agree to our</string>
+    <string name="terms_conditions_and_privacy_policy"><u><![CDATA[Terms & Conditions and Privacy Policy]]></u></string>
+</resources>
