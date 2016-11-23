@@ -49,10 +49,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.touristadev.tourista.LoginActivity" />
         </activity>
-
         <activity
             android:name=".ChooseTribeActivity"
-            android:theme="@style/AppTheme.NoActionBarWithHead"></activity>
+            android:theme="@style/AppTheme.NoActionBarWithHead" />
+        <activity
+            android:name=".ExploreActivity"
+            android:label="@string/title_activity_explore"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

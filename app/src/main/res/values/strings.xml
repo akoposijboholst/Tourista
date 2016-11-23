@@ -11,4 +11,8 @@
     <string name="register2">Register</string>
     <string name="by_clicking_proceed_you_agree_to_our">By clicking proceed, you agree to our</string>
     <string name="terms_conditions_and_privacy_policy"><u><![CDATA[Terms & Conditions and Privacy Policy]]></u></string>
+    <string name="title_activity_explore">ExploreActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
