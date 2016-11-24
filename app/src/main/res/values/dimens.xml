@@ -5,6 +5,9 @@
     <dimen name="dimens_box">20dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="dp_logo">10dp</dimen>
-    <dimen name="app_bar_height">180dp</dimen>
-    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="common_navigator_height">45dp</dimen>
+    <dimen name="navigator_margin_top">5dp</dimen>
+
+    <dimen name="card_padding">60dp</dimen>
 </resources>

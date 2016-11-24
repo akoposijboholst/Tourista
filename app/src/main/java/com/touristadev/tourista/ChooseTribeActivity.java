@@ -2,6 +2,8 @@ package com.touristadev.tourista;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.touristadev.tourista.adapters.GridCategoryAdapter;
@@ -15,6 +17,7 @@ public class ChooseTribeActivity extends AppCompatActivity {
     private GridView mGridView;
     private GridCategoryAdapter mAdapter;
     private List<Category> mCategories;
+    private List<Integer> mChosen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,7 @@ public class ChooseTribeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choose_tribe);
 
         mCategories = new ArrayList<>();
+        mChosen = new ArrayList<>();
 
         mCategories.add(new Category("M", "Mountain"));
         mCategories.add(new Category("B", "Beach"));
@@ -32,8 +36,18 @@ public class ChooseTribeActivity extends AppCompatActivity {
         mCategories.add(new Category("N", "Nick"));
         mCategories.add(new Category("C", "Chan"));
 
-        mGridView = (GridView)findViewById(R.id.gridViewCategory);
+        mGridView = (GridView) findViewById(R.id.gridViewCategory);
         mAdapter = new GridCategoryAdapter(getApplicationContext(), R.layout.category_item, mCategories);
         mGridView.setAdapter(mAdapter);
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(mChosen.contains(position)){
+
+                }else{
+                    mChosen.add(position);
+                }
+            }
+        });
     }
 }

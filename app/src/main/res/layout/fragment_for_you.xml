@@ -1,0 +1,81 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.touristadev.tourista.fragments.ForYouFragment">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical">
+
+        <TextView
+
+            android:text="TOURS"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_width="wrap_content" />
+
+
+        <android.support.v4.view.ViewPager
+        android:id="@+id/viewPagerTours"
+        android:layout_width="match_parent"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingBottom="10dp"
+        android:paddingEnd="@dimen/card_padding"
+        android:paddingLeft="@dimen/card_padding"
+        android:paddingRight="@dimen/card_padding"
+        android:paddingStart="@dimen/card_padding"
+        android:layout_height="280dp" />
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="SPOTS"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPagerSpot"
+            android:layout_width="match_parent"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingBottom="10dp"
+            android:paddingEnd="@dimen/card_padding"
+            android:paddingLeft="@dimen/card_padding"
+            android:paddingRight="@dimen/card_padding"
+            android:paddingStart="@dimen/card_padding"
+            android:layout_height="280dp" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="DEALS"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPagerDeals"
+            android:layout_width="match_parent"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingBottom="10dp"
+            android:paddingEnd="@dimen/card_padding"
+            android:paddingLeft="@dimen/card_padding"
+            android:paddingRight="@dimen/card_padding"
+            android:paddingStart="@dimen/card_padding"
+            android:layout_height="280dp" />
+    </LinearLayout>
+</ScrollView>
+</FrameLayout>

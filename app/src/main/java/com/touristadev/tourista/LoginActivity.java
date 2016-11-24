@@ -11,7 +11,7 @@ import com.facebook.appevents.AppEventsLogger;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button mRegister;
+    private Button mRegister,mSignIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         mRegister = (Button) findViewById(R.id.btnRegister);
+        mSignIn = (Button) findViewById(R.id.btnLogin);
         mRegister.setOnClickListener(this);
+        mSignIn.setOnClickListener(this);
     }
 
     @Override
@@ -31,6 +33,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btnRegister:
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.btnLogin:
+                Intent login = new Intent(LoginActivity.this, ExploreActivity.class);
+                startActivity(login);
                 break;
         }
 
