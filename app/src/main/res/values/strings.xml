@@ -11,4 +11,6 @@
     <string name="register2">Register</string>
     <string name="by_clicking_proceed_you_agree_to_our">By clicking proceed, you agree to our</string>
     <string name="terms_conditions_and_privacy_policy"><u><![CDATA[Terms & Conditions and Privacy Policy]]></u></string>
+    <string name="title_activity_tours">ToursActivity</string>
+
 </resources>
