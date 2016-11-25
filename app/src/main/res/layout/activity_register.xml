@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,123 +7,67 @@
     android:orientation="vertical"
     tools:context="com.touristadev.tourista.RegisterActivity">
 
-    <android.support.design.widget.AppBarLayout
+
+    <EditText
+        android:id="@+id/etLastName"
+        android:textColor="@color/colorTextIcons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+        android:layout_above="@+id/btnRegister"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="136dp"
+        android:enabled="false"
+        android:hint="@string/last_name"
+        android:text=" " />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="?attr/colorPrimary"
-            android:gravity="center_horizontal"
-            app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
-    </android.support.design.widget.AppBarLayout>
-
-    <LinearLayout
+    <EditText
+        android:id="@+id/etEmail"
+        android:textColor="@color/colorTextIcons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:orientation="vertical">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/etLastName"
+        android:layout_marginTop="42dp"
+        android:enabled="false"
+        android:hint="@string/email"
+        android:text=" " />
 
-        <LinearLayout
-            android:id="@+id/btnRegisterFacebook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:background="@color/com_facebook_blue"
-            android:gravity="center"
-            android:padding="@dimen/dp_logo">
+    <EditText
+        android:id="@+id/etFirstName"
+        android:textColor="@color/colorTextIcons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etLastName"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:enabled="false"
+        android:hint="@string/first_name"
+        android:text=" " />
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@color/com_facebook_blue"
-                android:scaleType="fitXY"
-                android:src="@drawable/facebook_logo_white" />
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/tourista_login" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:background="#d3d3d3" />
+    <com.shaishavgandhi.loginbuttons.FacebookButton
+        android:id="@+id/btnRegister"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Connect with Facebook"
+        android:textAlignment="center"
+        app:iconSize="30dp"
+        app:roundedCorner="true"
+        android:layout_marginBottom="69dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <EditText
-                    android:id="@+id/etFirstName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:hint="@string/first_name"
-                    android:text=" " />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <EditText
-                    android:id="@+id/etLastName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:hint="@string/last_name"
-                    android:text=" " />
-            </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:hint="@string/email"
-                android:text=" " />
-        </android.support.design.widget.TextInputLayout>
-
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorBrown"
-            android:padding="@dimen/dp_logo"
-            android:text="@string/register2"
-            android:textSize="15dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/by_clicking_proceed_you_agree_to_our" />
-
-        <TextView
-            android:id="@+id/btnTermsandConditions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#7ec0ee"
-            android:text="@string/terms_conditions_and_privacy_policy" />
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

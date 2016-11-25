@@ -1,6 +1,7 @@
 package com.touristadev.tourista;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -56,10 +57,21 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private AccessToken currentAccessToken;
 
+    private Button b, c;
+
+    private String firstName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        //FONTS
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
+
+        b= (Button) findViewById(R.id.btnRegister) ;
+        b.setTypeface(myCustomFont);
+
         mCallbackManager = CallbackManager.Factory.create();
 
         mAuth = FirebaseAuth.getInstance();
@@ -75,65 +87,29 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             }
         };
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mRegisterFb = (LinearLayout) findViewById(R.id.btnRegisterFacebook);
+        //mRegisterFb = (LinearLayout) findViewById(R.id.btnRegisterFacebook);
         mRegister = (Button) findViewById(R.id.btnRegister);
-        mRegisterFb.setOnClickListener(this);
+        //mRegisterFb.setOnClickListener(this);
         mRegister.setOnClickListener(this);
 
         mFirstname = (EditText) findViewById(R.id.etFirstName);
         mLastname = (EditText) findViewById(R.id.etLastName);
         mEmail = (EditText) findViewById(R.id.etEmail);
 
+        firstName = mFirstname.getText().toString();
+
+        login();
+
 
     }
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
-            case R.id.btnRegisterFacebook:
-                LoginManager.getInstance().registerCallback(mCallbackManager,
-                        new FacebookCallback<LoginResult>() {
-                            @Override
-                            public void onSuccess(LoginResult loginResult) {
-                                currentAccessToken = loginResult.getAccessToken();
-                                GraphRequest graphRequest = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
-                                    @Override
-                                    public void onCompleted(JSONObject object, GraphResponse response) {
-                                        try {
-                                            mFirstname.setText(object.getString("first_name"));
-                                            mLastname.setText(object.getString("last_name"));
-                                            mEmail.setText(object.getString("email"));
-                                        } catch (JSONException e) {
-                                            Log.d("Boholst", "Exception");
-                                        }
-                                    }
-                                });
-
-                                Bundle parameters = new Bundle();
-                                parameters.putString("fields", "first_name,last_name,email");
-                                graphRequest.setParameters(parameters);
-                                graphRequest.executeAsync();
-                            }
-
-                            @Override
-                            public void onCancel() {
-                                Toast.makeText(getApplicationContext(), "Login Cancel", Toast.LENGTH_LONG).show();
-                            }
-
-                            @Override
-                            public void onError(FacebookException exception) {
-                                Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        });
-                LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "user_friends", "email"));
-                break;
-
             case R.id.btnRegister:
                 handleFacebookAccessToken(currentAccessToken);
-                Toast.makeText(getApplicationContext(), "Pota", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Welcome! " + firstName, Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -174,5 +150,43 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
         }
+    }
+
+    public void login() {
+        LoginManager.getInstance().registerCallback(mCallbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        currentAccessToken = loginResult.getAccessToken();
+                        GraphRequest graphRequest = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(JSONObject object, GraphResponse response) {
+                                try {
+                                    mFirstname.setText(object.getString("first_name"));
+                                    mLastname.setText(object.getString("last_name"));
+                                    mEmail.setText(object.getString("email"));
+                                } catch (JSONException e) {
+                                    Log.d("Boholst", "Exception");
+                                }
+                            }
+                        });
+
+                        Bundle parameters = new Bundle();
+                        parameters.putString("fields", "first_name,last_name,email");
+                        graphRequest.setParameters(parameters);
+                        graphRequest.executeAsync();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        Toast.makeText(getApplicationContext(), "Login Cancel", Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "user_friends", "email"));
     }
 }
