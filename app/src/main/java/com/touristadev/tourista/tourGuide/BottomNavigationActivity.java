@@ -15,13 +15,13 @@ public class BottomNavigationActivity extends AppCompatActivity {
 
     BottomBar mBottomBar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bottom_navigation);
 
         mBottomBar= BottomBar.attach(this,savedInstanceState);
+        mBottomBar.useFixedMode();
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(@IdRes int menuItemId) {
@@ -52,6 +52,12 @@ public class BottomNavigationActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+
+
+
     }
 
     @Override
