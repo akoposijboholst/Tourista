@@ -2,17 +2,12 @@ package com.touristadev.tourista;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,10 +20,6 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -36,10 +27,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.touristadev.tourista.models.CurrentUser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.Arrays;
 
@@ -51,12 +42,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    private EditText mFirstname;
-    private EditText mLastname;
-    private EditText mEmail;
+    private TextView mFirstname;
+    private TextView mLastname;
+    private TextView mEmail;
 
     private AccessToken currentAccessToken;
 
+    private TextView txtFirstName, txtLastName, txtEmail;
     private Button b, c;
 
     private String firstName;
@@ -67,10 +59,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_register);
 
         //FONTS
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
+        Typeface RalewayBold = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
+        Typeface RalewayRegular = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
+
+        txtFirstName = (TextView) findViewById(R.id.etFirstName);
+        txtLastName = (TextView) findViewById(R.id.etLastName);
+        txtEmail = (TextView) findViewById(R.id.etEmail);
+        txtFirstName.setTypeface(RalewayBold);
+        txtLastName.setTypeface(RalewayBold);
+        txtEmail.setTypeface(RalewayBold);
+
 
         b= (Button) findViewById(R.id.btnRegister) ;
-        b.setTypeface(myCustomFont);
+        b.setTypeface(RalewayBold);
 
         mCallbackManager = CallbackManager.Factory.create();
 
@@ -92,9 +93,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         //mRegisterFb.setOnClickListener(this);
         mRegister.setOnClickListener(this);
 
-        mFirstname = (EditText) findViewById(R.id.etFirstName);
-        mLastname = (EditText) findViewById(R.id.etLastName);
-        mEmail = (EditText) findViewById(R.id.etEmail);
+        mFirstname = (TextView) findViewById(R.id.etFirstName);
+        mLastname = (TextView) findViewById(R.id.etLastName);
+        mEmail = (TextView) findViewById(R.id.etEmail);
 
         firstName = mFirstname.getText().toString();
 
