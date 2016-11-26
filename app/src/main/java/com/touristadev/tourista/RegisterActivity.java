@@ -45,21 +45,16 @@ import java.util.Arrays;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private LinearLayout mRegisterFb;
     private Button mRegister;
     private CallbackManager mCallbackManager;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    private EditText mFirstname;
-    private EditText mLastname;
-    private EditText mEmail;
-
     private AccessToken currentAccessToken;
 
-    private Button b, c;
-
     private String firstName;
+    private String lastName;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +63,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         //FONTS
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
-
-        b= (Button) findViewById(R.id.btnRegister) ;
-        b.setTypeface(myCustomFont);
 
         mCallbackManager = CallbackManager.Factory.create();
 
@@ -86,19 +78,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }
             }
         };
-
-        //mRegisterFb = (LinearLayout) findViewById(R.id.btnRegisterFacebook);
         mRegister = (Button) findViewById(R.id.btnRegister);
-        //mRegisterFb.setOnClickListener(this);
+        mRegister.setTypeface(myCustomFont);
         mRegister.setOnClickListener(this);
-
-        mFirstname = (EditText) findViewById(R.id.etFirstName);
-        mLastname = (EditText) findViewById(R.id.etLastName);
-        mEmail = (EditText) findViewById(R.id.etEmail);
-
-        firstName = mFirstname.getText().toString();
-
-        login();
 
 
     }
@@ -108,6 +90,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         switch (v.getId()) {
             case R.id.btnRegister:
+                login();
                 handleFacebookAccessToken(currentAccessToken);
                 Toast.makeText(getApplicationContext(), "Welcome! " + firstName, Toast.LENGTH_SHORT).show();
                 break;
@@ -131,7 +114,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         if (!task.isSuccessful()) {
                             //do nothing
                         } else {
-                            Intent intent = new Intent(RegisterActivity.this, ChooseTribeActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
+                            intent.putExtra("firstName", firstName);
+                            intent.putExtra("lastName", lastName);
+                            intent.putExtra("email", email);
                             startActivity(intent);
                         }
                     }
@@ -162,9 +148,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             @Override
                             public void onCompleted(JSONObject object, GraphResponse response) {
                                 try {
-                                    mFirstname.setText(object.getString("first_name"));
-                                    mLastname.setText(object.getString("last_name"));
-                                    mEmail.setText(object.getString("email"));
+                                    firstName = object.getString("first_name");
+                                    lastName = object.getString("last_name");
+                                    email = object.getString("email");
                                 } catch (JSONException e) {
                                     Log.d("Boholst", "Exception");
                                 }

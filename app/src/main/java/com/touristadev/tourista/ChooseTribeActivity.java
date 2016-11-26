@@ -22,8 +22,8 @@ public class ChooseTribeActivity extends AppCompatActivity {
     private GridCategoryAdapter mAdapter;
     private List<Category> mCategories;
     private List<Integer> mChosen;
-    private TextView mNumber;
-    private RelativeLayout mRelative;
+//    private TextView mNumber;
+//    private RelativeLayout mRelative;
     private Button mProceed;
 
     @Override
@@ -43,8 +43,8 @@ public class ChooseTribeActivity extends AppCompatActivity {
         mCategories.add(new Category("N", "Nick"));
         mCategories.add(new Category("C", "Chan"));
 
-        mNumber = (TextView) findViewById(R.id.tvChooseNumber);
-        mRelative = (RelativeLayout) findViewById(R.id.relativeLayout);
+//        mNumber = (TextView) findViewById(R.id.tvChooseNumber);
+//        mRelative = (RelativeLayout) findViewById(R.id.relativeLayout);
         mProceed = (Button) findViewById(R.id.btnProceed);
         mProceed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,20 +63,20 @@ public class ChooseTribeActivity extends AppCompatActivity {
                     mChosen.remove(mChosen.indexOf(position));
                     if(mChosen.size() < 3){
                         int lacking = 3 - mChosen.size();
-                        mNumber.setText(String.valueOf(lacking));
+//                        mNumber.setText(String.valueOf(lacking));
                     }
                     if(mChosen.size() == 2 && mProceed.getVisibility() == View.VISIBLE){
-                        mRelative.setVisibility(View.VISIBLE);
+//                        mRelative.setVisibility(View.VISIBLE);
                         mProceed.setVisibility(View.GONE);
                     }
                 } else {
                     mChosen.add(position);
                     int lacking = 3 - mChosen.size();
                     if (lacking > -1) {
-                        mNumber.setText(String.valueOf(lacking));
+//                        mNumber.setText(String.valueOf(lacking));
                     }
                     if (lacking == 0) {
-                        mRelative.setVisibility(View.GONE);
+//                        mRelative.setVisibility(View.GONE);
                         mProceed.setVisibility(View.VISIBLE);
                     }
                 }
