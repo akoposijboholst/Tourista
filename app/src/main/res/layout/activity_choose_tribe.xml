@@ -4,71 +4,19 @@
     android:id="@+id/activity_choose_tribe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.touristadev.tourista.ChooseTribeActivity">
+    tools:context="com.touristadev.tourista.ChooseTribeActivity"
+    android:orientation="vertical">
 
     <GridView
         android:id="@+id/gridViewCategory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="100dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:horizontalSpacing="5dp"
-        android:numColumns="2"
+        android:verticalSpacing="5dp"
         android:padding="5dp"
-        android:verticalSpacing="5dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:background="#fff"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tvChooseTribe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Choose " />
-
-            <TextView
-                android:id="@+id/tvChooseNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/tvChooseTribe"
-                android:gravity="center"
-                android:text="3" />
-
-            <TextView
-                android:id="@+id/tvTribe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/tvChooseNumber"
-                android:gravity="center"
-                android:text=" tribes." />
-
-        </RelativeLayout>
-
-        <Button
-            android:id="@+id/btnProceed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="Proceed"
-            android:visibility="gone" />
-    </LinearLayout>
+        android:numColumns="2"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

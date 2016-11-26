@@ -1,12 +1,16 @@
 package com.touristadev.tourista;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class SplashActivity extends AppCompatActivity {
 
+    private TextView t;
 
     private final int seconds = 3000;
 
@@ -14,6 +18,13 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        //FONTS
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
+
+        t= (TextView) findViewById(R.id.txtSubText) ;
+        t.setTypeface(myCustomFont);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
