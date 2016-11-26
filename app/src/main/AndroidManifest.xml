@@ -14,13 +14,7 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <activity android:name=".SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".SplashActivity"></activity>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBarWithHead" />
@@ -49,10 +43,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.touristadev.tourista.LoginActivity" />
         </activity>
-
         <activity
             android:name=".ChooseTribeActivity"
-            android:theme="@style/AppTheme.NoActionBarWithHead"></activity>
+            android:theme="@style/AppTheme.NoActionBarWithHead" />
+        <activity
+            android:name=".TemporaryActivity"
+            android:theme="@style/AppTheme.NoActionBarWithHead">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
