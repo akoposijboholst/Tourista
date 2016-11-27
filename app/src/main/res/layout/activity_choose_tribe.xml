@@ -4,8 +4,8 @@
     android:id="@+id/activity_choose_tribe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     android:gravity="center"
+    android:orientation="horizontal"
     android:padding="10dp"
     tools:context="com.touristadev.tourista.ChooseTribeActivity">
 
@@ -23,6 +23,7 @@
             android:layout_centerInParent="true"
             android:background="@drawable/switch_selector"
             android:gravity="center"
+            android:onClick="onClick"
             android:scaleType="fitXY"
             android:textOff=" "
             android:textOn=" " />
@@ -35,6 +36,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/switch_selector"
             android:gravity="center"
+            android:onClick="onClick"
             android:scaleType="fitXY"
             android:textOff=" "
             android:textOn=" " />
@@ -47,6 +49,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/switch_selector"
             android:gravity="center"
+            android:onClick="onClick"
             android:scaleType="fitXY"
             android:textOff=" "
             android:textOn=" " />
@@ -59,6 +62,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/switch_selector"
             android:gravity="center"
+            android:onClick="onClick"
             android:scaleType="fitXY"
             android:textOff=" "
             android:textOn=" " />
@@ -78,6 +82,7 @@
             android:layout_centerInParent="true"
             android:background="@drawable/switch_selector"
             android:gravity="center"
+            android:onClick="onClick"
             android:scaleType="fitXY"
             android:textOff=" "
             android:textOn=" " />
@@ -90,6 +95,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/switch_selector"
             android:gravity="center"
+            android:onClick="onClick"
             android:scaleType="fitXY"
             android:textOff=" "
             android:textOn=" " />
@@ -102,6 +108,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/switch_selector"
             android:gravity="center"
+            android:onClick="onClick"
             android:scaleType="fitXY"
             android:textOff=" "
             android:textOn=" " />
@@ -114,6 +121,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/switch_selector"
             android:gravity="center"
+            android:onClick="onClick"
             android:scaleType="fitXY"
             android:textOff=" "
             android:textOn=" " />
