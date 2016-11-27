@@ -34,16 +34,30 @@
                 android:id="@+id/imgCard" />
 
             <RatingBar
+                android:isIndicator="true"
                 android:layout_height="wrap_content"
-                android:id="@+id/ratingBar2"
+                android:id="@+id/rtBar"
                 style="@style/Widget.AppCompat.RatingBar.Small"
                 android:layout_width="80dp" />
 
             <TextView
                 android:text="TextView"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtPrice" />
+            <TextView
+                android:text="TextView"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtNoSpots" />
+            <TextView
+                android:text="TextView"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/NoHours" />
 
         </LinearLayout>
 
