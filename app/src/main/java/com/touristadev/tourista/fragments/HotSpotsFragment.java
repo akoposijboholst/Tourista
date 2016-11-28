@@ -4,11 +4,21 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.touristadev.tourista.R;
+import com.touristadev.tourista.ShadowTransformer;
+import com.touristadev.tourista.adapters.CardExplorerPagerAdapter;
+import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
+import com.touristadev.tourista.models.ForYou;
+
+import java.util.ArrayList;
+
+import static com.touristadev.tourista.fragments.ForYouFragment.dpToPixels;
 
 
 /**
@@ -28,6 +38,15 @@ public class HotSpotsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private ArrayList<ForYou> SpotList = new ArrayList<>();
+
+    private CardExplorerPagerAdapter mCardAdapter;
+    private ShadowTransformer mCardShadowTransformer;
+    private ViewPager mViewPagerTours;
+    private CardFragmentPagerAdapter mFragmentCardAdapter;
+    private ShadowTransformer mFragmentCardShadowTransformer;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,8 +84,31 @@ public class HotSpotsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hot_spots, container, false);
+        View v = inflater.inflate(R.layout.fragment_hot_spots, container, false);
+        mViewPagerTours = (ViewPager) v.findViewById(R.id.viewPagerToursT);
+
+        SpotList.add(new ForYou("Kawasan Falls",5,"₱ 300","1 Spot","5 hrs"));
+        SpotList.add(new ForYou("Camp Sawi",4,"₱ 430","1 Spot","3 days"));
+        SpotList.add(new ForYou("Boracay Beach",5,"₱ 760","1 Spot","2 days"));
+        SpotList.add(new ForYou("Smart Main Office",5,"₱ 250","1 Spot","10 hrs"));
+        SpotList.add(new ForYou("Mt. Apo",4,"₱ 300","1 Spot","8 hrs"));
+        SpotList.add(new ForYou("MoalBoal Beach",5,"₱ 200","1 Spot","2 days"));
+
+        mCardAdapter = new CardExplorerPagerAdapter(SpotList);
+        FragmentManager fm =  getFragmentManager();
+        mFragmentCardAdapter = new CardFragmentPagerAdapter(fm,
+                dpToPixels(2, getContext()));
+
+        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
+        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
+
+        mViewPagerTours.setAdapter(mCardAdapter);
+        mViewPagerTours.setPageTransformer(false, mCardShadowTransformer);
+        mViewPagerTours.setOffscreenPageLimit(3);
+
+
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

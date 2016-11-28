@@ -4,11 +4,21 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.touristadev.tourista.R;
+import com.touristadev.tourista.ShadowTransformer;
+import com.touristadev.tourista.adapters.CardExplorerPagerAdapter;
+import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
+import com.touristadev.tourista.models.ForYou;
+
+import java.util.ArrayList;
+
+import static com.touristadev.tourista.fragments.ForYouFragment.dpToPixels;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +37,14 @@ public class DealsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private ArrayList<ForYou> DealList = new ArrayList<>();
+
+    private CardExplorerPagerAdapter mCardAdapter;
+    private ShadowTransformer mCardShadowTransformer;
+    private ViewPager mViewPagerTours;
+    private CardFragmentPagerAdapter mFragmentCardAdapter;
+    private ShadowTransformer mFragmentCardShadowTransformer;
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,8 +82,31 @@ public class DealsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_promos, container, false);
+        View v = inflater.inflate(R.layout.fragment_promos, container, false);
+        mViewPagerTours = (ViewPager) v.findViewById(R.id.viewPagerToursT);
+
+        DealList.add(new ForYou("Cebu Educational Tour Promo",5,"₱ 150 ","5 Spots","10 hrs"));
+        DealList.add(new ForYou("Smart Facility Tour Promo",4,"₱ 300","4 Spots","12 hrs"));
+        DealList.add(new ForYou("Manila Food Tour Promo",5,"₱ 100","15 Spots","8 hrs"));
+        DealList.add(new ForYou("Manila Technology Tour Promo",5,"₱ 250","11 Spots","3 days"));
+        DealList.add(new ForYou("Smart Technology Tour Promo",4,"₱ 380","6 Spots","10 hrs"));
+        DealList.add(new ForYou("Mindanao Islands Tour Promo",5,"₱ 5,300","7 Spots","5 days"));
+
+        mCardAdapter = new CardExplorerPagerAdapter(DealList);
+        FragmentManager fm =  getFragmentManager();
+        mFragmentCardAdapter = new CardFragmentPagerAdapter(fm,
+                dpToPixels(2, getContext()));
+
+        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
+        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
+
+        mViewPagerTours.setAdapter(mCardAdapter);
+        mViewPagerTours.setPageTransformer(false, mCardShadowTransformer);
+        mViewPagerTours.setOffscreenPageLimit(3);
+
+
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -14,6 +14,9 @@ import com.touristadev.tourista.R;
 import com.touristadev.tourista.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
 import com.touristadev.tourista.adapters.CardPagerAdapter;
+import com.touristadev.tourista.models.ForYou;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,6 +41,10 @@ public class ForYouFragment extends Fragment {
     private ShadowTransformer mCardShadowTransformer;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
     private ShadowTransformer mFragmentCardShadowTransformer;
+
+    private ArrayList<ForYou> TourList = new ArrayList<>();
+    private ArrayList<ForYou> SpotList = new ArrayList<>();
+    private ArrayList<ForYou> DealList = new ArrayList<>();
 
     private boolean mShowingFragments = false;
     private OnFragmentInteractionListener mListener;
@@ -85,7 +92,15 @@ public class ForYouFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_for_you, container, false);;
         mViewPagerTours = (ViewPager) view.findViewById(R.id.viewPagerTours);
-        mCardAdapter = new CardPagerAdapter();
+
+        TourList.add(new ForYou("Manila Tour",5,"₱ 550","5 Spots","12 hrs"));
+        TourList.add(new ForYou("Boracay Island",4,"₱ 1,350","2 Spots","7 hrs"));
+        TourList.add(new ForYou("Smart Facilities Tour",5,"₱ 400","5 Spots","10 hrs"));
+        TourList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days"));
+        TourList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours"));
+        TourList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs"));
+
+        mCardAdapter = new CardPagerAdapter(TourList);
         FragmentManager fm =  getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm,
                 dpToPixels(2, getContext()));
@@ -97,8 +112,15 @@ public class ForYouFragment extends Fragment {
         mViewPagerTours.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerTours.setOffscreenPageLimit(3);
 
+        SpotList.add(new ForYou("Kawasan Falls",5,"₱ 300","1 Spot","5 hrs"));
+        SpotList.add(new ForYou("Camp Sawi",4,"₱ 430","1 Spot","3 days"));
+        SpotList.add(new ForYou("Boracay Beach",5,"₱ 760","1 Spot","2 days"));
+        SpotList.add(new ForYou("Smart Main Office",5,"₱ 250","1 Spot","10 hrs"));
+        SpotList.add(new ForYou("Mt. Apo",4,"₱ 300","1 Spot","8 hrs"));
+        SpotList.add(new ForYou("MoalBoal Beach",5,"₱ 200","1 Spot","2 days"));
+
         mViewPagerSpots = (ViewPager) view.findViewById(R.id.viewPagerSpot);
-        mCardAdapter = new CardPagerAdapter();
+        mCardAdapter = new CardPagerAdapter(SpotList);
         FragmentManager fm2 =  getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm2,
                 dpToPixels(2, getContext()));
@@ -110,8 +132,16 @@ public class ForYouFragment extends Fragment {
         mViewPagerSpots.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerSpots.setOffscreenPageLimit(3);
 
+        DealList.add(new ForYou("Cebu Educational Tour Promo",5,"₱ 150 ","5 Spots","10 hrs"));
+        DealList.add(new ForYou("Smart Facility Tour Promo",4,"₱ 300","4 Spots","12 hrs"));
+        DealList.add(new ForYou("Manila Food Tour Promo",5,"₱ 100","15 Spots","8 hrs"));
+        DealList.add(new ForYou("Manila Technology Tour Promo",5,"₱ 250","11 Spots","3 days"));
+        DealList.add(new ForYou("Smart Technology Tour Promo",4,"₱ 380","6 Spots","10 hrs"));
+        DealList.add(new ForYou("Mindanao Islands Tour Promo",5,"₱ 5,300","7 Spots","5 days"));
+
+
         mViewPagerDeals = (ViewPager) view.findViewById(R.id.viewPagerDeals);
-        mCardAdapter = new CardPagerAdapter();
+        mCardAdapter = new CardPagerAdapter(DealList);
         FragmentManager fm3 =  getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm3,
                 dpToPixels(2, getContext()));

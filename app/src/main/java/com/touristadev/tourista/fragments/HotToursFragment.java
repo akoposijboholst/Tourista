@@ -4,11 +4,22 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.touristadev.tourista.R;
+import com.touristadev.tourista.ShadowTransformer;
+import com.touristadev.tourista.adapters.CardExplorerPagerAdapter;
+import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
+import com.touristadev.tourista.adapters.CardPagerAdapter;
+import com.touristadev.tourista.models.ForYou;
+
+import java.util.ArrayList;
+
+import static com.touristadev.tourista.fragments.ForYouFragment.dpToPixels;
 
 
 /**
@@ -28,8 +39,14 @@ public class HotToursFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private ArrayList<ForYou> TourList = new ArrayList<>();
     private OnFragmentInteractionListener mListener;
+
+    private CardExplorerPagerAdapter mCardAdapter;
+    private ShadowTransformer mCardShadowTransformer;
+    private ViewPager mViewPagerTours;
+    private CardFragmentPagerAdapter mFragmentCardAdapter;
+    private ShadowTransformer mFragmentCardShadowTransformer;
 
     public HotToursFragment() {
         // Required empty public constructor
@@ -65,8 +82,33 @@ public class HotToursFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hot_tours, container, false);
+       View v = inflater.inflate(R.layout.fragment_hot_tours, container, false);
+        mViewPagerTours = (ViewPager) v.findViewById(R.id.viewPagerToursT);
+
+        TourList.add(new ForYou("Manila Tour",5,"₱ 550","5 Spots","12 hrs"));
+        TourList.add(new ForYou("Boracay Island",4,"₱ 1,350","2 Spots","7 hrs"));
+        TourList.add(new ForYou("Smart Facilities Tour",5,"₱ 400","5 Spots","10 hrs"));
+        TourList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days"));
+        TourList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours"));
+        TourList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs"));
+
+
+        mCardAdapter = new CardExplorerPagerAdapter(TourList);
+        FragmentManager fm =  getFragmentManager();
+        mFragmentCardAdapter = new CardFragmentPagerAdapter(fm,
+                dpToPixels(2, getContext()));
+       
+//
+//        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
+//        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
+
+        mViewPagerTours.setAdapter(mCardAdapter);
+//        mViewPagerTours.setPageTransformer(false, mCardShadowTransformer);
+//        mViewPagerTours.setOffscreenPageLimit(3);
+
+
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

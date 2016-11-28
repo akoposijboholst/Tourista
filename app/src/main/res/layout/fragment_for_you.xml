@@ -32,7 +32,7 @@
         android:paddingLeft="@dimen/card_padding"
         android:paddingRight="@dimen/card_padding"
         android:paddingStart="@dimen/card_padding"
-        android:layout_height="280dp" />
+            android:layout_height="305dp"  />
 
 
         <TextView
@@ -54,7 +54,7 @@
             android:paddingLeft="@dimen/card_padding"
             android:paddingRight="@dimen/card_padding"
             android:paddingStart="@dimen/card_padding"
-            android:layout_height="280dp" />
+            android:layout_height="305dp" />
 
         <TextView
             android:layout_marginTop="20dp"
@@ -75,7 +75,7 @@
             android:paddingLeft="@dimen/card_padding"
             android:paddingRight="@dimen/card_padding"
             android:paddingStart="@dimen/card_padding"
-            android:layout_height="280dp" />
+            android:layout_height="305dp"  />
     </LinearLayout>
 </ScrollView>
 </FrameLayout>
