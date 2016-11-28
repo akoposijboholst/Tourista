@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/tourista_login"
+    android:background="@mipmap/tourista_login"
     tools:context="com.touristadev.tourista.RegisterActivity">
 
 
@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="false"
-        android:text="@string/last_name"
         android:layout_weight="1"
         android:textColor="@color/colorAccent"
         android:layout_above="@+id/btnRegister"
@@ -27,7 +26,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="false"
-        android:text="@string/first_name"
         android:layout_weight="1"
         android:textColor="@color/colorAccent"
         android:layout_above="@+id/etLastName"
@@ -39,7 +37,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="false"
-        android:text="@string/email"
         android:textColor="@color/colorAccent"
         android:layout_weight="1"
         android:layout_above="@+id/etFirstName"
