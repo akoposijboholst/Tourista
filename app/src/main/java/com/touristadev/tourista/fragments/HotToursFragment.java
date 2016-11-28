@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,12 +44,12 @@ public class HotToursFragment extends Fragment {
     private ArrayList<ForYou> TourList = new ArrayList<>();
     private OnFragmentInteractionListener mListener;
 
-    private CardExplorerPagerAdapter mCardAdapter;
     private ShadowTransformer mCardShadowTransformer;
     private ViewPager mViewPagerTours;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
     private ShadowTransformer mFragmentCardShadowTransformer;
-
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mCardAdapter;
     public HotToursFragment() {
         // Required empty public constructor
     }
@@ -83,26 +85,29 @@ public class HotToursFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        View v = inflater.inflate(R.layout.fragment_hot_tours, container, false);
-        mViewPagerTours = (ViewPager) v.findViewById(R.id.viewPagerToursT);
-
-        TourList.add(new ForYou("Manila Tour",5,"₱ 550","5 Spots","12 hrs"));
-        TourList.add(new ForYou("Boracay Island",4,"₱ 1,350","2 Spots","7 hrs"));
-        TourList.add(new ForYou("Smart Facilities Tour",5,"₱ 400","5 Spots","10 hrs"));
-        TourList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days"));
-        TourList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours"));
-        TourList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs"));
 
 
-        mCardAdapter = new CardExplorerPagerAdapter(TourList);
-        FragmentManager fm =  getFragmentManager();
-        mFragmentCardAdapter = new CardFragmentPagerAdapter(fm,
-                dpToPixels(2, getContext()));
-       
+        TourList.add(new ForYou("Manila Tour",5,"₱ 550","5 Spots","12 hrs","tour"));
+        TourList.add(new ForYou("Boracay Island",4,"₱ 1,350","2 Spots","7 hrs","tour"));
+        TourList.add(new ForYou("Smart Facilities Tour",5,"₱ 400","5 Spots","10 hrs","tour"));
+        TourList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days","tour"));
+        TourList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours","tour"));
+        TourList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs","tour"));
+
+        mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_tours);
+
+        //permet un affichage sous forme liste verticale
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setHasFixedSize(true);
+
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
+        mCardAdapter = new CardExplorerPagerAdapter(TourList);
+        mRecyclerView.setAdapter(mCardAdapter);
+        mCardAdapter.notifyDataSetChanged();
 
-        mViewPagerTours.setAdapter(mCardAdapter);
 //        mViewPagerTours.setPageTransformer(false, mCardShadowTransformer);
 //        mViewPagerTours.setOffscreenPageLimit(3);
 

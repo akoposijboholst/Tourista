@@ -31,8 +31,7 @@ public class TutorialActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.image_view_pager);
         ArrayList<String> images = new ArrayList<>();

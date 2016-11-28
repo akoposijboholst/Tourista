@@ -1,6 +1,7 @@
 package com.touristadev.tourista;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -36,6 +37,8 @@ public class ExploreActivity extends AppCompatActivity {
     private List<Fragment> mFragments = new ArrayList<Fragment>();
     private FragmentContainerHelper mFragmentContainerHelper = new FragmentContainerHelper();
     BottomBar mBottomBar;
+    public ForYouFragment t= new ForYouFragment();
+    public  FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,29 +50,34 @@ public class ExploreActivity extends AppCompatActivity {
         mFragmentContainerHelper.handlePageSelected(0, false);
         switchPages(0);
 
+
         mBottomBar= BottomBar.attach(this,savedInstanceState);
+        mBottomBar.useFixedMode();
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(@IdRes int menuItemId) {
                 if(menuItemId== R.id.bottombar1)
                 {
-                    ForYouFragment t= new ForYouFragment();
+                   t= new ForYouFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,t).commit();
                 }
                 if(menuItemId== R.id.bottombar2)
                 {
-//                    ToursFragments t= new ToursFragments();
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,t).commit();
+                    getSupportFragmentManager().beginTransaction().
+                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
+                    Intent i = new Intent(ExploreActivity.this, DiscoverActivity.class);
+                    startActivity(i);
                 }
-                if(menuItemId== R.id.bottombar3)
-                {
-//                    ToursFragments t= new ToursFragments();
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,t).commit();
-                }
+//                if(menuItemId== R.id.bottombar3)
+//                {
+//
+//                }
                 if(menuItemId== R.id.bottombar4)
                 {
-//                    ToursFragments t= new ToursFragments();
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,t).commit();
+                    getSupportFragmentManager().beginTransaction().
+                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
+                    Intent i = new Intent(ExploreActivity.this, PassportActivity.class);
+                    startActivity(i);
                 }
             }
 
@@ -86,8 +94,8 @@ public class ExploreActivity extends AppCompatActivity {
         return true;
     }
 
-    private void switchPages(int index) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
+    public void switchPages(int index) {
+        fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment;
         for (int i = 0, j = mFragments.size(); i < j; i++) {
@@ -128,6 +136,7 @@ public class ExploreActivity extends AppCompatActivity {
         MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator);
 
         CommonNavigator commonNavigator = new CommonNavigator(this);
+
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
             public int getCount() {
@@ -144,6 +153,7 @@ public class ExploreActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
+
                         mFragmentContainerHelper.handlePageSelected(index);
                         switchPages(index);
                     }
@@ -154,6 +164,7 @@ public class ExploreActivity extends AppCompatActivity {
             @Override
             public IPagerIndicator getIndicator(Context context) {
                 LinePagerIndicator indicator = new LinePagerIndicator(context);
+
                 indicator.setMode(LinePagerIndicator.MODE_WRAP_CONTENT);
                 return indicator;
             }

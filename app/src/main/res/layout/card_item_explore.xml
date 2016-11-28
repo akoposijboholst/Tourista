@@ -6,68 +6,88 @@
     app:cardUseCompatPadding="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:layout_margin="20dp"
+    android:layout_marginTop="20dp">
 
     <FrameLayout
+        android:padding="10dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+
             android:orientation="vertical"
             android:padding="16dp">
 
-            <TextView
 
-                style="@style/TextAppearance.AppCompat.Title"
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Card title"
-                android:id="@+id/txtTitle" />
+                android:id="@+id/txtTitle"
+                android:layout_below="@+id/imgCard"
+                android:layout_centerHorizontal="true" />
 
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                app:srcCompat="@mipmap/ic_launcher"
-                android:id="@+id/imgCard" />
+            <TextView
+                android:textSize="17sp"
+                android:text="TextView"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtPrice"
+                android:layout_below="@+id/imgCard"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:textSize="17sp"
+                android:text="TextView"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtNoSpots"
+                android:layout_alignBaseline="@+id/NoHours"
+                android:layout_alignBottom="@+id/NoHours"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+               android:layout_marginLeft="20dp"
+                android:textSize="17sp"
+                android:text="TextView"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/NoHours"
+                android:layout_marginEnd="21dp"
+                android:layout_alignTop="@+id/rtBar"
+                android:layout_alignParentEnd="true" />
 
             <RatingBar
                 android:layout_height="wrap_content"
                 android:id="@+id/rtBar"
                 android:isIndicator="true"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/txtPrice"
+                android:layout_alignParentStart="true" />
 
-                style="@style/Widget.AppCompat.RatingBar"
-                android:layout_width="wrap_content" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/imgCard"
+                android:foregroundGravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
-            <TextView
-                android:layout_marginTop="5dp"
-                android:textSize="17sp"
-                android:text="TextView"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtPrice" />
-            <TextView
-                android:layout_marginTop="5dp"
-                android:textSize="17sp"
-                android:text="TextView"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtNoSpots" />
-            <TextView
-                android:layout_marginTop="5dp"
-                android:textSize="17sp"
-                android:text="TextView"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/NoHours" />
-
-        </LinearLayout>
+        </RelativeLayout>
 
 
 
