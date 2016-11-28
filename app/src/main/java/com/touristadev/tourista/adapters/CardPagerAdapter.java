@@ -25,7 +25,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     private float mBaseElevation;
     private TextView txtTitle,txtPrice,txtSpots,txtHours;
     private RatingBar rtBar;
-
+    private int pos;
     public CardPagerAdapter(ArrayList<ForYou> Data) {
 
         mData = new ArrayList<>();
@@ -67,13 +67,31 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);
         txtHours = (TextView) view.findViewById(R.id.NoHours);
         rtBar = (RatingBar) view.findViewById(R.id.rtBar);
-
+        pos = position;
         txtTitle.setText(mData.get(position).getTitle());
         txtPrice.setText(mData.get(position).getPrice());
         txtSpots.setText(mData.get(position).getNoSpots());
         txtHours.setText(mData.get(position).getNoHours());
         rtBar.setRating((Float.parseFloat(String.valueOf(mData.get(position).getRating()))));
         rtBar.setFocusable(false);
+
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                if(mData.get(pos).getType().equals("tour"));
+//                {
+//
+//                }
+                if(mData.get(pos).getType().equals("spot"));
+                {
+
+                }
+//                if(mData.get(pos).getType().equals("deal"));
+//                {
+//
+//                }
+            }
+        });
 
         if (mBaseElevation == 0) {
             mBaseElevation = cardView.getCardElevation();

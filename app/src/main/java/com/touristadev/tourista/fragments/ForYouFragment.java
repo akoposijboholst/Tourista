@@ -5,18 +5,24 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.touristadev.tourista.ExploreActivity;
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
 import com.touristadev.tourista.adapters.CardPagerAdapter;
 import com.touristadev.tourista.models.ForYou;
 
+import net.lucode.hackware.magicindicator.FragmentContainerHelper;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,8 +37,12 @@ public class ForYouFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private Button btnTourSA,btnSpotSA,btnDealSA;
+    private FragmentContainerHelper mFragmentContainerHelper = new FragmentContainerHelper();
 
     // TODO: Rename and change types of parameters
+    private List<Fragment> mFragments = new ArrayList<Fragment>();
+    private FragmentTransaction fragmentTransaction;
     private String mParam1;
     private String mParam2;
     private ViewPager mViewPagerTours,mViewPagerSpots,mViewPagerDeals;
@@ -41,11 +51,12 @@ public class ForYouFragment extends Fragment {
     private ShadowTransformer mCardShadowTransformer;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
     private ShadowTransformer mFragmentCardShadowTransformer;
+    private Fragment fragment;
 
     private ArrayList<ForYou> TourList = new ArrayList<>();
     private ArrayList<ForYou> SpotList = new ArrayList<>();
     private ArrayList<ForYou> DealList = new ArrayList<>();
-
+    private FragmentManager fragmentManager;
     private boolean mShowingFragments = false;
     private OnFragmentInteractionListener mListener;
 
@@ -92,13 +103,42 @@ public class ForYouFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_for_you, container, false);;
         mViewPagerTours = (ViewPager) view.findViewById(R.id.viewPagerTours);
+        btnTourSA = (Button) view.findViewById(R.id.btnTourSeeAll);
+        btnSpotSA = (Button) view.findViewById(R.id.btnSpotSeeAll);
+        btnDealSA = (Button) view.findViewById(R.id.btnDealsSeeAll);
+        initFragments();
 
-        TourList.add(new ForYou("Manila Tour",5,"₱ 550","5 Spots","12 hrs"));
-        TourList.add(new ForYou("Boracay Island",4,"₱ 1,350","2 Spots","7 hrs"));
-        TourList.add(new ForYou("Smart Facilities Tour",5,"₱ 400","5 Spots","10 hrs"));
-        TourList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days"));
-        TourList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours"));
-        TourList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs"));
+        btnTourSA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                mFragmentContainerHelper.handlePageSelected(1);
+                  switchPages(1);
+            }
+        });
+        btnSpotSA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                mFragmentContainerHelper.handlePageSelected(2);
+                switchPages(2);
+            }
+        });
+        btnDealSA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                mFragmentContainerHelper.handlePageSelected(3);
+                switchPages(3);
+
+            }
+        });
+        TourList.add(new ForYou("Manila Tour",5,"₱ 550","5 Spots","12 hrs","tour"));
+        TourList.add(new ForYou("Boracay Island",4,"₱ 1,350","2 Spots","7 hrs","tour"));
+        TourList.add(new ForYou("Smart Facilities Tour",5,"₱ 400","5 Spots","10 hrs","tour"));
+        TourList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days","tour"));
+        TourList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours","tour"));
+        TourList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs","tour"));
 
         mCardAdapter = new CardPagerAdapter(TourList);
         FragmentManager fm =  getFragmentManager();
@@ -111,13 +151,13 @@ public class ForYouFragment extends Fragment {
         mViewPagerTours.setAdapter(mCardAdapter);
         mViewPagerTours.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerTours.setOffscreenPageLimit(3);
-
-        SpotList.add(new ForYou("Kawasan Falls",5,"₱ 300","1 Spot","5 hrs"));
-        SpotList.add(new ForYou("Camp Sawi",4,"₱ 430","1 Spot","3 days"));
-        SpotList.add(new ForYou("Boracay Beach",5,"₱ 760","1 Spot","2 days"));
-        SpotList.add(new ForYou("Smart Main Office",5,"₱ 250","1 Spot","10 hrs"));
-        SpotList.add(new ForYou("Mt. Apo",4,"₱ 300","1 Spot","8 hrs"));
-        SpotList.add(new ForYou("MoalBoal Beach",5,"₱ 200","1 Spot","2 days"));
+//------------------------------------------------------------------------------------------------
+        SpotList.add(new ForYou("Kawasan Falls",5,"₱ 300","1 Spot","5 hrs","spot"));
+        SpotList.add(new ForYou("Camp Sawi",4,"₱ 430","1 Spot","3 days","spot"));
+        SpotList.add(new ForYou("Boracay Beach",5,"₱ 760","1 Spot","2 days","spot"));
+        SpotList.add(new ForYou("Smart Main Office",5,"₱ 250","1 Spot","10 hrs","spot"));
+        SpotList.add(new ForYou("Mt. Apo",4,"₱ 300","1 Spot","8 hrs","spot"));
+        SpotList.add(new ForYou("MoalBoal Beach",5,"₱ 200","1 Spot","2 days","spot"));
 
         mViewPagerSpots = (ViewPager) view.findViewById(R.id.viewPagerSpot);
         mCardAdapter = new CardPagerAdapter(SpotList);
@@ -131,13 +171,13 @@ public class ForYouFragment extends Fragment {
         mViewPagerSpots.setAdapter(mCardAdapter);
         mViewPagerSpots.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerSpots.setOffscreenPageLimit(3);
-
-        DealList.add(new ForYou("Cebu Educational Tour Promo",5,"₱ 150 ","5 Spots","10 hrs"));
-        DealList.add(new ForYou("Smart Facility Tour Promo",4,"₱ 300","4 Spots","12 hrs"));
-        DealList.add(new ForYou("Manila Food Tour Promo",5,"₱ 100","15 Spots","8 hrs"));
-        DealList.add(new ForYou("Manila Technology Tour Promo",5,"₱ 250","11 Spots","3 days"));
-        DealList.add(new ForYou("Smart Technology Tour Promo",4,"₱ 380","6 Spots","10 hrs"));
-        DealList.add(new ForYou("Mindanao Islands Tour Promo",5,"₱ 5,300","7 Spots","5 days"));
+//------------------------------------------------------------------------------------------------
+        DealList.add(new ForYou("Cebu Educational Tour Promo",5,"₱ 150 ","5 Spots","10 hrs","deal"));
+        DealList.add(new ForYou("Smart Facility Tour Promo",4,"₱ 300","4 Spots","12 hrs","deal"));
+        DealList.add(new ForYou("Manila Food Tour Promo",5,"₱ 100","15 Spots","8 hrs","deal"));
+        DealList.add(new ForYou("Manila Technology Tour Promo",5,"₱ 250","11 Spots","3 days","deal"));
+        DealList.add(new ForYou("Smart Technology Tour Promo",4,"₱ 380","6 Spots","10 hrs","deal"));
+        DealList.add(new ForYou("Mindanao Islands Tour Promo",5,"₱ 5,300","7 Spots","5 days","deal"));
 
 
         mViewPagerDeals = (ViewPager) view.findViewById(R.id.viewPagerDeals);
@@ -193,5 +233,42 @@ public class ForYouFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    public void switchPages(int index) {
+        fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment fragment;
+        for (int i = 0, j = mFragments.size(); i < j; i++) {
+            if (i == index) {
+                continue;
+            }
+
+            fragment = mFragments.get(i);
+
+            if (fragment.isAdded()) {
+                fragmentTransaction.hide(fragment);
+            }
+        }
+        fragment = mFragments.get(index);
+        if (fragment.isAdded()) {
+
+            fragmentTransaction.show(fragment);
+        } else {
+
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+        }
+        fragmentTransaction.commitAllowingStateLoss();
+    }
+
+    private void initFragments() {
+        ForYouFragment ForyouFrag = new ForYouFragment();
+        HotSpotsFragment HotspotFrag = new HotSpotsFragment();
+        HotToursFragment HotTourFrag = new HotToursFragment();
+        DealsFragment promosfrag = new DealsFragment();
+        mFragments.add(ForyouFrag);
+        mFragments.add(HotTourFrag);
+        mFragments.add(HotspotFrag);
+        mFragments.add(promosfrag);
+
     }
 }

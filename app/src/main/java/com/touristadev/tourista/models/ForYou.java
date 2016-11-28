@@ -10,13 +10,15 @@ public class ForYou {
     private String Price;
     private String NoSpots;
     private String NoHours;
+    private String type;
 
-    public ForYou(String title, int rating, String price, String noSpots, String noHours) {
+    public ForYou(String title, int rating, String price, String noSpots, String noHours, String type) {
         Title = title;
         Rating = rating;
         Price = price;
         NoSpots = noSpots;
         NoHours = noHours;
+        this.type = type;
     }
 
     public String getTitle() {
@@ -57,5 +59,13 @@ public class ForYou {
 
     public void setNoHours(String noHours) {
         NoHours = noHours;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
