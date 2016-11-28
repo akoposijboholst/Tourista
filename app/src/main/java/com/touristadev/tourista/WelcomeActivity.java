@@ -28,5 +28,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         //diri mo proceed para view pager
+        Intent intent = new Intent(WelcomeActivity.this, ChooseTribeActivity.class);
+        startActivity(intent);
     }
 }
