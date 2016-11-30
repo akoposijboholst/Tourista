@@ -17,12 +17,16 @@
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity" />
         <activity
             android:name=".DiscoverActivity"
-            android:theme="@style/AppTheme.NoActionBarWithHead" />
+            />
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
@@ -46,7 +50,7 @@
         <activity
             android:name=".ExploreActivity"
             android:label="@string/title_activity_explore"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -89,7 +93,6 @@
             android:name=".PassportActivity"
             android:label="@string/title_activity_passport"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".tourGuide.FeedActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/bottombar1"
         android:icon="@mipmap/ic_discover"
@@ -16,6 +17,7 @@
     <item android:id="@+id/bottombar4"
         android:icon="@mipmap/ic_tours"
         android:title="Passport"/>
+
 
 
 </menu>

@@ -3,6 +3,8 @@ package com.touristadev.tourista;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentActivity;
@@ -40,6 +42,7 @@ public class DiscoverActivity extends FragmentActivity implements OnMapReadyCall
     private TextView txt_Description,txtTile;
     private RatingBar ratBarM;
     private Button btnView;
+    private BottomBar explore, discover, tours, passport;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
@@ -57,6 +60,8 @@ public class DiscoverActivity extends FragmentActivity implements OnMapReadyCall
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discover);
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
 
 
