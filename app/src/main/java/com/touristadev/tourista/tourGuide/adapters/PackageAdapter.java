@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.touristadev.tourista.R;
-import com.touristadev.tourista.dataModels.Packages;
 
 import java.util.ArrayList;
 
@@ -22,12 +22,13 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.PackageV
 
     private Context mContext;
     private int mLayoutId;
-    private ArrayList<Packages> mPackages;
+    private ArrayList<String> mPackages;
 
-    public PackageAdapter(Context context, int layoutId, ArrayList<Packages> packages) {
+    public PackageAdapter(Context context, int layoutId, ArrayList<String> packages) {
         mContext = context;
         mLayoutId = layoutId;
         mPackages = packages;
+
     }
     @Override
     public PackageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -38,19 +39,12 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.PackageV
 
     @Override
     public void onBindViewHolder(PackageViewHolder holder, int position) {
-        Packages packages = mPackages.get(position);
+                holder.txtPackageName.setText(mPackages.get(position));
+                holder.txtPackageNumberOfSpots.setText(mPackages.get(position));
+           //     holder.txtPackageRating.setRating(mPackages.get(position));
 
-        if (packages != null) {
-            if (holder.txtPackageName != null) {
-                holder.txtPackageName.setText(packages.getPackageName());
-            }
-            if (holder.txtPackageNumberOfSpots != null) {
-                holder.txtPackageNumberOfSpots.setText(mPackages.size());
-            }
-            if (holder.txtPackageRating != null) {
-                holder.txtPackageRating.setRating(packages.getRating());
-            }
-        }
+        Toast.makeText(this.mContext," hehe",
+                Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -72,6 +66,5 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.PackageV
         txtPackageNumberOfSpots = (TextView) itemView.findViewById(R.id.cvNumberOfSpots);
     }
 }
-
 
 }

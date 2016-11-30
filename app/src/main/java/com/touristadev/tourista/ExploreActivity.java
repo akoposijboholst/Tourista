@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 
@@ -40,6 +41,24 @@ public class ExploreActivity extends AppCompatActivity {
     public ForYouFragment t= new ForYouFragment();
     public  FragmentManager fragmentManager;
     private String firstName,lastName, email;
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+//            Intent intent= new Intent(ExploreActivityy.this,ExploreActivity.class);
+//            startActivity(intent);
+
+            moveTaskToBack(true);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +78,7 @@ public class ExploreActivity extends AppCompatActivity {
 
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
+
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(@IdRes int menuItemId) {

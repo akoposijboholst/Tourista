@@ -4,6 +4,7 @@ import com.touristadev.tourista.dataModels.Categories;
 import com.touristadev.tourista.dataModels.Itinerary;
 import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.dataModels.Spots;
+import com.touristadev.tourista.dataModels.TourRequest;
 import com.touristadev.tourista.dataModels.Tribes;
 
 import java.util.ArrayList;
@@ -221,6 +222,18 @@ public class Controllers {
         itineraries.add(new Itinerary(spotList.get(4),"1500","1700"));
 
         L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4));
+
+        return L;
+    }
+
+    public ArrayList<TourRequest> getTourRequest()
+    {
+        ArrayList<TourRequest> L= new ArrayList<>();
+
+        L.add(new TourRequest("Shanyl Jimenez","December 6, 2016",2,0,"S"));
+        L.add(new TourRequest("Chan Ferolino","December 7, 2016",3,0,"S"));
+        L.add(new TourRequest("Justine Boholst","December 8, 2016",3,1,"S"));
+
 
         return L;
     }
