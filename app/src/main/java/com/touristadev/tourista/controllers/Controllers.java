@@ -199,7 +199,7 @@ public class Controllers {
         itineraries.add(new Itinerary(spotList.get(1),"800","1100"));
         itineraries.add(new Itinerary(spotList.get(0),"1300","1600"));
 
-        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4));
+        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,0,8));
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////
         categories.clear();
@@ -221,7 +221,7 @@ public class Controllers {
         itineraries.add(new Itinerary(spotList.get(3),"1300","1500"));
         itineraries.add(new Itinerary(spotList.get(4),"1500","1700"));
 
-        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4));
+        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,0,8));
 
         return L;
     }
