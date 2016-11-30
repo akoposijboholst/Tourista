@@ -9,6 +9,7 @@
     android:padding="10dp"
     tools:context="com.touristadev.tourista.ChooseTribeActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -125,6 +126,14 @@
             android:scaleType="fitXY"
             android:textOff=" "
             android:textOn=" " />
+
+        <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnProceedLanding" />
+
     </LinearLayout>
+
 
 </LinearLayout>

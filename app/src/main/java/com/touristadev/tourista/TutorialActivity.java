@@ -18,17 +18,28 @@ import java.util.ArrayList;
 public class TutorialActivity extends AppCompatActivity {
 
     private Button mBtnSkip;
+
+    private String firstName,lastName, email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
 
+        Intent i = getIntent();
+
+        firstName = i.getStringExtra("firstName");
+        lastName = i.getStringExtra("lastName");
+        email = i.getStringExtra("email");
+
         mBtnSkip = (Button) findViewById(R.id.btnSkip);
         mBtnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TutorialActivity.this,ChooseTribeActivity.class);
-                startActivity(i);
+                Intent intent = new Intent(TutorialActivity.this,ChooseTribeActivity.class);
+                intent.putExtra("firstName", firstName);
+                intent.putExtra("lastName", lastName);
+                intent.putExtra("email", email);
+                startActivity(intent);
             }
         });
 

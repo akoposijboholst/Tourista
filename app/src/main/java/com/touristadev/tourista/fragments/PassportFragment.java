@@ -38,7 +38,7 @@ public class PassportFragment extends Fragment {
             public HeaderDesign getHeaderDesign(int page) {
                 switch (page) {
                     case 0:
-                        return HeaderDesign.fromColorResAndDrawable(R.color.colorHeader1,getResources().getDrawable(R.drawable.header1));
+                        return HeaderDesign.fromColorResAndDrawable(R.color.colorHeader1,getResources().getDrawable(R.mipmap.header1));
 
                 }
                 //execute others actions if needed (ex : modify your header logo)

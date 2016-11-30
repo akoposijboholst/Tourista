@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -12,9 +14,12 @@ import android.view.View;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
+import com.touristadev.tourista.fragments.PassportFragment;
 
 public class PassportActivity extends AppCompatActivity {
     BottomBar mBottomBar;
+
+    private String firstName,lastName, email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +35,19 @@ public class PassportActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        Intent i = getIntent();
+
+        firstName = i.getStringExtra("firstName");
+        lastName = i.getStringExtra("lastName");
+        email = i.getStringExtra("email");
+        Fragment fragment = null;
+        fragment = PassportFragment.newInstance(firstName+", "+lastName+"\n "+email);
+        if (fragment != null) {
+
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction()
+                    .replace(R.id.fragmentContainer, fragment).commit();
+        }
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
         mBottomBar.setDefaultTabPosition(3);
@@ -63,7 +81,6 @@ public class PassportActivity extends AppCompatActivity {
 
             }
         });
-        mBottomBar.setDefaultTabPosition(1);
 
     }
     @Override

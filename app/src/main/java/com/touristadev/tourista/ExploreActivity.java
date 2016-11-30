@@ -39,6 +39,7 @@ public class ExploreActivity extends AppCompatActivity {
     BottomBar mBottomBar;
     public ForYouFragment t= new ForYouFragment();
     public  FragmentManager fragmentManager;
+    private String firstName,lastName, email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,11 @@ public class ExploreActivity extends AppCompatActivity {
         mFragmentContainerHelper.handlePageSelected(0, false);
         switchPages(0);
 
+        Intent i = getIntent();
+
+        firstName = i.getStringExtra("firstName");
+        lastName = i.getStringExtra("lastName");
+        email = i.getStringExtra("email");
 
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
@@ -76,8 +82,11 @@ public class ExploreActivity extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction().
                             remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
-                    Intent i = new Intent(ExploreActivity.this, PassportActivity.class);
-                    startActivity(i);
+                    Intent intent = new Intent(ExploreActivity.this, PassportActivity.class);
+                    intent.putExtra("firstName", firstName);
+                    intent.putExtra("lastName", lastName);
+                    intent.putExtra("email", email);
+                    startActivity(intent);
                 }
             }
 

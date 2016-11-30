@@ -12,16 +12,21 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
     private TextView mWelcome, txtWelcomeText, tvWelcome;
     private Button mProceed, btnProceed;
+    private String firstName,lastName, email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        Intent i = getIntent();
+
 
         mWelcome = (TextView)findViewById(R.id.tvWelcome);
+        Intent i = getIntent();
         mWelcome.setText(i.getStringExtra("firstName"));
 
+        firstName = i.getStringExtra("firstName");
+        lastName = i.getStringExtra("lastName");
+        email = i.getStringExtra("email");
         mProceed = (Button)findViewById(R.id.btnProceed);
         mProceed.setOnClickListener(this);
 
@@ -44,6 +49,9 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         //diri mo proceed para view pager
         Intent intent = new Intent(WelcomeActivity.this, TutorialActivity.class);
+        intent.putExtra("firstName", firstName);
+        intent.putExtra("lastName", lastName);
+        intent.putExtra("email", email);
         startActivity(intent);
     }
 }

@@ -104,6 +104,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void handleFacebookAccessToken(AccessToken token) {
         final String userID = token.getUserId();
+        Log.d("Chan",token.toString());
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

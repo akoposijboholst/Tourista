@@ -85,7 +85,8 @@
         <activity
             android:name=".PassportActivity"
             android:label="@string/title_activity_passport"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>
