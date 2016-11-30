@@ -4,6 +4,7 @@ import com.touristadev.tourista.dataModels.Categories;
 import com.touristadev.tourista.dataModels.Itinerary;
 import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.dataModels.Spots;
+import com.touristadev.tourista.dataModels.TourRequest;
 import com.touristadev.tourista.dataModels.Tribes;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class Controllers {
         spotList.add(new Spots(0,"Masters Resort Cebu","4044 Oslob, Cebu, Philippines",
                 "800","2100","The southern part of the province is one of the areas where you can enjoy various sorts of seawater activities, do adventurous trips, have fun and cherish the tranquil ambiance and surroundings."
                 ,"2000","9.459556960067692","123.37731275707483",
-                activities,categories,tribes));
+                activities,categories,tribes,4));
         activities.clear();
         categories.clear();
         tribes.clear();
@@ -53,7 +54,7 @@ public class Controllers {
         spotList.add(new Spots(1,"Oslob Whale Shark Watching","Tan-awan Oslob, Cebu, Ph",
                 "800","1200","Oslob Whalesharks watching was born to give information about whale shark interaction in Oslob, we are here to organize day tour trips on whale shark encounters with side trip to Tumalog waterfalls. We"
                 ,"1000","9.47008451293314","123.38275127112864",
-                activities,categories,tribes));
+                activities,categories,tribes,4));
 
         activities.clear();
         categories.clear();
@@ -73,7 +74,7 @@ public class Controllers {
         spotList.add(new Spots(2,"Basilica del Santo Niño","Santo Nino Chapel Lane, Cebu City, Cebu"
                 ,"500","2000","The oldest Roman Catholic church in the country, it is built on the spot where the image of the Santo Niño de Cebú was found during the expedition of Miguel López de Legazpi. "
                 ,"100","10.294194","123.902106",
-                activities,categories,tribes));
+                activities,categories,tribes,4));
 
         activities.clear();
         categories.clear();
@@ -93,7 +94,7 @@ public class Controllers {
         spotList.add(new Spots(3, "Museo Sugbo", "M. J. Cuenco Ave, Cebu City, 6000 Cebu",
                 "900","1730","Museo Sugbo is the Cebu Provincial Museum located in the former Cebu Provincial Detention and Rehabilitation Center, four blocks from Plaza Independencia."
                 ,"100", "10.303781",  "123.906758",
-                activities,categories,tribes));
+                activities,categories,tribes,4));
 
         activities.clear();
         categories.clear();
@@ -114,7 +115,7 @@ public class Controllers {
 
         spotList.add( new Spots(4,"Fort San Pedro", "A. Pigafetta Street, Cebu City, 6000"
                 ,"700", "1900", "One of the city’s historical attractions is Fort San Pedro which is known as the smallest and oldest fort in the Philippines.",
-                "100","10.292499","123.905828",activities, categories, tribes));
+                "100","10.292499","123.905828",activities, categories, tribes,4));
 
 
     }
@@ -201,7 +202,7 @@ public class Controllers {
         itineraries.add(new Itinerary(spotList.get(1),"800","1100"));
         itineraries.add(new Itinerary(spotList.get(0),"1300","1600"));
 
-        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4));
+        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,0,8));
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////
         categories.clear();
@@ -223,7 +224,19 @@ public class Controllers {
         itineraries.add(new Itinerary(spotList.get(3),"1300","1500"));
         itineraries.add(new Itinerary(spotList.get(4),"1500","1700"));
 
-        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4));
+        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,0,8));
+
+        return L;
+    }
+
+    public ArrayList<TourRequest> getTourRequest()
+    {
+        ArrayList<TourRequest> L= new ArrayList<>();
+
+        L.add(new TourRequest("Shanyl Jimenez","December 6, 2016",2,0,"S"));
+        L.add(new TourRequest("Chan Ferolino","December 7, 2016",3,0,"S"));
+        L.add(new TourRequest("Justine Boholst","December 8, 2016",3,1,"S"));
+
 
         return L;
     }

@@ -9,6 +9,7 @@ import android.speech.RecognizerIntent;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.Toolbar;
@@ -19,7 +20,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
@@ -53,6 +53,18 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
     private TextView txt_Description,txtTile;
     private RatingBar ratBarM;
     private Button btnView;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            Intent intent= new Intent(DiscoverActivity.this,ExploreActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
 
     private MaterialSearchView searchView;
     @Override
@@ -245,6 +257,8 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
 //                .position(PERTH)
 //                .draggable(true));
         mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+
+
 
             @Override
             public View getInfoWindow(Marker arg0) {

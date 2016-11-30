@@ -20,17 +20,12 @@ public class Spots
     private ArrayList<String> spotActivity;
     private ArrayList<Categories> spotCategory;
     private ArrayList<Tribes> spotTribe;
+    private int spotRating;
 
     public Spots() {
     }
 
-    public Spots(int spotID, String spotName, String spotAddress,
-                 String spotOpeningTime, String spotClosingTime,
-                 String spotDescription, String spotEstimatedBudget,
-                 String spotLocationLong, String spotLocationLat,
-                 ArrayList<String> spotActivity,
-                 ArrayList<Categories> spotCategory,
-                 ArrayList<Tribes> spotTribe) {
+    public Spots(int spotID, String spotName, String spotAddress, String spotOpeningTime, String spotClosingTime, String spotDescription, String spotEstimatedBudget, String spotLocationLong, String spotLocationLat, ArrayList<String> spotActivity, ArrayList<Categories> spotCategory, ArrayList<Tribes> spotTribe, int spotRating) {
         this.spotID = spotID;
         this.spotName = spotName;
         this.spotAddress = spotAddress;
@@ -43,6 +38,7 @@ public class Spots
         this.spotActivity = spotActivity;
         this.spotCategory = spotCategory;
         this.spotTribe = spotTribe;
+        this.spotRating = spotRating;
     }
 
     public int getSpotID() {
@@ -139,6 +135,14 @@ public class Spots
 
     public void setSpotTribe(ArrayList<Tribes> spotTribe) {
         this.spotTribe = spotTribe;
+    }
+
+    public int getSpotRating() {
+        return spotRating;
+    }
+
+    public void setSpotRating(int spotRating) {
+        this.spotRating = spotRating;
     }
 }
 
