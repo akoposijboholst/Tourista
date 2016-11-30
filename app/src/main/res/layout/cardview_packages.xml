@@ -66,7 +66,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/explore"
+                app:srcCompat="@mipmap/ic_launcher"
                 android:id="@+id/imageView2"
                 android:layout_alignTop="@+id/cvNumberOfSpots"
                 android:layout_toLeftOf="@+id/cvNumberOfSpots"

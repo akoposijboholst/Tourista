@@ -59,6 +59,7 @@ public class ExploreActivity extends AppCompatActivity {
 
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
+        mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(@IdRes int menuItemId) {

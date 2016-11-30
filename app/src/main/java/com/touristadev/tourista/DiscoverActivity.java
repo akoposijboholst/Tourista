@@ -60,6 +60,7 @@ public class DiscoverActivity extends FragmentActivity implements OnMapReadyCall
         mapFragment.getMapAsync(this);
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
+        mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setDefaultTabPosition(1);
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
