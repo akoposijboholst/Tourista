@@ -19,7 +19,13 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".LoginActivity" />
+            android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            </activity>
         <activity
             android:name=".DiscoverActivity"
             android:theme="@style/AppTheme.NoActionBarWithHead" />
@@ -77,14 +83,10 @@
             android:label="@string/title_activity_tours"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".WelcomeActivity" />
-        <activity android:name=".tourGuide.FeedActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".tourGuide.FeedActivity"/>
+
+
 
         <activity
             android:name=".SpotActivity"

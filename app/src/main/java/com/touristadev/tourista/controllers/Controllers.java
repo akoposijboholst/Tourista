@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 
 public class Controllers {
-    ArrayList<Spots> spotList;
+    static ArrayList<Spots> spotList;
 
-    public Controllers() {
+    public void Controllers() {
 
         spotList= new ArrayList<>();
         ArrayList<String> activities = new ArrayList<>();
@@ -121,6 +121,7 @@ public class Controllers {
 
     public ArrayList<Categories> getControllerCategories()
     {
+        Controllers();
         ArrayList<Categories> L= new ArrayList<>();
         L.add(new Categories("Adventure"));
         L.add(new Categories("Aquaria"));
@@ -142,7 +143,7 @@ public class Controllers {
     }
 
     public ArrayList<Tribes> getControllerTribes()
-    {
+    {   Controllers();
         ArrayList<Tribes> L = new ArrayList<>();
 
         L.add(new Tribes("Thrill-Seeker"));
@@ -160,6 +161,7 @@ public class Controllers {
 
     public ArrayList<Spots>  getControllerSpots()
     {
+        Controllers();
         return spotList;
     }
 
@@ -178,6 +180,7 @@ public class Controllers {
 
     public ArrayList<Packages> getControllerPackaaes()
     {
+        Controllers();
         ArrayList<Packages> L= new ArrayList<>();
         ArrayList<Categories> categories = new ArrayList<>();
         ArrayList<Tribes> tribes = new ArrayList<>();

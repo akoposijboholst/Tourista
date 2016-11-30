@@ -17,6 +17,9 @@ import com.touristadev.tourista.R;
 import com.touristadev.tourista.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
 import com.touristadev.tourista.adapters.CardPagerAdapter;
+import com.touristadev.tourista.controllers.Controllers;
+import com.touristadev.tourista.dataModels.Packages;
+import com.touristadev.tourista.dataModels.Spots;
 import com.touristadev.tourista.models.ForYou;
 
 import net.lucode.hackware.magicindicator.FragmentContainerHelper;
@@ -52,7 +55,9 @@ public class ForYouFragment extends Fragment {
     private CardFragmentPagerAdapter mFragmentCardAdapter;
     private ShadowTransformer mFragmentCardShadowTransformer;
     private Fragment fragment;
-
+    private ArrayList<Packages> TourListTemp = new ArrayList<>();
+    private ArrayList<Spots> SpotListTemp = new ArrayList<>();
+    private ArrayList<Packages> DealListTemp = new ArrayList<>();
     private ArrayList<ForYou> TourList = new ArrayList<>();
     private ArrayList<ForYou> SpotList = new ArrayList<>();
     private ArrayList<ForYou> DealList = new ArrayList<>();
@@ -107,7 +112,10 @@ public class ForYouFragment extends Fragment {
         btnSpotSA = (Button) view.findViewById(R.id.btnSpotSeeAll);
         btnDealSA = (Button) view.findViewById(R.id.btnDealsSeeAll);
         initFragments();
-
+        Controllers con = new Controllers();
+        TourListTemp = con.getControllerPackaaes();
+        DealListTemp = con.getControllerPackaaes();
+        SpotListTemp = con.getControllerSpots();
         btnTourSA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,6 +147,10 @@ public class ForYouFragment extends Fragment {
         TourList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days","tour"));
         TourList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours","tour"));
         TourList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs","tour"));
+//        for(int x = 0 ; x < TourListTemp.size() ; x++){
+//            TourList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),TourListTemp.get(x).getBudget(),TourListTemp.get(x).getPackageItinerary().size(),TourListTemp.get(x).getTotalTime,"Tour"));
+//
+//        }
 
         mCardAdapter = new CardPagerAdapter(TourList);
         FragmentManager fm =  getFragmentManager();
@@ -158,6 +170,10 @@ public class ForYouFragment extends Fragment {
         SpotList.add(new ForYou("Smart Main Office",5,"₱ 250","1 Spot","10 hrs","spot"));
         SpotList.add(new ForYou("Mt. Apo",4,"₱ 300","1 Spot","8 hrs","spot"));
         SpotList.add(new ForYou("MoalBoal Beach",5,"₱ 200","1 Spot","2 days","spot"));
+//        for(int x = 0 ; x < SpotListTemp.size() ; x++){
+//           SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(),SpotListTemp.get(x).getRating(),SpotListTemp.get(x).getSpotEstimatedBudget(),"1",SpotListTemp.get(x).getSpotOpeningTime(),"spot");
+//
+//        }
 
         mViewPagerSpots = (ViewPager) view.findViewById(R.id.viewPagerSpot);
         mCardAdapter = new CardPagerAdapter(SpotList);
@@ -178,7 +194,10 @@ public class ForYouFragment extends Fragment {
         DealList.add(new ForYou("Manila Technology Tour Promo",5,"₱ 250","11 Spots","3 days","deal"));
         DealList.add(new ForYou("Smart Technology Tour Promo",4,"₱ 380","6 Spots","10 hrs","deal"));
         DealList.add(new ForYou("Mindanao Islands Tour Promo",5,"₱ 5,300","7 Spots","5 days","deal"));
-
+//        for(int x = 0 ; x < DealList.size() ; x++){
+//            DealList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),TourListTemp.get(x).getBudget(),TourListTemp.get(x).getPackageItinerary().size(),TourListTemp.get(x).getTotalTime,"Tour"));
+//
+//        }
 
         mViewPagerDeals = (ViewPager) view.findViewById(R.id.viewPagerDeals);
         mCardAdapter = new CardPagerAdapter(DealList);

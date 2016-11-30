@@ -16,6 +16,8 @@ import com.touristadev.tourista.R;
 import com.touristadev.tourista.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardExplorerPagerAdapter;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
+import com.touristadev.tourista.controllers.Controllers;
+import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.models.ForYou;
 
 import java.util.ArrayList;
@@ -48,6 +50,7 @@ public class DealsFragment extends Fragment {
     private ShadowTransformer mFragmentCardShadowTransformer;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mCardAdapter;
+    private ArrayList<Packages> TourListTemp = new ArrayList<>();
     public DealsFragment() {
         // Required empty public constructor
     }
@@ -84,6 +87,9 @@ public class DealsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_promos, container, false);
 
+        Controllers con = new Controllers();
+
+        TourListTemp = con.getControllerPackaaes();
 
         DealList.add(new ForYou("Cebu Educational Tour Promo",5,"₱ 150 ","5 Spots","10 hrs","deal"));
         DealList.add(new ForYou("Smart Facility Tour Promo",4,"₱ 300","4 Spots","12 hrs","deal"));
@@ -91,6 +97,10 @@ public class DealsFragment extends Fragment {
         DealList.add(new ForYou("Manila Technology Tour Promo",5,"₱ 250","11 Spots","3 days","deal"));
         DealList.add(new ForYou("Smart Technology Tour Promo",4,"₱ 380","6 Spots","10 hrs","deal"));
         DealList.add(new ForYou("Mindanao Islands Tour Promo",5,"₱ 5,300","7 Spots","5 days","deal"));
+//        for(int x = 0 ; x < DealList.size() ; x++){
+//            DealList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),TourListTemp.get(x).getBudget(),TourListTemp.get(x).getPackageItinerary().size(),TourListTemp.get(x).getTotalTime,"Tour"));
+//
+//        }
 
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_deals);
 

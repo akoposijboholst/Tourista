@@ -5,20 +5,27 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.speech.RecognizerIntent;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -29,6 +36,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 import com.touristadev.tourista.models.CityMaps;
@@ -37,7 +45,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class DiscoverActivity extends FragmentActivity implements OnMapReadyCallback {
+public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCallback {
     BottomBar mBottomBar;
     private GoogleMap mMap;
     private int noStars;
@@ -46,12 +54,51 @@ public class DiscoverActivity extends FragmentActivity implements OnMapReadyCall
     private RatingBar ratBarM;
     private Button btnView;
 
-
+    private MaterialSearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discover);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        searchView = (MaterialSearchView) findViewById(R.id.search_view);
+        searchView.setVoiceSearch(false);
+        searchView.setCursorDrawable(R.drawable.custom_cursor);
+        searchView.setEllipsize(true);
+        searchView.setSuggestions(getResources().getStringArray(R.array.query_suggestions));
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                for(int x = 0 ; x < city.size() ; x++){
+                    if(query.equals(city.get(x).getCityName())){
+
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(city.get(x).getLatlng(),8));
+                    }
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                //Do some magic
+                return false;
+            }
+        });
+
+        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
+                //Do some magic
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+                //Do some magic
+            }
+        });
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -96,10 +143,28 @@ public class DiscoverActivity extends FragmentActivity implements OnMapReadyCall
     }
     @Override
     public boolean onCreateOptionsMenu (Menu menu){
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        searchView.setMenuItem(item);
 
-        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == MaterialSearchView.REQUEST_VOICE && resultCode == RESULT_OK) {
+            ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            if (matches != null && matches.size() > 0) {
+                String searchWrd = matches.get(0);
+                if (!TextUtils.isEmpty(searchWrd)) {
+                    searchView.setQuery(searchWrd, false);
+                }
+            }
+
+            return;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 
 
 
@@ -195,18 +260,7 @@ public class DiscoverActivity extends FragmentActivity implements OnMapReadyCall
                 ratBarM = (RatingBar) v.findViewById(R.id.rtBarA);
                 btnView = (Button) v.findViewById(R.id.btnView);
 
-//                Context context = getApplicationContext();
 //
-//                LinearLayout info = new LinearLayout(context);
-//                info.setOrientation(LinearLayout.VERTICAL);
-//                info.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-//                        LinearLayout.LayoutParams.WRAP_CONTENT));
-//                TextView title = new TextView(context);
-//                title.setTextColor(Color.BLACK);
-//                title.setGravity(Gravity.CENTER);
-//                title.setTypeface(null, Typeface.BOLD);
-//                title.setText(marker.getTitle());
-
                 Random r = new Random();
                 int stars = r.nextInt(5 - 4) + 3;
                 noStars = stars;

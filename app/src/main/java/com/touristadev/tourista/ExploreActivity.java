@@ -62,6 +62,7 @@ public class ExploreActivity extends AppCompatActivity {
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(@IdRes int menuItemId) {
+
                 if(menuItemId== R.id.bottombar1)
                 {
                    t= new ForYouFragment();
