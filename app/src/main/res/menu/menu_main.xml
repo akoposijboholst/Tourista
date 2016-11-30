@@ -15,7 +15,7 @@
         android:title="Tours"/>
 
     <item android:id="@+id/bottombar4"
-        android:icon="@mipmap/ic_tours"
+        android:icon="@mipmap/ic_passport"
         android:title="Passport"/>
 
 

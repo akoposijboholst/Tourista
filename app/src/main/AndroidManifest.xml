@@ -26,6 +26,7 @@
             android:name=".LoginActivity" />
         <activity
             android:name=".DiscoverActivity"
+            android:theme="@style/noAnimTheme"
             />
         <activity
             android:name="com.facebook.CustomTabActivity"
@@ -50,7 +51,7 @@
         <activity
             android:name=".ExploreActivity"
             android:label="@string/title_activity_explore"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/noAnimTheme"/>
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -92,7 +93,7 @@
         <activity
             android:name=".PassportActivity"
             android:label="@string/title_activity_passport"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/noAnimTheme"></activity>
     </application>
 
 </manifest>

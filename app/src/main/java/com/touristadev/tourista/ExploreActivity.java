@@ -176,7 +176,7 @@ public class ExploreActivity extends AppCompatActivity {
             public IPagerTitleView getTitleView(Context context, final int index) {
                 ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
                 colorTransitionPagerTitleView.setNormalColor(Color.BLACK);
-                colorTransitionPagerTitleView.setSelectedColor(Color.BLUE);
+                colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#fecd23"));
                 colorTransitionPagerTitleView.setText(CHANNELS[index]);
                 colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
