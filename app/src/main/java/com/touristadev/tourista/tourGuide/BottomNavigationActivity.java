@@ -26,22 +26,22 @@ public class BottomNavigationActivity extends AppCompatActivity {
             public void onMenuTabSelected(@IdRes int menuItemId) {
 //                if(menuItemId== R.id.bottombar1)
 //                {
-//                    ToursFragments t= new ToursFragments();
+//                    Exp t= new FeedFragments();
 //                    getSupportFragmentManager().beginTransaction().replace(R.id.frame,t).commit();
 //                }
 //                if(menuItemId== R.id.bottombar2)
 //                {
-//                    ToursFragments t= new ToursFragments();
+//                    FeedFragments t= new FeedFragments();
 //                    getSupportFragmentManager().beginTransaction().replace(R.id.frame,t).commit();
 //                }
 //                if(menuItemId== R.id.bottombar3)
 //                {
-//                    ToursFragments t= new ToursFragments();
+//                    FeedFragments t= new FeedFragments();
 //                    getSupportFragmentManager().beginTransaction().replace(R.id.frame,t).commit();
 //                }
 //                if(menuItemId== R.id.bottombar4)
 //                {
-//                    ToursFragments t= new ToursFragments();
+//                    FeedFragments t= new FeedFragments();
 //                    getSupportFragmentManager().beginTransaction().replace(R.id.frame,t).commit();
 //                }
             }
@@ -51,10 +51,6 @@ public class BottomNavigationActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
 
 
     }

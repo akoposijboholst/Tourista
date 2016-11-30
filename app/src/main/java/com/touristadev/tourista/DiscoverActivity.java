@@ -3,20 +3,15 @@ package com.touristadev.tourista;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.Typeface;
+import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
-import android.support.v7.view.ContextThemeWrapper;
 import android.util.Log;
-import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -45,6 +40,17 @@ public class DiscoverActivity extends FragmentActivity implements OnMapReadyCall
     private TextView txt_Description,txtTile;
     private RatingBar ratBarM;
     private Button btnView;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            Intent intent= new Intent(DiscoverActivity.this,ExploreActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
 
 
     @Override
@@ -181,6 +187,8 @@ public class DiscoverActivity extends FragmentActivity implements OnMapReadyCall
 //                .position(PERTH)
 //                .draggable(true));
         mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+
+
 
             @Override
             public View getInfoWindow(Marker arg0) {
