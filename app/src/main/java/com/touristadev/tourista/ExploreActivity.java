@@ -1,14 +1,19 @@
 package com.touristadev.tourista;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.View;
 
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnMenuTabClickListener;
 import com.touristadev.tourista.fragments.DealsFragment;
 import com.touristadev.tourista.fragments.ForYouFragment;
 import com.touristadev.tourista.fragments.HotSpotsFragment;
@@ -31,7 +36,9 @@ public class ExploreActivity extends AppCompatActivity {
     private static final String[] CHANNELS = new String[]{"FOR YOU","TOURS", "SPOTS", "DEALS" };
     private List<Fragment> mFragments = new ArrayList<Fragment>();
     private FragmentContainerHelper mFragmentContainerHelper = new FragmentContainerHelper();
-
+    BottomBar mBottomBar;
+    public ForYouFragment t= new ForYouFragment();
+    public  FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,26 +49,73 @@ public class ExploreActivity extends AppCompatActivity {
 
         mFragmentContainerHelper.handlePageSelected(0, false);
         switchPages(0);
+
+
+        mBottomBar= BottomBar.attach(this,savedInstanceState);
+        mBottomBar.useFixedMode();
+        mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
+            @Override
+            public void onMenuTabSelected(@IdRes int menuItemId) {
+                if(menuItemId== R.id.bottombar1)
+                {
+                   t= new ForYouFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,t).commit();
+                }
+                if(menuItemId== R.id.bottombar2)
+                {
+                    getSupportFragmentManager().beginTransaction().
+                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
+                    Intent i = new Intent(ExploreActivity.this, DiscoverActivity.class);
+                    startActivity(i);
+                }
+//                if(menuItemId== R.id.bottombar3)
+//                {
+//
+//                }
+                if(menuItemId== R.id.bottombar4)
+                {
+                    getSupportFragmentManager().beginTransaction().
+                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
+                    Intent i = new Intent(ExploreActivity.this, PassportActivity.class);
+                    startActivity(i);
+                }
+            }
+
+            @Override
+            public void onMenuTabReSelected(@IdRes int menuItemId) {
+
+            }
+        });
+    }
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
-    private void switchPages(int index) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
+    public void switchPages(int index) {
+        fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment;
         for (int i = 0, j = mFragments.size(); i < j; i++) {
             if (i == index) {
                 continue;
             }
+
             fragment = mFragments.get(i);
+
             if (fragment.isAdded()) {
                 fragmentTransaction.hide(fragment);
             }
         }
         fragment = mFragments.get(index);
         if (fragment.isAdded()) {
+
             fragmentTransaction.show(fragment);
         } else {
-            fragmentTransaction.add(R.id.fragment_container, fragment);
+
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
         }
         fragmentTransaction.commitAllowingStateLoss();
     }
@@ -72,8 +126,8 @@ public class ExploreActivity extends AppCompatActivity {
         HotToursFragment HotTourFrag = new HotToursFragment();
         DealsFragment promosfrag = new DealsFragment();
         mFragments.add(ForyouFrag);
-        mFragments.add(HotspotFrag);
         mFragments.add(HotTourFrag);
+        mFragments.add(HotspotFrag);
         mFragments.add(promosfrag);
 
     }
@@ -82,6 +136,7 @@ public class ExploreActivity extends AppCompatActivity {
         MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator);
 
         CommonNavigator commonNavigator = new CommonNavigator(this);
+
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
             public int getCount() {
@@ -98,6 +153,7 @@ public class ExploreActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
+
                         mFragmentContainerHelper.handlePageSelected(index);
                         switchPages(index);
                     }
@@ -108,6 +164,7 @@ public class ExploreActivity extends AppCompatActivity {
             @Override
             public IPagerIndicator getIndicator(Context context) {
                 LinePagerIndicator indicator = new LinePagerIndicator(context);
+
                 indicator.setMode(LinePagerIndicator.MODE_WRAP_CONTENT);
                 return indicator;
             }

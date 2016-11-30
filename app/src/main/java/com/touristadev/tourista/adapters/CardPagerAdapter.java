@@ -9,8 +9,11 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.touristadev.tourista.R;
+import com.touristadev.tourista.models.ForYou;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,16 +21,18 @@ import java.util.List;
 public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
     private List<CardView> mViews;
-    private List<String> mData;
+    private List<ForYou> mData;
     private float mBaseElevation;
-
-    public CardPagerAdapter() {
+    private TextView txtTitle,txtPrice,txtSpots,txtHours;
+    private RatingBar rtBar;
+    private int pos;
+    public CardPagerAdapter(ArrayList<ForYou> Data) {
 
         mData = new ArrayList<>();
         mViews = new ArrayList<>();
 
-        for (int i = 0; i < 5; i++) {
-            mData.add("");
+        for (int i = 0; i < Data.size(); i++) {
+            mData.add(Data.get(i));
             mViews.add(null);
         }
     }
@@ -57,6 +62,36 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
                 .inflate(R.layout.card_item_foryou, container, false);
         container.addView(view);
         CardView cardView = (CardView) view.findViewById(R.id.cardView);
+        txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+        txtPrice = (TextView) view.findViewById(R.id.txtPrice);
+        txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);
+        txtHours = (TextView) view.findViewById(R.id.NoHours);
+        rtBar = (RatingBar) view.findViewById(R.id.rtBar);
+        pos = position;
+        txtTitle.setText(mData.get(position).getTitle());
+        txtPrice.setText(mData.get(position).getPrice());
+        txtSpots.setText(mData.get(position).getNoSpots());
+        txtHours.setText(mData.get(position).getNoHours());
+        rtBar.setRating((Float.parseFloat(String.valueOf(mData.get(position).getRating()))));
+        rtBar.setFocusable(false);
+
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                if(mData.get(pos).getType().equals("tour"));
+//                {
+//
+//                }
+                if(mData.get(pos).getType().equals("spot"));
+                {
+
+                }
+//                if(mData.get(pos).getType().equals("deal"));
+//                {
+//
+//                }
+            }
+        });
 
         if (mBaseElevation == 0) {
             mBaseElevation = cardView.getCardElevation();

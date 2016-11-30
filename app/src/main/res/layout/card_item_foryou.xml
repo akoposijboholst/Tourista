@@ -4,7 +4,7 @@
 
     android:id="@+id/cardView"
     app:cardUseCompatPadding="true"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center">
 
@@ -13,40 +13,73 @@
         android:layout_height="wrap_content">
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="10dp">
 
             <TextView
-                style="@style/TextAppearance.AppCompat.Title"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Card title"
-                android:id="@+id/txtTitle" />
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:layout_below="@+id/imgCard"
+                android:id="@+id/txtTitle"
+                android:layout_alignParentEnd="true"
+                android:layout_width="150dp" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
                 app:srcCompat="@mipmap/ic_launcher"
-                android:id="@+id/imgCard" />
-
-            <RatingBar
-                android:layout_height="wrap_content"
-                android:id="@+id/ratingBar2"
-                style="@style/Widget.AppCompat.RatingBar.Small"
-                android:layout_width="80dp" />
+                android:id="@+id/imgCard"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_height="150dp" />
 
             <TextView
                 android:text="TextView"
-                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtPrice" />
+                android:id="@+id/txtNoSpots"
+                android:layout_alignTop="@+id/rtBar"
+                android:layout_centerHorizontal="true" />
 
-        </LinearLayout>
+            <TextView
+                android:text="TextView"
+                android:gravity="center"
+                android:layout_marginEnd="26dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/NoHours"
+                android:layout_alignBaseline="@+id/txtNoSpots"
+                android:layout_alignBottom="@+id/txtNoSpots"
+                android:layout_alignParentEnd="true" />
 
+            <TextView
+                android:text="TextView"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtPrice"
+                android:layout_alignBaseline="@+id/txtTitle"
+                android:layout_alignBottom="@+id/txtTitle"
+                android:layout_alignStart="@+id/rtBar"
+                android:layout_alignEnd="@+id/rtBar" />
+
+            <RatingBar
+                android:isIndicator="true"
+                android:layout_height="wrap_content"
+                android:id="@+id/rtBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="80dp"
+                android:layout_below="@+id/txtPrice"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="21dp" />
+
+        </RelativeLayout>
 
 
     </FrameLayout>

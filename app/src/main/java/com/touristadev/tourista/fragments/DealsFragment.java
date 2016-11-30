@@ -4,11 +4,23 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.touristadev.tourista.R;
+import com.touristadev.tourista.ShadowTransformer;
+import com.touristadev.tourista.adapters.CardExplorerPagerAdapter;
+import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
+import com.touristadev.tourista.models.ForYou;
+
+import java.util.ArrayList;
+
+import static com.touristadev.tourista.fragments.ForYouFragment.dpToPixels;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,9 +39,15 @@ public class DealsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private ArrayList<ForYou> DealList = new ArrayList<>();
     private OnFragmentInteractionListener mListener;
 
+    private ShadowTransformer mCardShadowTransformer;
+    private ViewPager mViewPagerTours;
+    private CardFragmentPagerAdapter mFragmentCardAdapter;
+    private ShadowTransformer mFragmentCardShadowTransformer;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mCardAdapter;
     public DealsFragment() {
         // Required empty public constructor
     }
@@ -40,7 +58,7 @@ public class DealsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DealsFragment.
+     * @return A new instance of fragment HotToursFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static DealsFragment newInstance(String param1, String param2) {
@@ -64,8 +82,36 @@ public class DealsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_promos, container, false);
+        View v = inflater.inflate(R.layout.fragment_promos, container, false);
+
+
+        DealList.add(new ForYou("Cebu Educational Tour Promo",5,"₱ 150 ","5 Spots","10 hrs","deal"));
+        DealList.add(new ForYou("Smart Facility Tour Promo",4,"₱ 300","4 Spots","12 hrs","deal"));
+        DealList.add(new ForYou("Manila Food Tour Promo",5,"₱ 100","15 Spots","8 hrs","deal"));
+        DealList.add(new ForYou("Manila Technology Tour Promo",5,"₱ 250","11 Spots","3 days","deal"));
+        DealList.add(new ForYou("Smart Technology Tour Promo",4,"₱ 380","6 Spots","10 hrs","deal"));
+        DealList.add(new ForYou("Mindanao Islands Tour Promo",5,"₱ 5,300","7 Spots","5 days","deal"));
+
+        mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_deals);
+
+        //permet un affichage sous forme liste verticale
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setHasFixedSize(true);
+
+//
+//        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
+//        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
+        mCardAdapter = new CardExplorerPagerAdapter(DealList);
+        mRecyclerView.setAdapter(mCardAdapter);
+        mCardAdapter.notifyDataSetChanged();
+
+//        mViewPagerTours.setPageTransformer(false, mCardShadowTransformer);
+//        mViewPagerTours.setOffscreenPageLimit(3);
+
+
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

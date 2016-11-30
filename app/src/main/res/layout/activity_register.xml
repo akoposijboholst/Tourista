@@ -5,56 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@mipmap/tourista_login"
     tools:context="com.touristadev.tourista.RegisterActivity">
 
 
-    <EditText
+    <TextView
         android:id="@+id/etLastName"
-        android:textColor="@color/colorTextIcons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_weight="1"
+        android:textColor="@color/colorAccent"
         android:layout_above="@+id/btnRegister"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="136dp"
-        android:enabled="false"
-        android:hint="@string/last_name"
-        android:text=" " />
-
-    <EditText
-        android:id="@+id/etEmail"
-        android:textColor="@color/colorTextIcons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/etLastName"
-        android:layout_marginTop="42dp"
-        android:enabled="false"
-        android:hint="@string/email"
-        android:text=" " />
+        android:layout_marginBottom="95dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/etFirstName"
-        android:textColor="@color/colorTextIcons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/etLastName"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
         android:enabled="false"
-        android:hint="@string/first_name"
-        android:text=" " />
+        android:layout_weight="1"
+        android:textColor="@color/colorAccent"
+        android:layout_above="@+id/etLastName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:enabled="false"
+        android:textColor="@color/colorAccent"
+        android:layout_weight="1"
+        android:layout_above="@+id/etFirstName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/tourista_login" />
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp" />
 
     <com.shaishavgandhi.loginbuttons.FacebookButton
         android:id="@+id/btnRegister"
@@ -65,9 +54,18 @@
         android:textAlignment="center"
         app:iconSize="30dp"
         app:roundedCorner="true"
-        android:layout_marginBottom="69dp"
+        android:layout_marginBottom="137dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView6"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--app:srcCompat="@drawable/tourista_login" />-->
 
 
 </RelativeLayout>

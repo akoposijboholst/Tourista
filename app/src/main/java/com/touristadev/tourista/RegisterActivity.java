@@ -91,7 +91,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.btnRegister:
                 login();
-                handleFacebookAccessToken(currentAccessToken);
                 Toast.makeText(getApplicationContext(), "Welcome! " + firstName, Toast.LENGTH_SHORT).show();
                 break;
         }
@@ -144,6 +143,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onSuccess(LoginResult loginResult) {
                         currentAccessToken = loginResult.getAccessToken();
+                        handleFacebookAccessToken(currentAccessToken);
                         GraphRequest graphRequest = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                             @Override
                             public void onCompleted(JSONObject object, GraphResponse response) {

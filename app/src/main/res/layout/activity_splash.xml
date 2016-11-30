@@ -5,12 +5,12 @@
     android:id="@+id/activity_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/tourista_splash"
     tools:context="com.touristadev.tourista.SplashActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/tourista_splash"
         android:layout_centerVertical="true"
         android:id="@+id/imageView4"
         android:layout_alignParentLeft="true"
