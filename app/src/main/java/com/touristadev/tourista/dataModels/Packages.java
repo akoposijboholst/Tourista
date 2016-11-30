@@ -14,17 +14,24 @@ public class Packages {
     private String packageTourGuideClassification;
     private ArrayList<Tribes> packageTribeClassification;
     private int rating;
+    private int packageBudget;
+    private int packageTotalNoOfHours;
 
     public Packages() {
     }
 
-    public Packages(String packageName, ArrayList<Categories> packageCategoryClassification, ArrayList<Itinerary> packageItinerary, String packageTourGuideClassification, ArrayList<Tribes> packageTribeClassification, int rating) {
+    public Packages(String packageName, ArrayList<Categories> packageCategoryClassification,
+                    ArrayList<Itinerary> packageItinerary, String packageTourGuideClassification,
+                    ArrayList<Tribes> packageTribeClassification, int rating, int packageBudget,
+                    int packageTotalNoOfHours) {
         this.packageName = packageName;
         this.packageCategoryClassification = packageCategoryClassification;
         this.packageItinerary = packageItinerary;
         this.packageTourGuideClassification = packageTourGuideClassification;
         this.packageTribeClassification = packageTribeClassification;
         this.rating = rating;
+        this.packageBudget = packageBudget;
+        this.packageTotalNoOfHours = packageTotalNoOfHours;
     }
 
     public String getPackageName() {
@@ -73,5 +80,21 @@ public class Packages {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public int getPackageBudget() {
+        return packageBudget;
+    }
+
+    public void setPackageBudget(int packageBudget) {
+        this.packageBudget = packageBudget;
+    }
+
+    public int getPackageTotalNoOfHours() {
+        return packageTotalNoOfHours;
+    }
+
+    public void setPackageTotalNoOfHours(int packageTotalNoOfHours) {
+        this.packageTotalNoOfHours = packageTotalNoOfHours;
     }
 }
