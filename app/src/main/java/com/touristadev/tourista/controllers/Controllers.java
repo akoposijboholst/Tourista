@@ -41,7 +41,7 @@ public class Controllers {
         tribes.clear();
 
         activities.add("Whale watching");
-        activities.add("Swimming");
+        activities.add("Scuba Diring");
 
         categories.add(new Categories("Nature"));
         categories.add(new Categories("Aquaria"));
@@ -116,6 +116,12 @@ public class Controllers {
         spotList.add( new Spots(4,"Fort San Pedro", "A. Pigafetta Street, Cebu City, 6000"
                 ,"700", "1900", "One of the city’s historical attractions is Fort San Pedro which is known as the smallest and oldest fort in the Philippines.",
                 "100","10.292499","123.905828",activities, categories, tribes,4));
+
+        activities.clear();
+        categories.clear();
+        tribes.clear();
+
+        activities.add("Ca");
 
 
     }
@@ -222,6 +228,30 @@ public class Controllers {
         itineraries.add(new Itinerary(spotList.get(4),"1500","1700"));
 
         L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,0,8));
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////
+        categories.clear();
+        tribes.clear();
+        itineraries.clear();
+
+        categories.add(new Categories("Art Galleries"));
+        categories.add(new Categories("Church"));
+        categories.add(new Categories("Historical"));
+        categories.add(new Categories("Museums"));
+
+        tribes.add(new Tribes("Collector"));
+        tribes.add(new Tribes("Escapist"));
+        tribes.add(new Tribes("The Self-Improver"));
+        tribes.add(new Tribes("Pilgrim"));
+        tribes.add(new Tribes("Genuinely Curious"));
+
+        itineraries.add(new Itinerary(spotList.get(2),"900","1200"));
+        itineraries.add(new Itinerary(spotList.get(3),"1300","1500"));
+        itineraries.add(new Itinerary(spotList.get(4),"1500","1700"));
+
+        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,0,8));
+
 
         return L;
     }

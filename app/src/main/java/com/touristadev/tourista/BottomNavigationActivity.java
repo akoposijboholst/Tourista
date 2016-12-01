@@ -1,4 +1,4 @@
-package com.touristadev.tourista.tourGuide;
+package com.touristadev.tourista;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
