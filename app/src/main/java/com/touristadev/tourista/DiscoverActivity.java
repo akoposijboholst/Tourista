@@ -299,6 +299,13 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
 
                     }
                 });
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(DiscoverActivity.this,PackageListActivity.class);
+                        startActivity(i);
+                    }
+                });
 
 //                RatingBar ratBar = new RatingBar(context,null,android.R.attr.ratingBarStyle);
 //                ratBar.setRating((Float.parseFloat(String.valueOf(noStars))));

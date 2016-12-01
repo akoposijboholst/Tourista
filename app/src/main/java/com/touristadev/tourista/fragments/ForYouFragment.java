@@ -158,6 +158,7 @@ public class ForYouFragment extends Fragment {
         mTourImg = new ArrayList<>();
         mSpotImg = new ArrayList<>();
         mDealImg = new ArrayList<>();
+//        image list tour and deals
         Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
         Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mTourImg.add(myLogo);
@@ -182,7 +183,7 @@ public class ForYouFragment extends Fragment {
         myDrawable = getResources().getDrawable(R.mipmap.smartmanila);
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mTourImg.add(myLogo);
-
+// image list tour and deals
         mCardAdapter = new CardPagerAdapter(TourList,mTourImg);
         FragmentManager fm =  getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm,
@@ -201,7 +202,7 @@ public class ForYouFragment extends Fragment {
 
             }        }
 
-
+// image list spot
         myDrawable = getResources().getDrawable(R.mipmap.mrc);
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mSpotImg.add(myLogo);
@@ -217,7 +218,7 @@ public class ForYouFragment extends Fragment {
         myDrawable = getResources().getDrawable(R.mipmap.fsanpedro);
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mSpotImg.add(myLogo);
-
+// image list spot
         mViewPagerSpots = (ViewPager) view.findViewById(R.id.viewPagerSpot);
         mCardAdapter = new CardPagerAdapter(SpotList,mSpotImg);
         FragmentManager fm2 =  getFragmentManager();

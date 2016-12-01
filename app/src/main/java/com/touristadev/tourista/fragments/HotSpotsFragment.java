@@ -102,7 +102,7 @@ public class HotSpotsFragment extends Fragment {
             }
         }
 
-
+// image list spots
         Drawable myDrawable = getResources().getDrawable(R.mipmap.mrc);
         Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mListImages.add(myLogo);
@@ -118,6 +118,7 @@ public class HotSpotsFragment extends Fragment {
         myDrawable = getResources().getDrawable(R.mipmap.fsanpedro);
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mListImages.add(myLogo);
+        // image list spots
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_spots);
 
         //permet un affichage sous forme liste verticale
