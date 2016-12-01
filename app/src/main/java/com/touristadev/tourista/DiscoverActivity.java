@@ -132,14 +132,16 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
                    Intent i = new Intent(DiscoverActivity.this, ExploreActivity.class);
                     startActivity(i);
                 }
-//                if(menuItemId== R.id.bottombar2)
-//                {
-//
+////                if(menuItemId== R.id.bottombar2)
+////                {
+////
 //                }
-//                if(menuItemId== R.id.bottombar3)
-//                {
-//
-//                }
+                if(menuItemId== R.id.bottombar3)
+                {
+
+                    Intent i = new Intent(DiscoverActivity.this, TourActivity.class);
+                    startActivity(i);
+                }
                 if(menuItemId== R.id.bottombar4)
                 {
 

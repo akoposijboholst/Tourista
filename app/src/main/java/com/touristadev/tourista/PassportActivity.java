@@ -78,10 +78,12 @@ public class PassportActivity extends AppCompatActivity {
                     Intent i = new Intent(PassportActivity.this, DiscoverActivity.class);
                     startActivity(i);
                 }
-//                if(menuItemId== R.id.bottombar3)
-//                {
-//
-//                }
+                if(menuItemId== R.id.bottombar3)
+                {
+
+                    Intent i = new Intent(PassportActivity.this, TourActivity.class);
+                    startActivity(i);
+                }
                 if(menuItemId== R.id.bottombar4)
                 {
 //                    ToursFragments t= new ToursFragments();

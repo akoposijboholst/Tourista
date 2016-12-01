@@ -34,8 +34,8 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExploreActivity extends AppCompatActivity {
-    private static final String[] CHANNELS = new String[]{"FOR YOU","TOURS", "SPOTS", "DEALS" };
+public class TourActivity extends AppCompatActivity {
+    private static final String[] CHANNELS = new String[]{"BOOKED TOURS","WISH LIST" };
     private List<Fragment> mFragments = new ArrayList<Fragment>();
     private FragmentContainerHelper mFragmentContainerHelper = new FragmentContainerHelper();
     BottomBar mBottomBar;
@@ -63,7 +63,7 @@ public class ExploreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_explore);
+        setContentView(R.layout.activity_tour);
 
         initFragments();
         initMagicIndicator1();
@@ -79,6 +79,7 @@ public class ExploreActivity extends AppCompatActivity {
 
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
+        mBottomBar.setDefaultTabPosition(2);
         mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
@@ -86,29 +87,22 @@ public class ExploreActivity extends AppCompatActivity {
 
                 if(menuItemId== R.id.bottombar1)
                 {
-                   t= new ForYouFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,t).commit();
+
+                    Intent i = new Intent(TourActivity.this, ExploreActivity.class);
+                    startActivity(i);
                 }
                 if(menuItemId== R.id.bottombar2)
                 {
-                    getSupportFragmentManager().beginTransaction().
-                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
-                    Intent i = new Intent(ExploreActivity.this, DiscoverActivity.class);
+                    Intent i = new Intent(TourActivity.this, DiscoverActivity.class);
                     startActivity(i);
                 }
-                if(menuItemId== R.id.bottombar3)
-                {
+//                if(menuItemId== R.id.bottombar3)
+//                {
 //
-                getSupportFragmentManager().beginTransaction().
-                        remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
-                Intent i = new Intent(ExploreActivity.this, TourActivity.class);
-                startActivity(i);
-                }
+//                }
                 if(menuItemId== R.id.bottombar4)
                 {
-                    getSupportFragmentManager().beginTransaction().
-                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
-                    Intent intent = new Intent(ExploreActivity.this, PassportActivity.class);
+                    Intent intent = new Intent(TourActivity.this, PassportActivity.class);
                     intent.putExtra("firstName", firstName);
                     intent.putExtra("lastName", lastName);
                     intent.putExtra("email", email);
@@ -156,14 +150,12 @@ public class ExploreActivity extends AppCompatActivity {
     }
 
     private void initFragments() {
-        ForYouFragment ForyouFrag = new ForYouFragment();
         HotSpotsFragment HotspotFrag = new HotSpotsFragment();
         HotToursFragment HotTourFrag = new HotToursFragment();
-        DealsFragment promosfrag = new DealsFragment();
-        mFragments.add(ForyouFrag);
+
         mFragments.add(HotTourFrag);
         mFragments.add(HotspotFrag);
-        mFragments.add(promosfrag);
+
 
     }
 

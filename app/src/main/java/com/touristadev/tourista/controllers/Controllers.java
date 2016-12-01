@@ -15,7 +15,8 @@ import java.util.ArrayList;
 
 public class Controllers {
     static ArrayList<Spots> spotList;
-
+    static ArrayList<Packages> BookedList;
+    static ArrayList<Packages> WishList;
     public void Controllers() {
 
         spotList= new ArrayList<>();
@@ -178,6 +179,30 @@ public class Controllers {
         return L;
     }
 
+    public void addBookedPackages(Packages pa)
+    {
+        BookedList.add(pa);
+
+    }
+    public void addWishPackages(Packages pa)
+    {
+        WishList.add(pa);
+
+    }
+    public ArrayList<Packages> getBookedList()
+    {
+
+
+        return BookedList;
+
+    }
+    public ArrayList<Packages> getWishList()
+    {
+
+
+        return WishList;
+
+    }
 
     public ArrayList<Packages> getControllerPackaaes()
     {
