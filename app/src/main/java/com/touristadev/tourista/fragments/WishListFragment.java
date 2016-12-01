@@ -90,11 +90,12 @@ public class WishListFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_hot_tours, container, false);
         Controllers con = new Controllers();
         TourListTemp = con.getWishList();
-        if(TourListTemp!=null){
-        for(int x = 0 ; x < TourListTemp.size() ; x++){
-            TourList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()*49),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
+        if (TourListTemp != null) {
+            for (int x = 0; x < TourListTemp.size(); x++) {
+                TourList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()*40), String.valueOf(TourListTemp.get(x).getPackageNoOfSpots()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour",R.mipmap.boracay));
 
-        }}
+            }
+        }
         Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
         Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mListImages.add(myLogo);
@@ -129,7 +130,7 @@ public class WishListFragment extends Fragment {
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
-        mCardAdapter = new CardExplorerPagerAdapter(TourList,mListImages);
+        mCardAdapter = new CardExplorerPagerAdapter(TourList);
         mRecyclerView.setAdapter(mCardAdapter);
         mCardAdapter.notifyDataSetChanged();
 

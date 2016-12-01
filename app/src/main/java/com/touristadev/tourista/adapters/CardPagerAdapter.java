@@ -50,16 +50,16 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     LayoutInflater mInflater;
     private Context context;
     private List<Bitmap> mImages;
-    public  CardPagerAdapter(ArrayList<ForYou> Data, ArrayList<Bitmap> img) {
+    public  CardPagerAdapter(ArrayList<ForYou> Data) {
 
         mData = new ArrayList<>();
         mViews = new ArrayList<>();
         mImages = new ArrayList();
 
-        if(Data!=null && img !=null){
-            for (int i = 0; i < Data.size() && i < img.size(); i++) {
+        if(Data!=null){
+            for (int i = 0; i < Data.size(); i++) {
                 mData.add(Data.get(i));
-                mImages.add(img.get(i));
+
                 mViews.add(null);
 
             }
@@ -103,7 +103,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         rtBar = (RatingBar) view.findViewById(R.id.rtBar);
         imgVi = (ImageView) view.findViewById(R.id.imgCard);
         pos = position;
-        imgVi.setImageBitmap(mImages.get(position));
+        imgVi.setImageResource(mData.get(position).getImgView());
         txtTitle.setText(mData.get(position).getTitle());
         txtPrice.setText(mData.get(position).getPrice());
         txtSpots.setText(mData.get(position).getNoSpots());

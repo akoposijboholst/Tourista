@@ -65,9 +65,10 @@ public class SpotActivity extends AppCompatActivity {
         if (pack != null) {
             spotDetails = pack.get(position);
             for(int x = 0 ; x <spotDetails.getSpotActivity().size();x++) {
-                Log.d("chanSpotSize", spotDetails.getSpotActivity().get(x).getActivityName()+"");
+                Log.d("chanSpotSize", spotDetails.getSpotActivity().get(x)+"");
             }
         }
+        imgSpot.setImageResource(spotDetails.getSpotImage());
         ratBar.setRating(spotDetails.getSpotRating());
         mSpotName.setText(spotDetails.getSpotName());
         mSpotAddress.setText("Address: "+spotDetails.getSpotAddress());
@@ -85,7 +86,7 @@ public class SpotActivity extends AppCompatActivity {
         mSpotDesc.setText("Description: "+"\n"+spotDetails.getSpotDescription());
 
         for(int x = 0 ; x < spotDetails.getSpotActivity().size() ; x++){
-            spotActivity.add(spotDetails.getSpotActivity().get(x).getActivityName());
+            spotActivity.add(spotDetails.getSpotActivity().get(x));
             Log.d("chanActivity",spotActivity.size()+"");
             Log.d("chanActivity",spotActivity.get(x));
 

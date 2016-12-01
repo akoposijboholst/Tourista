@@ -296,25 +296,6 @@ public class Controllers {
         tribes.clear();
         itineraries.clear();
 
-        categories.add(new Categories("Art Galleries"));
-        categories.add(new Categories("Church"));
-        categories.add(new Categories("Historical"));
-        categories.add(new Categories("Museums"));
-
-        tribes.add(new Tribes("Collector"));
-        tribes.add(new Tribes("Escapist"));
-        tribes.add(new Tribes("The Self-Improver"));
-        tribes.add(new Tribes("Pilgrim"));
-        tribes.add(new Tribes("Genuinely Curious"));
-
-        itineraries.add(new Itinerary("Pick up location","600","900"));
-        itineraries.add(new Itinerary(spotList.get(2).getSpotName(),"900","1200"));
-        itineraries.add(new Itinerary("Lunch","1200","1300"));
-        itineraries.add(new Itinerary(spotList.get(3).getSpotName(),"1300","1500"));
-        itineraries.add(new Itinerary(spotList.get(4).getSpotName(),"1500","1700"));
-
-        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,3,R.mipmap.owsw));
-
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
         categories.clear();

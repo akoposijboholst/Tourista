@@ -61,15 +61,6 @@ public class HotToursFragment extends Fragment {
     public HotToursFragment() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HotToursFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static HotToursFragment newInstance(String city) {
         HotToursFragment fragment = new HotToursFragment();
@@ -93,17 +84,19 @@ public class HotToursFragment extends Fragment {
         Controllers con = new Controllers();
         TourListTemp = con.getControllerPackaaes();
         TourList.clear();
-        if(TourListTemp!=null){
-            for(int x = 0 ; x < TourListTemp.size() ; x++){
-                TourList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
+        if (TourListTemp != null) {
+            for (int x = 0; x < TourListTemp.size(); x++) {
+                TourList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()*40), String.valueOf(TourListTemp.get(x).getPackageNoOfSpots()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour",R.mipmap.boracay));
 
-            }}
-        TourList.add(new ForYou("Manila Tour",5,"₱ 550","5 Spots","12 hrs","tour"));
-        TourList.add(new ForYou("Boracay Island",4,"₱ 1,350","2 Spots","7 hrs","tour"));
-        TourList.add(new ForYou("Smart Facilities Tour",5,"₱ 400","5 Spots","10 hrs","tour"));
-        TourList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days","tour"));
-        TourList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours","tour"));
-        TourList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs","tour"));
+            }
+        }
+        TourList.add(new ForYou("Manila Tour", 5, "₱ 550", "5 Spots", "12 hrs", "tour",R.mipmap.tml));
+        TourList.add(new ForYou("Boracay Island", 4, "₱ 1,350", "2 Spots", "7 hrs", "tour",R.mipmap.boracay));
+        TourList.add(new ForYou("Smart Facilities Tour", 5, "₱ 400", "5 Spots", "10 hrs", "tour",R.mipmap.smart));
+        TourList.add(new ForYou("Philippine Tour", 5, "₱ 10,000", "20 Spots", "14 days", "tour",R.mipmap.philippinetour));
+        TourList.add(new ForYou("FastFood Tour", 5, "₱ 500", "15 Spots", "1 day 3 hours", "tour",R.mipmap.fastfoodtour));
+        TourList.add(new ForYou("Smart Manila Offices Tour", 5, "₱ 4,000", "4 Spots", "10 hrs", "tour",R.mipmap.smartmanila));
+
 // image list tours
         Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
         Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
@@ -142,7 +135,7 @@ public class HotToursFragment extends Fragment {
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
-        mCardAdapter = new CardExplorerPagerAdapter(TourList,mListImages);
+        mCardAdapter = new CardExplorerPagerAdapter(TourList);
         mRecyclerView.setAdapter(mCardAdapter);
         mCardAdapter.notifyDataSetChanged();
 

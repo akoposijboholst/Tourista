@@ -38,16 +38,15 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
     private TextView txtAlertTitle;
     private Button mBtnBook,mBtnViewDetails;
     private List<Bitmap> mImages;
-    public  CardExplorerPagerAdapter(ArrayList<ForYou> Data, ArrayList<Bitmap> img) {
+    public  CardExplorerPagerAdapter(ArrayList<ForYou> Data) {
 
         mData = new ArrayList<>();
         mViews = new ArrayList<>();
         mImages = new ArrayList();
 
-        if(Data!=null && img !=null){
-        for (int i = 0; i < Data.size() && i < img.size(); i++) {
+        if(Data!=null ){
+        for (int i = 0; i < Data.size(); i++) {
             mData.add(Data.get(i));
-            mImages.add(img.get(i));
             mViews.add(null);
 
              }
@@ -142,7 +141,7 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
     @Override
     public void onBindViewHolder(CardExplorerPagerAdapter.MyViewHolder holder, int Cposition) {
         position = Cposition;
-        holder.imageV.setImageBitmap(mImages.get(Cposition));
+        holder.imageV.setImageResource(mData.get(Cposition).getImgView());
         holder.txtTitle.setText(mData.get(Cposition).getTitle());
        holder.txtPrice.setText(mData.get(Cposition).getPrice());
        holder.txtSpots.setText(mData.get(Cposition).getNoSpots());
