@@ -6,24 +6,24 @@ package com.touristadev.tourista.dataModels;
 
 public class Itinerary {
 
-    private Spots spotID;
+    private String  spotID;
     private String startTime;
     private String endTime;
 
     public Itinerary() {
     }
 
-    public Itinerary(Spots spotID, String startTime, String endTime) {
+    public Itinerary(String spotID, String startTime, String endTime) {
         this.spotID = spotID;
         this.startTime = startTime;
         this.endTime = endTime;
     }
 
-    public Spots getSpotID() {
+    public String getSpotID() {
         return spotID;
     }
 
-    public void setSpotID(Spots spotID) {
+    public void setSpotID(String spotID) {
         this.spotID = spotID;
     }
 

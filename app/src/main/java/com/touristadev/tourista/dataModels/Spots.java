@@ -17,17 +17,16 @@ public class Spots
     private String spotEstimatedBudget;
     private String spotLocationLong;
     private String spotLocationLat;
-    private ArrayList<Activities> spotActivity;
+    private ArrayList<String> spotActivity;
     private ArrayList<Categories> spotCategory;
     private ArrayList<Tribes> spotTribe;
     private int spotRating;
+    private int spotImage;
 
     public Spots() {
-    }public Spots(Spots spot) {
-}
+    }
 
-
-    public Spots(int spotID, String spotName, String spotAddress, String spotOpeningTime, String spotClosingTime, String spotDescription, String spotEstimatedBudget, String spotLocationLong, String spotLocationLat, ArrayList<Activities> spotActivity, ArrayList<Categories> spotCategory, ArrayList<Tribes> spotTribe, int spotRating) {
+    public Spots(int spotID, String spotName, String spotAddress, String spotOpeningTime, String spotClosingTime, String spotDescription, String spotEstimatedBudget, String spotLocationLong, String spotLocationLat, ArrayList<String> spotActivity, ArrayList<Categories> spotCategory, ArrayList<Tribes> spotTribe, int spotRating, int spotImage) {
         this.spotID = spotID;
         this.spotName = spotName;
         this.spotAddress = spotAddress;
@@ -41,6 +40,7 @@ public class Spots
         this.spotCategory = spotCategory;
         this.spotTribe = spotTribe;
         this.spotRating = spotRating;
+        this.spotImage = spotImage;
     }
 
     public int getSpotID() {
@@ -115,11 +115,11 @@ public class Spots
         this.spotLocationLat = spotLocationLat;
     }
 
-    public ArrayList<Activities> getSpotActivity() {
+    public ArrayList<String> getSpotActivity() {
         return spotActivity;
     }
 
-    public void setSpotActivity(ArrayList<Activities> spotActivity) {
+    public void setSpotActivity(ArrayList<String> spotActivity) {
         this.spotActivity = spotActivity;
     }
 
@@ -145,6 +145,14 @@ public class Spots
 
     public void setSpotRating(int spotRating) {
         this.spotRating = spotRating;
+    }
+
+    public int getSpotImage() {
+        return spotImage;
+    }
+
+    public void setSpotImage(int spotImage) {
+        this.spotImage = spotImage;
     }
 }
 

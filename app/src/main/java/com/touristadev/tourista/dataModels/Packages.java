@@ -14,23 +14,20 @@ public class Packages {
     private String packageTourGuideClassification;
     private ArrayList<Tribes> packageTribeClassification;
     private int rating;
-    private int packageBudget;
+    private int packageNoOfSpots;
     private int packageTotalNoOfHours;
 
     public Packages() {
     }
 
-    public Packages(String packageName, ArrayList<Categories> packageCategoryClassification,
-                    ArrayList<Itinerary> packageItinerary, String packageTourGuideClassification,
-                    ArrayList<Tribes> packageTribeClassification, int rating, int packageBudget,
-                    int packageTotalNoOfHours) {
+    public Packages(String packageName, ArrayList<Categories> packageCategoryClassification, ArrayList<Itinerary> packageItinerary, String packageTourGuideClassification, ArrayList<Tribes> packageTribeClassification, int rating, int packageNoOfSpots, int packageTotalNoOfHours) {
         this.packageName = packageName;
         this.packageCategoryClassification = packageCategoryClassification;
         this.packageItinerary = packageItinerary;
         this.packageTourGuideClassification = packageTourGuideClassification;
         this.packageTribeClassification = packageTribeClassification;
         this.rating = rating;
-        this.packageBudget = packageBudget;
+        this.packageNoOfSpots = packageNoOfSpots;
         this.packageTotalNoOfHours = packageTotalNoOfHours;
     }
 
@@ -82,12 +79,12 @@ public class Packages {
         this.rating = rating;
     }
 
-    public int getPackageBudget() {
-        return packageBudget;
+    public int getPackageNoOfSpots() {
+        return packageNoOfSpots;
     }
 
-    public void setPackageBudget(int packageBudget) {
-        this.packageBudget = packageBudget;
+    public void setPackageNoOfSpots(int packageNoOfSpots) {
+        this.packageNoOfSpots = packageNoOfSpots;
     }
 
     public int getPackageTotalNoOfHours() {
