@@ -14,9 +14,10 @@ import java.util.ArrayList;
  */
 
 public class Controllers {
-    ArrayList<Spots> spotList;
-
-    public Controllers() {
+    static ArrayList<Spots> spotList;
+    static ArrayList<Packages> BookedList;
+    static ArrayList<Packages> WishList;
+    public void Controllers() {
 
         spotList= new ArrayList<>();
         ArrayList<String> activities = new ArrayList<>();
@@ -128,6 +129,7 @@ public class Controllers {
 
     public ArrayList<Categories> getControllerCategories()
     {
+        Controllers();
         ArrayList<Categories> L= new ArrayList<>();
         L.add(new Categories("Adventure"));
         L.add(new Categories("Aquaria"));
@@ -149,7 +151,7 @@ public class Controllers {
     }
 
     public ArrayList<Tribes> getControllerTribes()
-    {
+    {   Controllers();
         ArrayList<Tribes> L = new ArrayList<>();
 
         L.add(new Tribes("Thrill-Seeker"));
@@ -167,6 +169,7 @@ public class Controllers {
 
     public ArrayList<Spots>  getControllerSpots()
     {
+        Controllers();
         return spotList;
     }
 
@@ -182,9 +185,34 @@ public class Controllers {
         return L;
     }
 
+    public void addBookedPackages(Packages pa)
+    {
+        BookedList.add(pa);
+
+    }
+    public void addWishPackages(Packages pa)
+    {
+        WishList.add(pa);
+
+    }
+    public ArrayList<Packages> getBookedList()
+    {
+
+
+        return BookedList;
+
+    }
+    public ArrayList<Packages> getWishList()
+    {
+
+
+        return WishList;
+
+    }
 
     public ArrayList<Packages> getControllerPackaaes()
     {
+        Controllers();
         ArrayList<Packages> L= new ArrayList<>();
         ArrayList<Categories> categories = new ArrayList<>();
         ArrayList<Tribes> tribes = new ArrayList<>();
@@ -205,7 +233,7 @@ public class Controllers {
         itineraries.add(new Itinerary(spotList.get(1),"800","1100"));
         itineraries.add(new Itinerary(spotList.get(0),"1300","1600"));
 
-        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,0,8));
+        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,1500,8));
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////
         categories.clear();
@@ -227,7 +255,7 @@ public class Controllers {
         itineraries.add(new Itinerary(spotList.get(3),"1300","1500"));
         itineraries.add(new Itinerary(spotList.get(4),"1500","1700"));
 
-        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,0,8));
+        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,1000,8));
 
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////

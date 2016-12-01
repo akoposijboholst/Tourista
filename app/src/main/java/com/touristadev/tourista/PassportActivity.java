@@ -1,6 +1,7 @@
 package com.touristadev.tourista;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
@@ -62,6 +63,7 @@ public class PassportActivity extends AppCompatActivity {
         }
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
+        mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setDefaultTabPosition(3);
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
@@ -76,10 +78,12 @@ public class PassportActivity extends AppCompatActivity {
                     Intent i = new Intent(PassportActivity.this, DiscoverActivity.class);
                     startActivity(i);
                 }
-//                if(menuItemId== R.id.bottombar3)
-//                {
-//
-//                }
+                if(menuItemId== R.id.bottombar3)
+                {
+
+                    Intent i = new Intent(PassportActivity.this, TourActivity.class);
+                    startActivity(i);
+                }
                 if(menuItemId== R.id.bottombar4)
                 {
 //                    ToursFragments t= new ToursFragments();
