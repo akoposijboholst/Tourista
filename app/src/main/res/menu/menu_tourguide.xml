@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/bbfeedbar"
-        android:icon="@mipmap/explore"
+        android:icon="@mipmap/ic_explore"
         android:title="Feeds"/>
 
     <item android:id="@+id/bbrequestbar"
-        android:icon="@mipmap/explore"
+        android:icon="@mipmap/ic_explore"
         android:title="Request"/>
 
     <item android:id="@+id/bbtourbar"
-        android:icon="@mipmap/explore"
+        android:icon="@mipmap/ic_explore"
         android:title="Tours"/>
 
     <item android:id="@+id/bbprofile"
-        android:icon="@mipmap/explore"
+        android:icon="@mipmap/ic_explore"
         android:title="Profile"/>
 
 

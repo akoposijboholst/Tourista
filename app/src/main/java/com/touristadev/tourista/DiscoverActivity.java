@@ -36,7 +36,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 import com.touristadev.tourista.models.CityMaps;
@@ -53,6 +52,7 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
     private TextView txt_Description,txtTile;
     private RatingBar ratBarM;
     private Button btnView;
+    private BottomBar explore, discover, tours, passport;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
@@ -71,6 +71,8 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discover);
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -119,6 +121,7 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
         mapFragment.getMapAsync(this);
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
+        mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setDefaultTabPosition(1);
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
@@ -274,6 +277,7 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
                 ratBarM = (RatingBar) v.findViewById(R.id.rtBarA);
                 btnView = (Button) v.findViewById(R.id.btnView);
 
+//                Context context = getApplicationContext();
 //
                 Random r = new Random();
                 int stars = r.nextInt(5 - 4) + 3;

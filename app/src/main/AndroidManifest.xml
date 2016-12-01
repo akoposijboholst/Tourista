@@ -53,11 +53,11 @@
         <activity
             android:name=".RegisterActivity"
             android:label="@string/title_activity_register"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ExploreActivity"
             android:label="@string/title_activity_explore"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/noAnimTheme"/>
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -94,6 +94,12 @@
 
 
             android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".tourGuide.FeedActivity">
+
+        </activity>
+
         <activity
             android:name=".SpotActivity"
             android:label="@string/title_activity_spot"
@@ -102,8 +108,7 @@
         <activity
             android:name=".PassportActivity"
             android:label="@string/title_activity_passport"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".tourGuide.FeedActivity"></activity>
+            android:theme="@style/noAnimTheme"></activity>
     </application>
 
 </manifest>

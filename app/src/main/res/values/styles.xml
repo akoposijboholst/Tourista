@@ -64,6 +64,8 @@
         <item name="colorControlActivated">@color/colorAccent</item>
     </style>
 
-
+    <style name="noAnimTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
 
 </resources>
