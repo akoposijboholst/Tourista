@@ -1,5 +1,8 @@
 package com.touristadev.tourista.controllers;
 
+import android.util.Log;
+
+import com.touristadev.tourista.dataModels.Activities;
 import com.touristadev.tourista.dataModels.Categories;
 import com.touristadev.tourista.dataModels.Itinerary;
 import com.touristadev.tourista.dataModels.Packages;
@@ -14,17 +17,17 @@ import java.util.ArrayList;
  */
 
 public class Controllers {
-    static ArrayList<Spots> spotList;
-    static ArrayList<Packages> BookedList;
-    static ArrayList<Packages> WishList;
+    static ArrayList<Spots> spotList = new ArrayList<>();
+    static ArrayList<Packages> BookedList = new ArrayList<>();
+    static ArrayList<Packages> WishList = new ArrayList<>();
     public void Controllers() {
 
         spotList= new ArrayList<>();
-        ArrayList<String> activities = new ArrayList<>();
+        ArrayList<Activities> activities = new ArrayList<>();
         ArrayList<Categories> categories = new ArrayList<>();
         ArrayList<Tribes> tribes = new ArrayList<>();
 
-        activities.add("Swimming");
+        activities.add(new Activities("Swimming"));
 
         categories.add(new Categories("Beaches and Resorts"));
         categories.add(new Categories("Nature"));
@@ -41,8 +44,8 @@ public class Controllers {
         categories.clear();
         tribes.clear();
 
-        activities.add("Whale watching");
-        activities.add("Swimming");
+        activities.add(new Activities("Whale watching"));
+        activities.add(new Activities("Swimming"));
 
         categories.add(new Categories("Nature"));
         categories.add(new Categories("Aquaria"));
@@ -61,8 +64,8 @@ public class Controllers {
         categories.clear();
         tribes.clear();
 
-        activities.add("Attend Mass");
-        activities.add("Visit Magellan's Cross");
+        activities.add(new Activities("Attend Mass"));
+        activities.add(new Activities("Visit Magellan's Cross"));
 
         categories.add(new Categories("Church"));
         categories.add(new Categories("Historical"));
@@ -81,8 +84,8 @@ public class Controllers {
         categories.clear();
         tribes.clear();
 
-        activities.add("Dicover Ancient cebu stories.");
-        activities.add("Visist historical Artifacts.");
+        activities.add(new Activities("Dicover Ancient cebu stories."));
+        activities.add(new Activities("Visist historical Artifacts."));
 
         categories.add(new Categories("Historical"));
         categories.add(new Categories("Museum"));
@@ -101,7 +104,7 @@ public class Controllers {
         categories.clear();
         tribes.clear();
 
-        activities.add("Explore Museum");
+        activities.add(new Activities("Explore Museum"));
 
         categories.add(new Categories("Historical"));
         categories.add(new Categories("Nature"));
@@ -117,7 +120,9 @@ public class Controllers {
         spotList.add( new Spots(4,"Fort San Pedro", "A. Pigafetta Street, Cebu City, 6000"
                 ,"700", "1900", "One of the city’s historical attractions is Fort San Pedro which is known as the smallest and oldest fort in the Philippines.",
                 "100","10.292499","123.905828",activities, categories, tribes,4));
-
+        activities.clear();
+        categories.clear();
+        tribes.clear();
 
     }
 
@@ -163,7 +168,7 @@ public class Controllers {
 
     public ArrayList<Spots>  getControllerSpots()
     {
-        Controllers();
+Log.d("spotList", spotList.get(3).getSpotActivity().get(0).getActivityName()+"");
         return spotList;
     }
 

@@ -1,5 +1,9 @@
 package com.touristadev.tourista.fragments;
 
+/**
+ * Created by Christian on 12/2/2016.
+ */
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -37,7 +41,7 @@ import static com.touristadev.tourista.fragments.ForYouFragment.dpToPixels;
  * Use the {@link HotToursFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HotToursFragment extends Fragment {
+public class CityToursFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -58,7 +62,7 @@ public class HotToursFragment extends Fragment {
     private RecyclerView.Adapter mCardAdapter;
     private static String mCity;
     private ArrayList<Packages> TourListTemp = new ArrayList<>();
-    public HotToursFragment() {
+    public CityToursFragment() {
         // Required empty public constructor
     }
 
@@ -71,8 +75,8 @@ public class HotToursFragment extends Fragment {
      * @return A new instance of fragment HotToursFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HotToursFragment newInstance(String city) {
-        HotToursFragment fragment = new HotToursFragment();
+    public static CityToursFragment newInstance(String city) {
+        CityToursFragment fragment = new CityToursFragment();
         mCity = city;
         return fragment;
     }
@@ -89,7 +93,7 @@ public class HotToursFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       View v = inflater.inflate(R.layout.fragment_hot_tours, container, false);
+        View v = inflater.inflate(R.layout.fragment_hot_tours, container, false);
         Controllers con = new Controllers();
         TourListTemp = con.getControllerPackaaes();
         TourList.clear();
@@ -98,23 +102,14 @@ public class HotToursFragment extends Fragment {
                 TourList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
 
             }}
-        TourList.add(new ForYou("Manila Tour",5,"₱ 550","5 Spots","12 hrs","tour"));
-        TourList.add(new ForYou("Boracay Island",4,"₱ 1,350","2 Spots","7 hrs","tour"));
         TourList.add(new ForYou("Smart Facilities Tour",5,"₱ 400","5 Spots","10 hrs","tour"));
         TourList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days","tour"));
         TourList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours","tour"));
-        TourList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs","tour"));
 // image list tours
         Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
         Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mListImages.add(myLogo);
         myDrawable = getResources().getDrawable(R.mipmap.cp);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.mt);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.boracay);
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mListImages.add(myLogo);
         myDrawable = getResources().getDrawable(R.mipmap.smart);
@@ -124,9 +119,6 @@ public class HotToursFragment extends Fragment {
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mListImages.add(myLogo);
         myDrawable = getResources().getDrawable(R.mipmap.fastfoodtour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smartmanila);
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mListImages.add(myLogo);
 

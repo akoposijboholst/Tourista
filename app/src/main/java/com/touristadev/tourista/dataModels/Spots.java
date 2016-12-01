@@ -17,15 +17,17 @@ public class Spots
     private String spotEstimatedBudget;
     private String spotLocationLong;
     private String spotLocationLat;
-    private ArrayList<String> spotActivity;
+    private ArrayList<Activities> spotActivity;
     private ArrayList<Categories> spotCategory;
     private ArrayList<Tribes> spotTribe;
     private int spotRating;
 
     public Spots() {
-    }
+    }public Spots(Spots spot) {
+}
 
-    public Spots(int spotID, String spotName, String spotAddress, String spotOpeningTime, String spotClosingTime, String spotDescription, String spotEstimatedBudget, String spotLocationLong, String spotLocationLat, ArrayList<String> spotActivity, ArrayList<Categories> spotCategory, ArrayList<Tribes> spotTribe, int spotRating) {
+
+    public Spots(int spotID, String spotName, String spotAddress, String spotOpeningTime, String spotClosingTime, String spotDescription, String spotEstimatedBudget, String spotLocationLong, String spotLocationLat, ArrayList<Activities> spotActivity, ArrayList<Categories> spotCategory, ArrayList<Tribes> spotTribe, int spotRating) {
         this.spotID = spotID;
         this.spotName = spotName;
         this.spotAddress = spotAddress;
@@ -113,11 +115,11 @@ public class Spots
         this.spotLocationLat = spotLocationLat;
     }
 
-    public ArrayList<String> getSpotActivity() {
+    public ArrayList<Activities> getSpotActivity() {
         return spotActivity;
     }
 
-    public void setSpotActivity(ArrayList<String> spotActivity) {
+    public void setSpotActivity(ArrayList<Activities> spotActivity) {
         this.spotActivity = spotActivity;
     }
 

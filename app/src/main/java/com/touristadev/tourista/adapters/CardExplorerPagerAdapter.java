@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.controllers.Controllers;
@@ -87,17 +88,18 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
     public CardExplorerPagerAdapter.MyViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_item_explore, parent, false);
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
         view.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 mList = mController.getControllerPackaaes();
                 LayoutInflater inflater = LayoutInflater.from(parent.getContext());
                 View dialogView = inflater.inflate(R.layout.alert_dialog,null);
                 mList = mController.getControllerPackaaes();
                 builder.setView(dialogView);
-
+                final AlertDialog dialog = builder.create();
                 mBtnBook = (Button) dialogView.findViewById(R.id.btnBook);
                 txtAlertTitle = (TextView) dialogView.findViewById(R.id.txtAlertTitle) ;
                 txtAlertTitle.setText(mData.get(position).getTitle());
@@ -111,18 +113,23 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
                 mBtnBook.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(mData.get(position).getType().equals("tour")&&mData.get(position).getType().equals("deal")){
+                        Log.d("Chan",mData.get(position).getType()+"");
+                        if(mData.get(position).getType().equals("tour")||mData.get(position).getType().equals("deal")){
                             for(int x = 0 ; x < mList.size(); x++)
                             {
                                 if(mList.get(x).getPackageName().equals(mData.get(position).getTitle())){
                                     mController.addWishPackages(mList.get(x));
+
+                                    Log.d("Chan","added package");
+                                    Toast.makeText(view.getContext(),"Added "+mList.get(x).getPackageName()+" to Wish List",
+                                            Toast.LENGTH_SHORT).show();
+                                    dialog.dismiss();
                                 }
                             }
                         }
                     }
                 });
 
-                final AlertDialog dialog = builder.create();
                 dialog.show();
 
             }

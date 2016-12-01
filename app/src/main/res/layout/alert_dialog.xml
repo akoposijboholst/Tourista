@@ -23,7 +23,7 @@
         android:layout_height="2dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/txtAlertTitle"
-        android:background="#03bd70" />
+        android:background="@color/tourColor" />
 
     <TextView
         android:id="@+id/textView2"

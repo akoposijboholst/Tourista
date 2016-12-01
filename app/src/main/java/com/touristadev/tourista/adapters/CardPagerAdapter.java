@@ -4,7 +4,10 @@ package com.touristadev.tourista.adapters;
  * Created by Christian on 11/23/2016.
  */
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
@@ -16,10 +19,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.touristadev.tourista.R;
+import com.touristadev.tourista.SpotActivity;
 import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Packages;
+import com.touristadev.tourista.dataModels.Spots;
 import com.touristadev.tourista.models.ForYou;
 
 import org.w3c.dom.Text;
@@ -37,10 +43,12 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     private ImageView imgVi;
     private RatingBar rtBar;
     private int pos;
+    private Spots spotDetails;
     private Controllers mController = new Controllers();
     private TextView txtAlertTitle;
     private Button mBtnBook,mBtnViewDetails;
     LayoutInflater mInflater;
+    private Context context;
     private List<Bitmap> mImages;
     public  CardPagerAdapter(ArrayList<ForYou> Data, ArrayList<Bitmap> img) {
 
@@ -85,7 +93,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
          mInflater = LayoutInflater.from(container.getContext());
 
-
+        context = view.getContext();
         container.addView(view);
         CardView cardView = (CardView) view.findViewById(R.id.cardView);
         txtTitle = (TextView) view.findViewById(R.id.txtTitle);
@@ -109,6 +117,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
                 View dialogView = mInflater.inflate(R.layout.alert_dialog,null);
                 mList = mController.getControllerPackaaes();
                 builder.setView(dialogView);
+                final AlertDialog dialog = builder.create();
                 mBtnBook = (Button) dialogView.findViewById(R.id.btnBook);
                 txtAlertTitle = (TextView) dialogView.findViewById(R.id.txtAlertTitle) ;
                 txtAlertTitle.setText(mData.get(position).getTitle());
@@ -122,12 +131,16 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
                     @Override
                     public void onClick(View view) {
                         Log.d("Chan",mData.get(position).getType()+"");
-                        if(mData.get(position).getType().equals("tour")&&mData.get(position).getType().equals("deal")){
+                        if(mData.get(position).getType().equals("tour")||mData.get(position).getType().equals("deal")){
                             for(int x = 0 ; x < mList.size(); x++)
                             {
                                 if(mList.get(x).getPackageName().equals(mData.get(position).getTitle())){
                                     mController.addWishPackages(mList.get(x));
+
                                     Log.d("Chan","added package");
+                                    Toast.makeText(view.getContext(),"Added "+mList.get(x).getPackageName()+" to Wish List",
+                                            Toast.LENGTH_SHORT).show();
+                                    dialog.dismiss();
                                 }
                             }
                         }
@@ -136,11 +149,16 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
                 mBtnViewDetails.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if(mData.get(position).getType().equals("spot")) {
+
+                            Intent i = new Intent(context, SpotActivity.class);
+                            i.putExtra("position",position);
+                            context.startActivity(i);
+                        }
 
                     }
                 });
 
-                final AlertDialog dialog = builder.create();
 
                     dialog.show();
 
