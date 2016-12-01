@@ -121,6 +121,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
                 mBtnBook.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        Log.d("Chan",mData.get(position).getType()+"");
                         if(mData.get(position).getType().equals("tour")&&mData.get(position).getType().equals("deal")){
                             for(int x = 0 ; x < mList.size(); x++)
                             {
