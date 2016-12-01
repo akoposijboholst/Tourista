@@ -4,6 +4,7 @@ package com.touristadev.tourista.adapters;
  * Created by Christian on 11/23/2016.
  */
 
+import android.graphics.Bitmap;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -32,19 +34,27 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     private List<Packages> mList;
     private float mBaseElevation;
     private TextView txtTitle,txtPrice,txtSpots,txtHours;
+    private ImageView imgVi;
     private RatingBar rtBar;
     private int pos;
     private Controllers mController = new Controllers();
     private TextView txtAlertTitle;
     private Button mBtnBook,mBtnViewDetails;
-    public CardPagerAdapter(ArrayList<ForYou> Data) {
+    LayoutInflater mInflater;
+    private List<Bitmap> mImages;
+    public  CardPagerAdapter(ArrayList<ForYou> Data, ArrayList<Bitmap> img) {
 
         mData = new ArrayList<>();
         mViews = new ArrayList<>();
+        mImages = new ArrayList();
 
-        for (int i = 0; i < Data.size(); i++) {
-            mData.add(Data.get(i));
-            mViews.add(null);
+        if(Data!=null && img !=null){
+            for (int i = 0; i < Data.size() && i < img.size(); i++) {
+                mData.add(Data.get(i));
+                mImages.add(img.get(i));
+                mViews.add(null);
+
+            }
         }
     }
 
@@ -71,43 +81,10 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     public Object instantiateItem(ViewGroup container, final int position) {
         View view = LayoutInflater.from(container.getContext())
                 .inflate(R.layout.card_item_foryou, container, false);
-        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
 
-        LayoutInflater inflater = LayoutInflater.from(container.getContext());
-        View dialogView = inflater.inflate(R.layout.alert_dialog,null);
-        mList = mController.getControllerPackaaes();
-        builder.setView(dialogView);
+         mInflater = LayoutInflater.from(container.getContext());
 
-        mBtnBook = (Button) dialogView.findViewById(R.id.btnBook);
-        txtAlertTitle = (TextView) dialogView.findViewById(R.id.txtAlertTitle) ;
-        txtAlertTitle.setText(mData.get(position).getTitle());
-        Log.d("chan",mData.get(position).getTitle());
-        mBtnViewDetails = (Button) dialogView.findViewById(R.id.btnViewDetails);
-        if(mData.get(position).getType().equals("spot")){
-            mBtnBook.setClickable(false);
-            mBtnBook.setVisibility(View.GONE);
-        }
-        mBtnBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mData.get(position).getType().equals("tour")&&mData.get(position).getType().equals("deal")){
-                    for(int x = 0 ; x < mList.size(); x++)
-                    {
-                        if(mList.get(position).getPackageName().equals(mData.get(position).getTitle())){
-                        mController.addWishPackages(mList.get(position));
-                        }
-                 }
-            }
-            }
-        });
-        mBtnViewDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        final AlertDialog dialog = builder.create();
 
         container.addView(view);
         CardView cardView = (CardView) view.findViewById(R.id.cardView);
@@ -116,7 +93,9 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);
         txtHours = (TextView) view.findViewById(R.id.NoHours);
         rtBar = (RatingBar) view.findViewById(R.id.rtBar);
+        imgVi = (ImageView) view.findViewById(R.id.imgCard);
         pos = position;
+        imgVi.setImageBitmap(mImages.get(position));
         txtTitle.setText(mData.get(position).getTitle());
         txtPrice.setText(mData.get(position).getPrice());
         txtSpots.setText(mData.get(position).getNoSpots());
@@ -127,6 +106,40 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                View dialogView = mInflater.inflate(R.layout.alert_dialog,null);
+                mList = mController.getControllerPackaaes();
+                builder.setView(dialogView);
+                mBtnBook = (Button) dialogView.findViewById(R.id.btnBook);
+                txtAlertTitle = (TextView) dialogView.findViewById(R.id.txtAlertTitle) ;
+                txtAlertTitle.setText(mData.get(position).getTitle());
+                Log.d("chan",mData.get(position).getTitle());
+                mBtnViewDetails = (Button) dialogView.findViewById(R.id.btnViewDetails);
+                if(mData.get(position).getType().equals("spot")){
+                    mBtnBook.setClickable(false);
+                    mBtnBook.setVisibility(View.GONE);
+                }
+                mBtnBook.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(mData.get(position).getType().equals("tour")&&mData.get(position).getType().equals("deal")){
+                            for(int x = 0 ; x < mList.size(); x++)
+                            {
+                                if(mList.get(x).getPackageName().equals(mData.get(position).getTitle())){
+                                    mController.addWishPackages(mList.get(x));
+                                    Log.d("Chan","added package");
+                                }
+                            }
+                        }
+                    }
+                });
+                mBtnViewDetails.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+
+                final AlertDialog dialog = builder.create();
 
                     dialog.show();
 

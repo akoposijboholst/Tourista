@@ -1,6 +1,9 @@
 package com.touristadev.tourista.fragments;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -49,7 +52,7 @@ public class ForYouFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private ViewPager mViewPagerTours,mViewPagerSpots,mViewPagerDeals;
-
+    private ArrayList<Bitmap> mTourImg,mSpotImg,mDealImg;
     private CardPagerAdapter mCardAdapter;
     private ShadowTransformer mCardShadowTransformer;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
@@ -152,16 +155,42 @@ public class ForYouFragment extends Fragment {
         TourList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days","tour"));
         TourList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours","tour"));
         TourList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs","tour"));
+        mTourImg = new ArrayList<>();
+        mSpotImg = new ArrayList<>();
+        mDealImg = new ArrayList<>();
+        Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
+        Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mTourImg.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.cp);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mTourImg.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.mt);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mTourImg.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.boracay);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mTourImg.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.smart);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mTourImg.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.philippinetour);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mTourImg.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.fastfoodtour);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mTourImg.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.smartmanila);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mTourImg.add(myLogo);
 
-
-        mCardAdapter = new CardPagerAdapter(TourList);
+        mCardAdapter = new CardPagerAdapter(TourList,mTourImg);
         FragmentManager fm =  getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm,
                 dpToPixels(2, getContext()));
 
         mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
         mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
-
+        mCardAdapter.notifyDataSetChanged();
         mViewPagerTours.setAdapter(mCardAdapter);
         mViewPagerTours.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerTours.setOffscreenPageLimit(3);
@@ -171,23 +200,33 @@ public class ForYouFragment extends Fragment {
                 SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), "₱ " + SpotListTemp.get(x).getSpotEstimatedBudget(), "1 Spot", "8 Hours", "spot"));
 
             }        }
-        SpotList.add(new ForYou("Kawasan Falls",5,"₱ 300","1 Spot","5 hrs","spot"));
-        SpotList.add(new ForYou("Camp Sawi",4,"₱ 430","1 Spot","3 days","spot"));
-        SpotList.add(new ForYou("Boracay Beach",5,"₱ 760","1 Spot","2 days","spot"));
-        SpotList.add(new ForYou("Smart Main Office",5,"₱ 250","1 Spot","10 hrs","spot"));
-        SpotList.add(new ForYou("Mt. Apo",4,"₱ 300","1 Spot","8 hrs","spot"));
-        SpotList.add(new ForYou("MoalBoal Beach",5,"₱ 200","1 Spot","2 days","spot"));
 
+
+        myDrawable = getResources().getDrawable(R.mipmap.mrc);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mSpotImg.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.owsw);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mSpotImg.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.stnino);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mSpotImg.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.msugbo);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mSpotImg.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.fsanpedro);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mSpotImg.add(myLogo);
 
         mViewPagerSpots = (ViewPager) view.findViewById(R.id.viewPagerSpot);
-        mCardAdapter = new CardPagerAdapter(SpotList);
+        mCardAdapter = new CardPagerAdapter(SpotList,mSpotImg);
         FragmentManager fm2 =  getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm2,
                 dpToPixels(2, getContext()));
 
         mCardShadowTransformer = new ShadowTransformer(mViewPagerSpots, mCardAdapter);
         mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerSpots, mFragmentCardAdapter);
-
+        mCardAdapter.notifyDataSetChanged();
         mViewPagerSpots.setAdapter(mCardAdapter);
         mViewPagerSpots.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerSpots.setOffscreenPageLimit(3);
@@ -204,16 +243,17 @@ public class ForYouFragment extends Fragment {
         DealList.add(new ForYou("Smart Technology Tour Promo",4,"₱ 380","6 Spots","10 hrs","deal"));
         DealList.add(new ForYou("Mindanao Islands Tour Promo",5,"₱ 5,300","7 Spots","5 days","deal"));
 
+       mDealImg = mTourImg;
 
         mViewPagerDeals = (ViewPager) view.findViewById(R.id.viewPagerDeals);
-        mCardAdapter = new CardPagerAdapter(DealList);
+        mCardAdapter = new CardPagerAdapter(DealList,mDealImg);
         FragmentManager fm3 =  getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm3,
                 dpToPixels(2, getContext()));
 
         mCardShadowTransformer = new ShadowTransformer(mViewPagerDeals, mCardAdapter);
         mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerDeals, mFragmentCardAdapter);
-
+        mCardAdapter.notifyDataSetChanged();
         mViewPagerDeals.setAdapter(mCardAdapter);
         mViewPagerDeals.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerDeals.setOffscreenPageLimit(3);

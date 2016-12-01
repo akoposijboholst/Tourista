@@ -1,6 +1,9 @@
 package com.touristadev.tourista.fragments;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -45,6 +48,7 @@ public class HotSpotsFragment extends Fragment {
     private ArrayList<ForYou> SpotList = new ArrayList<>();
     private OnFragmentInteractionListener mListener;
     private ArrayList<Spots> SpotListTemp = new ArrayList<>();
+    private ArrayList<Bitmap> mListImages = new ArrayList<>();
     private ShadowTransformer mCardShadowTransformer;
     private ViewPager mViewPagerTours;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
@@ -89,19 +93,31 @@ public class HotSpotsFragment extends Fragment {
         Controllers con = new Controllers();
 
         SpotListTemp = con.getControllerSpots();
+        SpotList.clear();
+//        -----------------------------------------------------------------------------------------------
         if(SpotListTemp!=null){
-        for(int x = 0 ; x < SpotListTemp.size() ; x++) {
-            SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), "₱ " + SpotListTemp.get(x).getSpotEstimatedBudget(), "1 Spot", "8 Hours", "spot"));
+            for(int x = 0 ; x < SpotListTemp.size() ; x++) {
+                SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), "₱ " + SpotListTemp.get(x).getSpotEstimatedBudget(), "1 Spot", "8 Hours", "spot"));
 
-        }        }
-        SpotList.add(new ForYou("Kawasan Falls",5,"₱ 300","1 Spot","5 hrs","spot"));
-        SpotList.add(new ForYou("Camp Sawi",4,"₱ 430","1 Spot","3 days","spot"));
-        SpotList.add(new ForYou("Boracay Beach",5,"₱ 760","1 Spot","2 days","spot"));
-        SpotList.add(new ForYou("Smart Main Office",5,"₱ 250","1 Spot","10 hrs","spot"));
-        SpotList.add(new ForYou("Mt. Apo",4,"₱ 300","1 Spot","8 hrs","spot"));
-        SpotList.add(new ForYou("MoalBoal Beach",5,"₱ 200","1 Spot","2 days","spot"));
-//
+            }
+        }
 
+
+        Drawable myDrawable = getResources().getDrawable(R.mipmap.mrc);
+        Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.owsw);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.stnino);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.msugbo);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.fsanpedro);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_spots);
 
         //permet un affichage sous forme liste verticale
@@ -112,7 +128,7 @@ public class HotSpotsFragment extends Fragment {
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
-        mCardAdapter = new CardExplorerPagerAdapter(SpotList);
+        mCardAdapter = new CardExplorerPagerAdapter(SpotList,mListImages);
         mRecyclerView.setAdapter(mCardAdapter);
         mCardAdapter.notifyDataSetChanged();
 

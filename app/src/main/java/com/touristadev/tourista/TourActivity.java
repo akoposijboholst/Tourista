@@ -18,10 +18,12 @@ import android.view.View;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
+import com.touristadev.tourista.fragments.BookedToursFragment;
 import com.touristadev.tourista.fragments.DealsFragment;
 import com.touristadev.tourista.fragments.ForYouFragment;
 import com.touristadev.tourista.fragments.HotSpotsFragment;
 import com.touristadev.tourista.fragments.HotToursFragment;
+import com.touristadev.tourista.fragments.WishListFragment;
 
 import net.lucode.hackware.magicindicator.FragmentContainerHelper;
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -153,11 +155,11 @@ public class TourActivity extends AppCompatActivity {
     }
 
     private void initFragments() {
-        HotSpotsFragment HotspotFrag = new HotSpotsFragment();
-        HotToursFragment HotTourFrag = new HotToursFragment();
+       BookedToursFragment booked = new BookedToursFragment();
+        WishListFragment wish = new WishListFragment();
 
-        mFragments.add(HotTourFrag);
-        mFragments.add(HotspotFrag);
+        mFragments.add(booked);
+        mFragments.add(wish);
 
 
     }

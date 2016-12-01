@@ -39,6 +39,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
+import com.touristadev.tourista.fragments.HotToursFragment;
 import com.touristadev.tourista.models.CityMaps;
 
 import java.util.ArrayList;
@@ -290,6 +291,14 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
                 txt_Description.setText(marker.getSnippet());
                 ratBarM.setRating((Float.parseFloat(String.valueOf(noStars))));
                 ratBarM.setFocusable(false);
+                btnView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    Intent i = new Intent(DiscoverActivity.this,PackageListActivity.class);
+                        startActivity(i);
+
+                    }
+                });
 
 //                RatingBar ratBar = new RatingBar(context,null,android.R.attr.ratingBarStyle);
 //                ratBar.setRating((Float.parseFloat(String.valueOf(noStars))));
