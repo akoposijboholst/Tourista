@@ -43,7 +43,7 @@ public class ForYouFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private Button btnTourSA,btnSpotSA,btnDealSA;
+    private Button btnTourSA, btnSpotSA, btnDealSA;
     private FragmentContainerHelper mFragmentContainerHelper = new FragmentContainerHelper();
 
     // TODO: Rename and change types of parameters
@@ -51,8 +51,8 @@ public class ForYouFragment extends Fragment {
     private FragmentTransaction fragmentTransaction;
     private String mParam1;
     private String mParam2;
-    private ViewPager mViewPagerTours,mViewPagerSpots,mViewPagerDeals;
-    private ArrayList<Bitmap> mTourImg,mSpotImg,mDealImg;
+    private ViewPager mViewPagerTours, mViewPagerSpots, mViewPagerDeals;
+    private ArrayList<Bitmap> mTourImg, mSpotImg, mDealImg;
     private CardPagerAdapter mCardAdapter;
     private ShadowTransformer mCardShadowTransformer;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
@@ -100,16 +100,17 @@ public class ForYouFragment extends Fragment {
 
 
     }
+
     public static float dpToPixels(int dp, Context context) {
         return dp * (context.getResources().getDisplayMetrics().density);
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_for_you, container, false);;
+        View view = inflater.inflate(R.layout.fragment_for_you, container, false);
+        ;
         mViewPagerTours = (ViewPager) view.findViewById(R.id.viewPagerTours);
         btnTourSA = (Button) view.findViewById(R.id.btnTourSeeAll);
         btnSpotSA = (Button) view.findViewById(R.id.btnSpotSeeAll);
@@ -124,7 +125,7 @@ public class ForYouFragment extends Fragment {
             public void onClick(View view) {
 
                 mFragmentContainerHelper.handlePageSelected(1);
-                  switchPages(1);
+                switchPages(1);
             }
         });
         btnSpotSA.setOnClickListener(new View.OnClickListener() {
@@ -144,17 +145,18 @@ public class ForYouFragment extends Fragment {
 
             }
         });
-        if(TourListTemp!=null){
-            for(int x = 0 ; x < TourListTemp.size() ; x++){
-                TourList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
+        if (TourListTemp != null) {
+            for (int x = 0; x < TourListTemp.size(); x++) {
+                TourList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageBudget()), String.valueOf(TourListTemp.get(x).getPackageItinerary().size()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour"));
 
-            }}
-        TourList.add(new ForYou("Manila Tour",5,"₱ 550","5 Spots","12 hrs","tour"));
-        TourList.add(new ForYou("Boracay Island",4,"₱ 1,350","2 Spots","7 hrs","tour"));
-        TourList.add(new ForYou("Smart Facilities Tour",5,"₱ 400","5 Spots","10 hrs","tour"));
-        TourList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days","tour"));
-        TourList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours","tour"));
-        TourList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs","tour"));
+            }
+        }
+        TourList.add(new ForYou("Manila Tour", 5, "₱ 550", "5 Spots", "12 hrs", "tour"));
+        TourList.add(new ForYou("Boracay Island", 4, "₱ 1,350", "2 Spots", "7 hrs", "tour"));
+        TourList.add(new ForYou("Smart Facilities Tour", 5, "₱ 400", "5 Spots", "10 hrs", "tour"));
+        TourList.add(new ForYou("Philippine Tour", 5, "₱ 10,000", "20 Spots", "14 days", "tour"));
+        TourList.add(new ForYou("FastFood Tour", 5, "₱ 500", "15 Spots", "1 day 3 hours", "tour"));
+        TourList.add(new ForYou("Smart Manila Offices Tour", 5, "₱ 4,000", "4 Spots", "10 hrs", "tour"));
         mTourImg = new ArrayList<>();
         mSpotImg = new ArrayList<>();
         mDealImg = new ArrayList<>();
@@ -184,8 +186,8 @@ public class ForYouFragment extends Fragment {
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mTourImg.add(myLogo);
 // image list tour and deals
-        mCardAdapter = new CardPagerAdapter(TourList,mTourImg);
-        FragmentManager fm =  getFragmentManager();
+        mCardAdapter = new CardPagerAdapter(TourList, mTourImg);
+        FragmentManager fm = getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm,
                 dpToPixels(2, getContext()));
 
@@ -196,11 +198,12 @@ public class ForYouFragment extends Fragment {
         mViewPagerTours.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerTours.setOffscreenPageLimit(3);
 //------------------------------------------------------------------------------------------------
-        if(SpotListTemp!=null){
-            for(int x = 0 ; x < SpotListTemp.size() ; x++) {
+        if (SpotListTemp != null) {
+            for (int x = 0; x < SpotListTemp.size(); x++) {
                 SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), "₱ " + SpotListTemp.get(x).getSpotEstimatedBudget(), "1 Spot", "8 Hours", "spot"));
 
-            }        }
+            }
+        }
 
 // image list spot
         myDrawable = getResources().getDrawable(R.mipmap.mrc);
@@ -220,8 +223,8 @@ public class ForYouFragment extends Fragment {
         mSpotImg.add(myLogo);
 // image list spot
         mViewPagerSpots = (ViewPager) view.findViewById(R.id.viewPagerSpot);
-        mCardAdapter = new CardPagerAdapter(SpotList,mSpotImg);
-        FragmentManager fm2 =  getFragmentManager();
+        mCardAdapter = new CardPagerAdapter(SpotList, mSpotImg);
+        FragmentManager fm2 = getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm2,
                 dpToPixels(2, getContext()));
 
@@ -232,23 +235,24 @@ public class ForYouFragment extends Fragment {
         mViewPagerSpots.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerSpots.setOffscreenPageLimit(3);
 //------------------------------------------------------------------------------------------------
-        if(TourListTemp!=null){
-            for(int x = 0 ; x < TourListTemp.size() ; x++){
-                DealList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
+        if (TourListTemp != null) {
+            for (int x = 0; x < TourListTemp.size(); x++) {
+                DealList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageBudget()), String.valueOf(TourListTemp.get(x).getPackageItinerary().size()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour"));
 
-            }}
-        DealList.add(new ForYou("Cebu Educational Tour Promo",5,"₱ 150 ","5 Spots","10 hrs","deal"));
-        DealList.add(new ForYou("Smart Facility Tour Promo",4,"₱ 300","4 Spots","12 hrs","deal"));
-        DealList.add(new ForYou("Manila Food Tour Promo",5,"₱ 100","15 Spots","8 hrs","deal"));
-        DealList.add(new ForYou("Manila Technology Tour Promo",5,"₱ 250","11 Spots","3 days","deal"));
-        DealList.add(new ForYou("Smart Technology Tour Promo",4,"₱ 380","6 Spots","10 hrs","deal"));
-        DealList.add(new ForYou("Mindanao Islands Tour Promo",5,"₱ 5,300","7 Spots","5 days","deal"));
+            }
+        }
+        DealList.add(new ForYou("Cebu Educational Tour Promo", 5, "₱ 150 ", "5 Spots", "10 hrs", "deal"));
+        DealList.add(new ForYou("Smart Facility Tour Promo", 4, "₱ 300", "4 Spots", "12 hrs", "deal"));
+        DealList.add(new ForYou("Manila Food Tour Promo", 5, "₱ 100", "15 Spots", "8 hrs", "deal"));
+        DealList.add(new ForYou("Manila Technology Tour Promo", 5, "₱ 250", "11 Spots", "3 days", "deal"));
+        DealList.add(new ForYou("Smart Technology Tour Promo", 4, "₱ 380", "6 Spots", "10 hrs", "deal"));
+        DealList.add(new ForYou("Mindanao Islands Tour Promo", 5, "₱ 5,300", "7 Spots", "5 days", "deal"));
 
-       mDealImg = mTourImg;
+        mDealImg = mTourImg;
 
         mViewPagerDeals = (ViewPager) view.findViewById(R.id.viewPagerDeals);
-        mCardAdapter = new CardPagerAdapter(DealList,mDealImg);
-        FragmentManager fm3 =  getFragmentManager();
+        mCardAdapter = new CardPagerAdapter(DealList, mDealImg);
+        FragmentManager fm3 = getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm3,
                 dpToPixels(2, getContext()));
 
@@ -300,6 +304,7 @@ public class ForYouFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
     public void switchPages(int index) {
         fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
