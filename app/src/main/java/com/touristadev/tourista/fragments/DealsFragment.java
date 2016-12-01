@@ -107,7 +107,7 @@ public class DealsFragment extends Fragment {
         DealList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days","tour"));
         DealList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours","tour"));
         DealList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs","tour"));
-
+// image list deals
         Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
         Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mListImages.add(myLogo);
@@ -133,7 +133,7 @@ public class DealsFragment extends Fragment {
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mListImages.add(myLogo);
 
-
+// image list deals
 
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_deals);
 
