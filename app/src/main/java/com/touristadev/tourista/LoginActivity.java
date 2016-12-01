@@ -2,22 +2,45 @@ package com.touristadev.tourista;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button mRegister,mSignIn;
-
-    private TextView t;
-    private Button b, c;
-
+    private Button mRegister, mSignIn;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private CallbackManager mCallbackManager;
+    private String firstName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,16 +51,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //FONTS
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
 
-        b= (Button) findViewById(R.id.btnRegister) ;
-        c= (Button) findViewById(R.id.btnLogin);
-        b.setTypeface(myCustomFont);
-        c.setTypeface(myCustomFont);
-
-
         mRegister = (Button) findViewById(R.id.btnRegister);
         mSignIn = (Button) findViewById(R.id.btnLogin);
+        mRegister.setTypeface(myCustomFont);
+        mSignIn.setTypeface(myCustomFont);
         mRegister.setOnClickListener(this);
         mSignIn.setOnClickListener(this);
+
+
+        mCallbackManager = CallbackManager.Factory.create();
+
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Intent intent = new Intent(LoginActivity.this, ExploreActivity.class);
+                    intent.putExtra("name", user.getDisplayName());
+                    intent.putExtra("email", user.getEmail());
+                    intent.putExtra("photoUrl", user.getPhotoUrl().toString());
+                    startActivity(intent);
+                    //A user is signed in
+                } else {
+                    //A user is not signed in
+                }
+            }
+        };
     }
 
     @Override
@@ -49,10 +90,70 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(intent);
                 break;
             case R.id.btnLogin:
-                Intent login = new Intent(LoginActivity.this, ExploreActivity.class);
-                startActivity(login);
+                login();
                 break;
         }
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void handleFacebookAccessToken(AccessToken token) {
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (!task.isSuccessful()) {
+                            //do nothing
+                        } else {
+                            Intent intent = new Intent(LoginActivity.this, ExploreActivity.class);
+                            intent.putExtra("name", mAuth.getCurrentUser().getDisplayName());
+                            intent.putExtra("email", mAuth.getCurrentUser().getEmail());
+                            intent.putExtra("photoUrl",mAuth.getCurrentUser().getPhotoUrl());
+                            startActivity(intent);
+                        }
+                    }
+                });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
+    public void login() {
+        LoginManager.getInstance().registerCallback(mCallbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(final LoginResult loginResult) {
+                        handleFacebookAccessToken(loginResult.getAccessToken());
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        Toast.makeText(getApplicationContext(), "Login Cancel", Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "user_friends", "email"));
     }
 }
