@@ -1,6 +1,9 @@
 package com.touristadev.tourista.fragments;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -31,6 +34,7 @@ public class BookedToursFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private ArrayList<Bitmap> mListImages = new ArrayList<>();
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -87,8 +91,32 @@ public class BookedToursFragment extends Fragment {
             TourList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()*49),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
 
         }}
-
+        Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
+        Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.cp);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.mt);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.boracay);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.smart);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.philippinetour);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.fastfoodtour);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.smartmanila);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_tours);
+
 
         //permet un affichage sous forme liste verticale
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -98,7 +126,7 @@ public class BookedToursFragment extends Fragment {
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
-//        mCardAdapter = new CardExplorerPagerAdapter(TourList);
+        mCardAdapter = new CardExplorerPagerAdapter(TourList,mListImages);
         mRecyclerView.setAdapter(mCardAdapter);
         mCardAdapter.notifyDataSetChanged();
 
