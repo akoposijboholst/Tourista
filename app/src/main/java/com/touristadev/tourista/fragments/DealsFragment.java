@@ -90,17 +90,17 @@ public class DealsFragment extends Fragment {
         Controllers con = new Controllers();
 
         TourListTemp = con.getControllerPackaaes();
+        for(int x = 0 ; x < TourListTemp.size() ; x++){
+            DealList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()*49),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
 
+        }
         DealList.add(new ForYou("Cebu Educational Tour Promo",5,"₱ 150 ","5 Spots","10 hrs","deal"));
         DealList.add(new ForYou("Smart Facility Tour Promo",4,"₱ 300","4 Spots","12 hrs","deal"));
         DealList.add(new ForYou("Manila Food Tour Promo",5,"₱ 100","15 Spots","8 hrs","deal"));
         DealList.add(new ForYou("Manila Technology Tour Promo",5,"₱ 250","11 Spots","3 days","deal"));
         DealList.add(new ForYou("Smart Technology Tour Promo",4,"₱ 380","6 Spots","10 hrs","deal"));
         DealList.add(new ForYou("Mindanao Islands Tour Promo",5,"₱ 5,300","7 Spots","5 days","deal"));
-//        for(int x = 0 ; x < DealList.size() ; x++){
-//            DealList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),TourListTemp.get(x).getBudget(),TourListTemp.get(x).getPackageItinerary().size(),TourListTemp.get(x).getTotalTime,"Tour"));
-//
-//        }
+
 
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_deals);
 
