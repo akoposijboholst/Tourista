@@ -89,10 +89,11 @@ public class HotSpotsFragment extends Fragment {
         Controllers con = new Controllers();
 
         SpotListTemp = con.getControllerSpots();
-        for(int x = 0 ; x < SpotListTemp.size() ; x++){
-            SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(),SpotListTemp.get(x).getSpotRating(),"₱ "+SpotListTemp.get(x).getSpotEstimatedBudget(),"1 Spot","8 Hours","spot"));
+        if(SpotListTemp!=null){
+        for(int x = 0 ; x < SpotListTemp.size() ; x++) {
+            SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), "₱ " + SpotListTemp.get(x).getSpotEstimatedBudget(), "1 Spot", "8 Hours", "spot"));
 
-        }
+        }        }
         SpotList.add(new ForYou("Kawasan Falls",5,"₱ 300","1 Spot","5 hrs","spot"));
         SpotList.add(new ForYou("Camp Sawi",4,"₱ 430","1 Spot","3 days","spot"));
         SpotList.add(new ForYou("Boracay Beach",5,"₱ 760","1 Spot","2 days","spot"));

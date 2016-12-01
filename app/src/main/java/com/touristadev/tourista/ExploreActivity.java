@@ -3,6 +3,7 @@ package com.touristadev.tourista;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
@@ -43,7 +44,7 @@ public class ExploreActivity extends AppCompatActivity {
     public  FragmentManager fragmentManager;
     private String firstName,lastName, email;
 
-
+    private Typeface myCustomFont;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
@@ -71,6 +72,7 @@ public class ExploreActivity extends AppCompatActivity {
         mFragmentContainerHelper.handlePageSelected(0, false);
         switchPages(0);
 
+        myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
         Intent i = getIntent();
 
         firstName = i.getStringExtra("firstName");
@@ -185,6 +187,7 @@ public class ExploreActivity extends AppCompatActivity {
                 colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#fecd23"));
                 colorTransitionPagerTitleView.setText(CHANNELS[index]);
                 colorTransitionPagerTitleView.setGravity(Gravity.CENTER );
+                colorTransitionPagerTitleView.setTypeface(myCustomFont);
                 colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

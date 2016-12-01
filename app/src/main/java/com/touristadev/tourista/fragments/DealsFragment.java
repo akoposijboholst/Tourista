@@ -90,10 +90,11 @@ public class DealsFragment extends Fragment {
         Controllers con = new Controllers();
 
         TourListTemp = con.getControllerPackaaes();
+        if(TourListTemp!=null){
         for(int x = 0 ; x < TourListTemp.size() ; x++){
-            DealList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()*49),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
+            DealList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
 
-        }
+        }}
         DealList.add(new ForYou("Cebu Educational Tour Promo",5,"₱ 150 ","5 Spots","10 hrs","deal"));
         DealList.add(new ForYou("Smart Facility Tour Promo",4,"₱ 300","4 Spots","12 hrs","deal"));
         DealList.add(new ForYou("Manila Food Tour Promo",5,"₱ 100","15 Spots","8 hrs","deal"));

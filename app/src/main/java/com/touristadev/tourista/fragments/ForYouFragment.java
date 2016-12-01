@@ -141,10 +141,11 @@ public class ForYouFragment extends Fragment {
 
             }
         });
-        for(int x = 0 ; x < TourListTemp.size() ; x++){
-            TourList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()*49),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
+        if(TourListTemp!=null){
+            for(int x = 0 ; x < TourListTemp.size() ; x++){
+                TourList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
 
-        }
+            }}
         TourList.add(new ForYou("Manila Tour",5,"₱ 550","5 Spots","12 hrs","tour"));
         TourList.add(new ForYou("Boracay Island",4,"₱ 1,350","2 Spots","7 hrs","tour"));
         TourList.add(new ForYou("Smart Facilities Tour",5,"₱ 400","5 Spots","10 hrs","tour"));
@@ -165,10 +166,11 @@ public class ForYouFragment extends Fragment {
         mViewPagerTours.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerTours.setOffscreenPageLimit(3);
 //------------------------------------------------------------------------------------------------
-        for(int x = 0 ; x < SpotListTemp.size() ; x++){
-            SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(),SpotListTemp.get(x).getSpotRating(),"₱ "+SpotListTemp.get(x).getSpotEstimatedBudget(),"1 Spot","8 Hours","spot"));
+        if(SpotListTemp!=null){
+            for(int x = 0 ; x < SpotListTemp.size() ; x++) {
+                SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), "₱ " + SpotListTemp.get(x).getSpotEstimatedBudget(), "1 Spot", "8 Hours", "spot"));
 
-        }
+            }        }
         SpotList.add(new ForYou("Kawasan Falls",5,"₱ 300","1 Spot","5 hrs","spot"));
         SpotList.add(new ForYou("Camp Sawi",4,"₱ 430","1 Spot","3 days","spot"));
         SpotList.add(new ForYou("Boracay Beach",5,"₱ 760","1 Spot","2 days","spot"));
@@ -190,10 +192,11 @@ public class ForYouFragment extends Fragment {
         mViewPagerSpots.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerSpots.setOffscreenPageLimit(3);
 //------------------------------------------------------------------------------------------------
-        for(int x = 0 ; x < TourListTemp.size() ; x++){
-            DealList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()*49),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
+        if(TourListTemp!=null){
+            for(int x = 0 ; x < TourListTemp.size() ; x++){
+                DealList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
 
-        }
+            }}
         DealList.add(new ForYou("Cebu Educational Tour Promo",5,"₱ 150 ","5 Spots","10 hrs","deal"));
         DealList.add(new ForYou("Smart Facility Tour Promo",4,"₱ 300","4 Spots","12 hrs","deal"));
         DealList.add(new ForYou("Manila Food Tour Promo",5,"₱ 100","15 Spots","8 hrs","deal"));

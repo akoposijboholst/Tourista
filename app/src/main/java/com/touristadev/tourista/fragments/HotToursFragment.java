@@ -91,10 +91,11 @@ public class HotToursFragment extends Fragment {
        View v = inflater.inflate(R.layout.fragment_hot_tours, container, false);
         Controllers con = new Controllers();
         TourListTemp = con.getControllerPackaaes();
+        if(TourListTemp!=null){
         for(int x = 0 ; x < TourListTemp.size() ; x++){
-            TourList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()*49),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
+            TourList.add(new ForYou(TourListTemp.get(x).getPackageName(),TourListTemp.get(x).getRating(),"₱ "+String.valueOf(TourListTemp.get(x).getPackageBudget()),String.valueOf(TourListTemp.get(x).getPackageItinerary().size())+" Spots",String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours())+" Hours","tour"));
 
-        }
+        }}
         TourList.add(new ForYou("Manila Tour",5,"₱ 550","5 Spots","12 hrs","tour"));
         TourList.add(new ForYou("Boracay Island",4,"₱ 1,350","2 Spots","7 hrs","tour"));
         TourList.add(new ForYou("Smart Facilities Tour",5,"₱ 400","5 Spots","10 hrs","tour"));
