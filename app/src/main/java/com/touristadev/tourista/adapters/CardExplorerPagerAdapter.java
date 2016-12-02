@@ -5,6 +5,8 @@ package com.touristadev.tourista.adapters;
  */
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
@@ -19,7 +21,9 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.touristadev.tourista.PackageDetailsActivity;
 import com.touristadev.tourista.R;
+import com.touristadev.tourista.SpotActivity;
 import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.models.ForYou;
@@ -38,6 +42,7 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
     private TextView txtAlertTitle;
     private Button mBtnBook,mBtnViewDetails;
     private List<Bitmap> mImages;
+    private Context context;
     public  CardExplorerPagerAdapter(ArrayList<ForYou> Data) {
 
         mData = new ArrayList<>();
@@ -87,7 +92,7 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
     public CardExplorerPagerAdapter.MyViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_item_explore, parent, false);
-
+        context = view.getContext();
         final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
         view.setOnClickListener(new View.OnClickListener() {
 
@@ -128,6 +133,24 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
                         }
                     }
                 });
+                mBtnViewDetails.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(mData.get(position).getType().equals("spot")) {
+
+                            Intent i = new Intent(context, SpotActivity.class);
+                            i.putExtra("position",position);
+                            context.startActivity(i);
+                        }else{
+                            Intent i = new Intent(context, PackageDetailsActivity.class);
+                            i.putExtra("position",position);
+                            context.startActivity(i);
+                        }
+
+
+                    }
+                });
+
 
                 dialog.show();
 

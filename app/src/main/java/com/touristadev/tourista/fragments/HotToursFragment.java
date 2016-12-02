@@ -98,30 +98,7 @@ public class HotToursFragment extends Fragment {
         TourList.add(new ForYou("Smart Manila Offices Tour", 5, "₱ 4,000", "4 Spots", "10 hrs", "tour",R.mipmap.smartmanila));
 
 // image list tours
-        Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
-        Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.cp);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.mt);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.boracay);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smart);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.philippinetour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.fastfoodtour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smartmanila);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
+
 
 // image list tours
 

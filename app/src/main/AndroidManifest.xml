@@ -84,13 +84,14 @@
             android:name=".SpotActivity"
             android:label="@string/title_activity_spot"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".tourGuide.RequestActivity"></activity>
+        <activity android:name=".tourGuide.RequestActivity" />
         <activity
             android:name=".PassportActivity"
             android:label="@string/title_activity_passport"
             android:theme="@style/noAnimTheme" />
         <activity android:name=".TourActivity" />
-        <activity android:name=".PackageListActivity"></activity>
+        <activity android:name=".PackageListActivity" />
+        <activity android:name=".PackageDetailsActivity"></activity>
     </application>
 
 </manifest>

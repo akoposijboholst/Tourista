@@ -97,27 +97,13 @@ public class HotSpotsFragment extends Fragment {
 //        -----------------------------------------------------------------------------------------------
         if(SpotListTemp!=null){
             for(int x = 0 ; x < SpotListTemp.size() ; x++) {
-                SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), "₱ " + SpotListTemp.get(x).getSpotEstimatedBudget(), "1 Spot", "8 Hours", "spot",SpotListTemp.get(x).getSpotImage()));
+                SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), " ", " ", " ", "spot",SpotListTemp.get(x).getSpotImage()));
 
             }
         }
 
 // image list spots
-        Drawable myDrawable = getResources().getDrawable(R.mipmap.mrc);
-        Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.owsw);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.stnino);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.msugbo);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.fsanpedro);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
+
         // image list spots
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_spots);
 

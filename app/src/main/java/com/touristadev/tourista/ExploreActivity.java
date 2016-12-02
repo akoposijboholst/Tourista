@@ -188,6 +188,8 @@ public class ExploreActivity extends AppCompatActivity {
                 colorTransitionPagerTitleView.setText(CHANNELS[index]);
                 colorTransitionPagerTitleView.setGravity(Gravity.LEFT);
                 colorTransitionPagerTitleView.setTypeface(myCustomFont);
+                colorTransitionPagerTitleView.setBackgroundColor(Color.CYAN);
+
                 colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

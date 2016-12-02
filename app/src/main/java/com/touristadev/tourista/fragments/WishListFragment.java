@@ -96,30 +96,7 @@ public class WishListFragment extends Fragment {
 
             }
         }
-        Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
-        Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.cp);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.mt);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.boracay);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smart);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.philippinetour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.fastfoodtour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smartmanila);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
+
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_tours);
 
         //permet un affichage sous forme liste verticale
