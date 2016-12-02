@@ -8,10 +8,9 @@
     tools:context="com.touristadev.tourista.SpotActivity">
 
 
-
-        <include layout="@layout/content_spot"
-            android:id="@+id/include" />
-
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_spot" />
 
 
 </android.support.design.widget.CoordinatorLayout>
