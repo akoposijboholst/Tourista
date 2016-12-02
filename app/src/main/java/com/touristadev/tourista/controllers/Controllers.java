@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class Controllers {
     static ArrayList<Spots> spotList = new ArrayList<>();
+    static ArrayList<Packages> packageList = new ArrayList<>();
     static ArrayList<Packages> BookedList = new ArrayList<>();
     static ArrayList<Packages> WishList = new ArrayList<>();
     public void Controllers() {
@@ -243,88 +244,95 @@ public class Controllers {
     public ArrayList<Packages> getControllerPackaaes()
     {
         Controllers();
-        ArrayList<Packages> L= new ArrayList<>();
-        ArrayList<Categories> categories = new ArrayList<>();
-        ArrayList<Tribes> tribes = new ArrayList<>();
-        ArrayList<Itinerary> itineraries = new ArrayList<>();
+        ArrayList<Packages> L1= new ArrayList<>();
+        ArrayList<Categories> categories1 = new ArrayList<>();
+        ArrayList<Tribes> tribes1 = new ArrayList<>();
+        ArrayList<Itinerary> itineraries1 = new ArrayList<>();
+
+        ArrayList<Packages> L2= new ArrayList<>();
+        ArrayList<Categories> categories2 = new ArrayList<>();
+        ArrayList<Tribes> tribes2 = new ArrayList<>();
+        ArrayList<Itinerary> itineraries2 = new ArrayList<>();
+
+        ArrayList<Packages> L3= new ArrayList<>();
+        ArrayList<Categories> categories3 = new ArrayList<>();
+        ArrayList<Tribes> tribes3 = new ArrayList<>();
+        ArrayList<Itinerary> itineraries3 = new ArrayList<>();
 
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
-        categories.add(new Categories("Adventure"));
-        categories.add(new Categories("Nature"));
-        categories.add(new Categories("Beaches and Resorts"));
-        categories.add(new Categories("Beaches and Resorts"));
+        categories1.add(new Categories("Adventure"));
+        categories1.add(new Categories("Nature"));
+        categories1.add(new Categories("Beaches and Resorts"));
+        categories1.add(new Categories("Beaches and Resorts"));
 
-        tribes.add(new Tribes("Thrill-seeker"));
-        tribes.add(new Tribes("Backpacker"));
-        tribes.add(new Tribes("Escapist"));
+        tribes1.add(new Tribes("Thrill-seeker"));
+        tribes1.add(new Tribes("Backpacker"));
+        tribes1.add(new Tribes("Escapist"));
 
-        itineraries.add(new Itinerary("Pick up location","5:00","8:00"));
-        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"8:00","11:00"));
-        itineraries.add(new Itinerary("Lunch","11:00","13:00"));
-        itineraries.add(new Itinerary(spotList.get(0).getSpotName(),"13:00","16:00"));
+        itineraries1.add(new Itinerary("Pick up location","5:00","8:00"));
+        itineraries1.add(new Itinerary(spotList.get(1).getSpotName(),"8:00","11:00"));
+        itineraries1.add(new Itinerary("Lunch","11:00","13:00"));
+        itineraries1.add(new Itinerary(spotList.get(0).getSpotName(),"13:00","16:00"));
 
-        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,2,8,R.mipmap.spot_boracay));
-
-        /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
-        categories.clear();
-        tribes.clear();
-        itineraries.clear();
-
-        categories.add(new Categories("Art Galleries"));
-        categories.add(new Categories("Church"));
-        categories.add(new Categories("Historical"));
-        categories.add(new Categories("Museums"));
-
-        tribes.add(new Tribes("Collector"));
-        tribes.add(new Tribes("Escapist"));
-        tribes.add(new Tribes("The Self-Improver"));
-        tribes.add(new Tribes("Pilgrim"));
-        tribes.add(new Tribes("Genuinely Curious"));
-
-        itineraries.add(new Itinerary("Pick up location","6:00","9:00"));
-        itineraries.add(new Itinerary(spotList.get(2).getSpotName(),"9:00","12:00"));
-        itineraries.add(new Itinerary("Lunch","12:00","13:00"));
-        itineraries.add(new Itinerary(spotList.get(3).getSpotAddress(),"13:00","15:00"));
-        itineraries.add(new Itinerary(spotList.get(4).getSpotName(),"15:00","17:00"));
-
-        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,3,8,R.mipmap.pck2));
-
+        L1.add(new Packages("South Cebu Tours",categories1,itineraries1,"Local",tribes2,4,2,8,R.mipmap.spot_boracay));
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
-        categories.clear();
-        tribes.clear();
-        itineraries.clear();
 
-        categories.add(new Categories("Adventure"));
-        categories.add(new Categories("Aquaria"));
-        categories.add(new Categories("Nature"));
+        categories2.add(new Categories("Art Galleries"));
+        categories2.add(new Categories("Church"));
+        categories2.add(new Categories("Historical"));
+        categories2.add(new Categories("Museums"));
 
-        tribes.add(new Tribes("Thrill-Seeker"));
-        tribes.add(new Tribes("Escapist"));
-        tribes.add(new Tribes("The Self-Improver"));
-        tribes.add(new Tribes("Genuinely Curious"));
+        tribes2.add(new Tribes("Collector"));
+        tribes2.add(new Tribes("Escapist"));
+        tribes2.add(new Tribes("The Self-Improver"));
+        tribes2.add(new Tribes("Pilgrim"));
+        tribes2.add(new Tribes("Genuinely Curious"));
 
-        itineraries.add(new Itinerary("Pick up location","5:00","8:00"));
-        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"8:00","8:30"));
-        itineraries.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","8:30","11:00"));
-        itineraries.add(new Itinerary("Lunch","11:00","12:00"));
-        itineraries.add(new Itinerary(spotList.get(5).getSpotName(),"12:00","15:00"));
-        itineraries.add(new Itinerary("Departure Time","15:00","17:00"));
+        itineraries2.add(new Itinerary("Pick up location","6:00","9:00"));
+        itineraries2.add(new Itinerary(spotList.get(2).getSpotName(),"9:00","12:00"));
+        itineraries2.add(new Itinerary("Lunch","12:00","13:00"));
+        itineraries2.add(new Itinerary(spotList.get(3).getSpotAddress(),"13:00","15:00"));
+        itineraries2.add(new Itinerary(spotList.get(4).getSpotName(),"15:00","17:00"));
 
-        L.add(new Packages("Oslob Whale Watching",categories,itineraries,"Local",tribes,4,2,12,R.mipmap.pck3));
+        L2.add(new Packages("Cebu Pilgrimage",categories2,itineraries2,"Local",tribes2,4,3,8,R.mipmap.pck2));
+
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
 
 
+        categories3.add(new Categories("Adventure"));
+        categories3.add(new Categories("Aquaria"));
+        categories3.add(new Categories("Nature"));
+
+        tribes3.add(new Tribes("Thrill-Seeker"));
+        tribes3.add(new Tribes("Escapist"));
+        tribes3.add(new Tribes("The Self-Improver"));
+        tribes3.add(new Tribes("Genuinely Curious"));
+
+        itineraries3.add(new Itinerary("Pick up location","5:00","8:00"));
+        itineraries3.add(new Itinerary(spotList.get(1).getSpotName(),"8:00","8:30"));
+        itineraries3.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","8:30","11:00"));
+        itineraries3.add(new Itinerary("Lunch","11:00","12:00"));
+        itineraries3.add(new Itinerary(spotList.get(5).getSpotName(),"12:00","15:00"));
+        itineraries3.add(new Itinerary("Departure Time","15:00","17:00"));
+
+        L3.add(new Packages("Oslob Whale Watching",categories3,itineraries3,"Local",tribes3,4,2,12,R.mipmap.pck3));
+
+        /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
+
+
+        packageList.add(L1.get(0));
+        packageList.add(L2.get(0));
+        packageList.add(L3.get(0));
 
 
 
-
-        return L;
+        return packageList;
     }
 
     public ArrayList<TourRequest> getTourRequest()
