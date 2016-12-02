@@ -1,6 +1,9 @@
 package com.touristadev.tourista.fragments;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,6 +20,8 @@ import com.touristadev.tourista.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardExplorerPagerAdapter;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
 import com.touristadev.tourista.adapters.CardPagerAdapter;
+import com.touristadev.tourista.controllers.Controllers;
+import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.models.ForYou;
 
 import java.util.ArrayList;
@@ -42,6 +47,7 @@ public class HotToursFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private ArrayList<ForYou> TourList = new ArrayList<>();
+    private ArrayList<Bitmap> mListImages = new ArrayList<>();
     private OnFragmentInteractionListener mListener;
 
     private ShadowTransformer mCardShadowTransformer;
@@ -50,25 +56,15 @@ public class HotToursFragment extends Fragment {
     private ShadowTransformer mFragmentCardShadowTransformer;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mCardAdapter;
+    private static String mCity;
+    private ArrayList<Packages> TourListTemp = new ArrayList<>();
     public HotToursFragment() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HotToursFragment.
-     */
     // TODO: Rename and change types and number of parameters
-    public static HotToursFragment newInstance(String param1, String param2) {
+    public static HotToursFragment newInstance(String city) {
         HotToursFragment fragment = new HotToursFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+        mCity = city;
         return fragment;
     }
 
@@ -85,14 +81,49 @@ public class HotToursFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        View v = inflater.inflate(R.layout.fragment_hot_tours, container, false);
+        Controllers con = new Controllers();
+        TourListTemp = con.getControllerPackaaes();
+        TourList.clear();
+        if (TourListTemp != null) {
+            for (int x = 0; x < TourListTemp.size(); x++) {
+                TourList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()*40), String.valueOf(TourListTemp.get(x).getPackageNoOfSpots()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour",R.mipmap.boracay));
 
+            }
+        }
+        TourList.add(new ForYou("Manila Tour", 5, "₱ 550", "5 Spots", "12 hrs", "tour",R.mipmap.tml));
+        TourList.add(new ForYou("Boracay Island", 4, "₱ 1,350", "2 Spots", "7 hrs", "tour",R.mipmap.boracay));
+        TourList.add(new ForYou("Smart Facilities Tour", 5, "₱ 400", "5 Spots", "10 hrs", "tour",R.mipmap.smart));
+        TourList.add(new ForYou("Philippine Tour", 5, "₱ 10,000", "20 Spots", "14 days", "tour",R.mipmap.philippinetour));
+        TourList.add(new ForYou("FastFood Tour", 5, "₱ 500", "15 Spots", "1 day 3 hours", "tour",R.mipmap.fastfoodtour));
+        TourList.add(new ForYou("Smart Manila Offices Tour", 5, "₱ 4,000", "4 Spots", "10 hrs", "tour",R.mipmap.smartmanila));
 
-        TourList.add(new ForYou("Manila Tour",5,"₱ 550","5 Spots","12 hrs","tour"));
-        TourList.add(new ForYou("Boracay Island",4,"₱ 1,350","2 Spots","7 hrs","tour"));
-        TourList.add(new ForYou("Smart Facilities Tour",5,"₱ 400","5 Spots","10 hrs","tour"));
-        TourList.add(new ForYou("Philippine Tour",5,"₱ 10,000","20 Spots","14 days","tour"));
-        TourList.add(new ForYou("FastFood Tour",5,"₱ 500","15 Spots","1 day 3 hours","tour"));
-        TourList.add(new ForYou("Smart Manila Offices Tour",5,"₱ 4,000","4 Spots","10 hrs","tour"));
+// image list tours
+        Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
+        Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.cp);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.mt);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.boracay);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.smart);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.philippinetour);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.fastfoodtour);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+        myDrawable = getResources().getDrawable(R.mipmap.smartmanila);
+        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+        mListImages.add(myLogo);
+
+// image list tours
 
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_tours);
 

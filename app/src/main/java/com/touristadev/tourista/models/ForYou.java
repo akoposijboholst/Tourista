@@ -11,14 +11,16 @@ public class ForYou {
     private String NoSpots;
     private String NoHours;
     private String type;
+    private int imgView;
 
-    public ForYou(String title, int rating, String price, String noSpots, String noHours, String type) {
+    public ForYou(String title, int rating, String price, String noSpots, String noHours, String type, int imgView) {
         Title = title;
         Rating = rating;
         Price = price;
         NoSpots = noSpots;
         NoHours = noHours;
         this.type = type;
+        this.imgView = imgView;
     }
 
     public String getTitle() {
@@ -67,5 +69,13 @@ public class ForYou {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getImgView() {
+        return imgView;
+    }
+
+    public void setImgView(int imgView) {
+        this.imgView = imgView;
     }
 }

@@ -22,18 +22,16 @@ import com.touristadev.tourista.fragments.PassportFragment;
 public class PassportActivity extends AppCompatActivity {
     BottomBar mBottomBar;
 
-    private String firstName,lastName, email;
-
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            Intent intent= new Intent(PassportActivity.this,ExploreActivity.class);
+            Intent intent = new Intent(PassportActivity.this, ExploreActivity.class);
             startActivity(intent);
             return true;
         }
-
         return super.onKeyDown(keyCode, event);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,50 +40,35 @@ public class PassportActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        Intent i = getIntent();
-
-        firstName = i.getStringExtra("firstName");
-        lastName = i.getStringExtra("lastName");
-        email = i.getStringExtra("email");
         Fragment fragment = null;
-        fragment = PassportFragment.newInstance(firstName+", "+lastName+"\n "+email);
+        fragment = PassportFragment.newInstance();
         if (fragment != null) {
 
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction()
                     .replace(R.id.fragmentContainer, fragment).commit();
         }
-        mBottomBar= BottomBar.attach(this,savedInstanceState);
+        mBottomBar = BottomBar.attach(this, savedInstanceState);
         mBottomBar.useFixedMode();
         mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setDefaultTabPosition(3);
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(@IdRes int menuItemId) {
-                if(menuItemId== R.id.bottombar1)
-                {
+                if (menuItemId == R.id.bottombar1) {
                     Intent i = new Intent(PassportActivity.this, ExploreActivity.class);
                     startActivity(i);
                 }
-                if(menuItemId== R.id.bottombar2)
-                {
+                if (menuItemId == R.id.bottombar2) {
                     Intent i = new Intent(PassportActivity.this, DiscoverActivity.class);
                     startActivity(i);
                 }
-//                if(menuItemId== R.id.bottombar3)
-//                {
-//
-//                }
-                if(menuItemId== R.id.bottombar4)
-                {
+                if (menuItemId == R.id.bottombar3) {
+
+                    Intent i = new Intent(PassportActivity.this, TourActivity.class);
+                    startActivity(i);
+                }
+                if (menuItemId == R.id.bottombar4) {
 //                    ToursFragments t= new ToursFragments();
 //                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,t).commit();
                 }
@@ -99,14 +82,12 @@ public class PassportActivity extends AppCompatActivity {
         });
 
     }
-    @Override
-    public boolean onCreateOptionsMenu (Menu menu){
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
-
 }
 
 

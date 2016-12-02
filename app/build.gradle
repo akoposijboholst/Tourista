@@ -21,6 +21,7 @@ android {
 
 repositories {
     mavenCentral()
+
 }
 
 dependencies {
@@ -56,6 +57,10 @@ dependencies {
         transitive = true
     }
     compile 'com.github.thunderrise:android-TNRAnimationHelper:d067975d82'
+    compile 'com.miguelcatalan:materialsearchview:1.4.0'
+
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.github.BeppiMenozzi:TriStateToggleButton:1.0.5'
 }
 
 apply plugin: 'com.google.gms.google-services'
