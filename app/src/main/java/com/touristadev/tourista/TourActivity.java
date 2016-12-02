@@ -182,7 +182,7 @@ public class TourActivity extends AppCompatActivity {
                 colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#fecd23"));
                 colorTransitionPagerTitleView.setText(CHANNELS[index]);
                 colorTransitionPagerTitleView.setTypeface(myCustomFont);
-                colorTransitionPagerTitleView.setGravity(Gravity.CENTER );
+                colorTransitionPagerTitleView.setGravity(Gravity.FILL_HORIZONTAL );
                 colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

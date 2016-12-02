@@ -75,7 +75,8 @@ public class ExploreActivity extends AppCompatActivity {
         mFragmentContainerHelper.handlePageSelected(0, false);
         switchPages(0);
 
-        myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
+
+
         Intent i = getIntent();
 
         firstName = i.getStringExtra("firstName");
@@ -182,13 +183,15 @@ public class ExploreActivity extends AppCompatActivity {
 
             @Override
             public IPagerTitleView getTitleView(Context context, final int index) {
+                myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
+
                 ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
-                colorTransitionPagerTitleView.setNormalColor(Color.WHITE);
-                colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#fecd23"));
+                colorTransitionPagerTitleView.setNormalColor(Color.parseColor("#ecf0f1"));
+                colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#ffffff"));
                 colorTransitionPagerTitleView.setText(CHANNELS[index]);
-                colorTransitionPagerTitleView.setGravity(Gravity.LEFT);
+                colorTransitionPagerTitleView.setGravity(Gravity.CENTER);
                 colorTransitionPagerTitleView.setTypeface(myCustomFont);
-                colorTransitionPagerTitleView.setBackgroundColor(Color.CYAN);
+
 
                 colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
