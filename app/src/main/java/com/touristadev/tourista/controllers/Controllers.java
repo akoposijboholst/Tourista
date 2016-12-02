@@ -16,8 +16,8 @@ import java.util.ArrayList;
 
 public class Controllers {
     static ArrayList<Spots> spotList = new ArrayList<>();
-    static ArrayList<Packages> BookedList= new ArrayList<>();
-    static ArrayList<Packages> WishList= new ArrayList<>();
+    static ArrayList<Packages> BookedList = new ArrayList<>();
+    static ArrayList<Packages> WishList = new ArrayList<>();
     public void Controllers() {
 
         spotList= new ArrayList<>();
