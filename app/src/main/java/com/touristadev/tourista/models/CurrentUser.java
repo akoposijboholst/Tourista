@@ -1,15 +1,14 @@
 package com.touristadev.tourista.models;
 
-/**
- * Created by Eugene Boholst on 11/20/2016.
- */
-
 public final class CurrentUser {
-    public String name;
-    public String email;
-    public String userFacebookId;
-    public String userFirebaseId;
-    public String photoUrl;
+    public static String name;
+    public static String email;
+    public static String userFacebookId;
+    public static String userFirebaseId;
+    public static String photoUrl;
+
+    public CurrentUser() {
+    }
 
     public CurrentUser(String name, String email, String userFacebookId, String userFirebaseId, String photoUrl) {
         this.name = name;

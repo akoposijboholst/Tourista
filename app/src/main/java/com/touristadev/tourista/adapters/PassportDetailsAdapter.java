@@ -1,9 +1,5 @@
 package com.touristadev.tourista.adapters;
 
-/**
- * Created by Christian on 11/28/2016.
- */
-
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -24,47 +20,20 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
 
 
     public static Context mContext;
-    private String ratingsCount,tripsCount,badgesCount;
+    private String ratingsCount, tripsCount, badgesCount;
     List<String> Squad;
-    List<Integer>  Trips;
-    RecyclerView mView;
-    View headerLogo;
-    ImageView headerLogoContent;
+    List<Integer> Trips;
 
 
     private String per;
 
     public PassportDetailsAdapter(String ratingsCount, String tripsCount, String badgesCount, List<String> squad, List<Integer> trips) {
-        Log.d("Chan","Weowo");
+        Log.d("Chan", "Weowo");
         this.ratingsCount = ratingsCount;
         this.tripsCount = tripsCount;
         this.badgesCount = badgesCount;
         this.Squad = squad;
         this.Trips = trips;
-    }
-
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public CardView mCardViewStats,mCardViewTribes,mCardViewTrips;
-        public ImageView imgRatings,imgTrips,imgBadges;
-        public TextView txtRatings,txtTrips,txtBadges;
-
-
-        public MyViewHolder(View v) {
-            super(v);
-            mContext = v.getContext();
-            mCardViewStats = (CardView) v.findViewById(R.id.card_view_stats);
-
-            imgRatings = (ImageView) v.findViewById(R.id.imgRatings);
-
-            imgTrips = (ImageView) v.findViewById(R.id.imgTrips);
-            imgBadges = (ImageView) v.findViewById(R.id.imgBadges);
-
-            txtRatings = (TextView) v.findViewById(R.id.txtRatings);
-            txtTrips = (TextView) v.findViewById(R.id.txtTrips);
-            txtBadges = (TextView) v.findViewById(R.id.txtBadges);
-
-
-        }
     }
 
     @Override
@@ -124,62 +93,60 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
         FrameLayout.LayoutParams imageViewParams10 = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT);
 
-        textView1.setMargins(45,340,0,0);
+        textView1.setMargins(45, 0, 0, 0);
         TextView textView = new TextView(mContext);
         textView.setText("Badges");
         textView.setLayoutParams(textView1);
 
-        imageViewParams1.setMargins(45,400,0,0);
+        imageViewParams1.setMargins(45, 20, 0, 0);
         ImageView imageView1 = new ImageView(mContext);
         imageView1.setImageResource(R.mipmap.ic_launcher);
         imageView1.setLayoutParams(imageViewParams1);
 
-        imageViewParams2.setMargins(195,400,0,0);
+        imageViewParams2.setMargins(195, 20, 0, 0);
         ImageView imageView2 = new ImageView(mContext);
         imageView2.setImageResource(R.mipmap.ic_launcher);
         imageView2.setLayoutParams(imageViewParams2);
 
-        imageViewParams3.setMargins(345,400,0,0);
+        imageViewParams3.setMargins(345, 20, 0, 0);
         ImageView imageView3 = new ImageView(mContext);
         imageView3.setImageResource(R.mipmap.ic_launcher);
         imageView3.setLayoutParams(imageViewParams3);
 
-        imageViewParams4.setMargins(495,400,0,0);
+        imageViewParams4.setMargins(495, 20, 0, 0);
         ImageView imageView4 = new ImageView(mContext);
         imageView4.setImageResource(R.mipmap.ic_launcher);
         imageView4.setLayoutParams(imageViewParams4);
 
-        imageViewParams5.setMargins(645,400,0,0);
+        imageViewParams5.setMargins(645, 20, 0, 0);
         ImageView imageView5 = new ImageView(mContext);
         imageView5.setImageResource(R.mipmap.ic_launcher);
         imageView5.setLayoutParams(imageViewParams5);
 
-        imageViewParams6.setMargins(795,400,0,0);
+        imageViewParams6.setMargins(795, 20, 0, 0);
         ImageView imageView6 = new ImageView(mContext);
         imageView6.setImageResource(R.mipmap.ic_launcher);
         imageView6.setLayoutParams(imageViewParams6);
 
-        imageViewParams7.setMargins(45,550,0,0);
+        imageViewParams7.setMargins(45, 90, 0, 0);
         ImageView imageView7 = new ImageView(mContext);
         imageView7.setImageResource(R.mipmap.ic_launcher);
         imageView7.setLayoutParams(imageViewParams7);
 
-        imageViewParams8.setMargins(195,550,0,0);
+        imageViewParams8.setMargins(195, 90, 0, 0);
         ImageView imageView8 = new ImageView(mContext);
         imageView8.setImageResource(R.mipmap.ic_launcher);
         imageView8.setLayoutParams(imageViewParams8);
 
-        imageViewParams9.setMargins(345,550,0,0);
+        imageViewParams9.setMargins(345, 90, 0, 0);
         ImageView imageView9 = new ImageView(mContext);
         imageView9.setImageResource(R.mipmap.ic_launcher);
         imageView9.setLayoutParams(imageViewParams9);
 
-        imageViewParams10.setMargins(495,550,0,0);
+        imageViewParams10.setMargins(495, 90, 0, 0);
         ImageView imageView10 = new ImageView(mContext);
         imageView10.setImageResource(R.mipmap.ic_launcher);
         imageView10.setLayoutParams(imageViewParams10);
-
-
 
 
         holder.mCardViewStats.addView(textView);
@@ -195,5 +162,19 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
         holder.mCardViewStats.addView(imageView10);
     }
 
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        public CardView mCardViewStats, mCardViewTribes, mCardViewTrips;
+        public TextView txtRatings, txtTrips, txtBadges;
+
+
+        public MyViewHolder(View v) {
+            super(v);
+            mContext = v.getContext();
+            mCardViewStats = (CardView) v.findViewById(R.id.card_view_stats);
+            txtRatings = (TextView) v.findViewById(R.id.ratingsNumber);
+            txtTrips = (TextView) v.findViewById(R.id.tripsNumber);
+            txtBadges = (TextView) v.findViewById(R.id.badgesNumber);
+        }
+    }
 
 }
