@@ -261,9 +261,9 @@ public class Controllers {
         tribes.add(new Tribes("Escapist"));
 
         itineraries.add(new Itinerary("Pick up location","500","800"));
-        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"800","1100"));
-        itineraries.add(new Itinerary("Lunch","1100","1300"));
-        itineraries.add(new Itinerary(spotList.get(0).getSpotName(),"1300","1600"));
+        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"8:00 AM","11:00 AM"));
+        itineraries.add(new Itinerary("Lunch","11:00 AM","1:00 PM"));
+        itineraries.add(new Itinerary(spotList.get(0).getSpotName(),"1:00","4:00 PM"));
 
         L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,2,8,R.mipmap.pck1));
 
@@ -283,11 +283,11 @@ public class Controllers {
         tribes.add(new Tribes("Pilgrim"));
         tribes.add(new Tribes("Genuinely Curious"));
 
-        itineraries.add(new Itinerary("Pick up location","600","900"));
-        itineraries.add(new Itinerary(spotList.get(2).getSpotName(),"900","1200"));
-        itineraries.add(new Itinerary("Lunch","1200","1300"));
-        itineraries.add(new Itinerary(spotList.get(3).getSpotAddress(),"1300","1500"));
-        itineraries.add(new Itinerary(spotList.get(4).getSpotName(),"1500","1700"));
+        itineraries.add(new Itinerary("Pick up location","6:00 AM","9:00 AM"));
+        itineraries.add(new Itinerary(spotList.get(2).getSpotName(),"9:00 AM","12:00 PM"));
+        itineraries.add(new Itinerary("Lunch","12:00 PM","1:00 PM"));
+        itineraries.add(new Itinerary(spotList.get(3).getSpotAddress(),"1::00 PM","3:00 PM"));
+        itineraries.add(new Itinerary(spotList.get(4).getSpotName(),"3:00 PM","5:00 PM"));
 
         L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,3,8,R.mipmap.pck2));
 
@@ -307,12 +307,12 @@ public class Controllers {
         tribes.add(new Tribes("The Self-Improver"));
         tribes.add(new Tribes("Genuinely Curious"));
 
-        itineraries.add(new Itinerary("Pick up location","500","800"));
-        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"800","830"));
-        itineraries.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","830","1100"));
-        itineraries.add(new Itinerary("Lunch","1100","1200"));
-        itineraries.add(new Itinerary(spotList.get(5).getSpotName(),"1200","1500"));
-        itineraries.add(new Itinerary("Departure Time","1500","1700"));
+        itineraries.add(new Itinerary("Pick up location","5:00 AM","8:00 AM"));
+        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"8:00 AM","8:30 AM"));
+        itineraries.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","8:30 AM","11:00 AM"));
+        itineraries.add(new Itinerary("Lunch","11:00 AM","12:00 PM"));
+        itineraries.add(new Itinerary(spotList.get(5).getSpotName(),"12:00 PM","3:00 PM"));
+        itineraries.add(new Itinerary("Departure Time","3:00 PM","5:00 PM"));
 
         L.add(new Packages("Oslob Whale Watching",categories,itineraries,"Local",tribes,4,2,12,R.mipmap.pck3));
 
