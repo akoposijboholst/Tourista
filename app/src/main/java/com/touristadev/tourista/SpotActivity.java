@@ -69,6 +69,7 @@ public class SpotActivity extends AppCompatActivity {
                 Log.d("chanSpotSize", spotDetails.getSpotActivity().get(x) + "");
             }
         }
+
         imgSpot.setImageResource(spotDetails.getSpotImage());
         ratBar.setRating(spotDetails.getSpotRating());
         mSpotName.setText(spotDetails.getSpotName());
