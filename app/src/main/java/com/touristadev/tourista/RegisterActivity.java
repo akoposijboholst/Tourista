@@ -91,7 +91,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.btnRegister:
                 login();
-                Toast.makeText(getApplicationContext(), "Welcome! " + firstName, Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -152,6 +151,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                     firstName = object.getString("first_name");
                                     lastName = object.getString("last_name");
                                     email = object.getString("email");
+                                    Toast.makeText(getApplicationContext(), "Welcome! " + firstName, Toast.LENGTH_SHORT).show();
                                 } catch (JSONException e) {
                                     Log.d("Boholst", "Exception");
                                 }
