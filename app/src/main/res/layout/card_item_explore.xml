@@ -37,7 +37,10 @@
                 android:text="Card title"
                 android:id="@+id/txtTitle"
                 android:layout_below="@+id/imgCard"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:maxLines="1"
+                android:maxLength="20"
+                android:ellipsize="end"/>
 
             <TextView
                 android:textSize="17sp"
@@ -47,7 +50,10 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtPrice"
                 android:layout_below="@+id/imgCard"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:maxLines="1"
+                android:maxLength="10"
+                android:ellipsize="end"/>
 
             <TextView
                 android:textSize="17sp"
@@ -58,7 +64,10 @@
                 android:id="@+id/txtNoSpots"
                 android:layout_alignBaseline="@+id/NoHours"
                 android:layout_alignBottom="@+id/NoHours"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:maxLines="1"
+                android:maxLength="10"
+                android:ellipsize="end"/>
 
             <TextView
                android:layout_marginLeft="20dp"
@@ -70,7 +79,10 @@
                 android:id="@+id/NoHours"
                 android:layout_marginEnd="21dp"
                 android:layout_alignTop="@+id/rtBar"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:maxLines="1"
+                android:maxLength="10"
+                android:ellipsize="end"/>
 
             <RatingBar
                 android:layout_height="wrap_content"
@@ -80,6 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_below="@+id/txtPrice"
                 android:layout_alignParentStart="true" />
+
 
             <ImageView
                 android:layout_width="match_parent"

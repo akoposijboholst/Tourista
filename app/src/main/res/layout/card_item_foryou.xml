@@ -28,7 +28,10 @@
                 android:layout_below="@+id/imgCard"
                 android:id="@+id/txtTitle"
                 android:layout_alignParentEnd="true"
-                android:layout_width="150dp" />
+                android:layout_width="150dp"
+                android:maxLines="1"
+                android:maxLength="20"
+                android:ellipsize="end"/>
 
             <ImageView
                 android:layout_width="match_parent"
@@ -45,7 +48,10 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtNoSpots"
                 android:layout_alignTop="@+id/rtBar"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:maxLines="1"
+                android:maxLength="10"
+                android:ellipsize="end"/>
 
             <TextView
                 android:text="TextView"
@@ -56,7 +62,10 @@
                 android:id="@+id/NoHours"
                 android:layout_alignBaseline="@+id/txtNoSpots"
                 android:layout_alignBottom="@+id/txtNoSpots"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:maxLines="1"
+                android:maxLength="10"
+                android:ellipsize="end"/>
 
             <TextView
                 android:text="TextView"
@@ -67,7 +76,10 @@
                 android:layout_alignBaseline="@+id/txtTitle"
                 android:layout_alignBottom="@+id/txtTitle"
                 android:layout_alignStart="@+id/rtBar"
-                android:layout_alignEnd="@+id/rtBar" />
+                android:layout_alignEnd="@+id/rtBar"
+                android:maxLines="1"
+                android:maxLength="10"
+                android:ellipsize="end"/>
 
             <RatingBar
                 android:isIndicator="true"
