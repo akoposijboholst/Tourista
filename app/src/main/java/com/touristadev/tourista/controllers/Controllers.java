@@ -265,7 +265,7 @@ public class Controllers {
         itineraries.add(new Itinerary("Lunch","1100","1300"));
         itineraries.add(new Itinerary(spotList.get(0).getSpotName(),"1300","1600"));
 
-        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,2,8,R.mipmap.pck1));
+        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,2,8,R.mipmap.spot_boracay));
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
         categories.clear();

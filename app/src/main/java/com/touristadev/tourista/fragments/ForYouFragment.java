@@ -189,13 +189,11 @@ public class ForYouFragment extends Fragment {
         mCardAdapter = new CardPagerAdapter(TourList);
         FragmentManager fm = getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm,
-                dpToPixels(2, getContext()));
+              0);
 
-        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
-        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
         mCardAdapter.notifyDataSetChanged();
         mViewPagerTours.setAdapter(mCardAdapter);
-        mViewPagerTours.setPageTransformer(false, mCardShadowTransformer);
+
         mViewPagerTours.setOffscreenPageLimit(3);
 //------------------------------------------------------------------------------------------------
         if (SpotListTemp != null) {
@@ -226,13 +224,10 @@ public class ForYouFragment extends Fragment {
         mCardAdapter = new CardPagerAdapter(SpotList);
         FragmentManager fm2 = getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm2,
-                dpToPixels(2, getContext()));
+                dpToPixels(0, getContext()));
 
-        mCardShadowTransformer = new ShadowTransformer(mViewPagerSpots, mCardAdapter);
-        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerSpots, mFragmentCardAdapter);
         mCardAdapter.notifyDataSetChanged();
         mViewPagerSpots.setAdapter(mCardAdapter);
-        mViewPagerSpots.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerSpots.setOffscreenPageLimit(3);
 //------------------------------------------------------------------------------------------------
         if (TourListTemp != null) {
@@ -254,13 +249,10 @@ public class ForYouFragment extends Fragment {
         mCardAdapter = new CardPagerAdapter(DealList);
         FragmentManager fm3 = getFragmentManager();
         mFragmentCardAdapter = new CardFragmentPagerAdapter(fm3,
-                dpToPixels(2, getContext()));
+                dpToPixels(0, getContext()));
 
-        mCardShadowTransformer = new ShadowTransformer(mViewPagerDeals, mCardAdapter);
-        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerDeals, mFragmentCardAdapter);
         mCardAdapter.notifyDataSetChanged();
         mViewPagerDeals.setAdapter(mCardAdapter);
-        mViewPagerDeals.setPageTransformer(false, mCardShadowTransformer);
         mViewPagerDeals.setOffscreenPageLimit(3);
         return view;
     }
