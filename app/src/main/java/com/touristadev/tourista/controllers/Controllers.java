@@ -1,9 +1,6 @@
 package com.touristadev.tourista.controllers;
 
 import com.touristadev.tourista.R;
-import android.util.Log;
-
-import com.touristadev.tourista.dataModels.Activities;
 import com.touristadev.tourista.dataModels.Categories;
 import com.touristadev.tourista.dataModels.Itinerary;
 import com.touristadev.tourista.dataModels.Packages;
@@ -18,9 +15,9 @@ import java.util.ArrayList;
  */
 
 public class Controllers {
-    static ArrayList<Spots> spotList = new ArrayList<>();
-    static ArrayList<Packages> BookedList = new ArrayList<>();
-    static ArrayList<Packages> WishList = new ArrayList<>();
+    static ArrayList<Spots> spotList;
+    static ArrayList<Packages> BookedList;
+    static ArrayList<Packages> WishList;
     public void Controllers() {
 
         spotList= new ArrayList<>();
@@ -205,7 +202,7 @@ public class Controllers {
         L.add(new Categories("Restaurants"));
         L.add(new Categories("Sports"));
         L.add(new Categories("Zoo"));
-    return L;
+        return L;
     }
 
     public ArrayList<Tribes> getControllerTribes()
@@ -268,7 +265,7 @@ public class Controllers {
         itineraries.add(new Itinerary("Lunch","1100","1300"));
         itineraries.add(new Itinerary(spotList.get(0).getSpotName(),"1300","1600"));
 
-        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,2,8));
+        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,2,8,R.mipmap.pck1));
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
         categories.clear();
@@ -292,13 +289,8 @@ public class Controllers {
         itineraries.add(new Itinerary(spotList.get(3).getSpotAddress(),"1300","1500"));
         itineraries.add(new Itinerary(spotList.get(4).getSpotName(),"1500","1700"));
 
-        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,3,8));
+        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,3,8,R.mipmap.pck2));
 
-
-        /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
-        categories.clear();
-        tribes.clear();
-        itineraries.clear();
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
@@ -322,13 +314,11 @@ public class Controllers {
         itineraries.add(new Itinerary(spotList.get(5).getSpotName(),"1200","1500"));
         itineraries.add(new Itinerary("Departure Time","1500","1700"));
 
-        L.add(new Packages("Oslob Whale Watching",categories,itineraries,"Local",tribes,4,2,12));
+        L.add(new Packages("Oslob Whale Watching",categories,itineraries,"Local",tribes,4,2,12,R.mipmap.pck3));
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
-        categories.clear();
-        tribes.clear();
-        itineraries.clear();
+
 
 
 
