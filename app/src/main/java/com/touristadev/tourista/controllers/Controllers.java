@@ -1,9 +1,6 @@
 package com.touristadev.tourista.controllers;
 
 import com.touristadev.tourista.R;
-import android.util.Log;
-
-import com.touristadev.tourista.dataModels.Activities;
 import com.touristadev.tourista.dataModels.Categories;
 import com.touristadev.tourista.dataModels.Itinerary;
 import com.touristadev.tourista.dataModels.Packages;
@@ -18,9 +15,9 @@ import java.util.ArrayList;
  */
 
 public class Controllers {
-    static ArrayList<Spots> spotList = new ArrayList<>();
-    static ArrayList<Packages> BookedList = new ArrayList<>();
-    static ArrayList<Packages> WishList = new ArrayList<>();
+    static ArrayList<Spots> spotList;
+    static ArrayList<Packages> BookedList;
+    static ArrayList<Packages> WishList;
     public void Controllers() {
 
         spotList= new ArrayList<>();
@@ -205,7 +202,7 @@ public class Controllers {
         L.add(new Categories("Restaurants"));
         L.add(new Categories("Sports"));
         L.add(new Categories("Zoo"));
-    return L;
+        return L;
     }
 
     public ArrayList<Tribes> getControllerTribes()
@@ -223,7 +220,6 @@ public class Controllers {
         L.add(new Tribes("Genuinely Curious"));
 
         return L;
-
     }
 
     public ArrayList<Spots>  getControllerSpots()
@@ -248,11 +244,12 @@ public class Controllers {
     {
         Controllers();
         ArrayList<Packages> L= new ArrayList<>();
+        ArrayList<Categories> categories = new ArrayList<>();
+        ArrayList<Tribes> tribes = new ArrayList<>();
+        ArrayList<Itinerary> itineraries = new ArrayList<>();
+
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
-        ArrayList<Categories> categories0 = new ArrayList<>();
-        ArrayList<Tribes> tribes0 = new ArrayList<>();
-        ArrayList<Itinerary> itineraries0 = new ArrayList<>();
 
         categories.add(new Categories("Adventure"));
         categories.add(new Categories("Nature"));
@@ -268,7 +265,7 @@ public class Controllers {
         itineraries.add(new Itinerary("Lunch","1100","1300"));
         itineraries.add(new Itinerary(spotList.get(0).getSpotName(),"1300","1600"));
 
-        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,2,8));
+        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,2,8,R.mipmap.pck1));
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
         categories.clear();
@@ -292,56 +289,37 @@ public class Controllers {
         itineraries.add(new Itinerary(spotList.get(3).getSpotAddress(),"1300","1500"));
         itineraries.add(new Itinerary(spotList.get(4).getSpotName(),"1500","1700"));
 
-        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,3,8));
+        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,3,8,R.mipmap.pck2));
 
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
-        ArrayList<Categories> categories2 = new ArrayList<>();
-        ArrayList<Tribes> tribes2 = new ArrayList<>();
-        ArrayList<Itinerary> itineraries2 = new ArrayList<>();
+        categories.clear();
+        tribes.clear();
+        itineraries.clear();
 
-        categories2.add(new Categories("Adventure"));
-        categories2.add(new Categories("Aquaria"));
-        categories2.add(new Categories("Nature"));
+        categories.add(new Categories("Adventure"));
+        categories.add(new Categories("Aquaria"));
+        categories.add(new Categories("Nature"));
 
-        tribes2.add(new Tribes("Thrill-Seeker"));
-        tribes2.add(new Tribes("Escapist"));
-        tribes2.add(new Tribes("The Self-Improver"));
-        tribes2.add(new Tribes("Genuinely Curious"));
+        tribes.add(new Tribes("Thrill-Seeker"));
+        tribes.add(new Tribes("Escapist"));
+        tribes.add(new Tribes("The Self-Improver"));
+        tribes.add(new Tribes("Genuinely Curious"));
 
-        itineraries2.add(new Itinerary("Pick up location","500","800"));
-        itineraries2.add(new Itinerary(spotList.get(1).getSpotName(),"800","830"));
-        itineraries2.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","830","1100"));
-        itineraries2.add(new Itinerary("Lunch","1100","1200"));
-        itineraries2.add(new Itinerary(spotList.get(5).getSpotName(),"1200","1500"));
-        itineraries2.add(new Itinerary("Departure Time","1500","1700"));
+        itineraries.add(new Itinerary("Pick up location","500","800"));
+        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"800","830"));
+        itineraries.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","830","1100"));
+        itineraries.add(new Itinerary("Lunch","1100","1200"));
+        itineraries.add(new Itinerary(spotList.get(5).getSpotName(),"1200","1500"));
+        itineraries.add(new Itinerary("Departure Time","1500","1700"));
 
-        L.add(new Packages("Oslob Whale Watching",categories2,itineraries2,"Local",tribes2,4,2,12,R.mipmap.pck3));
+        L.add(new Packages("Oslob Whale Watching",categories,itineraries,"Local",tribes,4,2,12,R.mipmap.pck3));
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
-        ArrayList<Categories> categories3 = new ArrayList<>();
-        ArrayList<Tribes> tribes3 = new ArrayList<>();
-        ArrayList<Itinerary> itineraries3 = new ArrayList<>();
 
-        categories3.add(new Categories("Adventure"));
-        categories3.add(new Categories("Nature"));
 
-        tribes3.add(new Tribes("Thrill-Seeker"));
-        tribes3.add(new Tribes("Escapist"));
-        tribes3.add(new Tribes("The Self-Improver"));
-        tribes3.add(new Tribes("Genuinely Curious"));
-
-        itineraries3.add(new Itinerary("Pick up location","500","700"));
-        itineraries3.add(new Itinerary("Arrival in Badian","700","730"));
-        itineraries3.add(new Itinerary("Breakfast preferably takeout (own expense)","730","830"));
-        itineraries3.add(new Itinerary("Start of Canyoning","830","12000"));
-        itineraries3.add(new Itinerary("End of Canyoning  at Kawasan Falls","830","1200"));
-        itineraries3.add(new Itinerary("Lunch (own expense) and Swimming at Kawasan Falls","1200","1500"));
-        itineraries3.add(new Itinerary("Departure back to Cebu City","1500",""));
-
-        L.add(new Packages("Canyoniring and Kawasan Adventure",categories3,itineraries3,"Local",tribes3,4,2,12,R.mipmap.pck4));
 
 
 
