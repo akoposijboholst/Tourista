@@ -24,9 +24,6 @@ public class SplashActivity extends AppCompatActivity {
         //FONTS
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
 
-        t= (TextView) findViewById(R.id.txtSubText) ;
-        t.setTypeface(myCustomFont);
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
