@@ -40,7 +40,7 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
     private List<Packages> mList;
     private Controllers mController = new Controllers();
     private TextView txtAlertTitle;
-    private Button mBtnBook,mBtnViewDetails;
+    private Button mBtnViewDetails;
     private List<Bitmap> mImages;
     private Context context;
     public  CardExplorerPagerAdapter(ArrayList<ForYou> Data) {
@@ -104,35 +104,12 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
                 mList = mController.getControllerPackaaes();
                 builder.setView(dialogView);
                 final AlertDialog dialog = builder.create();
-                mBtnBook = (Button) dialogView.findViewById(R.id.btnBook);
                 txtAlertTitle = (TextView) dialogView.findViewById(R.id.txtAlertTitle) ;
                 txtAlertTitle.setText(mData.get(position).getTitle());
 
                 Log.d("chan",mData.get(position).getTitle());
                 mBtnViewDetails = (Button) dialogView.findViewById(R.id.btnViewDetails);
-                if(mData.get(position).getType().equals("spot")){
-                    mBtnBook.setClickable(false);
-                    mBtnBook.setVisibility(View.GONE);
-                }
-                mBtnBook.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Log.d("Chan",mData.get(position).getType()+"");
-                        if(mData.get(position).getType().equals("tour")||mData.get(position).getType().equals("deal")){
-                            for(int x = 0 ; x < mList.size(); x++)
-                            {
-                                if(mList.get(x).getPackageName().equals(mData.get(position).getTitle())){
-                                    mController.addWishPackages(mList.get(x));
 
-                                    Log.d("Chan","added package");
-                                    Toast.makeText(view.getContext(),"Added "+mList.get(x).getPackageName()+" to Wish List",
-                                            Toast.LENGTH_SHORT).show();
-                                    dialog.dismiss();
-                                }
-                            }
-                        }
-                    }
-                });
                 mBtnViewDetails.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -141,12 +118,14 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
                             Intent i = new Intent(context, SpotActivity.class);
                             i.putExtra("position",position);
                             context.startActivity(i);
-                        }else{
+                        }
+                        else{
                             Intent i = new Intent(context, PackageDetailsActivity.class);
                             i.putExtra("position",position);
+                            i.putExtra("type",mData.get(position).getType());
+                            i.putExtra("title",mData.get(position).getTitle());
                             context.startActivity(i);
                         }
-
 
                     }
                 });

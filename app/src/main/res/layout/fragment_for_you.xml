@@ -81,6 +81,7 @@
                 android:layout_alignEnd="@+id/txtSpot"
                 android:layout_below="@id/viewPagerSpot"
                 android:gravity="center"
+
                 android:text="DEALS"
                 android:textSize="20sp" />
 
