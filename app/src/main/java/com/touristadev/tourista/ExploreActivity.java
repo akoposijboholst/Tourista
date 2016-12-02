@@ -186,7 +186,7 @@ public class ExploreActivity extends AppCompatActivity {
                 myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
 
                 ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
-                colorTransitionPagerTitleView.setNormalColor(Color.parseColor("#ecf0f1"));
+                colorTransitionPagerTitleView.setNormalColor(Color.parseColor("#bdc3c7"));
                 colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#ffffff"));
                 colorTransitionPagerTitleView.setText(CHANNELS[index]);
                 colorTransitionPagerTitleView.setGravity(Gravity.CENTER);
