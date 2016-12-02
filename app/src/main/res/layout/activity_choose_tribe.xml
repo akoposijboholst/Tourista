@@ -9,14 +9,24 @@
     android:padding="10dp"
     tools:context="com.touristadev.tourista.ChooseTribeActivity">
 
+    <TextView
+        android:text="Choose a Tribe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:id="@+id/textView" />
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -30,7 +40,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/switch_selector"
+                    android:background="@drawable/tribe_selector_adventurer"
                     android:gravity="center"
                     android:onClick="onClick"
                     android:scaleType="fitXY"
@@ -43,7 +53,7 @@
                     android:layout_height="100dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/switch_selector"
+                    android:background="@drawable/tribe_selector_adventurer"
                     android:gravity="center"
                     android:onClick="onClick"
                     android:scaleType="fitXY"
@@ -56,7 +66,7 @@
                     android:layout_height="100dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/switch_selector"
+                    android:background="@drawable/tribe_selector_adventurer"
                     android:gravity="center"
                     android:onClick="onClick"
                     android:scaleType="fitXY"
@@ -69,7 +79,7 @@
                     android:layout_height="100dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/switch_selector"
+                    android:background="@drawable/tribe_selector_adventurer"
                     android:gravity="center"
                     android:onClick="onClick"
                     android:scaleType="fitXY"
@@ -89,7 +99,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/switch_selector"
+                    android:background="@drawable/tribe_selector_adventurer"
                     android:gravity="center"
                     android:onClick="onClick"
                     android:scaleType="fitXY"
@@ -102,7 +112,7 @@
                     android:layout_height="100dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/switch_selector"
+                    android:background="@drawable/tribe_selector_adventurer"
                     android:gravity="center"
                     android:onClick="onClick"
                     android:scaleType="fitXY"
@@ -115,7 +125,7 @@
                     android:layout_height="100dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/switch_selector"
+                    android:background="@drawable/tribe_selector_adventurer"
                     android:gravity="center"
                     android:onClick="onClick"
                     android:scaleType="fitXY"
@@ -128,13 +138,14 @@
                     android:layout_height="100dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/switch_selector"
+                    android:background="@drawable/tribe_selector_adventurer"
                     android:gravity="center"
                     android:onClick="onClick"
                     android:scaleType="fitXY"
                     android:textOff=" "
                     android:textOn=" " />
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
