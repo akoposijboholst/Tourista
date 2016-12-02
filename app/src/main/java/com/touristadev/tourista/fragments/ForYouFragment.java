@@ -160,31 +160,7 @@ public class ForYouFragment extends Fragment {
         mTourImg = new ArrayList<>();
         mSpotImg = new ArrayList<>();
         mDealImg = new ArrayList<>();
-//        image list tour and deals
-        Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
-        Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mTourImg.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.cp);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mTourImg.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.mt);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mTourImg.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.boracay);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mTourImg.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smart);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mTourImg.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.philippinetour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mTourImg.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.fastfoodtour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mTourImg.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smartmanila);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mTourImg.add(myLogo);
+//
 // image list tour and deals
         mCardAdapter = new CardPagerAdapter(TourList);
         FragmentManager fm = getFragmentManager();
@@ -198,28 +174,11 @@ public class ForYouFragment extends Fragment {
 //------------------------------------------------------------------------------------------------
         if (SpotListTemp != null) {
             for (int x = 0; x < SpotListTemp.size(); x++) {
-                SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), "₱ " + SpotListTemp.get(x).getSpotEstimatedBudget(), "1 Spot", "8 Hours", "spot",SpotListTemp.get(x).getSpotImage()));
+                SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), " ", " ", " ", "spot",SpotListTemp.get(x).getSpotImage()));
 
             }
         }
 
-// image list spot
-        myDrawable = getResources().getDrawable(R.mipmap.mrc);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mSpotImg.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.owsw);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mSpotImg.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.stnino);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mSpotImg.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.msugbo);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mSpotImg.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.fsanpedro);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mSpotImg.add(myLogo);
-// image list spot
         mViewPagerSpots = (ViewPager) view.findViewById(R.id.viewPagerSpot);
         mCardAdapter = new CardPagerAdapter(SpotList);
         FragmentManager fm2 = getFragmentManager();

@@ -41,7 +41,7 @@ public class SpotActivity extends AppCompatActivity {
     private ArrayList<String> spotCategory = new ArrayList<>();
     private ArrayList<String> spotTribe = new ArrayList<>();
     private ArrayList<String> spotActivity = new ArrayList<>();
-    private Date openTime, closeTime;
+    private String openTime, closeTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,13 +75,10 @@ public class SpotActivity extends AppCompatActivity {
         mSpotName.setText(spotDetails.getSpotName());
         mSpotAddress.setText("Address: " + spotDetails.getSpotAddress());
         mSpotBudget.setText("₱ " + spotDetails.getSpotEstimatedBudget());
-        DateFormat sdf = new SimpleDateFormat("hh:mm:ss");
-        try {
-            openTime = sdf.parse(spotDetails.getSpotOpeningTime());
-            closeTime = sdf.parse(spotDetails.getSpotClosingTime());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+
+            openTime = spotDetails.getSpotOpeningTime();
+            closeTime = spotDetails.getSpotClosingTime();
+
         mSpotOpen.setText("Open Time: " + openTime + " ");
         Log.d("date", openTime + " ");
         mSpotClose.setText("Close Time: " + closeTime + " ");

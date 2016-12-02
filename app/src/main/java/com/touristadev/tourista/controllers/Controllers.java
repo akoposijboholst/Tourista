@@ -35,7 +35,7 @@ public class Controllers {
         tribes0.add(new Tribes("Self- Improver"));
 
         spotList.add(new Spots(0,"Masters Resort Cebu","4044 Oslob, Cebu, Philippines",
-                "800","2100","The southern part of the province is one of the areas where you can enjoy various sorts of seawater activities, do adventurous trips, have fun and cherish the tranquil ambiance and surroundings."
+                "8:00","21:00","The southern part of the province is one of the areas where you can enjoy various sorts of seawater activities, do adventurous trips, have fun and cherish the tranquil ambiance and surroundings."
                 ,"2000","9.459556960067692","123.37731275707483",
                 activities0,categories0,tribes0,4, R.mipmap.mrc));
 
@@ -57,7 +57,7 @@ public class Controllers {
         tribes1.add(new Tribes("Self- Improver"));
 
         spotList.add(new Spots(1,"Oslob Whale Shark Watching","Tan-awan Oslob, Cebu, Ph",
-                "800","1200","Oslob Whalesharks watching was born to give information about whale shark interaction in Oslob, we are here to organize day tour trips on whale shark encounters with side trip to Tumalog waterfalls. We"
+                "8:00","12:00","Oslob Whalesharks watching was born to give information about whale shark interaction in Oslob, we are here to organize day tour trips on whale shark encounters with side trip to Tumalog waterfalls. We"
                 ,"1000","9.47008451293314","123.38275127112864",
                 activities1,categories1,tribes1,4,R.mipmap.owsw));
 
@@ -81,7 +81,7 @@ public class Controllers {
         tribes2.add(new Tribes("Pilgrim"));
 
         spotList.add(new Spots(2,"Basilica del Santo Niño","Santo Nino Chapel Lane, Cebu City, Cebu"
-                ,"500","2000","The oldest Roman Catholic church in the country, it is built on the spot where the image of the Santo Niño de Cebú was found during the expedition of Miguel López de Legazpi. "
+                ,"5:00","20:00","The oldest Roman Catholic church in the country, it is built on the spot where the image of the Santo Niño de Cebú was found during the expedition of Miguel López de Legazpi. "
                 ,"100","10.294194","123.902106",
                 activities2,categories2,tribes2,4,R.mipmap.stnino));
 
@@ -104,7 +104,7 @@ public class Controllers {
         tribes3.add(new Tribes("Genuinely Curious"));
 
         spotList.add(new Spots(3, "Museo Sugbo", "M. J. Cuenco Ave, Cebu City, 6000 Cebu",
-                "900","1730","Museo Sugbo is the Cebu Provincial Museum located in the former Cebu Provincial Detention and Rehabilitation Center, four blocks from Plaza Independencia."
+                "9:00","17:30","Museo Sugbo is the Cebu Provincial Museum located in the former Cebu Provincial Detention and Rehabilitation Center, four blocks from Plaza Independencia."
                 ,"100", "10.303781",  "123.906758",
                 activities3,categories3,tribes3,4,R.mipmap.msugbo));
 
@@ -128,7 +128,7 @@ public class Controllers {
         tribes4.add(new Tribes("Genuinely Curious"));
 
         spotList.add( new Spots(4,"Fort San Pedro", "A. Pigafetta Street, Cebu City, 6000"
-                ,"700", "1900", "One of the city’s historical attractions is Fort San Pedro which is known as the smallest and oldest fort in the Philippines.",
+                ,"7:00", "19:00", "One of the city’s historical attractions is Fort San Pedro which is known as the smallest and oldest fort in the Philippines.",
                 "100","10.292499","123.905828",activities4, categories4, tribes4,4,R.mipmap.fsanpedro));
 
         // SPOT ////////////////////////////////////////////////////////////////////////////////////
@@ -151,7 +151,7 @@ public class Controllers {
         tribes5.add(new Tribes("Genuinely Curious"));
 
         spotList.add(new Spots(5,"Tumalog Falls","Cebu South Rd, Oslob, Cebu",
-                "500","2200","Tumalog Falls (also called the “Toslob Falls” or “Mag-ambak Falls”) is situated in the town of Oslob, Cebu. It is just about 15-20 minutes ride from the whale-watching site.",
+                "5:00","22:00","Tumalog Falls (also called the “Toslob Falls” or “Mag-ambak Falls”) is situated in the town of Oslob, Cebu. It is just about 15-20 minutes ride from the whale-watching site.",
                 "500","9.486560"," 123.369264",activities5,categories5,tribes5,54,R.mipmap.tml));
 
         // SPOT ////////////////////////////////////////////////////////////////////////////////////
@@ -171,7 +171,7 @@ public class Controllers {
         tribes6.add(new Tribes("Genuinely Curious"));
 
         spotList.add(new Spots(6,"Kawasan Falls","Matutinao,, Badian, 6031 Cebu",
-                "500","2200","Cebu kawasan falls Cebu is a peaceful natural place where you can enjoy many waterfalls of natural spring water located near the southern tip of Cebu Philippines.. A gentle hush of rushing ice cool water."
+                "5:00","22:00","Cebu kawasan falls Cebu is a peaceful natural place where you can enjoy many waterfalls of natural spring water located near the southern tip of Cebu Philippines.. A gentle hush of rushing ice cool water."
                 , "1000","9.811219", "123.374875",activities6,categories6,tribes6,4,R.mipmap.kws));
 
 
@@ -260,10 +260,10 @@ public class Controllers {
         tribes.add(new Tribes("Backpacker"));
         tribes.add(new Tribes("Escapist"));
 
-        itineraries.add(new Itinerary("Pick up location","500","800"));
-        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"800","1100"));
-        itineraries.add(new Itinerary("Lunch","1100","1300"));
-        itineraries.add(new Itinerary(spotList.get(0).getSpotName(),"1300","1600"));
+        itineraries.add(new Itinerary("Pick up location","5:00","8:00"));
+        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"8:00","11:00"));
+        itineraries.add(new Itinerary("Lunch","11:00","13:00"));
+        itineraries.add(new Itinerary(spotList.get(0).getSpotName(),"13:00","16:00"));
 
         L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,2,8,R.mipmap.spot_boracay));
 
@@ -283,11 +283,11 @@ public class Controllers {
         tribes.add(new Tribes("Pilgrim"));
         tribes.add(new Tribes("Genuinely Curious"));
 
-        itineraries.add(new Itinerary("Pick up location","600","900"));
-        itineraries.add(new Itinerary(spotList.get(2).getSpotName(),"900","1200"));
-        itineraries.add(new Itinerary("Lunch","1200","1300"));
-        itineraries.add(new Itinerary(spotList.get(3).getSpotAddress(),"1300","1500"));
-        itineraries.add(new Itinerary(spotList.get(4).getSpotName(),"1500","1700"));
+        itineraries.add(new Itinerary("Pick up location","6:00","9:00"));
+        itineraries.add(new Itinerary(spotList.get(2).getSpotName(),"9:00","12:00"));
+        itineraries.add(new Itinerary("Lunch","12:00","13:00"));
+        itineraries.add(new Itinerary(spotList.get(3).getSpotAddress(),"13:00","15:00"));
+        itineraries.add(new Itinerary(spotList.get(4).getSpotName(),"15:00","17:00"));
 
         L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,3,8,R.mipmap.pck2));
 
@@ -307,12 +307,12 @@ public class Controllers {
         tribes.add(new Tribes("The Self-Improver"));
         tribes.add(new Tribes("Genuinely Curious"));
 
-        itineraries.add(new Itinerary("Pick up location","500","800"));
-        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"800","830"));
-        itineraries.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","830","1100"));
-        itineraries.add(new Itinerary("Lunch","1100","1200"));
-        itineraries.add(new Itinerary(spotList.get(5).getSpotName(),"1200","1500"));
-        itineraries.add(new Itinerary("Departure Time","1500","1700"));
+        itineraries.add(new Itinerary("Pick up location","5:00","8:00"));
+        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"8:00","8:30"));
+        itineraries.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","8:30","11:00"));
+        itineraries.add(new Itinerary("Lunch","11:00","12:00"));
+        itineraries.add(new Itinerary(spotList.get(5).getSpotName(),"12:00","15:00"));
+        itineraries.add(new Itinerary("Departure Time","15:00","17:00"));
 
         L.add(new Packages("Oslob Whale Watching",categories,itineraries,"Local",tribes,4,2,12,R.mipmap.pck3));
 
