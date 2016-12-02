@@ -59,10 +59,6 @@ public class PassportDetailsFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapterM);
 
         MaterialViewPagerHelper.registerRecyclerView(getActivity(), mRecyclerView);
-
-
-
-
     }
 
 

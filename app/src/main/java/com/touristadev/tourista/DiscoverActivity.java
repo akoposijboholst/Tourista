@@ -31,6 +31,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
@@ -79,7 +80,8 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        toolbar.setBackgroundColor(Color.parseColor("#fecd23"));
+        toolbar.setTitleTextColor(Color.parseColor("#ffffff"));
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
         searchView.setVoiceSearch(false);
         searchView.setCursorDrawable(R.drawable.custom_cursor);
@@ -255,10 +257,18 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
             mMap.addMarker(new MarkerOptions().position(city.get(x).getLatlng())
                     .title(city.get(x).getCityName())
                     .snippet("\t\t"+city.get(x).getRating()+"\t\tRatings \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"+city.get(x).getNoSpots()+" Spots\n"+"\n"+"Description: "+"\n"+city.get(x).getDescription())
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+                    .icon(getMarkerIcon("#fecd23")));
 
         }
+        mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
+            @Override
+            public void onMapLongClick(LatLng latLng) {
+                Intent i = new Intent(DiscoverActivity.this,PackageListActivity.class);
+                startActivity(i);
 
+            }
+
+        });
 //        final LatLng PERTH = new LatLng(14.5995,120.9842);
 //        Marker perth = mMap.addMarker(new MarkerOptions()
 //                .position(PERTH)
@@ -269,6 +279,7 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
 
             @Override
             public View getInfoWindow(Marker arg0) {
+
                 return null;
             }
 
@@ -284,63 +295,28 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
 //                Context context = getApplicationContext();
 //
                 Random r = new Random();
-                int stars = r.nextInt(5 - 4) + 3;
+                int stars = r.nextInt(6 - 4) + 4;
                 noStars = stars;
 
                 txtTile.setText(marker.getTitle());
                 txt_Description.setText(marker.getSnippet());
                 ratBarM.setRating((Float.parseFloat(String.valueOf(noStars))));
                 ratBarM.setFocusable(false);
-                btnView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                    Intent i = new Intent(DiscoverActivity.this,PackageListActivity.class);
-                        startActivity(i);
 
-                    }
-                });
-                v.setOnClickListener(new View.OnClickListener() {
+                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onInfoWindowClick(Marker marker) {
                         Intent i = new Intent(DiscoverActivity.this,PackageListActivity.class);
+                        i.putExtra("City",marker.getTitle());
                         startActivity(i);
                     }
                 });
-
-//                RatingBar ratBar = new RatingBar(context,null,android.R.attr.ratingBarStyle);
-//                ratBar.setRating((Float.parseFloat(String.valueOf(noStars))));
-//                ratBar.setFocusable(false);
-////                ratBar.setStepSize(0.1);
-//                ratBar.setNumStars(1);
-//
-//
-////
-////                marker.get
-//                TextView snippet = new TextView(context);
-//                snippet.setTextColor(Color.GRAY);
-//                snippet.setText(marker.getSnippet());
-//
-//                Button btnSpot = new Button(context);
-//                btnSpot.setText("");
-//                btnSpot.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-//                btnSpot.setGravity(Gravity.CENTER);
-//
-//
-//
-//
-//                info.addView(title);
-//                info.addView(ratBar);
-//                info.addView(snippet);
-//                info.addView(btnSpot);
-
-//                info.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//
-//                    }
-//                });
                 return v;
             }
         });
     }
+    public BitmapDescriptor getMarkerIcon(String color) {
+        float[] hsv = new float[3];
+        Color.colorToHSV(Color.parseColor(color), hsv);
+        return BitmapDescriptorFactory.defaultMarker(hsv[0]);}
 }

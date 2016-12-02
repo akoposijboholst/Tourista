@@ -97,7 +97,7 @@ public class HotSpotsFragment extends Fragment {
 //        -----------------------------------------------------------------------------------------------
         if(SpotListTemp!=null){
             for(int x = 0 ; x < SpotListTemp.size() ; x++) {
-                SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), "₱ " + SpotListTemp.get(x).getSpotEstimatedBudget(), "1 Spot", "8 Hours", "spot"));
+                SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), "₱ " + SpotListTemp.get(x).getSpotEstimatedBudget(), "1 Spot", "8 Hours", "spot",SpotListTemp.get(x).getSpotImage()));
 
             }
         }
@@ -129,7 +129,7 @@ public class HotSpotsFragment extends Fragment {
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
-        mCardAdapter = new CardExplorerPagerAdapter(SpotList,mListImages);
+        mCardAdapter = new CardExplorerPagerAdapter(SpotList);
         mRecyclerView.setAdapter(mCardAdapter);
         mCardAdapter.notifyDataSetChanged();
 

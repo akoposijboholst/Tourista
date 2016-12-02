@@ -1,6 +1,9 @@
 package com.touristadev.tourista.controllers;
 
 import com.touristadev.tourista.R;
+import android.util.Log;
+
+import com.touristadev.tourista.dataModels.Activities;
 import com.touristadev.tourista.dataModels.Categories;
 import com.touristadev.tourista.dataModels.Itinerary;
 import com.touristadev.tourista.dataModels.Packages;
@@ -15,9 +18,9 @@ import java.util.ArrayList;
  */
 
 public class Controllers {
-    static ArrayList<Spots> spotList;
-    static ArrayList<Packages> BookedList;
-    static ArrayList<Packages> WishList;
+    static ArrayList<Spots> spotList = new ArrayList<>();
+    static ArrayList<Packages> BookedList = new ArrayList<>();
+    static ArrayList<Packages> WishList = new ArrayList<>();
     public void Controllers() {
 
         spotList= new ArrayList<>();
@@ -251,45 +254,45 @@ public class Controllers {
         ArrayList<Tribes> tribes0 = new ArrayList<>();
         ArrayList<Itinerary> itineraries0 = new ArrayList<>();
 
-        categories0.add(new Categories("Adventure"));
-        categories0.add(new Categories("Nature"));
-        categories0.add(new Categories("Beaches and Resorts"));
-        categories0.add(new Categories("Beaches and Resorts"));
+        categories.add(new Categories("Adventure"));
+        categories.add(new Categories("Nature"));
+        categories.add(new Categories("Beaches and Resorts"));
+        categories.add(new Categories("Beaches and Resorts"));
 
-        tribes0.add(new Tribes("Thrill-seeker"));
-        tribes0.add(new Tribes("Backpacker"));
-        tribes0.add(new Tribes("Escapist"));
+        tribes.add(new Tribes("Thrill-seeker"));
+        tribes.add(new Tribes("Backpacker"));
+        tribes.add(new Tribes("Escapist"));
 
-        itineraries0.add(new Itinerary("Pick up location","500","800"));
-        itineraries0.add(new Itinerary(spotList.get(1).getSpotName(),"800","1100"));
-        itineraries0.add(new Itinerary("Lunch","1100","1300"));
-        itineraries0.add(new Itinerary(spotList.get(0).getSpotName(),"1300","1600"));
+        itineraries.add(new Itinerary("Pick up location","500","800"));
+        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"800","1100"));
+        itineraries.add(new Itinerary("Lunch","1100","1300"));
+        itineraries.add(new Itinerary(spotList.get(0).getSpotName(),"1300","1600"));
 
-        L.add(new Packages("South Cebu Tours",categories0,itineraries0,"Local",tribes0,4,2,8,R.mipmap.pck1));
+        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,2,8));
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
-        ArrayList<Categories> categories1 = new ArrayList<>();
-        ArrayList<Tribes> tribes1 = new ArrayList<>();
-        ArrayList<Itinerary> itineraries1 = new ArrayList<>();
+        categories.clear();
+        tribes.clear();
+        itineraries.clear();
 
-        categories1.add(new Categories("Art Galleries"));
-        categories1.add(new Categories("Church"));
-        categories1.add(new Categories("Historical"));
-        categories1.add(new Categories("Museums"));
+        categories.add(new Categories("Art Galleries"));
+        categories.add(new Categories("Church"));
+        categories.add(new Categories("Historical"));
+        categories.add(new Categories("Museums"));
 
-        tribes1.add(new Tribes("Collector"));
-        tribes1.add(new Tribes("Escapist"));
-        tribes1.add(new Tribes("The Self-Improver"));
-        tribes1.add(new Tribes("Pilgrim"));
-        tribes1.add(new Tribes("Genuinely Curious"));
+        tribes.add(new Tribes("Collector"));
+        tribes.add(new Tribes("Escapist"));
+        tribes.add(new Tribes("The Self-Improver"));
+        tribes.add(new Tribes("Pilgrim"));
+        tribes.add(new Tribes("Genuinely Curious"));
 
-        itineraries1.add(new Itinerary("Pick up location","600","900"));
-        itineraries1.add(new Itinerary(spotList.get(2).getSpotName(),"900","1200"));
-        itineraries1.add(new Itinerary("Lunch","1200","1300"));
-        itineraries1.add(new Itinerary(spotList.get(3).getSpotAddress(),"1300","1500"));
-        itineraries1.add(new Itinerary(spotList.get(4).getSpotName(),"1500","1700"));
+        itineraries.add(new Itinerary("Pick up location","600","900"));
+        itineraries.add(new Itinerary(spotList.get(2).getSpotName(),"900","1200"));
+        itineraries.add(new Itinerary("Lunch","1200","1300"));
+        itineraries.add(new Itinerary(spotList.get(3).getSpotAddress(),"1300","1500"));
+        itineraries.add(new Itinerary(spotList.get(4).getSpotName(),"1500","1700"));
 
-        L.add(new Packages("Cebu Pilgrimage",categories1,itineraries1,"Local",tribes1,4,3,8,R.mipmap.pck2));
+        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,3,8));
 
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////

@@ -28,6 +28,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.touristadev.tourista.models.CurrentUser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -69,9 +70,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     Intent intent = new Intent(LoginActivity.this, ExploreActivity.class);
-                    intent.putExtra("name", user.getDisplayName());
-                    intent.putExtra("email", user.getEmail());
-                    intent.putExtra("photoUrl", user.getPhotoUrl().toString());
+                    CurrentUser.email = user.getEmail();
+                    CurrentUser.name = user.getDisplayName();
+                    CurrentUser.photoUrl = user.getPhotoUrl().toString();
                     startActivity(intent);
                     //A user is signed in
                 } else {
@@ -113,9 +114,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             //do nothing
                         } else {
                             Intent intent = new Intent(LoginActivity.this, ExploreActivity.class);
-                            intent.putExtra("name", mAuth.getCurrentUser().getDisplayName());
-                            intent.putExtra("email", mAuth.getCurrentUser().getEmail());
-                            intent.putExtra("photoUrl",mAuth.getCurrentUser().getPhotoUrl());
+                            CurrentUser.email = mAuth.getCurrentUser().getEmail();
+                            CurrentUser.name = mAuth.getCurrentUser().getDisplayName();
+                            CurrentUser.photoUrl = mAuth.getCurrentUser().getPhotoUrl().toString();
                             startActivity(intent);
                         }
                     }
