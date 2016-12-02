@@ -1,16 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_spot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.touristadev.tourista.SpotActivity"
     tools:showIn="@layout/activity_spot">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        app:srcCompat="@mipmap/boracay"
+        android:id="@+id/imgSpot"
+        android:layout_alignParentEnd="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/background_border"
+        android:layout_below="@+id/txtTitle"
+        android:id="@+id/relLay"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp">
+    </RelativeLayout>
+
+    <TextView
+        android:text="TextView"
+        android:id="@+id/txtTitle"
+        android:textSize="25sp"
+        app:layout_anchor="@+id/include"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+
+        android:textStyle="bold"
+        android:layout_below="@+id/imgSpot"
+        android:layout_alignStart="@+id/txtSpotAddress" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:id="@+id/txtSpotAddress"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/relLay"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtSpotBudget"
+        android:layout_alignEnd="@+id/rtBar"
+        android:layout_toEndOf="@+id/txtSpotAddress"
+        android:layout_alignBottom="@+id/txtSpotAddress"
+        android:layout_alignTop="@+id/txtSpotAddress" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_below="@+id/txtSpotAddress"
+        android:layout_alignStart="@+id/txtSpotAddress"
+        android:layout_marginTop="15dp"
+        android:id="@+id/txtOpenTime"
+        android:layout_width="180dp"
+        android:layout_height="25dp" />
+
+    <TextView
+        android:text="TextView"
+        android:id="@+id/txtCloseTime"
+        android:layout_width="180dp"
+        android:layout_alignBaseline="@+id/txtOpenTime"
+        android:layout_alignBottom="@+id/txtOpenTime"
+        android:layout_toEndOf="@+id/txtOpenTime"
+        android:layout_height="25dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/background_border"
+        android:layout_below="@+id/txtCloseTime"
+        android:id="@+id/relLay2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/background_border"
+        android:layout_below="@+id/txtSpotDesc"
+        android:id="@+id/relLay3"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp">
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Activities Available"
+        android:layout_marginLeft="15dp"
+        android:textSize="20sp"
+        android:layout_below="@id/relLay3"
+        android:id="@+id/ActivityTitle"/>
+
+    <ListView
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SpotActivityListView"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/ActivityTitle"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/background_border"
+        android:layout_below="@+id/SpotActivityListView"
+        android:id="@+id/relLay4"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+      />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginLeft="15dp"
+        android:text="Spot Category"
+        android:textSize="20sp"
+        android:layout_below="@id/relLay4"
+        android:id="@+id/CategoryTitle"/>
+        <ListView
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/SpotCategoryListView"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/CategoryTitle"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/background_border"
+        android:layout_below="@+id/SpotCategoryListView"
+        android:id="@+id/reyLay5"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+       >
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginLeft="15dp"
+        android:layout_height="wrap_content"
+        android:text="Spot Tribe"
+        android:textSize="20sp"
+        android:layout_below="@id/reyLay5"
+        android:id="@+id/TribeTitle"/>
+    <ListView
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SpotTriListView"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/TribeTitle"/>
+
+    <TextView
+        android:text="txtSpotDesc"
+        android:layout_width="wrap_content"
+        android:id="@+id/txtSpotDesc"
+        android:layout_height="75dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/relLay2"
+        android:layout_alignStart="@+id/txtOpenTime"
+        android:layout_alignEnd="@+id/txtSpotBudget" />
+
+    <RatingBar
+        android:layout_height="wrap_content"
+        android:id="@+id/rtBar"
+        android:isIndicator="true"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:layout_above="@+id/relLay"
+        android:layout_alignEnd="@+id/txtCloseTime"
+        android:layout_marginEnd="13dp" />
 
 </RelativeLayout>
+</ScrollView>

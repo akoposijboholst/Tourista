@@ -1,38 +1,32 @@
 package com.touristadev.tourista.fragments;
 
 /**
- * Created by Christian on 12/1/2016.
+ * Created by Shanyl Jimenez on 12/1/2016.
  */
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.ShadowTransformer;
-import com.touristadev.tourista.adapters.CardExplorerPagerAdapter;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
+import com.touristadev.tourista.adapters.PackageAdapter;
 import com.touristadev.tourista.controllers.Controllers;
-import com.touristadev.tourista.models.ForYou;
-import com.touristadev.tourista.models.Packages;
+import com.touristadev.tourista.dataModels.Packages;
 
 import java.util.ArrayList;
 
-/**
- * Created by Christian on 12/1/2016.
- */
-
-public class WishListFragment extends Fragment {
+public class FeedFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,105 +35,63 @@ public class WishListFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private ArrayList<ForYou> TourList = new ArrayList<>();
+    private ArrayList<Packages> list = new ArrayList<>();
     private OnFragmentInteractionListener mListener;
 
-    private ArrayList<Bitmap> mListImages = new ArrayList<>();
     private ShadowTransformer mCardShadowTransformer;
     private ViewPager mViewPagerTours;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
     private ShadowTransformer mFragmentCardShadowTransformer;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mCardAdapter;
+    private Controllers mControllers;
 
-    private ArrayList<com.touristadev.tourista.dataModels.Packages> TourListTemp = new ArrayList<>();
-    public WishListFragment() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HotToursFragment.
-     */
     // TODO: Rename and change types and number of parameters
-    public static HotToursFragment newInstance(String param1, String param2) {
-        HotToursFragment fragment = new HotToursFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public static FeedFragment newInstance(String userNamez) {
+
+        return new FeedFragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_hot_tours, container, false);
-        Controllers con = new Controllers();
-        TourListTemp = con.getWishList();
-        if (TourListTemp != null) {
-            for (int x = 0; x < TourListTemp.size(); x++) {
-                TourList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()*40), String.valueOf(TourListTemp.get(x).getPackageNoOfSpots()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour",R.mipmap.boracay));
+        View v = inflater.inflate(R.layout.fragment_feed, container, false);
 
-            }
-        }
-        Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
-        Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.cp);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.mt);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.boracay);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smart);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.philippinetour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.fastfoodtour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smartmanila);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_tours);
+
+
+        return v;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.d("shan","1");
+
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_recycler_view_feed);
 
         //permet un affichage sous forme liste verticale
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
-
+        mControllers = new Controllers();
+        list=mControllers.getControllerPackaaes();
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
-        mCardAdapter = new CardExplorerPagerAdapter(TourList);
+        mCardAdapter = new PackageAdapter(list);
         mRecyclerView.setAdapter(mCardAdapter);
         mCardAdapter.notifyDataSetChanged();
 
 //        mViewPagerTours.setPageTransformer(false, mCardShadowTransformer);
 //        mViewPagerTours.setOffscreenPageLimit(3);
 
-
-
-        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

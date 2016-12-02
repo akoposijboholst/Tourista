@@ -1,7 +1,7 @@
 package com.touristadev.tourista.fragments;
 
 /**
- * Created by Christian on 12/1/2016.
+ * Created by Christian on 12/2/2016.
  */
 
 import android.content.Context;
@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,17 +23,25 @@ import com.touristadev.tourista.R;
 import com.touristadev.tourista.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardExplorerPagerAdapter;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
+import com.touristadev.tourista.adapters.CardPagerAdapter;
 import com.touristadev.tourista.controllers.Controllers;
+import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.models.ForYou;
-import com.touristadev.tourista.models.Packages;
 
 import java.util.ArrayList;
 
-/**
- * Created by Christian on 12/1/2016.
- */
+import static com.touristadev.tourista.fragments.ForYouFragment.dpToPixels;
 
-public class WishListFragment extends Fragment {
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link HotToursFragment.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link HotToursFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class CityToursFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -42,36 +51,25 @@ public class WishListFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private ArrayList<ForYou> TourList = new ArrayList<>();
+    private ArrayList<Bitmap> mListImages = new ArrayList<>();
     private OnFragmentInteractionListener mListener;
 
-    private ArrayList<Bitmap> mListImages = new ArrayList<>();
     private ShadowTransformer mCardShadowTransformer;
     private ViewPager mViewPagerTours;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
     private ShadowTransformer mFragmentCardShadowTransformer;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mCardAdapter;
-
-    private ArrayList<com.touristadev.tourista.dataModels.Packages> TourListTemp = new ArrayList<>();
-    public WishListFragment() {
+    private static String mCity;
+    private ArrayList<Packages> TourListTemp = new ArrayList<>();
+    public CityToursFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HotToursFragment.
-     */
     // TODO: Rename and change types and number of parameters
-    public static HotToursFragment newInstance(String param1, String param2) {
-        HotToursFragment fragment = new HotToursFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+    public static CityToursFragment newInstance(String city) {
+        CityToursFragment fragment = new CityToursFragment();
+        mCity = city;
         return fragment;
     }
 
@@ -89,23 +87,22 @@ public class WishListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_hot_tours, container, false);
         Controllers con = new Controllers();
-        TourListTemp = con.getWishList();
+        TourListTemp = con.getControllerPackaaes();
+        TourList.clear();
         if (TourListTemp != null) {
             for (int x = 0; x < TourListTemp.size(); x++) {
                 TourList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()*40), String.valueOf(TourListTemp.get(x).getPackageNoOfSpots()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour",R.mipmap.boracay));
 
             }
         }
+        TourList.add(new ForYou("Smart Facilities Tour", 5, "₱ 400", "5 Spots", "10 hrs", "tour",R.mipmap.smart));
+        TourList.add(new ForYou("Philippine Tour", 5, "₱ 10,000", "20 Spots", "14 days", "tour",R.mipmap.philippinetour));
+        TourList.add(new ForYou("FastFood Tour", 5, "₱ 500", "15 Spots", "1 day 3 hours", "tour",R.mipmap.fastfoodtour));
+// image list tours
         Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
         Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mListImages.add(myLogo);
         myDrawable = getResources().getDrawable(R.mipmap.cp);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.mt);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.boracay);
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mListImages.add(myLogo);
         myDrawable = getResources().getDrawable(R.mipmap.smart);
@@ -117,9 +114,9 @@ public class WishListFragment extends Fragment {
         myDrawable = getResources().getDrawable(R.mipmap.fastfoodtour);
         myLogo = ((BitmapDrawable) myDrawable).getBitmap();
         mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smartmanila);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
+
+// image list tours
+
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_tours);
 
         //permet un affichage sous forme liste verticale
