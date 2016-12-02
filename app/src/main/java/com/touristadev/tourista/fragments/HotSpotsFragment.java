@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.touristadev.tourista.R;
-import com.touristadev.tourista.ShadowTransformer;
+//import com.touristadev.tourista.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardExplorerPagerAdapter;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
 import com.touristadev.tourista.controllers.Controllers;
@@ -49,10 +49,10 @@ public class HotSpotsFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private ArrayList<Spots> SpotListTemp = new ArrayList<>();
     private ArrayList<Bitmap> mListImages = new ArrayList<>();
-    private ShadowTransformer mCardShadowTransformer;
+    //private ShadowTransformer mCardShadowTransformer;
     private ViewPager mViewPagerTours;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
-    private ShadowTransformer mFragmentCardShadowTransformer;
+    //private ShadowTransformer mFragmentCardShadowTransformer;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mCardAdapter;
     public HotSpotsFragment() {
