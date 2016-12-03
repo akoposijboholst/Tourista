@@ -51,6 +51,7 @@ public class ExploreActivity extends AppCompatActivity {
     private Typeface myCustomFont;
 
 
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
@@ -73,6 +74,7 @@ public class ExploreActivity extends AppCompatActivity {
         super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_explore);
 
+
         initFragments();
         initMagicIndicator1();
 
@@ -88,6 +90,7 @@ public class ExploreActivity extends AppCompatActivity {
 
         mBottomBar = BottomBar.attach(this, savedInstanceState);
         mBottomBar.useFixedMode();
+        mBottomBar.setTypeFace("fonts/Poppins-Regular.ttf");
         mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
@@ -133,6 +136,7 @@ public class ExploreActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
 
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
@@ -192,7 +196,7 @@ public class ExploreActivity extends AppCompatActivity {
 
             @Override
             public IPagerTitleView getTitleView(Context context, final int index) {
-                myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
+                myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Poppins-Bold.ttf");
 
                 ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
                 colorTransitionPagerTitleView.setNormalColor(Color.parseColor("#BBDEFB"));

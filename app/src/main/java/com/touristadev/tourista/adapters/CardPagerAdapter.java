@@ -96,21 +96,22 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
          mInflater = LayoutInflater.from(container.getContext());
 
         context = view.getContext();
+
         //FONTS
-        Typeface FontRalewayBold = Typeface.createFromAsset(container.getContext().getAssets(), "fonts/Raleway-Bold.ttf");
-        Typeface FontRalewayLight = Typeface.createFromAsset(container.getContext().getAssets(), "fonts/Raleway-Light.ttf");
+        Typeface FontPoppinsBold = Typeface.createFromAsset(container.getContext().getAssets(), "fonts/Poppins-Bold.ttf");
+        Typeface FontPoppinsLight = Typeface.createFromAsset(container.getContext().getAssets(), "fonts/Poppins-Light.ttf");
 
         txtPrice = (TextView) view.findViewById(R.id.txtPrice);
-        txtPrice.setTypeface(FontRalewayBold);
+        txtPrice.setTypeface(FontPoppinsBold);
 
         txtTitle = (TextView) view.findViewById(R.id.txtTitle);
-        txtTitle.setTypeface(FontRalewayLight);
+        txtTitle.setTypeface(FontPoppinsLight);
 
-        txtHours = (TextView) view.findViewById(R.id.txtNoSpots);
-        txtTitle.setTypeface(FontRalewayLight);
+        txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);
+        txtSpots.setTypeface(FontPoppinsLight);
 
-        txtTitle = (TextView) view.findViewById(R.id.NoHours);
-        txtTitle.setTypeface(FontRalewayLight);
+        txtHours = (TextView) view.findViewById(R.id.NoHours);
+        txtHours.setTypeface(FontPoppinsLight);
 
 
 

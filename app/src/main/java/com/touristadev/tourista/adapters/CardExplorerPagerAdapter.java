@@ -8,6 +8,7 @@ package com.touristadev.tourista.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -43,6 +44,7 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
     private Button mBtnViewDetails;
     private List<Bitmap> mImages;
     private Context context;
+    private TextView txtTitle,txtPrice,txtSpots,txtHours;
     public  CardExplorerPagerAdapter(ArrayList<ForYou> Data) {
 
         mData = new ArrayList<>();
@@ -94,6 +96,23 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
                 .inflate(R.layout.card_item_explore, parent, false);
         context = view.getContext();
         final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+
+        //FONTS
+        Typeface FontPoppinsBold = Typeface.createFromAsset(context.getAssets(), "fonts/Poppins-Bold.ttf");
+        Typeface FontPoppinsLight = Typeface.createFromAsset(context.getAssets(), "fonts/Poppins-Light.ttf");
+
+        txtPrice = (TextView) view.findViewById(R.id.txtPrice);
+        txtPrice.setTypeface(FontPoppinsBold);
+
+        txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+        txtTitle.setTypeface(FontPoppinsLight);
+
+        txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);
+        txtSpots.setTypeface(FontPoppinsLight);
+
+        txtHours = (TextView) view.findViewById(R.id.NoHours);
+        txtHours.setTypeface(FontPoppinsLight);
+
         view.setOnClickListener(new View.OnClickListener() {
 
             @Override

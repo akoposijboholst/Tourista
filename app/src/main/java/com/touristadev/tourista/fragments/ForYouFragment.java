@@ -46,7 +46,7 @@ public class ForYouFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private Button btnTourSA, btnSpotSA, btnDealSA;
+    private TextView btnTourSA, btnSpotSA, btnDealSA;
     private FragmentContainerHelper mFragmentContainerHelper = new FragmentContainerHelper();
 
     // TODO: Rename and change types of parameters
@@ -72,7 +72,7 @@ public class ForYouFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     //Fonts
-    private TextView txtPrice, txtTitle, txtNoSpots, txtNoHours;
+    private TextView txtTour, txtSpot, txtDeals;
 
     public ForYouFragment() {
         // Required empty public constructor
@@ -119,11 +119,35 @@ public class ForYouFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_for_you, container, false);
 
+        //FONTS
+        Typeface fontPoppinsRegular = Typeface.createFromAsset(getContext().getAssets(), "fonts/Poppins-Regular.ttf");
+
+        txtTour = (TextView) view.findViewById(R.id.txtTour);
+        txtTour.setTypeface(fontPoppinsRegular);
+
+        txtSpot = (TextView) view.findViewById(R.id.txtSpot);
+        txtSpot.setTypeface(fontPoppinsRegular);
+
+        txtDeals = (TextView) view.findViewById(R.id.txtDeals);
+        txtDeals.setTypeface(fontPoppinsRegular);
 
         mViewPagerTours = (ViewPager) view.findViewById(R.id.viewPagerTours);
-        btnTourSA = (Button) view.findViewById(R.id.btnTourSeeAll);
-        btnSpotSA = (Button) view.findViewById(R.id.btnSpotSeeAll);
-        btnDealSA = (Button) view.findViewById(R.id.btnDealsSeeAll);
+        btnTourSA = (TextView) view.findViewById(R.id.btnTourSeeAll);
+        btnSpotSA = (TextView) view.findViewById(R.id.btnSpotSeeAll);
+        btnDealSA = (TextView) view.findViewById(R.id.btnDealsSeeAll);
+
+        btnTourSA = (TextView) view.findViewById(R.id.btnTourSeeAll);
+        btnTourSA.setTypeface(fontPoppinsRegular);
+
+        btnSpotSA = (TextView) view.findViewById(R.id.btnSpotSeeAll);
+        btnSpotSA.setTypeface(fontPoppinsRegular);
+
+        btnDealSA = (TextView) view.findViewById(R.id.btnDealsSeeAll);
+        btnDealSA.setTypeface(fontPoppinsRegular);
+
+
+
+
         initFragments();
         Controllers con = new Controllers();
         TourListTemp = con.getControllerPackaaes();
@@ -160,12 +184,12 @@ public class ForYouFragment extends Fragment {
 
             }
         }
-        TourList.add(new ForYou("Manila Tour", 5, "₱ 550", "5 Spots", "12 hrs", "tour",R.mipmap.tml));
-        TourList.add(new ForYou("Boracay Island", 4, "₱ 1,350", "2 Spots", "7 hrs", "tour",R.mipmap.boracay));
-        TourList.add(new ForYou("Smart Facilities Tour", 5, "₱ 400", "5 Spots", "10 hrs", "tour",R.mipmap.smart));
-        TourList.add(new ForYou("Philippine Tour", 5, "₱ 10,000", "20 Spots", "14 days", "tour",R.mipmap.philippinetour));
-        TourList.add(new ForYou("FastFood Tour", 5, "₱ 500", "15 Spots", "1 day 3 hours", "tour",R.mipmap.fastfoodtour));
-        TourList.add(new ForYou("Smart Manila Offices Tour", 5, "₱ 4,000", "4 Spots", "10 hrs", "tour",R.mipmap.smartmanila));
+        TourList.add(new ForYou("Manila Tour", 5, "₱550", "5 Spots", "12 hrs", "tour",R.mipmap.tml));
+        TourList.add(new ForYou("Boracay Island", 4, "₱1,350", "2 Spots", "7 hrs", "tour",R.mipmap.boracay));
+        TourList.add(new ForYou("Smart Facilities Tour", 5, "₱400", "5 Spots", "10 hrs", "tour",R.mipmap.smart));
+        TourList.add(new ForYou("Philippine Tour", 5, "₱10,000", "20 Spots", "14 days", "tour",R.mipmap.philippinetour));
+        TourList.add(new ForYou("FastFood Tour", 5, "₱500", "15 Spots", "1 day 3 hours", "tour",R.mipmap.fastfoodtour));
+        TourList.add(new ForYou("Smart Manila Offices Tour", 5, "₱4,000", "4 Spots", "10 hrs", "tour",R.mipmap.smartmanila));
         mTourImg = new ArrayList<>();
         mSpotImg = new ArrayList<>();
         mDealImg = new ArrayList<>();
@@ -204,12 +228,12 @@ public class ForYouFragment extends Fragment {
 
             }
         }
-        DealList.add(new ForYou("Cebu Educational Tour Promo", 5, "₱ 150 ", "5 Spots", "10 hrs", "deal",R.mipmap.sbt));
-        DealList.add(new ForYou("Smart Facility Tour Promo", 4, "₱ 300", "4 Spots", "12 hrs", "deal",R.mipmap.smart));
-        DealList.add(new ForYou("Manila Food Tour Promo", 5, "₱ 100", "15 Spots", "8 hrs", "deal",R.mipmap.fastfoodtour));
-        DealList.add(new ForYou("Manila Technology Tour Promo", 5, "₱ 250", "11 Spots", "3 days", "deal",R.mipmap.smartmanila));
-        DealList.add(new ForYou("Smart Technology Tour Promo", 4, "₱ 380", "6 Spots", "10 hrs", "deal",R.mipmap.smart));
-        DealList.add(new ForYou("Mindanao Islands Tour Promo", 5, "₱ 5,300", "7 Spots", "5 days", "deal",R.mipmap.mrc));
+        DealList.add(new ForYou("Cebu Educational Tour Promo", 5, "₱150 ", "5 Spots", "10 hrs", "deal",R.mipmap.sbt));
+        DealList.add(new ForYou("Smart Facility Tour Promo", 4, "₱300", "4 Spots", "12 hrs", "deal",R.mipmap.smart));
+        DealList.add(new ForYou("Manila Food Tour Promo", 5, "₱100", "15 Spots", "8 hrs", "deal",R.mipmap.fastfoodtour));
+        DealList.add(new ForYou("Manila Technology Tour Promo", 5, "₱250", "11 Spots", "3 days", "deal",R.mipmap.smartmanila));
+        DealList.add(new ForYou("Smart Technology Tour Promo", 4, "₱380", "6 Spots", "10 hrs", "deal",R.mipmap.smart));
+        DealList.add(new ForYou("Mindanao Islands Tour Promo", 5, "₱5,300", "7 Spots", "5 days", "deal",R.mipmap.mrc));
 
         mDealImg = mTourImg;
 

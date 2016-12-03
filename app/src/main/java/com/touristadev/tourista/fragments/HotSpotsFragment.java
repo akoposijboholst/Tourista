@@ -2,6 +2,7 @@ package com.touristadev.tourista.fragments;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -14,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.touristadev.tourista.R;
 //import com.touristadev.tourista.ShadowTransformer;
@@ -55,6 +57,10 @@ public class HotSpotsFragment extends Fragment {
     //private ShadowTransformer mFragmentCardShadowTransformer;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mCardAdapter;
+
+    private TextView txtTour, txtSpot, txtDeals;
+
+
     public HotSpotsFragment() {
         // Required empty public constructor
     }
@@ -80,6 +86,9 @@ public class HotSpotsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

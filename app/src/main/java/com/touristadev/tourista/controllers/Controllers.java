@@ -298,7 +298,7 @@ public class Controllers {
         itineraries2.add(new Itinerary(spotList.get(3).getSpotAddress(),"13:00","15:00"));
         itineraries2.add(new Itinerary(spotList.get(4).getSpotName(),"15:00","17:00"));
 
-        L2.add(new Packages("Cebu Pilgrimage",categories2,itineraries2,"Local",tribes2,4,3,8,R.mipmap.pck2));
+        L2.add(new Packages("Cebu Pilgrimage",categories2,itineraries2,"Local",tribes2,4,3,8,R.mipmap.spot_boracay));
 
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////

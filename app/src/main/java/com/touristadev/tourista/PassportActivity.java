@@ -50,6 +50,7 @@ public class PassportActivity extends AppCompatActivity {
         }
         mBottomBar = BottomBar.attach(this, savedInstanceState);
         mBottomBar.useFixedMode();
+        mBottomBar.setTypeFace("fonts/Poppins-Regular.ttf");
         mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setDefaultTabPosition(3);
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
