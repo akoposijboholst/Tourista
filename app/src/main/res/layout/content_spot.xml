@@ -195,15 +195,5 @@
         android:layout_above="@+id/relLay"
         android:layout_alignEnd="@+id/txtCloseTime"
         android:layout_marginEnd="13dp" />
-    <Button
-        android:text="Book Now!"
-        android:layout_marginTop="15dp"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnBook"
-        android:layout_below="@id/SpotTriListView"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>
 </ScrollView>

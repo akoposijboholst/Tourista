@@ -37,25 +37,26 @@ import java.util.List;
 public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerPagerAdapter.MyViewHolder>{
 
     private List<CardView> mViews;
-    private List<ForYou> mData;
+    private static List<ForYou> mDataAda;
     private int position;
     private List<Packages> mList;
-    private Controllers mController = new Controllers();
+    private static Controllers mControllerAda = new Controllers();
     private TextView txtAlertTitle;
     private Button mBtnViewDetails;
     private List<Bitmap> mImages;
+    private static Controllers control= new Controllers();
     private Context context;
-    public int pos;
-    private String wish = "wew";
+    public static int pos;
+    private static String wish = "wew";
     public  CardExplorerPagerAdapter(ArrayList<ForYou> Data) {
 
-        mData = new ArrayList<>();
+        mDataAda = new ArrayList<>();
         mViews = new ArrayList<>();
         mImages = new ArrayList();
 
         if(Data!=null ){
         for (int i = 0; i < Data.size(); i++) {
-            mData.add(Data.get(i));
+            mDataAda.add(Data.get(i));
             mViews.add(null);
 
              }
@@ -63,13 +64,13 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
     }
     public  CardExplorerPagerAdapter(ArrayList<ForYou> Data,String wishle) {
 
-        mData = new ArrayList<>();
+        mDataAda = new ArrayList<>();
         mViews = new ArrayList<>();
         mImages = new ArrayList();
 
         if(Data!=null ){
             for (int i = 0; i < Data.size(); i++) {
-                mData.add(Data.get(i));
+                mDataAda.add(Data.get(i));
                 mViews.add(null);
                 wish = wishle;
 
@@ -77,7 +78,7 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
         }
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
        public TextView txtTitle;
         public TextView txtPrice;
         public TextView txtSpots;
@@ -85,6 +86,7 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
         public RatingBar rtBar;
         public ImageView imageV;
         public CardView cardView;
+        public Controllers mControllers;
         public MyViewHolder(View v) {
             super(v);
             View view = v;
@@ -95,16 +97,22 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
             txtHours = (TextView) view.findViewById(R.id.NoHours);
             rtBar = (RatingBar) view.findViewById(R.id.rtBar);
             imageV = (ImageView) view.findViewById(R.id.imgCard);
+            cardView.setOnClickListener(this);
+        }
 
+        @Override
+        public void onClick(View view) {
 
-
+            mControllers.setPosition(getAdapterPosition());
+            Log.d("chanwewo",getAdapterPosition()+"");
+            afterClick(view);
         }
     }
 
     @Override
     public int getItemCount() {
         int size = 0;
-       size = mData.size();
+       size = mDataAda.size();
         return size;
     }
 
@@ -113,79 +121,15 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
         final View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_item_explore, parent, false);
         context = view.getContext();
-
         final CardExplorerPagerAdapter.MyViewHolder holder = new CardExplorerPagerAdapter.MyViewHolder(view);
         final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
         view.setOnClickListener(new View.OnClickListener() {
 
                     @Override
                     public void onClick(View view) {
-                       pos = viewType;
-                        if (position != RecyclerView.NO_POSITION) {
 
 
-                            if (wish.equals("Wishlist")) {
-                                AlertDialog alertDialog = new AlertDialog.Builder(view.getContext()).create();
 
-                                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "View Details",
-                                        new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                Intent i = new Intent(context, PackageDetailsActivity.class);
-                                                i.putExtra("position", pos);
-                                                i.putExtra("type", mData.get(pos).getType());
-                                                i.putExtra("title", mData.get(pos).getTitle());
-                                                context.startActivity(i);
-                                            }
-                                        });
-                                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Cancel",
-                                        new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                mController.removeWishPackage(pos);
-                                                Intent i = new Intent(context, TourActivity.class);
-                                                context.startActivity(i);
-                                            }
-                                        });
-                                alertDialog.show();
-                            } else if (wish.equals("Bookedlist")) {
-                                AlertDialog alertDialog = new AlertDialog.Builder(view.getContext()).create();
-
-                                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "View Details",
-                                        new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                Intent i = new Intent(context, PackageDetailsActivity.class);
-                                                i.putExtra("position", pos);
-                                                i.putExtra("type", mData.get(pos).getType());
-                                                i.putExtra("title", mData.get(pos).getTitle());
-                                                context.startActivity(i);
-                                            }
-                                        });
-                                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Cancel",
-                                        new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                mController.removeBookedPackages(pos);
-                                                Intent i = new Intent(context, TourActivity.class);
-                                                context.startActivity(i);
-                                            }
-                                        });
-                                alertDialog.show();
-                            } else {
-                                {
-                                    if (mData.get(position).getType().equals("spot")) {
-                                        Log.d("channix", position + " spot");
-                                        Intent i = new Intent(context, SpotActivity.class);
-                                        i.putExtra("position", position);
-                                        context.startActivity(i);
-                                    } else {
-                                        Log.d("channix", position + " package");
-                                        Intent i = new Intent(context, PackageDetailsActivity.class);
-                                        i.putExtra("position", position);
-                                        i.putExtra("type", mData.get(position).getType());
-                                        i.putExtra("title", mData.get(position).getTitle());
-                                        context.startActivity(i);
-                                    }
-                                }
-                            }
-                        }
 
 
             }
@@ -198,19 +142,15 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
     @Override
     public void onBindViewHolder(CardExplorerPagerAdapter.MyViewHolder holder, int position) {
         holder.cardView.setTag(position);
-        holder.imageV.setImageResource(mData.get(position).getImgView());
-        holder.txtTitle.setText(mData.get(position).getTitle());
-       holder.txtPrice.setText(mData.get(position).getPrice());
-       holder.txtSpots.setText(mData.get(position).getNoSpots());
-        holder.txtHours.setText(mData.get(position).getNoHours());
-        holder.rtBar.setRating((Float.parseFloat(String.valueOf(mData.get(position).getRating()))));
+        holder.imageV.setImageResource(mDataAda.get(position).getImgView());
+        holder.txtTitle.setText(mDataAda.get(position).getTitle());
+       holder.txtPrice.setText(mDataAda.get(position).getPrice());
+       holder.txtSpots.setText(mDataAda.get(position).getNoSpots());
+        holder.txtHours.setText(mDataAda.get(position).getNoHours());
+        holder.rtBar.setRating((Float.parseFloat(String.valueOf(mDataAda.get(position).getRating()))));
         holder.rtBar.setFocusable(false);
 
     }
-    public int getCardViewAt(int position) {
-        return position;
-    }
-
     @Override
     public long getItemId(int position) {
         return 0;
@@ -220,6 +160,73 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
     public int getItemViewType(int position) {
         return 0;
     }
+    public static void afterClick(final View v){
+
+        pos = control.getPosition();
+        if (wish.equals("Wishlist")) {
+            AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create();
+
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "View Details",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent i = new Intent(v.getContext(), PackageDetailsActivity.class);
+                            i.putExtra("position", pos);
+                            i.putExtra("type", mDataAda.get(pos).getType());
+                            i.putExtra("title", mDataAda.get(pos).getTitle());
+                            v.getContext().startActivity(i);
+                        }
+                    });
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Cancel",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            mControllerAda.removeWishPackage(pos);
+                            Intent i = new Intent(v.getContext(), TourActivity.class);
+                            v.getContext().startActivity(i);
+                        }
+                    });
+            alertDialog.show();
+        } else if (wish.equals("Bookedlist")) {
+            AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create();
+
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "View Details",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent i = new Intent(v.getContext(), PackageDetailsActivity.class);
+                            i.putExtra("position", pos);
+                            i.putExtra("type", mDataAda.get(pos).getType());
+                            i.putExtra("title", mDataAda.get(pos).getTitle());
+                            v.getContext().startActivity(i);
+                        }
+                    });
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Cancel",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            mControllerAda.removeBookedPackages(pos);
+                            Intent i = new Intent(v.getContext(), TourActivity.class);
+                            v.getContext().startActivity(i);
+                        }
+                    });
+            alertDialog.show();
+        } else {
+            {
+                if (mDataAda.get(pos).getType().equals("spot")) {
+                    Log.d("channix", pos + " spot");
+                    Intent i = new Intent(v.getContext(), SpotActivity.class);
+                    i.putExtra("position", pos);
+                    v.getContext().startActivity(i);
+                } else {
+                    Log.d("channix", pos + " package");
+                    Intent i = new Intent(v.getContext(), PackageDetailsActivity.class);
+                    i.putExtra("position", pos);
+                    i.putExtra("type", mDataAda.get(pos).getType());
+                    i.putExtra("title", mDataAda.get(pos).getTitle());
+                    v.getContext().startActivity(i);
+                }
+            }
+        }
+
+
+}
 
 
 

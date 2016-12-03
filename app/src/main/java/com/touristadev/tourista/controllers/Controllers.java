@@ -21,6 +21,7 @@ public class Controllers {
     static ArrayList<Packages> packageList = new ArrayList<>();
     static ArrayList<Packages> BookedList = new ArrayList<>();
     static ArrayList<Packages> WishList = new ArrayList<>();
+    private static int positionwew;
     public void Controllers() {
 
         ArrayList<String> activities0 = new ArrayList<>();
@@ -386,6 +387,12 @@ public class Controllers {
 
         return WishList;
 
+    }
+    public static void setPosition(int position2){
+        positionwew = position2;
+    }
+    public int getPosition(){
+        return positionwew;
     }
 
 
