@@ -91,7 +91,7 @@ public class HotSpotsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_hot_spots, container, false);
         Controllers con = new Controllers();
-
+        SpotListTemp.clear();
         SpotListTemp = con.getControllerSpots();
         SpotList.clear();
 //        -----------------------------------------------------------------------------------------------

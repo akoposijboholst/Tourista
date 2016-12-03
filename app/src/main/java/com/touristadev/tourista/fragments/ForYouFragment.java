@@ -151,15 +151,7 @@ public class ForYouFragment extends Fragment {
 
             }
         }
-        TourList.add(new ForYou("Manila Tour", 5, "₱ 550", "5 Spots", "12 hrs", "tour",R.mipmap.tml));
-        TourList.add(new ForYou("Boracay Island", 4, "₱ 1,350", "2 Spots", "7 hrs", "tour",R.mipmap.boracay));
-        TourList.add(new ForYou("Smart Facilities Tour", 5, "₱ 400", "5 Spots", "10 hrs", "tour",R.mipmap.smart));
-        TourList.add(new ForYou("Philippine Tour", 5, "₱ 10,000", "20 Spots", "14 days", "tour",R.mipmap.philippinetour));
-        TourList.add(new ForYou("FastFood Tour", 5, "₱ 500", "15 Spots", "1 day 3 hours", "tour",R.mipmap.fastfoodtour));
-        TourList.add(new ForYou("Smart Manila Offices Tour", 5, "₱ 4,000", "4 Spots", "10 hrs", "tour",R.mipmap.smartmanila));
-        mTourImg = new ArrayList<>();
-        mSpotImg = new ArrayList<>();
-        mDealImg = new ArrayList<>();
+
 //
 // image list tour and deals
         mCardAdapter = new CardPagerAdapter(TourList);
@@ -195,14 +187,7 @@ public class ForYouFragment extends Fragment {
 
             }
         }
-        DealList.add(new ForYou("Cebu Educational Tour Promo", 5, "₱ 150 ", "5 Spots", "10 hrs", "deal",R.mipmap.sbt));
-        DealList.add(new ForYou("Smart Facility Tour Promo", 4, "₱ 300", "4 Spots", "12 hrs", "deal",R.mipmap.smart));
-        DealList.add(new ForYou("Manila Food Tour Promo", 5, "₱ 100", "15 Spots", "8 hrs", "deal",R.mipmap.fastfoodtour));
-        DealList.add(new ForYou("Manila Technology Tour Promo", 5, "₱ 250", "11 Spots", "3 days", "deal",R.mipmap.smartmanila));
-        DealList.add(new ForYou("Smart Technology Tour Promo", 4, "₱ 380", "6 Spots", "10 hrs", "deal",R.mipmap.smart));
-        DealList.add(new ForYou("Mindanao Islands Tour Promo", 5, "₱ 5,300", "7 Spots", "5 days", "deal",R.mipmap.mrc));
 
-        mDealImg = mTourImg;
 
         mViewPagerDeals = (ViewPager) view.findViewById(R.id.viewPagerDeals);
         mCardAdapter = new CardPagerAdapter(DealList);

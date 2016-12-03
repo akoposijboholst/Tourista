@@ -29,7 +29,7 @@ public class PackageDetailsActivity extends AppCompatActivity {
     private TextView txtPackageName,txtNumberSpots,txtNumberHours,txtPackPrice;
     private RatingBar ratBar;
     private ListView mListViewItinerary,mListViewCategory,mListViewTribe;
-    private Button btnBook;
+    private Button btnBook,btnPolicy;
     private Packages pack = new Packages();
     private ArrayList<Packages> mList = new ArrayList<>();
     private Controllers mControllers = new Controllers();
@@ -52,6 +52,14 @@ public class PackageDetailsActivity extends AppCompatActivity {
         txtNumberSpots = (TextView) findViewById(R.id.txtNumberSpot);
         txtNumberHours = (TextView) findViewById(R.id.txtNumberHours);
         txtPackPrice = (TextView) findViewById(R.id.txtPackPrice);
+        btnPolicy = (Button) findViewById(R.id.btnCancellationPollicy);
+        btnPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(PackageDetailsActivity.this,PolicyActivity.class);
+                startActivity(i);
+            }
+        });
         ratBar = (RatingBar) findViewById(R.id.rtBar);
         mListViewItinerary = (ListView) findViewById(R.id.PackageItineraryListView);
         mListViewCategory = (ListView) findViewById(R.id.PackageCategoryListView);
@@ -62,19 +70,11 @@ public class PackageDetailsActivity extends AppCompatActivity {
         btnBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(typePackage.equals("tour")||typePackage.equals("deal")){
-                    for(int x = 0 ; x < mList.size(); x++)
-                    {
-                        if(mList.get(x).getPackageName().equals(packageTitle)){
-                            mControllers.addWishPackages(mList.get(x));
-
-                            Log.d("chan","added package");
-                            Toast.makeText(getApplicationContext(),"Added "+mList.get(x).getPackageName()+" to Wish List",
-                                    Toast.LENGTH_LONG).show();
-
-                        }
-                    }
-                }
+                Intent i = new Intent(PackageDetailsActivity.this, BooknowActivity.class);
+                i.putExtra("position", position);
+                i.putExtra("type", typePackage);
+                i.putExtra("title", packageTitle);
+                startActivity(i);
             }
         });
             imgPackage.setImageResource(pack.getPackageImage());
