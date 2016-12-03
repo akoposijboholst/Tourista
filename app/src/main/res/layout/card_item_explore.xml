@@ -27,33 +27,6 @@
 
 
             <TextView
-                android:layout_marginLeft="10dp"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Card title"
-                android:id="@+id/txtTitle"
-                android:layout_below="@+id/imgCard"
-                android:layout_centerHorizontal="true"
-                android:maxLines="1"
-                android:maxLength="20"
-                android:ellipsize="end"/>
-
-            <TextView
-                android:textSize="17sp"
-                android:text="TextView"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtPrice"
-                android:layout_below="@+id/imgCard"
-                android:layout_alignParentStart="true"
-                android:maxLines="1"
-                android:maxLength="10"
-                android:ellipsize="end"/>
-
-            <TextView
                 android:textSize="17sp"
                 android:text="TextView"
                 android:gravity="center"
@@ -82,15 +55,6 @@
                 android:maxLength="10"
                 android:ellipsize="end"/>
 
-            <RatingBar
-                android:layout_height="wrap_content"
-                android:id="@+id/rtBar"
-                android:isIndicator="true"
-                style="@style/Widget.AppCompat.RatingBar.Small"
-                android:layout_width="wrap_content"
-                android:layout_below="@+id/txtPrice"
-                android:layout_alignParentStart="true" />
-
 
             <ImageView
                 android:layout_width="match_parent"
@@ -100,6 +64,46 @@
                 android:foregroundGravity="center"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:textSize="17sp"
+                android:text="TextView"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtPrice"
+                android:maxLines="1"
+                android:maxLength="10"
+                android:ellipsize="end"
+                android:layout_below="@+id/imgCard"
+                android:layout_toStartOf="@+id/NoHours"
+                android:layout_marginEnd="20dp" />
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Card title"
+                android:id="@+id/txtTitle"
+                android:layout_marginTop="15dp"
+                android:maxLines="1"
+                android:maxLength="20"
+                android:ellipsize="end"
+                android:layout_alignBottom="@+id/txtPrice"
+                android:layout_alignEnd="@+id/rtBar"
+                android:layout_alignParentStart="true" />
+
+            <RatingBar
+                android:layout_height="wrap_content"
+                android:id="@+id/rtBar"
+                android:isIndicator="true"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_below="@+id/txtTitle"
+                android:layout_alignParentStart="true" />
 
         </RelativeLayout>
 

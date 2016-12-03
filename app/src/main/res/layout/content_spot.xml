@@ -30,12 +30,13 @@
 
     <TextView
         android:text="TextView"
+
+        android:layout_marginTop="15dp"
         android:id="@+id/txtTitle"
         android:textSize="25sp"
         app:layout_anchor="@+id/include"
         android:layout_width="250dp"
         android:layout_height="70dp"
-
         android:textStyle="bold"
         android:layout_below="@+id/imgSpot"
         android:layout_alignStart="@+id/txtSpotAddress" />
@@ -97,6 +98,8 @@
         android:layout_marginTop="15dp">
     </RelativeLayout>
     <TextView
+
+        android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
@@ -124,6 +127,8 @@
         android:layout_marginTop="15dp"
       />
     <TextView
+
+        android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
@@ -151,6 +156,8 @@
        >
     </RelativeLayout>
     <TextView
+
+        android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:textStyle="bold"
         android:layout_marginLeft="15dp"
@@ -188,6 +195,15 @@
         android:layout_above="@+id/relLay"
         android:layout_alignEnd="@+id/txtCloseTime"
         android:layout_marginEnd="13dp" />
-
+    <Button
+        android:text="Book Now!"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnBook"
+        android:layout_below="@id/SpotTriListView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
 </ScrollView>
