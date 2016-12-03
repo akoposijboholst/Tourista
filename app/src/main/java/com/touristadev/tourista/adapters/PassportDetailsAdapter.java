@@ -1,6 +1,7 @@
 package com.touristadev.tourista.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,6 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
 import com.touristadev.tourista.R;
 
 import java.util.List;
@@ -45,8 +48,7 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
 
     @Override
     public PassportDetailsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_item_profiledetails, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_profiledetails, parent, false);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +64,13 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
 
     @Override
     public void onBindViewHolder(PassportDetailsAdapter.MyViewHolder holder, int position) {
+
+        holder.mCardViewLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signOut();
+            }
+        });
 
         holder.txtRatings.setText(ratingsCount);
         holder.txtTrips.setText(tripsCount);
@@ -163,7 +172,7 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public CardView mCardViewStats, mCardViewTribes, mCardViewTrips;
+        public CardView mCardViewStats, mCardViewLogout, mCardViewTrips;
         public TextView txtRatings, txtTrips, txtBadges;
 
 
@@ -171,10 +180,15 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
             super(v);
             mContext = v.getContext();
             mCardViewStats = (CardView) v.findViewById(R.id.card_view_stats);
+            mCardViewLogout = (CardView) v.findViewById(R.id.cvLogOut);
             txtRatings = (TextView) v.findViewById(R.id.ratingsNumber);
             txtTrips = (TextView) v.findViewById(R.id.tripsNumber);
             txtBadges = (TextView) v.findViewById(R.id.badgesNumber);
         }
     }
 
+    public void signOut() {
+        FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();;
+    }
 }
