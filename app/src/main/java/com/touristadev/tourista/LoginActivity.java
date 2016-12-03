@@ -24,6 +24,7 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.vision.text.Text;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
@@ -56,8 +57,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         mRegister = (Button) findViewById(R.id.btnRegister);
         mSignIn = (Button) findViewById(R.id.btnLogin);
+
         mRegister.setTypeface(myCustomFont);
         mSignIn.setTypeface(myCustomFont);
+        TextView t;
+        t = (TextView) findViewById(R.id.txtPrice);
+        System.out.println(t);
+
+
+
+
+
         mRegister.setOnClickListener(this);
         mSignIn.setOnClickListener(this);
 

@@ -2,6 +2,7 @@ package com.touristadev.tourista.fragments;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -10,10 +11,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.touristadev.tourista.ExploreActivity;
 import com.touristadev.tourista.R;
@@ -68,6 +71,9 @@ public class ForYouFragment extends Fragment {
     private boolean mShowingFragments = false;
     private OnFragmentInteractionListener mListener;
 
+    //Fonts
+    private TextView txtPrice, txtTitle, txtNoSpots, txtNoHours;
+
     public ForYouFragment() {
         // Required empty public constructor
     }
@@ -87,18 +93,20 @@ public class ForYouFragment extends Fragment {
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     public static float dpToPixels(int dp, Context context) {
@@ -110,7 +118,8 @@ public class ForYouFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_for_you, container, false);
-        ;
+
+
         mViewPagerTours = (ViewPager) view.findViewById(R.id.viewPagerTours);
         btnTourSA = (Button) view.findViewById(R.id.btnTourSeeAll);
         btnSpotSA = (Button) view.findViewById(R.id.btnSpotSeeAll);

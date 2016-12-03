@@ -7,6 +7,7 @@ package com.touristadev.tourista.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AlertDialog;
@@ -94,6 +95,24 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
          mInflater = LayoutInflater.from(container.getContext());
 
         context = view.getContext();
+        //FONTS
+        Typeface FontRalewayBold = Typeface.createFromAsset(container.getContext().getAssets(), "fonts/Raleway-Bold.ttf");
+        Typeface FontRalewayLight = Typeface.createFromAsset(container.getContext().getAssets(), "fonts/Raleway-Light.ttf");
+
+        txtPrice = (TextView) view.findViewById(R.id.txtPrice);
+        txtPrice.setTypeface(FontRalewayBold);
+
+        txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+        txtTitle.setTypeface(FontRalewayLight);
+
+        txtHours = (TextView) view.findViewById(R.id.txtNoSpots);
+        txtTitle.setTypeface(FontRalewayLight);
+
+        txtTitle = (TextView) view.findViewById(R.id.NoHours);
+        txtTitle.setTypeface(FontRalewayLight);
+
+
+
         container.addView(view);
         CardView cardView = (CardView) view.findViewById(R.id.cardView);
         txtTitle = (TextView) view.findViewById(R.id.txtTitle);

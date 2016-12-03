@@ -15,7 +15,10 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.google.android.gms.vision.text.Text;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 import com.touristadev.tourista.fragments.DealsFragment;
@@ -44,8 +47,9 @@ public class ExploreActivity extends AppCompatActivity {
     public ForYouFragment t = new ForYouFragment();
     public FragmentManager fragmentManager;
     private String firstName, lastName, email;
-
+    private Button mRegister, mSignIn;
     private Typeface myCustomFont;
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -74,7 +78,6 @@ public class ExploreActivity extends AppCompatActivity {
 
         mFragmentContainerHelper.handlePageSelected(0, false);
         switchPages(0);
-
 
 
         Intent i = getIntent();
@@ -116,6 +119,9 @@ public class ExploreActivity extends AppCompatActivity {
                     intent.putExtra("email", email);
                     startActivity(intent);
                 }
+
+
+
             }
 
             @Override
@@ -171,6 +177,9 @@ public class ExploreActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator1() {
+
+
+
         MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator);
 
         CommonNavigator commonNavigator = new CommonNavigator(this);
@@ -186,8 +195,8 @@ public class ExploreActivity extends AppCompatActivity {
                 myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
 
                 ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
-                colorTransitionPagerTitleView.setNormalColor(Color.parseColor("#bdc3c7"));
-                colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#ffffff"));
+                colorTransitionPagerTitleView.setNormalColor(Color.parseColor("#BBDEFB"));
+                colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#FFFFFF"));
                 colorTransitionPagerTitleView.setText(CHANNELS[index]);
                 colorTransitionPagerTitleView.setGravity(Gravity.CENTER);
                 colorTransitionPagerTitleView.setTypeface(myCustomFont);
@@ -208,7 +217,7 @@ public class ExploreActivity extends AppCompatActivity {
             @Override
             public IPagerIndicator getIndicator(Context context) {
                 LinePagerIndicator indicator = new LinePagerIndicator(context);
-
+                indicator.setColors(Color.parseColor("#FFFFFF"));
                 indicator.setMode(LinePagerIndicator.MODE_WRAP_CONTENT);
                 return indicator;
             }
