@@ -66,8 +66,8 @@ public class WishListFragment extends Fragment {
      * @return A new instance of fragment HotToursFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HotToursFragment newInstance(String param1, String param2) {
-        HotToursFragment fragment = new HotToursFragment();
+    public static WishListFragment newInstance(String param1, String param2) {
+        WishListFragment fragment = new WishListFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -97,6 +97,7 @@ public class WishListFragment extends Fragment {
             }
         }
 
+
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_tours);
 
         //permet un affichage sous forme liste verticale
@@ -107,7 +108,7 @@ public class WishListFragment extends Fragment {
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
-        mCardAdapter = new CardExplorerPagerAdapter(TourList);
+        mCardAdapter = new CardExplorerPagerAdapter(TourList,"Wishlist");
         mRecyclerView.setAdapter(mCardAdapter);
         mCardAdapter.notifyDataSetChanged();
 

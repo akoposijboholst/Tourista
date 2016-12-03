@@ -83,6 +83,16 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
     }
 
     @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return 0;
+    }
+
+    @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == object;
     }
@@ -131,31 +141,33 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         txtHours.setText(mData.get(position).getNoHours());
         rtBar.setRating((Float.parseFloat(String.valueOf(mData.get(position).getRating()))));
         rtBar.setFocusable(false);
+        txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+        txtPrice = (TextView) view.findViewById(R.id.txtPrice);
+        txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);
+        txtHours = (TextView) view.findViewById(R.id.NoHours);
+        rtBar = (RatingBar) view.findViewById(R.id.rtBar);
+        imgVi = (ImageView) view.findViewById(R.id.imgCard);
+        pos = position;
+        imgVi.setImageResource(mData.get(position).getImgView());
+        txtTitle.setText(mData.get(position).getTitle());
+        txtPrice.setText(mData.get(position).getPrice());
+        txtSpots.setText(mData.get(position).getNoSpots());
+        txtHours.setText(mData.get(position).getNoHours());
+        rtBar.setRating((Float.parseFloat(String.valueOf(mData.get(position).getRating()))));
+        rtBar.setFocusable(false);
 
         cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                View dialogView = mInflater.inflate(R.layout.alert_dialog,null);
-                mList = mController.getControllerPackaaes();
-                builder.setView(dialogView);
-                final AlertDialog dialog = builder.create();
-                txtAlertTitle = (TextView) dialogView.findViewById(R.id.txtAlertTitle) ;
-                txtAlertTitle.setText(mData.get(position).getTitle());
-                Log.d("chan",mData.get(position).getTitle());
 
-                mBtnViewDetails = (Button) dialogView.findViewById(R.id.btnViewDetails);
 
-                mBtnViewDetails.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         if(mData.get(position).getType().equals("spot")) {
-                            dialog.dismiss();
+
                             Intent i = new Intent(context, SpotActivity.class);
                             i.putExtra("position",position);
                             context.startActivity(i);
                         }
                         else{
-                            dialog.dismiss();
                             Intent i = new Intent(context, PackageDetailsActivity.class);
                             i.putExtra("position",position);
                             i.putExtra("type",mData.get(position).getType());
@@ -164,14 +176,12 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
                         }
 
                     }
-                });
-
-                dialog.show();
 
 
 
 
-                }
+
+
 
         });
 

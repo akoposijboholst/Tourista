@@ -1,5 +1,7 @@
 package com.touristadev.tourista.controllers;
 
+import android.util.Log;
+
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.dataModels.Categories;
 import com.touristadev.tourista.dataModels.Itinerary;
@@ -21,7 +23,6 @@ public class Controllers {
     static ArrayList<Packages> WishList = new ArrayList<>();
     public void Controllers() {
 
-        spotList= new ArrayList<>();
         ArrayList<String> activities0 = new ArrayList<>();
         ArrayList<Categories> categories0 = new ArrayList<>();
         ArrayList<Tribes> tribes0 = new ArrayList<>();
@@ -34,6 +35,7 @@ public class Controllers {
         tribes0.add(new Tribes("Comformist"));
         tribes0.add(new Tribes("Thrill- Seeker"));
         tribes0.add(new Tribes("Self- Improver"));
+        spotList.clear();
 
         spotList.add(new Spots(0,"Masters Resort Cebu","4044 Oslob, Cebu, Philippines",
                 "8:00","21:00","The southern part of the province is one of the areas where you can enjoy various sorts of seawater activities, do adventurous trips, have fun and cherish the tranquil ambiance and surroundings."
@@ -226,6 +228,7 @@ public class Controllers {
     public ArrayList<Spots>  getControllerSpots()
     {
         Controllers();
+
         return spotList;
     }
 
@@ -325,12 +328,12 @@ public class Controllers {
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
-
+        packageList.clear();
         packageList.add(L1.get(0));
         packageList.add(L2.get(0));
         packageList.add(L3.get(0));
 
-
+        Log.d("changwapo",packageList.size()+" 1");
 
         return packageList;
     }
@@ -358,6 +361,16 @@ public class Controllers {
     public void addWishPackages(Packages pa)
     {
         WishList.add(pa);
+
+    }
+    public void removeWishPackage(int pos)
+    {
+        WishList.remove(pos);
+
+    }
+    public void removeBookedPackages(int pos)
+    {
+        BookedList.remove(pos);
 
     }
     public ArrayList<Packages> getBookedList()
