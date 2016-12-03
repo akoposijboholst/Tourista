@@ -86,7 +86,7 @@ public class PackageDetailsActivity extends AppCompatActivity {
 
 
             for (int x = 0; x < pack.getPackageItinerary().size(); x++) {
-                packItinerary.add(pack.getPackageItinerary().get(x).getSpotID()+"\t\t\t\t"+pack.getPackageItinerary().get(x).getStartTime()+"\t\t\t\t "+pack.getPackageItinerary().get(x).getEndTime()+"\t\t\t\t ");
+                packItinerary.add(pack.getPackageItinerary().get(x).getStartTime()+"\t\t\t\t "+pack.getPackageItinerary().get(x).getEndTime()+"\t\t\t\t "+pack.getPackageItinerary().get(x).getSpotID()+"\t\t\t\t");
                 Log.d("chanActivity", mList.size() + "");
 
             }

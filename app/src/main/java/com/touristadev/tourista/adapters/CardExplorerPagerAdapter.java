@@ -50,8 +50,6 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
     public static int pos;
     private static String wish = "wew";
     private TextView txtTitle,txtPrice,txtSpots,txtHours;
-    public int pos;
-    private String wish = "wew";
     public  CardExplorerPagerAdapter(ArrayList<ForYou> Data) {
 
         mDataAda = new ArrayList<>();

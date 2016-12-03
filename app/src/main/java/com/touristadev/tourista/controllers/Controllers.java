@@ -275,8 +275,8 @@ public class Controllers {
         tribes1.add(new Tribes("Backpacker"));
         tribes1.add(new Tribes("Escapist"));
 
-        itineraries1.add(new Itinerary("Pick up location","5:00","8:00"));
-        itineraries1.add(new Itinerary(spotList.get(1).getSpotName(),"8:00","11:00"));
+        itineraries1.add(new Itinerary("Pick up location","05:00","08:00"));
+        itineraries1.add(new Itinerary(spotList.get(1).getSpotName(),"08:00","11:00"));
         itineraries1.add(new Itinerary("Lunch","11:00","13:00"));
         itineraries1.add(new Itinerary(spotList.get(0).getSpotName(),"13:00","16:00"));
 
@@ -296,8 +296,8 @@ public class Controllers {
         tribes2.add(new Tribes("Pilgrim"));
         tribes2.add(new Tribes("Genuinely Curious"));
 
-        itineraries2.add(new Itinerary("Pick up location","6:00","9:00"));
-        itineraries2.add(new Itinerary(spotList.get(2).getSpotName(),"9:00","12:00"));
+        itineraries2.add(new Itinerary("Pick up location","06:00","09:00"));
+        itineraries2.add(new Itinerary(spotList.get(2).getSpotName(),"09:00","12:00"));
         itineraries2.add(new Itinerary("Lunch","12:00","13:00"));
         itineraries2.add(new Itinerary(spotList.get(3).getSpotAddress(),"13:00","15:00"));
         itineraries2.add(new Itinerary(spotList.get(4).getSpotName(),"15:00","17:00"));
@@ -318,9 +318,9 @@ public class Controllers {
         tribes3.add(new Tribes("The Self-Improver"));
         tribes3.add(new Tribes("Genuinely Curious"));
 
-        itineraries3.add(new Itinerary("Pick up location","5:00","8:00"));
-        itineraries3.add(new Itinerary(spotList.get(1).getSpotName(),"8:00","8:30"));
-        itineraries3.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","8:30","11:00"));
+        itineraries3.add(new Itinerary("Pick up location","05:00","08:00"));
+        itineraries3.add(new Itinerary(spotList.get(1).getSpotName(),"08:00","08:30"));
+        itineraries3.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","08:30","11:00"));
         itineraries3.add(new Itinerary("Lunch","11:00","12:00"));
         itineraries3.add(new Itinerary(spotList.get(5).getSpotName(),"12:00","15:00"));
         itineraries3.add(new Itinerary("Departure Time","15:00","17:00"));

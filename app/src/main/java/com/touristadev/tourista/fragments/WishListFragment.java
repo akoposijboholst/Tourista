@@ -89,6 +89,7 @@ public class WishListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_hot_tours, container, false);
         Controllers con = new Controllers();
+        TourListTemp.clear();
         TourListTemp = con.getWishList();
         if (TourListTemp != null) {
             for (int x = 0; x < TourListTemp.size(); x++) {

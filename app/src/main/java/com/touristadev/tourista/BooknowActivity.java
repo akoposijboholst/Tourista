@@ -31,9 +31,11 @@ public class BooknowActivity extends AppCompatActivity {
     private int position;
     private String typePackage,packageTitle;
     private Button btnCheck;
+    private int flag = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_booknow);
         Intent i = getIntent();
         mList = mControllers.getControllerPackaaes();
@@ -42,26 +44,10 @@ public class BooknowActivity extends AppCompatActivity {
         packageTitle = i.getStringExtra("title");
         edtDate = (EditText) findViewById(R.id.edtDate);
 
-        myCalendar = Calendar.getInstance();
         btnCheck = (Button) findViewById(R.id.btnCheckout);
-        btnCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(typePackage.equals("tour")||typePackage.equals("deal")){
-                    for(int x = 0 ; x < mList.size(); x++)
-                    {
-                        if(mList.get(x).getPackageName().equals(packageTitle)){
-                            mControllers.addWishPackages(mList.get(x));
+        spinner = (MaterialSpinner) findViewById(R.id.spinner);
 
-                            Log.d("chan","added package");
-                            Toast.makeText(getApplicationContext(),"Added "+mList.get(x).getPackageName()+" to Wish List",
-                                    Toast.LENGTH_LONG).show();
-
-                        }
-                    }
-                }
-            }
-        });
+        spinner.setItems("0", "1", "2", "3", "4","5","6","7","8","9");
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
             @Override
@@ -72,6 +58,10 @@ public class BooknowActivity extends AppCompatActivity {
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 updateLabel();
+
+
+                btnCheck.setClickable(true);
+                btnCheck.setEnabled(true);
             }
 
         };
@@ -84,18 +74,39 @@ public class BooknowActivity extends AppCompatActivity {
                 new DatePickerDialog(BooknowActivity.this, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+                flag=1;
+
             }
         });
+        myCalendar = Calendar.getInstance();
+        btnCheck.setClickable(false);
 
-        spinner = (MaterialSpinner) findViewById(R.id.spinner);
+            btnCheck.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (typePackage.equals("tour") || typePackage.equals("deal")) {
+                        for (int x = 0; x < mList.size(); x++) {
+                            if (mList.get(x).getPackageName().equals(packageTitle)) {
+                                mControllers.addWishPackages(mList.get(x));
 
-        spinner.setItems("0", "1", "2", "3", "4","5","6","7","8","9");
-//        spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
-//
-//            @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
-//
-//            }
-//        });
+                                Log.d("chan", "added package");
+                                Toast.makeText(getApplicationContext(), "Added " + mList.get(x).getPackageName() + " to Wish List",
+                                        Toast.LENGTH_LONG).show();
+
+                            }
+                        }
+                    }
+                }
+            });
+
+
+
+        spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
+
+            @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
+                flag=1;
+            }
+        });
     }
     private void updateLabel() {
 
