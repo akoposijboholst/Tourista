@@ -205,6 +205,15 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
         } else if (wish.equals("Bookedlist")) {
             AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create();
 
+
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Cancel",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            mControllerAda.removeBookedPackages(pos);
+                            Intent i = new Intent(v.getContext(), TourActivity.class);
+                            v.getContext().startActivity(i);
+                        }
+                    });
             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "View Details",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -212,14 +221,6 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
                             i.putExtra("position", pos);
                             i.putExtra("type", mDataAda.get(pos).getType());
                             i.putExtra("title", mDataAda.get(pos).getTitle());
-                            v.getContext().startActivity(i);
-                        }
-                    });
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Cancel",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            mControllerAda.removeBookedPackages(pos);
-                            Intent i = new Intent(v.getContext(), TourActivity.class);
                             v.getContext().startActivity(i);
                         }
                     });
