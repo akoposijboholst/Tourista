@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -18,12 +19,12 @@ import java.util.List;
 /**
  * Created by Shanyl Jimenez on 11/28/2016.
  */
-public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.MyViewHolder>{
+public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder>{
 
     private List<CardView> mViews;
     private List<Packages> mData;
 
-    public  PackageAdapter(ArrayList<Packages> Data) {
+    public FeedAdapter(ArrayList<Packages> Data) {
         mData = new ArrayList<>();
         mViews = new ArrayList<>();
         Log.d("shan","2");
@@ -34,17 +35,23 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.MyViewHo
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public CardView cvPackage;
-        public TextView tv1;
-        public RatingBar rtng;
+        public CardView cv_feeditem;
+        public ImageView imgPackageImage;
+        public TextView txtPackageName;
+        public TextView txtPackagePrice;
+        public TextView txtPackageNoOfSpots;
+        public TextView txtPackageNoOfHours;
+        public RatingBar rtPackageRating;
+        
 
         public MyViewHolder(View v) {
             super(v);
             View view = v;
             Log.d("shan","3");
-            cvPackage= (CardView)itemView.findViewById(R.id.cv_feeditem);
-            tv1 = (TextView) itemView.findViewById(R.id.txtPackageName);
-            rtng = (RatingBar) itemView.findViewById(R.id.rtPackageRating);
+            cv_feeditem = (CardView)itemView.findViewById(R.id.cv_tgtouritem);
+         //   txtTGSpotName = (TextView) itemView.findViewById(R.id.txtTGSpotName);
+            rtPackageRating = (RatingBar) itemView.findViewById(R.id.rtTGRating);
+            imgPackageImage= (ImageView)itemView.findViewById(R.id.imgTourPackageImage);
         }
     }
 
@@ -56,7 +63,7 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.MyViewHo
     }
 
     @Override
-    public PackageAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public FeedAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cv_feed, parent, false);
 
@@ -68,17 +75,22 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.MyViewHo
 
             }
         });
-        return new PackageAdapter.MyViewHolder(view) {
+        return new FeedAdapter.MyViewHolder(view) {
         };
     }
 
 
     @Override
-    public void onBindViewHolder(PackageAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(FeedAdapter.MyViewHolder holder, int position) {
 
-        holder.tv1.setText(mData.get(position).getPackageName());
-        holder.rtng.setRating(mData.get(position).getRating());
+        Packages pa= mData.get(position);
 
+        holder.txtPackageName.setText(pa.getPackageName());
+        holder.rtPackageRating.setRating(pa.getRating());
+        holder.txtPackageNoOfHours.setText(pa.getPackageTotalNoOfHours()+" Hours");
+        holder.txtPackagePrice.setText("₱"+pa.getPackageTotalNoOfHours()*120);
+        holder.txtPackageNoOfSpots.setText(pa.getPackageNoOfSpots()+" Spots");
+        holder.imgPackageImage.setImageResource(pa.getPackageImage());
     }
 
 

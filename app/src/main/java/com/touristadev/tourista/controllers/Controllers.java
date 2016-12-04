@@ -343,9 +343,10 @@ public class Controllers {
     {
         ArrayList<TourRequest> L= new ArrayList<>();
 
-        L.add(new TourRequest("Shanyl Jimenez","December 6, 2016",2,0,"S"));
-        L.add(new TourRequest("Chan Ferolino","December 7, 2016",3,0,"S"));
-        L.add(new TourRequest("Justine Boholst","December 8, 2016",3,1,"S"));
+        L.add(new TourRequest("Shanyl Jimenez","December 6, 2016",2,this.getControllerPackaaes().get(0),"S"));
+        L.add(new TourRequest("Chan Ferolino","December 7, 2016",3,this.getControllerPackaaes().get(0),"S"));
+        L.add(new TourRequest("Justine Boholst","December 8, 2016",3,this.getControllerPackaaes().get(1),"S"));
+        L.add(new TourRequest("Nicolas James Chiong","December 8, 2016",2,this.getControllerPackaaes().get(3),"S"));
 
 
         return L;

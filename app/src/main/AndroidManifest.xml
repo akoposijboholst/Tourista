@@ -3,7 +3,6 @@
     package="com.touristadev.tourista">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.GET_TASKS"/>
 
     <application
         android:allowBackup="true"
@@ -81,10 +80,21 @@
             android:label="@string/title_activity_spot"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".tourGuide.RequestActivity" />
+
         <activity
             android:name=".activities.PassportActivity"
             android:label="@string/title_activity_passport"
             android:theme="@style/noAnimTheme" />
+        <activity android:name=".TourActivity" />
+        <activity android:name=".PackageListActivity" />
+        <activity android:name=".PackageDetailsActivity" />
+        <activity android:name=".PolicyActivity" />
+        <activity android:name=".BooknowActivity"></activity>
+        <activity android:name=".FeedActivity">
+
+        </activity>
+        <activity android:name=".RequestActivity"></activity>
+        <activity android:name=".TGTourActivity"></activity>
         <activity android:name=".activities.TourActivity" />
         <activity android:name=".activities.PackageListActivity" />
         <activity android:name=".activities.PackageDetailsActivity" />

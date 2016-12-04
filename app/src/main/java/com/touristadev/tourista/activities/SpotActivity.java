@@ -2,33 +2,22 @@ package com.touristadev.tourista.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RatingBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.controllers.Controllers;
-import com.touristadev.tourista.dataModels.Categories;
-import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.dataModels.Spots;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class SpotActivity extends AppCompatActivity {
     private int position;
@@ -49,8 +38,8 @@ public class SpotActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spot);
         imgSpot = (ImageView) findViewById(R.id.imgSpot);
-        ratBar = (RatingBar) findViewById(R.id.rtBar);
-        mSpotName = (TextView) findViewById(R.id.txtTitle);
+        ratBar = (RatingBar) findViewById(R.id.rtTGRating);
+        mSpotName = (TextView) findViewById(R.id.txtTourPackageName);
         mSpotAddress = (TextView) findViewById(R.id.txtSpotAddress);
         mSpotBudget = (TextView) findViewById(R.id.txtSpotBudget);
         mSpotOpen = (TextView) findViewById(R.id.txtOpenTime);

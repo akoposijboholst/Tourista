@@ -1,4 +1,4 @@
-package com.touristadev.tourista.activities;
+package com.touristadev.tourista;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -53,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_register);
 
         //FONTS
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Poppins-Bold.ttf");
 
         mCallbackManager = CallbackManager.Factory.create();
 

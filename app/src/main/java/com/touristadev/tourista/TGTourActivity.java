@@ -1,4 +1,4 @@
-package com.touristadev.tourista.activities;
+package com.touristadev.tourista;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,19 +12,19 @@ import android.view.KeyEvent;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
-import com.touristadev.tourista.R;
 import com.touristadev.tourista.fragments.FeedFragment;
+import com.touristadev.tourista.fragments.TGTourFragment;
 
-public class FeedActivity extends AppCompatActivity {
+public class TGTourActivity extends AppCompatActivity {
 
     BottomBar mBottomBar;
     public FragmentManager fragmentManager;
-    public FeedFragment t= new FeedFragment();
+    public TGTourFragment t= new TGTourFragment();
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            Intent intent= new Intent(FeedActivity.this,FeedActivity.class);
+            Intent intent= new Intent(TGTourActivity.this,FeedActivity.class);
             startActivity(intent);
             return true;
         }
@@ -32,12 +32,13 @@ public class FeedActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed);
+        setContentView(R.layout.activity_tgtour);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarL);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarT);
         setSupportActionBar(toolbar);
 
         fragmentManager = getSupportFragmentManager();
@@ -47,35 +48,36 @@ public class FeedActivity extends AppCompatActivity {
 
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction()
-                    .replace(R.id.fragment_container, fragment).commit();
+                    .replace(R.id.fragment_containerTGTour, fragment).commit();
         }
 
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
-        mBottomBar.setTypeFace("fonts/Raleway-Black.ttf");
 
         mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
-        mBottomBar.setDefaultTabPosition(0);
+        mBottomBar.setDefaultTabPosition(2);
         mBottomBar.setItemsFromMenu(R.menu.menu_tourguide, new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(@IdRes int menuItemId) {
                 if (menuItemId == R.id.bbfeedbar) {
-                    t = new FeedFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, t).commit();
+                    Intent i = new Intent(TGTourActivity.this, FeedActivity.class);
+                    startActivity(i);
                 }
                 if (menuItemId == R.id.bbrequestbar) {
 //                    getSupportFragmentManager().beginTransaction().
 //                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
-                    Intent i = new Intent(FeedActivity.this, RequestActivity.class);
+                    Intent i = new Intent(TGTourActivity.this, RequestActivity.class);
                     startActivity(i);
                 }
-//                if (menuItemId == R.id.bottombar3) {
-////
+                if (menuItemId == R.id.bbtourbar) {
+
+                    t = new TGTourFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containerTGTour, t).commit();
 //                    getSupportFragmentManager().beginTransaction().
 //                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_containerF)).commit();
 //                    Intent i = new Intent(ExploreActivity.this, TourActivity.class);
 //                    startActivity(i);
-//                }
+                }
 //                if (menuItemId == R.id.bottombar4) {
 //                    getSupportFragmentManager().beginTransaction().
 //                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_containerF)).commit();

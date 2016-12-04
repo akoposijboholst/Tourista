@@ -1,4 +1,4 @@
-package com.touristadev.tourista.activities;
+package com.touristadev.tourista;
 
 import android.content.Context;
 import android.content.Intent;
@@ -34,7 +34,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
-import com.touristadev.tourista.R;
+import com.touristadev.tourista.fragments.HotToursFragment;
 import com.touristadev.tourista.models.CityMaps;
 
 import java.util.ArrayList;
@@ -283,7 +283,7 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
             public View getInfoContents(Marker marker) {
                 View v = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.custom_marker_layout, null);
 
-                txtTile = (TextView) v.findViewById(R.id.txtTitle);
+                txtTile = (TextView) v.findViewById(R.id.txtTourPackageName);
                 txt_Description = (TextView) v.findViewById(R.id.txtDe) ;
                 ratBarM = (RatingBar) v.findViewById(R.id.rtBarA);
                 btnView = (Button) v.findViewById(R.id.btnView);

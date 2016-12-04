@@ -9,17 +9,18 @@ public class TourRequest {
     private String RequestTouristID;
     private String RequestStartDate;
     private int RequestNumberOfGuest;
-    private int RequestPackageID;
+    private Packages RequestPackage;
     private String RequestCarType;
+
 
     public TourRequest() {
     }
 
-    public TourRequest(String requestTouristID, String requestStartDate, int requestNumberOfGuest, int requestPackageID, String requestCarType) {
+    public TourRequest(String requestTouristID, String requestStartDate, int requestNumberOfGuest, Packages requestPackageID, String requestCarType) {
         RequestTouristID = requestTouristID;
         RequestStartDate = requestStartDate;
         RequestNumberOfGuest = requestNumberOfGuest;
-        RequestPackageID = requestPackageID;
+        RequestPackage = requestPackageID;
         RequestCarType = requestCarType;
     }
 
@@ -47,12 +48,12 @@ public class TourRequest {
         RequestNumberOfGuest = requestNumberOfGuest;
     }
 
-    public int getRequestPackageID() {
-        return RequestPackageID;
+    public Packages getRequestPackage() {
+        return RequestPackage;
     }
 
-    public void setRequestPackageID(int requestPackageID) {
-        RequestPackageID = requestPackageID;
+    public void setRequestPackage(Packages requestPackage) {
+        RequestPackage = requestPackage;
     }
 
     public String getRequestCarType() {
@@ -63,3 +64,4 @@ public class TourRequest {
         RequestCarType = requestCarType;
     }
 }
+

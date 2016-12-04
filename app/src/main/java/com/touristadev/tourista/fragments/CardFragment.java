@@ -25,7 +25,7 @@ public class CardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.card_item_foryou, container, false);
-        mCardView = (CardView) view.findViewById(R.id.cardView);
+        mCardView = (CardView) view.findViewById(R.id.cv_tgtouritem);
         mCardView.setMaxCardElevation(mCardView.getCardElevation()
                 * CardAdapter.MAX_ELEVATION_FACTOR);
         return view;

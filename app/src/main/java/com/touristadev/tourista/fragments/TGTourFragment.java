@@ -18,15 +18,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.touristadev.tourista.R;
-import com.touristadev.tourista.activities.ShadowTransformer;
+import com.touristadev.tourista.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
-import com.touristadev.tourista.adapters.FeedAdapter;
+import com.touristadev.tourista.adapters.TGTourAdapter;
 import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Packages;
 
 import java.util.ArrayList;
 
-public class FeedFragment extends Fragment {
+public class TGTourFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -48,9 +48,9 @@ public class FeedFragment extends Fragment {
 
 
     // TODO: Rename and change types and number of parameters
-    public static FeedFragment newInstance(String userNamez) {
+    public static TGTourFragment newInstance(String userNamez) {
 
-        return new FeedFragment();
+        return new TGTourFragment();
     }
 
     @Override
@@ -62,7 +62,7 @@ public class FeedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_feed, container, false);
+        View v = inflater.inflate(R.layout.fragment_tgtour, container, false);
 
 
 
@@ -74,7 +74,7 @@ public class FeedFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Log.d("shan","1");
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_recycler_view_feed);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_recycler_view_tgtour);
 
         //permet un affichage sous forme liste verticale
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -85,7 +85,7 @@ public class FeedFragment extends Fragment {
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
-        mCardAdapter = new FeedAdapter(list);
+        mCardAdapter = new TGTourAdapter(list);
         mRecyclerView.setAdapter(mCardAdapter);
         mCardAdapter.notifyDataSetChanged();
 
