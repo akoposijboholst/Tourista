@@ -1,4 +1,4 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,10 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 
 import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.BottomBarTab;
 import com.roughike.bottombar.OnMenuTabClickListener;
-import com.touristadev.tourista.activities.FeedActivity;
-import com.touristadev.tourista.activities.RequestActivity;
+import com.touristadev.tourista.R;
 import com.touristadev.tourista.fragments.FeedFragment;
 import com.touristadev.tourista.fragments.TGTourFragment;
 

@@ -1,4 +1,4 @@
-package com.touristadev.tourista.activities;
+package com.touristadev.tourista;
 
 import android.content.Intent;
 import android.os.Bundle;

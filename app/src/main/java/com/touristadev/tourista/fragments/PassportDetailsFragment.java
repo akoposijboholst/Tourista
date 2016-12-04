@@ -20,9 +20,7 @@ import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapte
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.adapters.PassportDetailsAdapter;
 
-
 import java.util.List;
-
 
 
 public class PassportDetailsFragment extends Fragment {
@@ -39,13 +37,19 @@ public class PassportDetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_profiledetails, container, false);
+        View view= inflater.inflate(R.layout.fragment_profiledetails, container, false);
+
+
+
+        return view;
+
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+
 
         //permet un affichage sous forme liste verticale
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -59,6 +63,9 @@ public class PassportDetailsFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapterM);
 
         MaterialViewPagerHelper.registerRecyclerView(getActivity(), mRecyclerView);
+
+
+
     }
 
 

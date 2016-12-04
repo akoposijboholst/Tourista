@@ -1,4 +1,4 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -10,19 +10,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jaredrummler.materialspinner.MaterialSpinner;
-import com.touristadev.tourista.activities.BooknowActivity;
-import com.touristadev.tourista.activities.TourActivity;
+import com.touristadev.tourista.R;
 import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.utils.HttpUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

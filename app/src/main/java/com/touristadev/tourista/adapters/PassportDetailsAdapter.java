@@ -14,9 +14,12 @@ import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
+import com.touristadev.tourista.activities.FeedActivity;
 import com.touristadev.tourista.R;
 
 import java.util.List;
+
+import it.beppi.tristatetogglebutton_library.TriStateToggleButton;
 
 
 public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetailsAdapter.MyViewHolder> {
@@ -26,6 +29,7 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
     private String ratingsCount, tripsCount, badgesCount;
     List<String> Squad;
     List<Integer> Trips;
+    private TriStateToggleButton tgTGmode;
 
 
     private String per;
@@ -37,6 +41,7 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
         this.badgesCount = badgesCount;
         this.Squad = squad;
         this.Trips = trips;
+
     }
 
     @Override
@@ -47,8 +52,21 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
     }
 
     @Override
-    public PassportDetailsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_profiledetails, parent, false);
+    public PassportDetailsAdapter.MyViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
+        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_profiledetails, parent, false);
+        tgTGmode= (TriStateToggleButton)view.findViewById(R.id.tgMode);
+
+        tgTGmode.setOnToggleChanged(new TriStateToggleButton.OnToggleChanged() {
+            @Override
+            public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean b, int i) {
+                if (b==true)
+                {
+                    Intent intent= new Intent(view.getContext(), FeedActivity.class);
+                    parent.getContext().startActivity(intent);
+                }
+            }
+        });
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
