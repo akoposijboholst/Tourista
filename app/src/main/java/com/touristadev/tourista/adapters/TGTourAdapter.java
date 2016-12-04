@@ -50,10 +50,10 @@ public class TGTourAdapter extends RecyclerView.Adapter<TGTourAdapter.MyViewHold
             Log.d("shan","3");
             cv_tgtouritem = (CardView)itemView.findViewById(R.id.cv_tgtouritem);
             txtTourPackageName = (TextView) itemView.findViewById(R.id.txtTourPackageName);
-            txtTourPackagePrice = (TextView) itemView.findViewById(R.id.txtTourPackagePrice);
+            txtTourPackagePrice = (TextView) itemView.findViewById(R.id.txtTGSpotName);
             txtTourPackageNoOfSpots = (TextView) itemView.findViewById(R.id.txtTourPackageNoOfSpots);
             txtTourPackageNoOfHours = (TextView) itemView.findViewById(R.id.txtTourPackageNoOfHours);
-            rtTourPackageRating = (RatingBar) itemView.findViewById(R.id.rtTourPackageRating);
+            rtTourPackageRating = (RatingBar) itemView.findViewById(R.id.rtTGRating);
             imgTourPackageImage= (ImageView)itemView.findViewById(R.id.imgTourPackageImage);
         }
     }

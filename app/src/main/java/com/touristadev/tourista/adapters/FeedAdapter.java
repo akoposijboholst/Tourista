@@ -49,11 +49,8 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder>{
             View view = v;
             Log.d("shan","3");
             cv_feeditem = (CardView)itemView.findViewById(R.id.cv_tgtouritem);
-            txtPackageName = (TextView) itemView.findViewById(R.id.txtTourPackageName);
-            txtPackagePrice = (TextView) itemView.findViewById(R.id.txtTourPackagePrice);
-            txtPackageNoOfSpots = (TextView) itemView.findViewById(R.id.txtTourPackageNoOfSpots);
-            txtPackageNoOfHours = (TextView) itemView.findViewById(R.id.txtTourPackageNoOfHours);
-            rtPackageRating = (RatingBar) itemView.findViewById(R.id.rtTourPackageRating);
+         //   txtTGSpotName = (TextView) itemView.findViewById(R.id.txtTGSpotName);
+            rtPackageRating = (RatingBar) itemView.findViewById(R.id.rtTGRating);
             imgPackageImage= (ImageView)itemView.findViewById(R.id.imgTourPackageImage);
         }
     }

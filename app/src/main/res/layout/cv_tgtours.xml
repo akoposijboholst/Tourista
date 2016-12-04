@@ -24,7 +24,7 @@
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtTourPackagePrice"
+            android:id="@+id/txtTGSpotName"
             android:layout_below="@+id/imgTourPackageImage"
             android:layout_alignParentStart="true"
             android:maxLines="1"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtTourPackageNoOfHours"
             android:layout_marginEnd="21dp"
-            android:layout_alignTop="@+id/rtTourPackageRating"
+            android:layout_alignTop="@+id/rtTGRating"
             android:layout_alignParentEnd="true"
             android:maxLines="1"
             android:maxLength="10"
@@ -62,11 +62,11 @@
 
         <RatingBar
             android:layout_height="wrap_content"
-            android:id="@+id/rtTourPackageRating"
+            android:id="@+id/rtTGRating"
             android:isIndicator="true"
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
-            android:layout_below="@+id/txtTourPackagePrice"
+            android:layout_below="@+id/txtTGSpotName"
             android:layout_alignParentStart="true" />
 
 
@@ -92,7 +92,7 @@
             android:ellipsize="end"
             android:textSize="17sp"
             android:layout_below="@+id/imgTourPackageImage"
-            android:layout_toEndOf="@+id/rtTourPackageRating" />
+            android:layout_toEndOf="@+id/rtTGRating" />
 
     </RelativeLayout>
 

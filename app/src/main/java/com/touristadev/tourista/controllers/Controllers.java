@@ -175,7 +175,7 @@ public class Controllers {
         tribes6.add(new Tribes("Genuinely Curious"));
 
         spotList.add(new Spots(6,"Kawasan Falls","Matutinao,, Badian, 6031 Cebu",
-                "500","2200","Cebu kawasan falls Cebu is a peaceful natural place where you can enjoy many waterfalls of natural spring water located near the southern tip of Cebu Philippines.. A gentle hush of rushing ice cool water."
+                "5:00","22:00","Cebu kawasan falls Cebu is a peaceful natural place where you can enjoy many waterfalls of natural spring water located near the southern tip of Cebu Philippines.. A gentle hush of rushing ice cool water."
                 , "1000","9.811219", "123.374875",activities6,categories6,tribes6,4,R.mipmap.kws));
 
 
@@ -295,11 +295,6 @@ public class Controllers {
         tribes2.add(new Tribes("The Self-Improver"));
         tribes2.add(new Tribes("Pilgrim"));
         tribes2.add(new Tribes("Genuinely Curious"));
-        itineraries.add(new Itinerary("Pick up location: South Bus Terminal","6:00 AM","9:00 AM"));
-        itineraries.add(new Itinerary(spotList.get(2).getSpotName(),"9:00 AM","12:00 PM"));
-        itineraries.add(new Itinerary("Lunch","12:00 PM","1:00 PM"));
-        itineraries.add(new Itinerary(spotList.get(3).getSpotAddress(),"1::00 PM","3:00 PM"));
-        itineraries.add(new Itinerary(spotList.get(4).getSpotName(),"3:00 PM","5:00 PM"));
 
         itineraries2.add(new Itinerary("Pick up location","06:00","09:00"));
         itineraries2.add(new Itinerary(spotList.get(2).getSpotName(),"09:00","12:00"));
@@ -347,13 +342,11 @@ public class Controllers {
     public ArrayList<TourRequest> getTourRequest()
     {
         ArrayList<TourRequest> L= new ArrayList<>();
-        ArrayList<Packages>P= this.getControllerPackaaes();
 
-        L.add(new TourRequest("Shanyl Jimenez","December 6, 2016",2,P.get(0),"S"));
-        L.add(new TourRequest("Chan Ferolino","December 7, 2016",3,P.get(0),"S"));
-        L.add(new TourRequest("Justine Boholst","December 8, 2016",3,P.get(1),"S"));
-        L.add(new TourRequest("Nicolas James Chiong","December 8, 2016",3,P.get(2),"S"));
-        L.add(new TourRequest("Allen Dale Gabisan","December 8, 2016",3,P.get(1),"S"));
+        L.add(new TourRequest("Shanyl Jimenez","December 6, 2016",2,this.getControllerPackaaes().get(0),"S"));
+        L.add(new TourRequest("Chan Ferolino","December 7, 2016",3,this.getControllerPackaaes().get(0),"S"));
+        L.add(new TourRequest("Justine Boholst","December 8, 2016",3,this.getControllerPackaaes().get(1),"S"));
+        L.add(new TourRequest("Nicolas James Chiong","December 8, 2016",2,this.getControllerPackaaes().get(3),"S"));
 
 
         return L;

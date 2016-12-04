@@ -16,11 +16,7 @@ import android.widget.TextView;
 import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Spots;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class SpotActivity extends AppCompatActivity {
     private int position;
@@ -41,7 +37,7 @@ public class SpotActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spot);
         imgSpot = (ImageView) findViewById(R.id.imgSpot);
-        ratBar = (RatingBar) findViewById(R.id.rtTourPackageRating);
+        ratBar = (RatingBar) findViewById(R.id.rtTGRating);
         mSpotName = (TextView) findViewById(R.id.txtTourPackageName);
         mSpotAddress = (TextView) findViewById(R.id.txtSpotAddress);
         mSpotBudget = (TextView) findViewById(R.id.txtSpotBudget);
