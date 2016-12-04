@@ -1,4 +1,4 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -6,7 +6,6 @@ import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,8 +16,6 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
@@ -30,10 +27,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.touristadev.tourista.R;
+import com.touristadev.tourista.activities.RegisterActivity;
 import com.touristadev.tourista.models.CurrentUser;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.Arrays;
 
@@ -51,6 +48,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_login);
+
+        FirebaseMessaging.getInstance().subscribeToTopic("news");
 
         //FONTS
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Poppins-Bold.ttf");

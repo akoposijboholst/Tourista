@@ -21,17 +21,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.touristadev.tourista.PackageDetailsActivity;
+import com.touristadev.tourista.activities.PackageDetailsActivity;
 import com.touristadev.tourista.R;
-import com.touristadev.tourista.SpotActivity;
-import com.touristadev.tourista.TourActivity;
+import com.touristadev.tourista.activities.SpotActivity;
+import com.touristadev.tourista.activities.TourActivity;
 import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.models.ForYou;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 

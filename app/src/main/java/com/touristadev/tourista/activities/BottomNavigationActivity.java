@@ -1,4 +1,4 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;

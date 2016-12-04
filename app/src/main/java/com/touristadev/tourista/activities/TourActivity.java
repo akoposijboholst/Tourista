@@ -1,4 +1,4 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.constraint.solver.SolverVariable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -18,11 +17,9 @@ import android.view.View;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
+import com.touristadev.tourista.R;
 import com.touristadev.tourista.fragments.BookedToursFragment;
-import com.touristadev.tourista.fragments.DealsFragment;
 import com.touristadev.tourista.fragments.ForYouFragment;
-import com.touristadev.tourista.fragments.HotSpotsFragment;
-import com.touristadev.tourista.fragments.HotToursFragment;
 import com.touristadev.tourista.fragments.WishListFragment;
 
 import net.lucode.hackware.magicindicator.FragmentContainerHelper;
@@ -39,7 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TourActivity extends AppCompatActivity {
-    private static final String[] CHANNELS = new String[]{"BOOKED TOURS","SAVED TOURS" };
+    private static final String[] CHANNELS = new String[]{"BOOKED TOURS","WISHLIST TOURS" };
     private List<Fragment> mFragments = new ArrayList<Fragment>();
     private FragmentContainerHelper mFragmentContainerHelper = new FragmentContainerHelper();
     BottomBar mBottomBar;

@@ -38,15 +38,15 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ExploreActivity"
+            android:name=".activities.ExploreActivity"
             android:label="@string/title_activity_explore"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".activities.WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -56,8 +56,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".ChooseTribeActivity" />
-        <activity android:name=".TutorialActivity" />
+        <activity android:name=".activities.ChooseTribeActivity" />
+        <activity android:name=".activities.TutorialActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -72,16 +72,47 @@
 
 
         <activity
-            android:name=".PassportActivity"
+            android:name=".tourGuide.BottomNavigationActivity"
+            android:label="@string/title_activity_tours"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".tourGuide.FeedActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.SpotActivity"
+            android:label="@string/title_activity_spot"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".tourGuide.RequestActivity" />
+        <activity
+            android:name=".activities.PassportActivity"
             android:label="@string/title_activity_passport"
             android:theme="@style/noAnimTheme" />
         <activity android:name=".TourActivity" />
         <activity android:name=".PackageListActivity" />
         <activity android:name=".PackageDetailsActivity" />
         <activity android:name=".PolicyActivity" />
-        <activity android:name=".BooknowActivity"></activity>
-        <activity android:name=".FeedActivity">
+        <activity android:name=".BooknowActivity" />
+        <activity android:name=".FeedActivity"></activity>
+        <activity android:name=".RequestActivity" />
+        <activity android:name=".TGTourActivity" />
+        <activity android:name=".activities.TourActivity" />
+        <activity android:name=".activities.PackageListActivity" />
+        <activity android:name=".activities.PackageDetailsActivity" />
+        <activity android:name=".activities.PolicyActivity" />
+        <activity android:name=".activities.BooknowActivity" />
 
+        <service android:name=".services.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".services.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".PaypalActivity"></activity>
         </activity>
         <activity android:name=".RequestActivity"></activity>
         <activity android:name=".TGTourActivity"></activity>

@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.touristadev.tourista.R;
 import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Spots;
 
@@ -37,7 +38,7 @@ public class SpotActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spot);
         imgSpot = (ImageView) findViewById(R.id.imgSpot);
-        ratBar = (RatingBar) findViewById(R.id.rtTGRating);
+        ratBar = (RatingBar) findViewById(R.id.rtBar);
         mSpotName = (TextView) findViewById(R.id.txtTitle);
         mSpotAddress = (TextView) findViewById(R.id.txtSpotAddress);
         mSpotBudget = (TextView) findViewById(R.id.txtSpotBudget);

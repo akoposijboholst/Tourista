@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.touristadev.tourista.TutorialActivity">
+    tools:context="com.touristadev.tourista.activities.TutorialActivity">
 
 
     <com.commit451.inkpageindicator.InkPageIndicator

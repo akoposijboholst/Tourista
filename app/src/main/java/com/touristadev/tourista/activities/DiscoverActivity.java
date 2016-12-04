@@ -1,4 +1,4 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -34,6 +34,12 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
+import com.touristadev.tourista.R;
+import com.touristadev.tourista.activities.ExploreActivity;
+import com.touristadev.tourista.activities.PackageListActivity;
+import com.touristadev.tourista.activities.PassportActivity;
+import com.touristadev.tourista.activities.TourActivity;
+import com.touristadev.tourista.fragments.HotToursFragment;
 import com.touristadev.tourista.models.CityMaps;
 
 import java.util.ArrayList;

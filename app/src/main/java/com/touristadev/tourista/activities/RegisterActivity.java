@@ -1,4 +1,4 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -26,6 +26,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.touristadev.tourista.R;
+import com.touristadev.tourista.activities.WelcomeActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;

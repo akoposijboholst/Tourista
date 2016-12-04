@@ -15,12 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.touristadev.tourista.R;
-import com.touristadev.tourista.ShadowTransformer;
+import com.touristadev.tourista.activities.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardExplorerPagerAdapter;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
 import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.models.ForYou;
-import com.touristadev.tourista.models.Packages;
 
 import java.util.ArrayList;
 

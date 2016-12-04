@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.touristadev.tourista.SpotActivity"
+    tools:context="com.touristadev.tourista.activities.SpotActivity"
     tools:showIn="@layout/activity_spot">
 <RelativeLayout
     android:layout_width="match_parent"

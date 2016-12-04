@@ -1,4 +1,4 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.google.android.gms.vision.text.Text;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
+import com.touristadev.tourista.R;
 import com.touristadev.tourista.fragments.DealsFragment;
 import com.touristadev.tourista.fragments.ForYouFragment;
 import com.touristadev.tourista.fragments.HotSpotsFragment;

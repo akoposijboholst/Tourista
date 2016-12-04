@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.touristadev.tourista.BooknowActivity">
+    tools:context="com.touristadev.tourista.activities.BooknowActivity">
 
     <TextView
         android:text="Credentials"
@@ -61,7 +61,7 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="Check out!"
+        android:text="Check out with PayPal"
         android:enabled="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
