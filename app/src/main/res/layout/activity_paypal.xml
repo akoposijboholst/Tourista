@@ -50,6 +50,15 @@
         android:layout_below="@+id/textView6"
         android:layout_alignParentStart="true" />
 
+    <TextView
+        android:text="Card Number"
+        android:layout_marginTop="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentStart="true" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,19 +68,9 @@
 
         android:id="@+id/edtCardNumber"
 
+        android:layout_marginTop="21dp"
         android:layout_below="@+id/textView7"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
-
-    <TextView
-        android:text="Card Number"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/edtCardNumber"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView7" />
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
