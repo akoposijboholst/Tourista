@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
-import com.touristadev.tourista.FeedActivity;
+import com.touristadev.tourista.activities.FeedActivity;
 import com.touristadev.tourista.R;
 
 import java.util.List;

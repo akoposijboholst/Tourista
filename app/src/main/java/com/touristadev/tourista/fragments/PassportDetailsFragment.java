@@ -5,7 +5,6 @@ package com.touristadev.tourista.fragments;
  */
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,14 +17,10 @@ import android.view.ViewGroup;
 
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
-import com.touristadev.tourista.FeedActivity;
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.adapters.PassportDetailsAdapter;
 
-
 import java.util.List;
-
-import it.beppi.tristatetogglebutton_library.TriStateToggleButton;
 
 
 public class PassportDetailsFragment extends Fragment {
