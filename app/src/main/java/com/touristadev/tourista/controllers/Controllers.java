@@ -1,5 +1,7 @@
 package com.touristadev.tourista.controllers;
 
+import android.util.Log;
+
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.dataModels.Categories;
 import com.touristadev.tourista.dataModels.Itinerary;
@@ -15,12 +17,13 @@ import java.util.ArrayList;
  */
 
 public class Controllers {
-    static ArrayList<Spots> spotList;
-    static ArrayList<Packages> BookedList;
-    static ArrayList<Packages> WishList;
+    static ArrayList<Spots> spotList = new ArrayList<>();
+    static ArrayList<Packages> packageList = new ArrayList<>();
+    static ArrayList<Packages> BookedList = new ArrayList<>();
+    static ArrayList<Packages> WishList = new ArrayList<>();
+    private static int positionwew;
     public void Controllers() {
 
-        spotList= new ArrayList<>();
         ArrayList<String> activities0 = new ArrayList<>();
         ArrayList<Categories> categories0 = new ArrayList<>();
         ArrayList<Tribes> tribes0 = new ArrayList<>();
@@ -33,9 +36,10 @@ public class Controllers {
         tribes0.add(new Tribes("Comformist"));
         tribes0.add(new Tribes("Thrill- Seeker"));
         tribes0.add(new Tribes("Self- Improver"));
+        spotList.clear();
 
         spotList.add(new Spots(0,"Masters Resort Cebu","4044 Oslob, Cebu, Philippines",
-                "800","2100","The southern part of the province is one of the areas where you can enjoy various sorts of seawater activities, do adventurous trips, have fun and cherish the tranquil ambiance and surroundings."
+                "8:00","21:00","The southern part of the province is one of the areas where you can enjoy various sorts of seawater activities, do adventurous trips, have fun and cherish the tranquil ambiance and surroundings."
                 ,"2000","9.459556960067692","123.37731275707483",
                 activities0,categories0,tribes0,4, R.mipmap.mrc));
 
@@ -57,7 +61,7 @@ public class Controllers {
         tribes1.add(new Tribes("Self- Improver"));
 
         spotList.add(new Spots(1,"Oslob Whale Shark Watching","Tan-awan Oslob, Cebu, Ph",
-                "800","1200","Oslob Whalesharks watching was born to give information about whale shark interaction in Oslob, we are here to organize day tour trips on whale shark encounters with side trip to Tumalog waterfalls. We"
+                "8:00","12:00","Oslob Whalesharks watching was born to give information about whale shark interaction in Oslob, we are here to organize day tour trips on whale shark encounters with side trip to Tumalog waterfalls. We"
                 ,"1000","9.47008451293314","123.38275127112864",
                 activities1,categories1,tribes1,4,R.mipmap.owsw));
 
@@ -81,7 +85,7 @@ public class Controllers {
         tribes2.add(new Tribes("Pilgrim"));
 
         spotList.add(new Spots(2,"Basilica del Santo Niño","Santo Nino Chapel Lane, Cebu City, Cebu"
-                ,"500","2000","The oldest Roman Catholic church in the country, it is built on the spot where the image of the Santo Niño de Cebú was found during the expedition of Miguel López de Legazpi. "
+                ,"5:00","20:00","The oldest Roman Catholic church in the country, it is built on the spot where the image of the Santo Niño de Cebú was found during the expedition of Miguel López de Legazpi. "
                 ,"100","10.294194","123.902106",
                 activities2,categories2,tribes2,4,R.mipmap.stnino));
 
@@ -104,7 +108,7 @@ public class Controllers {
         tribes3.add(new Tribes("Genuinely Curious"));
 
         spotList.add(new Spots(3, "Museo Sugbo", "M. J. Cuenco Ave, Cebu City, 6000 Cebu",
-                "900","1730","Museo Sugbo is the Cebu Provincial Museum located in the former Cebu Provincial Detention and Rehabilitation Center, four blocks from Plaza Independencia."
+                "9:00","17:30","Museo Sugbo is the Cebu Provincial Museum located in the former Cebu Provincial Detention and Rehabilitation Center, four blocks from Plaza Independencia."
                 ,"100", "10.303781",  "123.906758",
                 activities3,categories3,tribes3,4,R.mipmap.msugbo));
 
@@ -128,7 +132,7 @@ public class Controllers {
         tribes4.add(new Tribes("Genuinely Curious"));
 
         spotList.add( new Spots(4,"Fort San Pedro", "A. Pigafetta Street, Cebu City, 6000"
-                ,"700", "1900", "One of the city’s historical attractions is Fort San Pedro which is known as the smallest and oldest fort in the Philippines.",
+                ,"7:00", "19:00", "One of the city’s historical attractions is Fort San Pedro which is known as the smallest and oldest fort in the Philippines.",
                 "100","10.292499","123.905828",activities4, categories4, tribes4,4,R.mipmap.fsanpedro));
 
         // SPOT ////////////////////////////////////////////////////////////////////////////////////
@@ -151,7 +155,7 @@ public class Controllers {
         tribes5.add(new Tribes("Genuinely Curious"));
 
         spotList.add(new Spots(5,"Tumalog Falls","Cebu South Rd, Oslob, Cebu",
-                "500","2200","Tumalog Falls (also called the “Toslob Falls” or “Mag-ambak Falls”) is situated in the town of Oslob, Cebu. It is just about 15-20 minutes ride from the whale-watching site.",
+                "5:00","22:00","Tumalog Falls (also called the “Toslob Falls” or “Mag-ambak Falls”) is situated in the town of Oslob, Cebu. It is just about 15-20 minutes ride from the whale-watching site.",
                 "500","9.486560"," 123.369264",activities5,categories5,tribes5,54,R.mipmap.tml));
 
         // SPOT ////////////////////////////////////////////////////////////////////////////////////
@@ -225,6 +229,7 @@ public class Controllers {
     public ArrayList<Spots>  getControllerSpots()
     {
         Controllers();
+
         return spotList;
     }
 
@@ -243,88 +248,100 @@ public class Controllers {
     public ArrayList<Packages> getControllerPackaaes()
     {
         Controllers();
-        ArrayList<Packages> L= new ArrayList<>();
-        ArrayList<Categories> categories = new ArrayList<>();
-        ArrayList<Tribes> tribes = new ArrayList<>();
-        ArrayList<Itinerary> itineraries = new ArrayList<>();
+        ArrayList<Packages> L1= new ArrayList<>();
+        ArrayList<Categories> categories1 = new ArrayList<>();
+        ArrayList<Tribes> tribes1 = new ArrayList<>();
+        ArrayList<Itinerary> itineraries1 = new ArrayList<>();
+
+        ArrayList<Packages> L2= new ArrayList<>();
+        ArrayList<Categories> categories2 = new ArrayList<>();
+        ArrayList<Tribes> tribes2 = new ArrayList<>();
+        ArrayList<Itinerary> itineraries2 = new ArrayList<>();
+
+        ArrayList<Packages> L3= new ArrayList<>();
+        ArrayList<Categories> categories3 = new ArrayList<>();
+        ArrayList<Tribes> tribes3 = new ArrayList<>();
+        ArrayList<Itinerary> itineraries3 = new ArrayList<>();
 
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
-        categories.add(new Categories("Adventure"));
-        categories.add(new Categories("Nature"));
-        categories.add(new Categories("Beaches and Resorts"));
-        categories.add(new Categories("Beaches and Resorts"));
+        categories1.add(new Categories("Adventure"));
+        categories1.add(new Categories("Nature"));
+        categories1.add(new Categories("Beaches and Resorts"));
+        categories1.add(new Categories("Beaches and Resorts"));
 
-        tribes.add(new Tribes("Thrill-seeker"));
-        tribes.add(new Tribes("Backpacker"));
-        tribes.add(new Tribes("Escapist"));
+        tribes1.add(new Tribes("Thrill-seeker"));
+        tribes1.add(new Tribes("Backpacker"));
+        tribes1.add(new Tribes("Escapist"));
 
-        itineraries.add(new Itinerary("Pick up location: South Bus Terminal","500","800"));
-        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"8:00 AM","11:00 AM"));
-        itineraries.add(new Itinerary("Lunch","11:00 AM","1:00 PM"));
-        itineraries.add(new Itinerary(spotList.get(0).getSpotName(),"1:00","4:00 PM"));
+        itineraries1.add(new Itinerary("Pick up location","05:00","08:00"));
+        itineraries1.add(new Itinerary(spotList.get(1).getSpotName(),"08:00","11:00"));
+        itineraries1.add(new Itinerary("Lunch","11:00","13:00"));
+        itineraries1.add(new Itinerary(spotList.get(0).getSpotName(),"13:00","16:00"));
 
-        L.add(new Packages("South Cebu Tours",categories,itineraries,"Local",tribes,4,2,8,R.mipmap.pck1));
+        L1.add(new Packages("South Cebu Tours",categories1,itineraries1,"Local",tribes2,4,2,8,R.mipmap.spot_boracay));
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
-        categories.clear();
-        tribes.clear();
-        itineraries.clear();
 
-        categories.add(new Categories("Art Galleries"));
-        categories.add(new Categories("Church"));
-        categories.add(new Categories("Historical"));
-        categories.add(new Categories("Museums"));
 
-        tribes.add(new Tribes("Collector"));
-        tribes.add(new Tribes("Escapist"));
-        tribes.add(new Tribes("The Self-Improver"));
-        tribes.add(new Tribes("Pilgrim"));
-        tribes.add(new Tribes("Genuinely Curious"));
+        categories2.add(new Categories("Art Galleries"));
+        categories2.add(new Categories("Church"));
+        categories2.add(new Categories("Historical"));
+        categories2.add(new Categories("Museums"));
 
+        tribes2.add(new Tribes("Collector"));
+        tribes2.add(new Tribes("Escapist"));
+        tribes2.add(new Tribes("The Self-Improver"));
+        tribes2.add(new Tribes("Pilgrim"));
+        tribes2.add(new Tribes("Genuinely Curious"));
         itineraries.add(new Itinerary("Pick up location: South Bus Terminal","6:00 AM","9:00 AM"));
         itineraries.add(new Itinerary(spotList.get(2).getSpotName(),"9:00 AM","12:00 PM"));
         itineraries.add(new Itinerary("Lunch","12:00 PM","1:00 PM"));
         itineraries.add(new Itinerary(spotList.get(3).getSpotAddress(),"1::00 PM","3:00 PM"));
         itineraries.add(new Itinerary(spotList.get(4).getSpotName(),"3:00 PM","5:00 PM"));
 
-        L.add(new Packages("Cebu Pilgrimage",categories,itineraries,"Local",tribes,4,3,8,R.mipmap.pck2));
+        itineraries2.add(new Itinerary("Pick up location","06:00","09:00"));
+        itineraries2.add(new Itinerary(spotList.get(2).getSpotName(),"09:00","12:00"));
+        itineraries2.add(new Itinerary("Lunch","12:00","13:00"));
+        itineraries2.add(new Itinerary(spotList.get(3).getSpotAddress(),"13:00","15:00"));
+        itineraries2.add(new Itinerary(spotList.get(4).getSpotName(),"15:00","17:00"));
+
+        L2.add(new Packages("Cebu Pilgrimage",categories2,itineraries2,"Local",tribes2,4,3,8,R.mipmap.spot_boracay));
 
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
-        categories.clear();
-        tribes.clear();
-        itineraries.clear();
 
-        categories.add(new Categories("Adventure"));
-        categories.add(new Categories("Aquaria"));
-        categories.add(new Categories("Nature"));
 
-        tribes.add(new Tribes("Thrill-Seeker"));
-        tribes.add(new Tribes("Escapist"));
-        tribes.add(new Tribes("The Self-Improver"));
-        tribes.add(new Tribes("Genuinely Curious"));
+        categories3.add(new Categories("Adventure"));
+        categories3.add(new Categories("Aquaria"));
+        categories3.add(new Categories("Nature"));
 
-        itineraries.add(new Itinerary("Pick up location: South Bus Terminal","5:00 AM","8:00 AM"));
-        itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"8:00 AM","8:30 AM"));
-        itineraries.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","8:30 AM","11:00 AM"));
-        itineraries.add(new Itinerary("Lunch","11:00 AM","12:00 PM"));
-        itineraries.add(new Itinerary(spotList.get(5).getSpotName(),"12:00 PM","3:00 PM"));
-        itineraries.add(new Itinerary("Departure Time","3:00 PM","5:00 PM"));
+        tribes3.add(new Tribes("Thrill-Seeker"));
+        tribes3.add(new Tribes("Escapist"));
+        tribes3.add(new Tribes("The Self-Improver"));
+        tribes3.add(new Tribes("Genuinely Curious"));
 
-        L.add(new Packages("Oslob Whale Watching",categories,itineraries,"Local",tribes,4,2,12,R.mipmap.pck3));
+        itineraries3.add(new Itinerary("Pick up location","05:00","08:00"));
+        itineraries3.add(new Itinerary(spotList.get(1).getSpotName(),"08:00","08:30"));
+        itineraries3.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","08:30","11:00"));
+        itineraries3.add(new Itinerary("Lunch","11:00","12:00"));
+        itineraries3.add(new Itinerary(spotList.get(5).getSpotName(),"12:00","15:00"));
+        itineraries3.add(new Itinerary("Departure Time","15:00","17:00"));
+
+        L3.add(new Packages("Oslob Whale Watching",categories3,itineraries3,"Local",tribes3,4,2,12,R.mipmap.pck3));
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
+        packageList.clear();
+        packageList.add(L1.get(0));
+        packageList.add(L2.get(0));
+        packageList.add(L3.get(0));
 
+        Log.d("changwapo",packageList.size()+" 1");
 
-
-
-
-
-        return L;
+        return packageList;
     }
 
     public ArrayList<TourRequest> getTourRequest()
@@ -344,6 +361,7 @@ public class Controllers {
 
 
 
+
     public void addBookedPackages(Packages pa)
     {
         BookedList.add(pa);
@@ -352,6 +370,16 @@ public class Controllers {
     public void addWishPackages(Packages pa)
     {
         WishList.add(pa);
+
+    }
+    public void removeWishPackage(int pos)
+    {
+        WishList.remove(pos);
+
+    }
+    public void removeBookedPackages(int pos)
+    {
+        BookedList.remove(pos);
 
     }
     public ArrayList<Packages> getBookedList()
@@ -367,6 +395,12 @@ public class Controllers {
 
         return WishList;
 
+    }
+    public static void setPosition(int position2){
+        positionwew = position2;
+    }
+    public int getPosition(){
+        return positionwew;
     }
 
 

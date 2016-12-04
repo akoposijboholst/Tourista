@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TourActivity extends AppCompatActivity {
-    private static final String[] CHANNELS = new String[]{"BOOKED TOURS","WISH LIST" };
+    private static final String[] CHANNELS = new String[]{"BOOKED TOURS","SAVED TOURS" };
     private List<Fragment> mFragments = new ArrayList<Fragment>();
     private FragmentContainerHelper mFragmentContainerHelper = new FragmentContainerHelper();
     BottomBar mBottomBar;
@@ -77,13 +77,14 @@ public class TourActivity extends AppCompatActivity {
         switchPages(0);
 
         Intent i = getIntent();
-        myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
+        myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Poppins-Bold.ttf");
         firstName = i.getStringExtra("firstName");
         lastName = i.getStringExtra("lastName");
         email = i.getStringExtra("email");
 
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
+        mBottomBar.setTypeFace("fonts/Poppins-Regular.ttf");
         mBottomBar.setDefaultTabPosition(2);
         mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
@@ -177,12 +178,13 @@ public class TourActivity extends AppCompatActivity {
 
             @Override
             public IPagerTitleView getTitleView(Context context, final int index) {
+                myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Poppins-Bold.ttf");
                 ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
-                colorTransitionPagerTitleView.setNormalColor(Color.BLACK);
-                colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#fecd23"));
+                colorTransitionPagerTitleView.setNormalColor(Color.parseColor("#fdd8a1"));
+                colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#FFFFFF"));
                 colorTransitionPagerTitleView.setText(CHANNELS[index]);
+                colorTransitionPagerTitleView.setGravity(Gravity.CENTER);
                 colorTransitionPagerTitleView.setTypeface(myCustomFont);
-                colorTransitionPagerTitleView.setGravity(Gravity.CENTER );
                 colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -198,7 +200,7 @@ public class TourActivity extends AppCompatActivity {
             @Override
             public IPagerIndicator getIndicator(Context context) {
                 LinePagerIndicator indicator = new LinePagerIndicator(context);
-
+                indicator.setColors(Color.parseColor("#FFFFFF"));
                 indicator.setMode(LinePagerIndicator.MODE_WRAP_CONTENT);
                 return indicator;
             }

@@ -15,7 +15,10 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.google.android.gms.vision.text.Text;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 import com.touristadev.tourista.fragments.DealsFragment;
@@ -44,8 +47,10 @@ public class ExploreActivity extends AppCompatActivity {
     public ForYouFragment t = new ForYouFragment();
     public FragmentManager fragmentManager;
     private String firstName, lastName, email;
-
+    private Button mRegister, mSignIn;
     private Typeface myCustomFont;
+
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -69,13 +74,14 @@ public class ExploreActivity extends AppCompatActivity {
         super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_explore);
 
+
         initFragments();
         initMagicIndicator1();
 
         mFragmentContainerHelper.handlePageSelected(0, false);
         switchPages(0);
 
-        myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
+
         Intent i = getIntent();
 
         firstName = i.getStringExtra("firstName");
@@ -84,6 +90,7 @@ public class ExploreActivity extends AppCompatActivity {
 
         mBottomBar = BottomBar.attach(this, savedInstanceState);
         mBottomBar.useFixedMode();
+        mBottomBar.setTypeFace("fonts/Poppins-Regular.ttf");
         mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
@@ -115,6 +122,9 @@ public class ExploreActivity extends AppCompatActivity {
                     intent.putExtra("email", email);
                     startActivity(intent);
                 }
+
+
+
             }
 
             @Override
@@ -126,6 +136,7 @@ public class ExploreActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
 
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
@@ -170,6 +181,9 @@ public class ExploreActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator1() {
+
+
+
         MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator);
 
         CommonNavigator commonNavigator = new CommonNavigator(this);
@@ -182,12 +196,16 @@ public class ExploreActivity extends AppCompatActivity {
 
             @Override
             public IPagerTitleView getTitleView(Context context, final int index) {
+                myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Poppins-Bold.ttf");
+
                 ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
-                colorTransitionPagerTitleView.setNormalColor(Color.BLACK);
-                colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#fecd23"));
+                colorTransitionPagerTitleView.setNormalColor(Color.parseColor("#BBDEFB"));
+                colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#FFFFFF"));
                 colorTransitionPagerTitleView.setText(CHANNELS[index]);
                 colorTransitionPagerTitleView.setGravity(Gravity.CENTER);
                 colorTransitionPagerTitleView.setTypeface(myCustomFont);
+
+
                 colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -203,7 +221,7 @@ public class ExploreActivity extends AppCompatActivity {
             @Override
             public IPagerIndicator getIndicator(Context context) {
                 LinePagerIndicator indicator = new LinePagerIndicator(context);
-
+                indicator.setColors(Color.parseColor("#FFFFFF"));
                 indicator.setMode(LinePagerIndicator.MODE_WRAP_CONTENT);
                 return indicator;
             }

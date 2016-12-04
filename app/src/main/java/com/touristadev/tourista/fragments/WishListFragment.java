@@ -66,8 +66,8 @@ public class WishListFragment extends Fragment {
      * @return A new instance of fragment HotToursFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HotToursFragment newInstance(String param1, String param2) {
-        HotToursFragment fragment = new HotToursFragment();
+    public static WishListFragment newInstance(String param1, String param2) {
+        WishListFragment fragment = new WishListFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -89,37 +89,16 @@ public class WishListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_hot_tours, container, false);
         Controllers con = new Controllers();
+        TourListTemp.clear();
         TourListTemp = con.getWishList();
         if (TourListTemp != null) {
             for (int x = 0; x < TourListTemp.size(); x++) {
-                TourList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()*40), String.valueOf(TourListTemp.get(x).getPackageNoOfSpots()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour",R.mipmap.boracay));
+                TourList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()*40), String.valueOf(TourListTemp.get(x).getPackageNoOfSpots()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour",TourListTemp.get(x).getPackageImage()));
 
             }
         }
-        Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
-        Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.cp);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.mt);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.boracay);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smart);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.philippinetour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.fastfoodtour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smartmanila);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
+
+
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_tours);
 
         //permet un affichage sous forme liste verticale
@@ -130,7 +109,7 @@ public class WishListFragment extends Fragment {
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
-        mCardAdapter = new CardExplorerPagerAdapter(TourList);
+        mCardAdapter = new CardExplorerPagerAdapter(TourList,"Wishlist");
         mRecyclerView.setAdapter(mCardAdapter);
         mCardAdapter.notifyDataSetChanged();
 

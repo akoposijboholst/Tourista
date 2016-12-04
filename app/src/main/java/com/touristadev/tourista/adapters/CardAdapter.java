@@ -16,4 +16,8 @@ public interface CardAdapter {
     CardView getCardViewAt(int position);
 
     int getCount();
+
+    long getItemId(int position);
+
+    int getItemViewType(int position);
 }

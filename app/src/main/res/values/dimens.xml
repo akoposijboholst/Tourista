@@ -7,7 +7,7 @@
     <dimen name="dp_logo">10dp</dimen>
 
     <dimen name="common_navigator_height">45dp</dimen>
-    <dimen name="navigator_margin_top">5dp</dimen>
+    <dimen name="navigator_margin_top">10dp</dimen>
 
     <dimen name="card_padding">60dp</dimen>
 </resources>

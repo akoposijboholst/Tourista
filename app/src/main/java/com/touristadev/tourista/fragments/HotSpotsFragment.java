@@ -2,6 +2,7 @@ package com.touristadev.tourista.fragments;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -14,9 +15,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.touristadev.tourista.R;
-import com.touristadev.tourista.ShadowTransformer;
+//import com.touristadev.tourista.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardExplorerPagerAdapter;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
 import com.touristadev.tourista.controllers.Controllers;
@@ -49,12 +51,16 @@ public class HotSpotsFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private ArrayList<Spots> SpotListTemp = new ArrayList<>();
     private ArrayList<Bitmap> mListImages = new ArrayList<>();
-    private ShadowTransformer mCardShadowTransformer;
+    //private ShadowTransformer mCardShadowTransformer;
     private ViewPager mViewPagerTours;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
-    private ShadowTransformer mFragmentCardShadowTransformer;
+    //private ShadowTransformer mFragmentCardShadowTransformer;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mCardAdapter;
+
+    private TextView txtTour, txtSpot, txtDeals;
+
+
     public HotSpotsFragment() {
         // Required empty public constructor
     }
@@ -80,6 +86,9 @@ public class HotSpotsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -91,33 +100,19 @@ public class HotSpotsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_hot_spots, container, false);
         Controllers con = new Controllers();
-
+        SpotListTemp.clear();
         SpotListTemp = con.getControllerSpots();
         SpotList.clear();
 //        -----------------------------------------------------------------------------------------------
         if(SpotListTemp!=null){
             for(int x = 0 ; x < SpotListTemp.size() ; x++) {
-                SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), "₱ " + SpotListTemp.get(x).getSpotEstimatedBudget(), "1 Spot", "8 Hours", "spot",SpotListTemp.get(x).getSpotImage()));
+                SpotList.add(new ForYou(SpotListTemp.get(x).getSpotName(), SpotListTemp.get(x).getSpotRating(), " ", " ", " ", "spot",SpotListTemp.get(x).getSpotImage()));
 
             }
         }
 
 // image list spots
-        Drawable myDrawable = getResources().getDrawable(R.mipmap.mrc);
-        Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.owsw);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.stnino);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.msugbo);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.fsanpedro);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
+
         // image list spots
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rv_recycler_view_spots);
 

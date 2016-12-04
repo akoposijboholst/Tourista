@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,47 +94,16 @@ public class DealsFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_promos, container, false);
 
         Controllers con = new Controllers();
-
+        TourListTemp.clear();
         TourListTemp = con.getControllerPackaaes();
+        Log.d("changwapo",TourListTemp.size()+"");
         DealList.clear();
         if (TourListTemp != null) {
             for (int x = 0; x < TourListTemp.size(); x++) {
-                DealList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()*40), String.valueOf(TourListTemp.get(x).getPackageNoOfSpots()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour",R.mipmap.boracay));
+                DealList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()*40), String.valueOf(TourListTemp.get(x).getPackageNoOfSpots()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour",TourListTemp.get(x).getPackageImage()));
 
             }
         }
-        DealList.add(new ForYou("Cebu Educational Tour Promo", 5, "₱ 150 ", "5 Spots", "10 hrs", "deal",R.mipmap.sbt));
-        DealList.add(new ForYou("Smart Facility Tour Promo", 4, "₱ 300", "4 Spots", "12 hrs", "deal",R.mipmap.smart));
-        DealList.add(new ForYou("Manila Food Tour Promo", 5, "₱ 100", "15 Spots", "8 hrs", "deal",R.mipmap.fastfoodtour));
-        DealList.add(new ForYou("Manila Technology Tour Promo", 5, "₱ 250", "11 Spots", "3 days", "deal",R.mipmap.smartmanila));
-        DealList.add(new ForYou("Smart Technology Tour Promo", 4, "₱ 380", "6 Spots", "10 hrs", "deal",R.mipmap.smart));
-        DealList.add(new ForYou("Mindanao Islands Tour Promo", 5, "₱ 5,300", "7 Spots", "5 days", "deal",R.mipmap.mrc));
-
-// image list deals
-        Drawable myDrawable = getResources().getDrawable(R.mipmap.sbt);
-        Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.cp);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.mt);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.boracay);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smart);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.philippinetour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.fastfoodtour);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
-        myDrawable = getResources().getDrawable(R.mipmap.smartmanila);
-        myLogo = ((BitmapDrawable) myDrawable).getBitmap();
-        mListImages.add(myLogo);
 
 // image list deals
 

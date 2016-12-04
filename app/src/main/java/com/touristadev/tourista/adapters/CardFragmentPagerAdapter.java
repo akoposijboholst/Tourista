@@ -24,11 +24,7 @@ public class CardFragmentPagerAdapter extends FragmentStatePagerAdapter implemen
     public CardFragmentPagerAdapter(FragmentManager fm, float baseElevation) {
         super(fm);
         mFragments = new ArrayList<>();
-        mBaseElevation = baseElevation;
-
-        for(int i = 0; i< 5; i++){
-            addCardFragment(new CardFragment());
-        }
+        mBaseElevation = 0;
     }
 
     @Override
@@ -44,6 +40,16 @@ public class CardFragmentPagerAdapter extends FragmentStatePagerAdapter implemen
     @Override
     public int getCount() {
         return mFragments.size();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     @Override

@@ -32,7 +32,7 @@
         android:layout_below="@+id/view1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Please select Any Button"
+        android:text="Welcome Tourist!"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
@@ -40,17 +40,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View Details"
-        android:layout_marginTop="15dp"
         android:layout_marginLeft="200dp"
-        android:layout_below="@+id/textView2" />
-
-    <Button
-        android:id="@+id/btnBook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Book now!"
-        android:layout_alignBaseline="@+id/btnViewDetails"
-        android:layout_alignBottom="@+id/btnViewDetails"
-        android:layout_alignStart="@+id/textView2" />
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp" />
 
 </RelativeLayout>

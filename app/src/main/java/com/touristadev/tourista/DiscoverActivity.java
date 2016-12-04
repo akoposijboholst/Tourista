@@ -119,6 +119,7 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
         mapFragment.getMapAsync(this);
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
+        mBottomBar.setTypeFace("fonts/Poppins-Regular.ttf");
         mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setDefaultTabPosition(1);
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {

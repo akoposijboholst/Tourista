@@ -85,10 +85,11 @@ public class BookedToursFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_hot_tours, container, false);
         Controllers con = new Controllers();
+        TourListTemp.clear();
         TourListTemp = con.getBookedList();
         if (TourListTemp != null) {
             for (int x = 0; x < TourListTemp.size(); x++) {
-                TourList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()*40), String.valueOf(TourListTemp.get(x).getPackageNoOfSpots()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour",R.mipmap.boracay));
+                TourList.add(new ForYou(TourListTemp.get(x).getPackageName(), TourListTemp.get(x).getRating(), "₱ " + String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()*40), String.valueOf(TourListTemp.get(x).getPackageNoOfSpots()) + " Spots", String.valueOf(TourListTemp.get(x).getPackageTotalNoOfHours()) + " Hours", "tour",TourListTemp.get(x).getPackageImage()));
 
             }
         }
@@ -127,7 +128,7 @@ public class BookedToursFragment extends Fragment {
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
-        mCardAdapter = new CardExplorerPagerAdapter(TourList);
+        mCardAdapter = new CardExplorerPagerAdapter(TourList,"Bookedlist");
         mRecyclerView.setAdapter(mCardAdapter);
         mCardAdapter.notifyDataSetChanged();
 

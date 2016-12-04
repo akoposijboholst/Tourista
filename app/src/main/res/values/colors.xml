@@ -12,5 +12,7 @@
     <color name="colorFuschia">#FF0080</color>
     <color name="colorBlack">#000</color>
     <color name="colorWhite">#fff</color>
+
+
     <color name="tourColor">#fecd23</color>
 </resources>
