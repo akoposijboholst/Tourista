@@ -5,28 +5,21 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.speech.RecognizerIntent;
 import android.support.annotation.IdRes;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.PopupMenu;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -41,7 +34,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
-import com.touristadev.tourista.fragments.HotToursFragment;
 import com.touristadev.tourista.models.CityMaps;
 
 import java.util.ArrayList;
@@ -289,7 +281,7 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
             public View getInfoContents(Marker marker) {
                 View v = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.custom_marker_layout, null);
 
-                txtTile = (TextView) v.findViewById(R.id.txtTitle);
+                txtTile = (TextView) v.findViewById(R.id.txtTourPackageName);
                 txt_Description = (TextView) v.findViewById(R.id.txtDe) ;
                 ratBarM = (RatingBar) v.findViewById(R.id.rtBarA);
                 btnView = (Button) v.findViewById(R.id.btnView);

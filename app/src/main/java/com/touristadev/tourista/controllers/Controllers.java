@@ -260,7 +260,7 @@ public class Controllers {
         tribes.add(new Tribes("Backpacker"));
         tribes.add(new Tribes("Escapist"));
 
-        itineraries.add(new Itinerary("Pick up location","500","800"));
+        itineraries.add(new Itinerary("Pick up location: South Bus Terminal","500","800"));
         itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"8:00 AM","11:00 AM"));
         itineraries.add(new Itinerary("Lunch","11:00 AM","1:00 PM"));
         itineraries.add(new Itinerary(spotList.get(0).getSpotName(),"1:00","4:00 PM"));
@@ -283,7 +283,7 @@ public class Controllers {
         tribes.add(new Tribes("Pilgrim"));
         tribes.add(new Tribes("Genuinely Curious"));
 
-        itineraries.add(new Itinerary("Pick up location","6:00 AM","9:00 AM"));
+        itineraries.add(new Itinerary("Pick up location: South Bus Terminal","6:00 AM","9:00 AM"));
         itineraries.add(new Itinerary(spotList.get(2).getSpotName(),"9:00 AM","12:00 PM"));
         itineraries.add(new Itinerary("Lunch","12:00 PM","1:00 PM"));
         itineraries.add(new Itinerary(spotList.get(3).getSpotAddress(),"1::00 PM","3:00 PM"));
@@ -307,7 +307,7 @@ public class Controllers {
         tribes.add(new Tribes("The Self-Improver"));
         tribes.add(new Tribes("Genuinely Curious"));
 
-        itineraries.add(new Itinerary("Pick up location","5:00 AM","8:00 AM"));
+        itineraries.add(new Itinerary("Pick up location: South Bus Terminal","5:00 AM","8:00 AM"));
         itineraries.add(new Itinerary(spotList.get(1).getSpotName(),"8:00 AM","8:30 AM"));
         itineraries.add(new Itinerary("Short briefing then proceed to Whale Shark Watching / Snorkelin","8:30 AM","11:00 AM"));
         itineraries.add(new Itinerary("Lunch","11:00 AM","12:00 PM"));
@@ -330,15 +330,17 @@ public class Controllers {
     public ArrayList<TourRequest> getTourRequest()
     {
         ArrayList<TourRequest> L= new ArrayList<>();
+        ArrayList<Packages>P= this.getControllerPackaaes();
 
-        L.add(new TourRequest("Shanyl Jimenez","December 6, 2016",2,0,"S"));
-        L.add(new TourRequest("Chan Ferolino","December 7, 2016",3,0,"S"));
-        L.add(new TourRequest("Justine Boholst","December 8, 2016",3,1,"S"));
+        L.add(new TourRequest("Shanyl Jimenez","December 6, 2016",2,P.get(0),"S"));
+        L.add(new TourRequest("Chan Ferolino","December 7, 2016",3,P.get(0),"S"));
+        L.add(new TourRequest("Justine Boholst","December 8, 2016",3,P.get(1),"S"));
+        L.add(new TourRequest("Nicolas James Chiong","December 8, 2016",3,P.get(2),"S"));
+        L.add(new TourRequest("Allen Dale Gabisan","December 8, 2016",3,P.get(1),"S"));
 
 
         return L;
     }
-
 
 
 

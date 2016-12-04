@@ -24,7 +24,6 @@ import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.models.ForYou;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,13 +62,13 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
         public MyViewHolder(View v) {
             super(v);
             View view = v;
-            CardView cardView = (CardView) view.findViewById(R.id.cardView);
-            txtTitle = (TextView) view.findViewById(R.id.txtTitle);
-            txtPrice = (TextView) view.findViewById(R.id.txtPrice);
-            txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);
-            txtHours = (TextView) view.findViewById(R.id.NoHours);
-            rtBar = (RatingBar) view.findViewById(R.id.rtBar);
-            imageV = (ImageView) view.findViewById(R.id.imgCard);
+            CardView cardView = (CardView) view.findViewById(R.id.cv_tgtouritem);
+            txtTitle = (TextView) view.findViewById(R.id.txtTourPackageName);
+            txtPrice = (TextView) view.findViewById(R.id.txtTourPackagePrice);
+            txtSpots = (TextView) view.findViewById(R.id.txtTourPackageNoOfSpots);
+            txtHours = (TextView) view.findViewById(R.id.txtTourPackageNoOfHours);
+            rtBar = (RatingBar) view.findViewById(R.id.rtTourPackageRating);
+            imageV = (ImageView) view.findViewById(R.id.imgTourPackageImage);
 
 
 

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.touristadev.tourista.R;
@@ -36,6 +37,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHo
         public CardView cv_requestitem;
         public TextView txtRequestPackageName;
         public TextView txtRequestee;
+        public ImageView imgRequest;
         public MyViewHolder(View v) {
             super(v);
             View view = v;
@@ -43,6 +45,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHo
             cv_requestitem =(CardView)itemView.findViewById(R.id.cv_requestitem);
             txtRequestPackageName = (TextView) itemView.findViewById(R.id.txtRequestPackageName);
             txtRequestee = (TextView) itemView.findViewById(R.id.txtRequestee);
+            imgRequest = (ImageView) itemView.findViewById(R.id.imgRequestPackage);
         }
     }
 
@@ -74,8 +77,14 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHo
     @Override
     public void onBindViewHolder(RequestAdapter.MyViewHolder holder, int position) {
 
-        holder.txtRequestPackageName.setText("South Cebu Tours");
-        holder.txtRequestee.setText(mData.get(position).getRequestTouristID());
+        if (position==1)
+
+        {
+      //      holder.cv_requestitem.setBackgroundResource(R.color.accent_color);
+        }
+        holder.txtRequestPackageName.setText(mData.get(position).getRequestPackage().getPackageName());
+        holder.txtRequestee.setText("Requested by: "+mData.get(position).getRequestTouristID());
+        holder.imgRequest.setImageResource(mData.get(position).getRequestPackage().getPackageImage());
 
     }
 

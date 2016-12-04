@@ -2,15 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_containerRequest"
+    android:id="@+id/fragment_containerTGTour"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.touristadev.tourista.RequestActivity">
+    tools:context="com.touristadev.tourista.FeedActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarL"
+        android:id="@+id/toolbarT"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"

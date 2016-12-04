@@ -7,7 +7,6 @@ package com.touristadev.tourista.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
@@ -27,8 +26,6 @@ import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.dataModels.Spots;
 import com.touristadev.tourista.models.ForYou;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,13 +92,13 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
         context = view.getContext();
         container.addView(view);
-        CardView cardView = (CardView) view.findViewById(R.id.cardView);
-        txtTitle = (TextView) view.findViewById(R.id.txtTitle);
-        txtPrice = (TextView) view.findViewById(R.id.txtPrice);
-        txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);
-        txtHours = (TextView) view.findViewById(R.id.NoHours);
-        rtBar = (RatingBar) view.findViewById(R.id.rtBar);
-        imgVi = (ImageView) view.findViewById(R.id.imgCard);
+        CardView cardView = (CardView) view.findViewById(R.id.cv_tgtouritem);
+        txtTitle = (TextView) view.findViewById(R.id.txtTourPackageName);
+        txtPrice = (TextView) view.findViewById(R.id.txtTourPackagePrice);
+        txtSpots = (TextView) view.findViewById(R.id.txtTourPackageNoOfSpots);
+        txtHours = (TextView) view.findViewById(R.id.txtTourPackageNoOfHours);
+        rtBar = (RatingBar) view.findViewById(R.id.rtTourPackageRating);
+        imgVi = (ImageView) view.findViewById(R.id.imgTourPackageImage);
         pos = position;
         imgVi.setImageResource(mData.get(position).getImgView());
         txtTitle.setText(mData.get(position).getTitle());

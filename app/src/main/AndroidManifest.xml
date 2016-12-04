@@ -17,14 +17,10 @@
 
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+
+        <activity android:name=".LoginActivity"></activity>
         <activity
             android:name=".DiscoverActivity"
             android:theme="@style/AppTheme.NoActionBarWithHead" />
@@ -51,7 +47,12 @@
         <activity
             android:name=".ExploreActivity"
             android:label="@string/title_activity_explore"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -78,23 +79,20 @@
             android:value="AIzaSyBhlvfTahR4vl4kGLNmVXQvcUU8etoTEFc" />
 
         <activity
-            android:name=".tourGuide.BottomNavigationActivity"
-            android:label="@string/title_activity_tours"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".tourGuide.FeedActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".SpotActivity"
             android:label="@string/title_activity_spot"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".tourGuide.RequestActivity"></activity>
         <activity
             android:name=".PassportActivity"
             android:label="@string/title_activity_passport"
             android:theme="@style/noAnimTheme" />
         <activity android:name=".TourActivity" />
-        <activity android:name=".PackageListActivity"></activity>
+        <activity android:name=".PackageListActivity" />
+        <activity android:name=".FeedActivity">
+
+        </activity>
+        <activity android:name=".RequestActivity"></activity>
+        <activity android:name=".TGTourActivity"></activity>
     </application>
 
 </manifest>
