@@ -38,7 +38,7 @@ public class SpotActivity extends AppCompatActivity {
         setContentView(R.layout.activity_spot);
         imgSpot = (ImageView) findViewById(R.id.imgSpot);
         ratBar = (RatingBar) findViewById(R.id.rtTGRating);
-        mSpotName = (TextView) findViewById(R.id.txtTourPackageName);
+        mSpotName = (TextView) findViewById(R.id.txtTitle);
         mSpotAddress = (TextView) findViewById(R.id.txtSpotAddress);
         mSpotBudget = (TextView) findViewById(R.id.txtSpotBudget);
         mSpotOpen = (TextView) findViewById(R.id.txtOpenTime);

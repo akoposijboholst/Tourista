@@ -51,7 +51,7 @@ public class FeedActivity extends AppCompatActivity {
 
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
-        mBottomBar.setTypeFace("fonts/Raleway-Black.ttf");
+        mBottomBar.setTypeFace("fonts/Poppins-Light.ttf");
 
         mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setDefaultTabPosition(0);
@@ -68,13 +68,10 @@ public class FeedActivity extends AppCompatActivity {
                     Intent i = new Intent(FeedActivity.this, RequestActivity.class);
                     startActivity(i);
                 }
-//                if (menuItemId == R.id.bottombar3) {
-////
-//                    getSupportFragmentManager().beginTransaction().
-//                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_containerF)).commit();
-//                    Intent i = new Intent(ExploreActivity.this, TourActivity.class);
-//                    startActivity(i);
-//                }
+                if (menuItemId == R.id.bottombar3) {
+                    Intent i = new Intent(FeedActivity.this, TGTourActivity.class);
+                    startActivity(i);
+                }
 //                if (menuItemId == R.id.bottombar4) {
 //                    getSupportFragmentManager().beginTransaction().
 //                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_containerF)).commit();

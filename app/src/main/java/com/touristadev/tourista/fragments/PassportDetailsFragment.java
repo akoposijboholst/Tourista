@@ -5,6 +5,7 @@ package com.touristadev.tourista.fragments;
  */
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,12 +18,14 @@ import android.view.ViewGroup;
 
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
+import com.touristadev.tourista.FeedActivity;
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.adapters.PassportDetailsAdapter;
 
 
 import java.util.List;
 
+import it.beppi.tristatetogglebutton_library.TriStateToggleButton;
 
 
 public class PassportDetailsFragment extends Fragment {
@@ -39,13 +42,19 @@ public class PassportDetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_profiledetails, container, false);
+        View view= inflater.inflate(R.layout.fragment_profiledetails, container, false);
+
+
+
+        return view;
+
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+
 
         //permet un affichage sous forme liste verticale
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -59,6 +68,9 @@ public class PassportDetailsFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapterM);
 
         MaterialViewPagerHelper.registerRecyclerView(getActivity(), mRecyclerView);
+
+
+
     }
 
 

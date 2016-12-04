@@ -22,7 +22,7 @@ import com.touristadev.tourista.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
 import com.touristadev.tourista.adapters.FeedAdapter;
 import com.touristadev.tourista.controllers.Controllers;
-import com.touristadev.tourista.dataModels.Packages;
+import com.touristadev.tourista.dataModels.Spots;
 
 import java.util.ArrayList;
 
@@ -35,7 +35,7 @@ public class FeedFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private ArrayList<Packages> list = new ArrayList<>();
+    private ArrayList<Spots> list = new ArrayList<>();
     private OnFragmentInteractionListener mListener;
 
     private ShadowTransformer mCardShadowTransformer;
@@ -81,7 +81,7 @@ public class FeedFragment extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
         mControllers = new Controllers();
-        list=mControllers.getControllerPackaaes();
+        list= mControllers.getControllerSpots();
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
