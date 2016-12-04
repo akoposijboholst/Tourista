@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TourActivity extends AppCompatActivity {
-    private static final String[] CHANNELS = new String[]{"BOOKED TOURS","SAVED TOURS" };
+    private static final String[] CHANNELS = new String[]{"BOOKED TOURS","WISHLIST TOURS" };
     private List<Fragment> mFragments = new ArrayList<Fragment>();
     private FragmentContainerHelper mFragmentContainerHelper = new FragmentContainerHelper();
     BottomBar mBottomBar;

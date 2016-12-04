@@ -2,12 +2,7 @@ package com.touristadev.tourista.fragments;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-<<<<<<< Updated upstream
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-=======
->>>>>>> Stashed changes
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

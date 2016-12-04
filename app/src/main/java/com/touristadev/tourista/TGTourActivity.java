@@ -11,7 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 
 import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.BottomBarTab;
 import com.roughike.bottombar.OnMenuTabClickListener;
+import com.touristadev.tourista.activities.FeedActivity;
+import com.touristadev.tourista.activities.RequestActivity;
 import com.touristadev.tourista.fragments.FeedFragment;
 import com.touristadev.tourista.fragments.TGTourFragment;
 
@@ -20,6 +23,7 @@ public class TGTourActivity extends AppCompatActivity {
     BottomBar mBottomBar;
     public FragmentManager fragmentManager;
     public TGTourFragment t= new TGTourFragment();
+    private int notifCount = 0;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
@@ -53,10 +57,11 @@ public class TGTourActivity extends AppCompatActivity {
 
         mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
-
         mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setDefaultTabPosition(2);
         mBottomBar.setItemsFromMenu(R.menu.menu_tourguide, new OnMenuTabClickListener() {
+
+
             @Override
             public void onMenuTabSelected(@IdRes int menuItemId) {
                 if (menuItemId == R.id.bbfeedbar) {

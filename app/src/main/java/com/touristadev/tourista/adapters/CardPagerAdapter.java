@@ -7,11 +7,7 @@ package com.touristadev.tourista.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-<<<<<<< Updated upstream
 import android.graphics.Typeface;
-import android.support.design.widget.Snackbar;
-=======
->>>>>>> Stashed changes
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;

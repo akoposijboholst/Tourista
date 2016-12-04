@@ -13,6 +13,7 @@ import android.view.KeyEvent;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 import com.touristadev.tourista.R;
+import com.touristadev.tourista.TGTourActivity;
 import com.touristadev.tourista.fragments.RequestFragment;
 
 public class RequestActivity extends AppCompatActivity {

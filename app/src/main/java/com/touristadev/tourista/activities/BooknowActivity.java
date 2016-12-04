@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.jaredrummler.materialspinner.MaterialSpinner;
+import com.touristadev.tourista.PaypalActivity;
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Packages;
@@ -53,32 +54,11 @@ public class BooknowActivity extends AppCompatActivity {
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (typePackage.equals("tour") || typePackage.equals("deal")) {
-                    for (int x = 0; x < mList.size(); x++) {
-                        if (mList.get(x).getPackageName().equals(packageTitle)) {
-                            mControllers.addWishPackages(mList.get(x));
-                            JSONObject jsonObject = new JSONObject();
-                            try {
-                                jsonObject.put("to", "/topics/news");
-                                JSONObject data = new JSONObject();
-                                data.put("message", "This is a notification from Tourista.");
-                                jsonObject.put("data", data);
-                                JSONObject notification = new JSONObject();
-                                notification.put("title", "Incoming Request..");
-                                notification.put("body", mList.get(x).getPackageName());
-                                jsonObject.put("notification", notification);
-                                new RequestTask().execute(jsonObject);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-
-                            Log.d("chan", "added package");
-                            Toast.makeText(getApplicationContext(), "Added " + mList.get(x).getPackageName() + " to Wish List",
-                                    Toast.LENGTH_LONG).show();
-
-                        }
-                    }
-                }
+                Intent i = new Intent(BooknowActivity.this, PaypalActivity.class);
+                i.putExtra("position", position);
+                i.putExtra("type", typePackage);
+                i.putExtra("title", packageTitle);
+                startActivity(i);
             }
         });
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -91,6 +71,7 @@ public class BooknowActivity extends AppCompatActivity {
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 updateLabel();
+                btnCheck.setEnabled(true);
             }
 
         };
@@ -103,6 +84,7 @@ public class BooknowActivity extends AppCompatActivity {
                 new DatePickerDialog(BooknowActivity.this, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+
             }
         });
 
@@ -125,13 +107,7 @@ public class BooknowActivity extends AppCompatActivity {
         edtDate.setText(sdf.format(myCalendar.getTime()));
     }
 
-    public class RequestTask extends AsyncTask<JSONObject, Void, Void>{
-        @Override
-        protected Void doInBackground(JSONObject... jsonObjects) {
-            HttpUtils.POST("https://fcm.googleapis.com/fcm/send", jsonObjects[0]);
-            return null;
-        }
-    }
+
 }
 
 
