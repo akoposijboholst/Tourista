@@ -2,9 +2,12 @@ package com.touristadev.tourista.fragments;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+<<<<<<< Updated upstream
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+=======
+>>>>>>> Stashed changes
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,9 +21,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.touristadev.tourista.ExploreActivity;
 import com.touristadev.tourista.R;
-import com.touristadev.tourista.ShadowTransformer;
+import com.touristadev.tourista.activities.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
 import com.touristadev.tourista.adapters.CardPagerAdapter;
 import com.touristadev.tourista.controllers.Controllers;

@@ -7,12 +7,14 @@ package com.touristadev.tourista.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+<<<<<<< Updated upstream
 import android.graphics.Typeface;
 import android.support.design.widget.Snackbar;
+=======
+>>>>>>> Stashed changes
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,17 +22,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.touristadev.tourista.PackageDetailsActivity;
+import com.touristadev.tourista.activities.PackageDetailsActivity;
 import com.touristadev.tourista.R;
-import com.touristadev.tourista.SpotActivity;
+import com.touristadev.tourista.activities.SpotActivity;
 import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.dataModels.Spots;
 import com.touristadev.tourista.models.ForYou;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,7 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -15,16 +14,13 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.google.android.gms.vision.text.Text;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
-import com.touristadev.tourista.fragments.DealsFragment;
+import com.touristadev.tourista.R;
+import com.touristadev.tourista.fragments.BookedToursFragment;
 import com.touristadev.tourista.fragments.ForYouFragment;
-import com.touristadev.tourista.fragments.HotSpotsFragment;
-import com.touristadev.tourista.fragments.HotToursFragment;
+import com.touristadev.tourista.fragments.WishListFragment;
 
 import net.lucode.hackware.magicindicator.FragmentContainerHelper;
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -39,21 +35,19 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExploreActivity extends AppCompatActivity {
-    private static final String[] CHANNELS = new String[]{"FOR YOU", "TOURS", "SPOTS", "DEALS"};
+public class TourActivity extends AppCompatActivity {
+    private static final String[] CHANNELS = new String[]{"BOOKED TOURS","SAVED TOURS" };
     private List<Fragment> mFragments = new ArrayList<Fragment>();
     private FragmentContainerHelper mFragmentContainerHelper = new FragmentContainerHelper();
     BottomBar mBottomBar;
-    public ForYouFragment t = new ForYouFragment();
-    public FragmentManager fragmentManager;
-    private String firstName, lastName, email;
-    private Button mRegister, mSignIn;
+    public ForYouFragment t= new ForYouFragment();
+    public  FragmentManager fragmentManager;
+    private String firstName,lastName, email;
+
     private Typeface myCustomFont;
 
-
-
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
 //            Intent intent= new Intent(ExploreActivityy.this,ExploreActivity.class);
 //            startActivity(intent);
@@ -71,9 +65,7 @@ public class ExploreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        setContentView(R.layout.activity_explore);
-
+        setContentView(R.layout.activity_tour);
 
         initFragments();
         initMagicIndicator1();
@@ -81,50 +73,44 @@ public class ExploreActivity extends AppCompatActivity {
         mFragmentContainerHelper.handlePageSelected(0, false);
         switchPages(0);
 
-
         Intent i = getIntent();
-
+        myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Poppins-Bold.ttf");
         firstName = i.getStringExtra("firstName");
         lastName = i.getStringExtra("lastName");
         email = i.getStringExtra("email");
 
-        mBottomBar = BottomBar.attach(this, savedInstanceState);
+        mBottomBar= BottomBar.attach(this,savedInstanceState);
         mBottomBar.useFixedMode();
         mBottomBar.setTypeFace("fonts/Poppins-Regular.ttf");
+        mBottomBar.setDefaultTabPosition(2);
         mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(@IdRes int menuItemId) {
 
-                if (menuItemId == R.id.bottombar1) {
-                    t = new ForYouFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, t).commit();
-                }
-                if (menuItemId == R.id.bottombar2) {
-                    getSupportFragmentManager().beginTransaction().
-                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
-                    Intent i = new Intent(ExploreActivity.this, DiscoverActivity.class);
+                if(menuItemId== R.id.bottombar1)
+                {
+
+                    Intent i = new Intent(TourActivity.this, ExploreActivity.class);
                     startActivity(i);
                 }
-                if (menuItemId == R.id.bottombar3) {
+                if(menuItemId== R.id.bottombar2)
+                {
+                    Intent i = new Intent(TourActivity.this, DiscoverActivity.class);
+                    startActivity(i);
+                }
+//                if(menuItemId== R.id.bottombar3)
+//                {
 //
-                    getSupportFragmentManager().beginTransaction().
-                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
-                    Intent i = new Intent(ExploreActivity.this, TourActivity.class);
-                    startActivity(i);
-                }
-                if (menuItemId == R.id.bottombar4) {
-                    getSupportFragmentManager().beginTransaction().
-                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
-                    Intent intent = new Intent(ExploreActivity.this, PassportActivity.class);
+//                }
+                if(menuItemId== R.id.bottombar4)
+                {
+                    Intent intent = new Intent(TourActivity.this, PassportActivity.class);
                     intent.putExtra("firstName", firstName);
                     intent.putExtra("lastName", lastName);
                     intent.putExtra("email", email);
                     startActivity(intent);
                 }
-
-
-
             }
 
             @Override
@@ -133,10 +119,8 @@ public class ExploreActivity extends AppCompatActivity {
             }
         });
     }
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
+    public boolean onCreateOptionsMenu (Menu menu){
 
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
@@ -169,21 +153,16 @@ public class ExploreActivity extends AppCompatActivity {
     }
 
     private void initFragments() {
-        ForYouFragment ForyouFrag = new ForYouFragment();
-        HotSpotsFragment HotspotFrag = new HotSpotsFragment();
-        HotToursFragment HotTourFrag = new HotToursFragment();
-        DealsFragment promosfrag = new DealsFragment();
-        mFragments.add(ForyouFrag);
-        mFragments.add(HotTourFrag);
-        mFragments.add(HotspotFrag);
-        mFragments.add(promosfrag);
+       BookedToursFragment booked = new BookedToursFragment();
+        WishListFragment wish = new WishListFragment();
+
+        mFragments.add(booked);
+        mFragments.add(wish);
+
 
     }
 
     private void initMagicIndicator1() {
-
-
-
         MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator);
 
         CommonNavigator commonNavigator = new CommonNavigator(this);
@@ -197,15 +176,12 @@ public class ExploreActivity extends AppCompatActivity {
             @Override
             public IPagerTitleView getTitleView(Context context, final int index) {
                 myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Poppins-Bold.ttf");
-
                 ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
-                colorTransitionPagerTitleView.setNormalColor(Color.parseColor("#BBDEFB"));
+                colorTransitionPagerTitleView.setNormalColor(Color.parseColor("#fdd8a1"));
                 colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#FFFFFF"));
                 colorTransitionPagerTitleView.setText(CHANNELS[index]);
                 colorTransitionPagerTitleView.setGravity(Gravity.CENTER);
                 colorTransitionPagerTitleView.setTypeface(myCustomFont);
-
-
                 colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

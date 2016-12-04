@@ -1,4 +1,4 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -6,8 +6,9 @@ import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
+
+import com.touristadev.tourista.R;
 
 public class SplashActivity extends AppCompatActivity {
 

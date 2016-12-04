@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.touristadev.tourista.R;
-//import com.touristadev.tourista.ShadowTransformer;
+//import com.touristadev.tourista.activities.ShadowTransformer;
 import com.touristadev.tourista.adapters.CardExplorerPagerAdapter;
 import com.touristadev.tourista.adapters.CardFragmentPagerAdapter;
 import com.touristadev.tourista.controllers.Controllers;

@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context="com.touristadev.tourista.ChooseTribeActivity">
+    tools:context="com.touristadev.tourista.activities.ChooseTribeActivity">
 
     <TextView
         android:text="Choose a Tribe"

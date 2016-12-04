@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@mipmap/tourista_login"
-    tools:context="com.touristadev.tourista.RegisterActivity">
+    tools:context="com.touristadev.tourista.activities.RegisterActivity">
 
 
     <TextView

@@ -1,4 +1,4 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.touristadev.tourista.R;
 import com.touristadev.tourista.fragments.CityToursFragment;
 import com.touristadev.tourista.fragments.HotToursFragment;
 import com.touristadev.tourista.fragments.PassportFragment;

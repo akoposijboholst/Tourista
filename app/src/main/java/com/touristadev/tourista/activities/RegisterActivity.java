@@ -1,79 +1,61 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.vision.text.Text;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.touristadev.tourista.models.CurrentUser;
+import com.touristadev.tourista.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button mRegister, mSignIn;
+    private Button mRegister;
+    private CallbackManager mCallbackManager;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private CallbackManager mCallbackManager;
+
+    private AccessToken currentAccessToken;
+
     private String firstName;
+    private String lastName;
+    private String email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(this);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
 
         //FONTS
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Poppins-Bold.ttf");
-
-        mRegister = (Button) findViewById(R.id.btnRegister);
-        mSignIn = (Button) findViewById(R.id.btnLogin);
-
-        mRegister.setTypeface(myCustomFont);
-        mSignIn.setTypeface(myCustomFont);
-        TextView t;
-        t = (TextView) findViewById(R.id.txtPrice);
-        System.out.println(t);
-
-
-
-
-
-        mRegister.setOnClickListener(this);
-        mSignIn.setOnClickListener(this);
-
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
 
         mCallbackManager = CallbackManager.Factory.create();
-
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -81,17 +63,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Intent intent = new Intent(LoginActivity.this, ExploreActivity.class);
-                    CurrentUser.email = user.getEmail();
-                    CurrentUser.name = user.getDisplayName();
-                    CurrentUser.photoUrl = user.getPhotoUrl().toString();
-                    startActivity(intent);
                     //A user is signed in
                 } else {
                     //A user is not signed in
                 }
             }
         };
+        mRegister = (Button) findViewById(R.id.btnRegister);
+        mRegister.setTypeface(myCustomFont);
+        mRegister.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -99,14 +81,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         switch (v.getId()) {
             case R.id.btnRegister:
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.btnLogin:
                 login();
                 break;
         }
-
     }
 
     @Override
@@ -116,6 +93,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void handleFacebookAccessToken(AccessToken token) {
+        final String userID = token.getUserId();
+        Log.d("Chan",token.toString());
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -125,10 +104,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if (!task.isSuccessful()) {
                             //do nothing
                         } else {
-                            Intent intent = new Intent(LoginActivity.this, ExploreActivity.class);
-                            CurrentUser.email = mAuth.getCurrentUser().getEmail();
-                            CurrentUser.name = mAuth.getCurrentUser().getDisplayName();
-                            CurrentUser.photoUrl = mAuth.getCurrentUser().getPhotoUrl().toString();
+                            Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
+                            intent.putExtra("firstName", firstName);
+                            intent.putExtra("lastName", lastName);
+                            intent.putExtra("email", email);
                             startActivity(intent);
                         }
                     }
@@ -153,8 +132,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         LoginManager.getInstance().registerCallback(mCallbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
-                    public void onSuccess(final LoginResult loginResult) {
-                        handleFacebookAccessToken(loginResult.getAccessToken());
+                    public void onSuccess(LoginResult loginResult) {
+                        currentAccessToken = loginResult.getAccessToken();
+                        handleFacebookAccessToken(currentAccessToken);
+                        GraphRequest graphRequest = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(JSONObject object, GraphResponse response) {
+                                try {
+                                    firstName = object.getString("first_name");
+                                    lastName = object.getString("last_name");
+                                    email = object.getString("email");
+                                    Toast.makeText(getApplicationContext(), "Welcome! " + firstName, Toast.LENGTH_SHORT).show();
+                                } catch (JSONException e) {
+                                    Log.d("Boholst", "Exception");
+                                }
+                            }
+                        });
+
+                        Bundle parameters = new Bundle();
+                        parameters.putString("fields", "first_name,last_name,email");
+                        graphRequest.setParameters(parameters);
+                        graphRequest.executeAsync();
                     }
 
                     @Override

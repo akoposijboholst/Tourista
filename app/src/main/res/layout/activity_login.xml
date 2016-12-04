@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/tourista_login"
-    tools:context="com.touristadev.tourista.LoginActivity">
+    tools:context="com.touristadev.tourista.activities.LoginActivity">
 
     <com.shaishavgandhi.loginbuttons.FacebookButton
         android:id="@+id/btnLogin"

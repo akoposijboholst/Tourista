@@ -1,4 +1,4 @@
-package com.touristadev.tourista;
+package com.touristadev.tourista.activities;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
+import com.touristadev.tourista.R;
 import com.touristadev.tourista.fragments.RequestFragment;
 
 public class RequestActivity extends AppCompatActivity {
