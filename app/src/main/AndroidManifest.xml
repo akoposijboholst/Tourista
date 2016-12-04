@@ -69,28 +69,21 @@
             android:value="AIzaSyBhlvfTahR4vl4kGLNmVXQvcUU8etoTEFc" />
 
         <activity
-            android:name=".tourGuide.BottomNavigationActivity"
+            android:name=".activities.BottomNavigationActivity"
             android:label="@string/title_activity_tours"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".tourGuide.FeedActivity"
+            android:name=".activities.FeedActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.SpotActivity"
             android:label="@string/title_activity_spot"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".tourGuide.RequestActivity" />
+        <activity android:name=".activities.RequestActivity" />
         <activity
             android:name=".activities.PassportActivity"
             android:label="@string/title_activity_passport"
             android:theme="@style/noAnimTheme" />
-        <activity android:name=".TourActivity" />
-        <activity android:name=".PackageListActivity" />
-        <activity android:name=".PackageDetailsActivity" />
-        <activity android:name=".PolicyActivity" />
-        <activity android:name=".BooknowActivity" />
-        <activity android:name=".FeedActivity"></activity>
-        <activity android:name=".RequestActivity" />
         <activity android:name=".TGTourActivity" />
         <activity android:name=".activities.TourActivity" />
         <activity android:name=".activities.PackageListActivity" />
