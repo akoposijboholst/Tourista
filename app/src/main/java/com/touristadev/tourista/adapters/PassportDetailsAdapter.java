@@ -56,7 +56,6 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
     public PassportDetailsAdapter.MyViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_profiledetails, parent, false);
         tgTGmode= (TriStateToggleButton)view.findViewById(R.id.tgMode);
-
         tgTGmode.setOnToggleChanged(new TriStateToggleButton.OnToggleChanged() {
             @Override
             public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean b, int i) {

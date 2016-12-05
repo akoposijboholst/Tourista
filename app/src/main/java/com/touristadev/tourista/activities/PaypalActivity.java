@@ -89,6 +89,7 @@ public class PaypalActivity extends AppCompatActivity {
                     for (int x = 0; x < mList.size(); x++) {
                         if (mList.get(x).getPackageName().equals(packageTitle)) {
                             mControllers.addWishPackages(mList.get(x));
+
                             JSONObject jsonObject = new JSONObject();
                             try {
                                 jsonObject.put("to", "/topics/news");
@@ -107,6 +108,7 @@ public class PaypalActivity extends AppCompatActivity {
                             Log.d("chan", "added package");
                             Toast.makeText(getApplicationContext(), "Added " + mList.get(x).getPackageName() + " to Wish List",
                                     Toast.LENGTH_LONG).show();
+
                             Intent i = new Intent(PaypalActivity.this, TourActivity.class);
                             startActivity(i);
 

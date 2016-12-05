@@ -31,8 +31,11 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.activities.TGTourActivity;
+import com.touristadev.tourista.controllers.Controllers;
+import com.touristadev.tourista.dataModels.Packages;
 import com.touristadev.tourista.models.CurrentUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -69,8 +72,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
 //            if (CurrentUser.toggle) {
-                String packagename = remoteMessage.getData().get("message");
-                sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(), packagename);
+            String packagename = remoteMessage.getData().get("message");
+            sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(), packagename);
 //            }
         }
 
@@ -134,7 +137,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
         Intent intent2 = new Intent(getApplicationContext(), TGTourActivity.class);
-        intent2.putExtra("PackageName",packagename);
+        intent2.putExtra("PackageName", packagename);
         // your application to the Home screen.
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
         // Adds the back stack for the Intent (but not the Intent itself)
