@@ -86,7 +86,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      */
     private void sendNotification(String title, String messageBody, String packagename) {
         ActivityManager am = (ActivityManager) this.getSystemService(ACTIVITY_SERVICE);
-        List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
+//        List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
 //        Log.d("topActivity", "CURRENT Activity ::" + taskInfo.get(0).topActivity.getClassName());
 //        ComponentName componentInfo = taskInfo.get(0).topActivity;
 //        componentInfo.getPackageName();
