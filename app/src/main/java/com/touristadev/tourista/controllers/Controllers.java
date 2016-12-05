@@ -401,7 +401,13 @@ public class Controllers {
         return RequestList;
 
     }
-    public ArrayList<TourRequest> getWishList()
+    public ArrayList<Packages> getWishList()
+    {
+        return WishList;
+    }
+
+
+    public ArrayList<TourRequest> getTourRequestNew()
     {
         ArrayList<TourRequest> temp= new ArrayList<>();
         for (int i=0;i<WishList.size();i++)
