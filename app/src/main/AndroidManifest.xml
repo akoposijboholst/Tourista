@@ -89,7 +89,6 @@
             android:theme="@style/noAnimTheme" />
 
         <activity android:name=".activities.TGTourActivity" />
-        <activity android:name=".TGTourActivity" />
         <activity android:name=".activities.TourActivity" />
         <activity android:name=".activities.PackageListActivity" />
         <activity android:name=".activities.PackageDetailsActivity" />
@@ -108,8 +107,6 @@
         </service>
 
         <activity android:name=".activities.PaypalActivity"></activity>
-        <activity android:name=".activities.RequestActivity"></activity>
-        <activity android:name=".SpotActivity"></activity>
 
 
 

@@ -70,8 +70,8 @@ public class TourActivity extends AppCompatActivity {
         initFragments();
         initMagicIndicator1();
 
-        mFragmentContainerHelper.handlePageSelected(1, false);
-        switchPages(1);
+        mFragmentContainerHelper.handlePageSelected(0, false);
+        switchPages(0);
 
         Intent i = getIntent();
         myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Poppins-Bold.ttf");

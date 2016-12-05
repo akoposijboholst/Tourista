@@ -23,7 +23,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.touristadev.tourista.R;
-import com.touristadev.tourista.SpotActivity;
+import com.touristadev.tourista.activities.SpotActivity;
 import com.touristadev.tourista.activities.PackageDetailsActivity;
 import com.touristadev.tourista.activities.TourActivity;
 import com.touristadev.tourista.controllers.Controllers;
