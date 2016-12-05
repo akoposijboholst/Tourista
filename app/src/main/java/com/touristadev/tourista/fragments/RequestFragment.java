@@ -74,7 +74,7 @@ public class RequestFragment extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
         mControllers = new Controllers();
-        list=mControllers.getTourRequest();
+        list=mControllers.getTourRequestNew();
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);

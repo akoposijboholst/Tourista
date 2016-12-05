@@ -38,9 +38,8 @@ public class RequestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarR);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         fragmentManager = getSupportFragmentManager();
         final Fragment fragment;
         fragment = new RequestFragment();
@@ -69,10 +68,7 @@ public class RequestActivity extends AppCompatActivity {
                 {
                     t = new RequestFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containerRequest, t).commit();
-//                    t = new RequestFragment();
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, t).commit();
-//                    Intent i = new Intent(FeedActivity.this, DiscoverActivity.class);
-//                    startActivity(i);
+
                 }
                 if(menuItemId== R.id.bbtourbar)
                 {
@@ -80,10 +76,10 @@ public class RequestActivity extends AppCompatActivity {
                     startActivity(i);
 
                 }
-                if(menuItemId== R.id.bbprofile)
-                {
-
-
+                if (menuItemId == R.id.bbprofile) {
+                    Intent intent = new Intent(RequestActivity.this, PassportActivity.class);
+                    intent.putExtra("tourguidemode",true);
+                    startActivity(intent);
                 }
             }
 

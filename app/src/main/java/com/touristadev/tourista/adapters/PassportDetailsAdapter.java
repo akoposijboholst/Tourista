@@ -14,9 +14,10 @@ import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
-import com.touristadev.tourista.activities.FeedActivity;
 import com.touristadev.tourista.R;
-import com.touristadev.tourista.models.CurrentUser;
+import com.touristadev.tourista.activities.ExploreActivity;
+import com.touristadev.tourista.activities.FeedActivity;
+import com.touristadev.tourista.controllers.Controllers;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
     List<String> Squad;
     List<Integer> Trips;
     private TriStateToggleButton tgTGmode;
-
+    int count;
 
     private String per;
 
@@ -54,28 +55,58 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
 
     @Override
     public PassportDetailsAdapter.MyViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
-        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_profiledetails, parent, false);
-        tgTGmode= (TriStateToggleButton)view.findViewById(R.id.tgMode);
-        tgTGmode.setOnToggleChanged(new TriStateToggleButton.OnToggleChanged() {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_profiledetails, parent, false);
+        tgTGmode = (TriStateToggleButton) view.findViewById(R.id.tgMode);
+        count = 0;
+
+
+        Boolean tgm = Controllers.isTourguidemode();
+        Log.d("jimenez", tgm + "");
+
+        if (tgm) {
+            tgTGmode.toggleOn();
+            count = 1;
+        }
+        else
+        {
+            tgTGmode.toggleOff();
+            count=1;
+        }
+
+
+        tgTGmode.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean b, int i) {
-                if (b==true)
-                {
-                    CurrentUser.toggle = true;
-                    Intent intent= new Intent(view.getContext(), FeedActivity.class);
+            public void onClick(View view) {
+                count++;
+                if (Controllers.isTourguidemode() == false) {
+                    tgTGmode.setToggleOn();
+                    Intent intent = new Intent(view.getContext(), FeedActivity.class);
                     parent.getContext().startActivity(intent);
+
+                } else if (Controllers.isTourguidemode() == true) {
+                    if (count == 2) {
+
+
+                    } else if (count > 2) {
+                        tgTGmode.setToggleOff();
+                        Intent intent = new Intent(view.getContext(), ExploreActivity.class);
+                        parent.getContext().startActivity(intent);
+                    }
                 }
             }
         });
 
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+//
+//        view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//
+//
+//        });
 
-            }
 
-
-        });
         return new PassportDetailsAdapter.MyViewHolder(view) {
         };
     }
@@ -208,6 +239,7 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
 
     public void signOut() {
         FirebaseAuth.getInstance().signOut();
-        LoginManager.getInstance().logOut();;
+        LoginManager.getInstance().logOut();
+        ;
     }
 }

@@ -45,7 +45,7 @@ public class PackageDetailsActivity extends AppCompatActivity {
         typePackage = i.getStringExtra("type");
         packageTitle = i.getStringExtra("title");
         imgPackage = (ImageView) findViewById(R.id.imgPackage);
-        txtPackageName = (TextView) findViewById(R.id.txtTitle);
+        txtPackageName = (TextView) findViewById(R.id.txtTGTitle);
         txtNumberSpots = (TextView) findViewById(R.id.txtNumberSpot);
         txtNumberHours = (TextView) findViewById(R.id.txtNumberHours);
         txtPackPrice = (TextView) findViewById(R.id.txtPackPrice);
@@ -57,7 +57,7 @@ public class PackageDetailsActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        ratBar = (RatingBar) findViewById(R.id.rtBar);
+        ratBar = (RatingBar) findViewById(R.id.rtTGBar);
         mListViewItinerary = (ListView) findViewById(R.id.PackageItineraryListView);
         mListViewCategory = (ListView) findViewById(R.id.PackageCategoryListView);
         mListViewTribe = (ListView) findViewById(R.id.PackageTribeListView);

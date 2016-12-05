@@ -19,7 +19,7 @@ import com.touristadev.tourista.dataModels.Spots;
 
 import java.util.ArrayList;
 
-public class SpotActivity extends AppCompatActivity {
+public class TGSpotDetailActivity extends AppCompatActivity {
     private int position;
     private Controllers mControllers = new Controllers();
     private Spots spotDetails;
@@ -36,7 +36,7 @@ public class SpotActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spot);
+        setContentView( R.layout.activity_tgspot_detail);
         imgSpot = (ImageView) findViewById(R.id.TGimgSpot);
         ratBar = (RatingBar) findViewById(R.id.rtTGBar);
         mSpotName = (TextView) findViewById(R.id.txtTGTitle);
@@ -46,7 +46,7 @@ public class SpotActivity extends AppCompatActivity {
         mSpotClose = (TextView) findViewById(R.id.txtTGCloseTime);
         mSpotDesc = (TextView) findViewById(R.id.txtTGSpotDesc);
         mLvActivity = (ListView) findViewById(R.id.TGSpotActivityListView);
-        mLvCategory = (ListView) findViewById(R.id.SpotCategoryListView);
+        mLvCategory = (ListView) findViewById(R.id.TGSpotCategoryListView);
         mLvTribe = (ListView) findViewById(R.id.TGSpotTriListView);
 
         pack = mControllers.getControllerSpots();
@@ -66,8 +66,8 @@ public class SpotActivity extends AppCompatActivity {
         mSpotAddress.setText("Address: " + spotDetails.getSpotAddress());
         mSpotBudget.setText("₱ " + spotDetails.getSpotEstimatedBudget());
 
-            openTime = spotDetails.getSpotOpeningTime();
-            closeTime = spotDetails.getSpotClosingTime();
+        openTime = spotDetails.getSpotOpeningTime();
+        closeTime = spotDetails.getSpotClosingTime();
 
         mSpotOpen.setText("Open Time: " + openTime + " ");
         Log.d("date", openTime + " ");

@@ -36,8 +36,7 @@ public class FeedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarL);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         fragmentManager = getSupportFragmentManager();
@@ -69,19 +68,15 @@ public class FeedActivity extends AppCompatActivity {
                     Intent i = new Intent(FeedActivity.this, RequestActivity.class);
                     startActivity(i);
                 }
-                if (menuItemId == R.id.bottombar3) {
+                if (menuItemId == R.id.bbtourbar) {
                     Intent i = new Intent(FeedActivity.this, TGTourActivity.class);
                     startActivity(i);
                 }
-//                if (menuItemId == R.id.bottombar4) {
-//                    getSupportFragmentManager().beginTransaction().
-//                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_containerF)).commit();
-//                    Intent intent = new Intent(ExploreActivity.this, PassportActivity.class);
-//                    intent.putExtra("firstName", firstName);
-//                    intent.putExtra("lastName", lastName);
-//                    intent.putExtra("email", email);
-//                    startActivity(intent);
-//                }
+                if (menuItemId == R.id.bbprofile) {
+                    Intent intent = new Intent(FeedActivity.this, PassportActivity.class);
+                    intent.putExtra("tourguidemode",true);
+                    startActivity(intent);
+                }
             }
 
             @Override
