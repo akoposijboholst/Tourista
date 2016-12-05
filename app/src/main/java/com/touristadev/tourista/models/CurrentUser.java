@@ -6,6 +6,7 @@ public final class CurrentUser {
     public static String userFacebookId;
     public static String userFirebaseId;
     public static String photoUrl;
+    public static boolean toggle;
 
     public CurrentUser() {
     }

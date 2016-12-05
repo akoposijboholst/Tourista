@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private Button mRegister, mSignIn;
     private FirebaseAuth mAuth;
+    private FirebaseUser user;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private CallbackManager mCallbackManager;
     private String firstName;
@@ -78,17 +79,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    Intent intent = new Intent(LoginActivity.this, ExploreActivity.class);
-                    CurrentUser.email = user.getEmail();
-                    CurrentUser.name = user.getDisplayName();
-                    CurrentUser.photoUrl = user.getPhotoUrl().toString();
-                    startActivity(intent);
-                    //A user is signed in
-                } else {
-                    //A user is not signed in
-                }
+                user = firebaseAuth.getCurrentUser();
+
+
+
             }
         };
     }
@@ -125,10 +119,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             //do nothing
                         } else {
                             Intent intent = new Intent(LoginActivity.this, ExploreActivity.class);
-                            CurrentUser.email = mAuth.getCurrentUser().getEmail();
-                            CurrentUser.name = mAuth.getCurrentUser().getDisplayName();
-                            CurrentUser.photoUrl = mAuth.getCurrentUser().getPhotoUrl().toString();
+                            CurrentUser.email = user.getEmail();
+                            CurrentUser.name = user.getDisplayName();
+                            CurrentUser.photoUrl = user.getPhotoUrl().toString();
                             startActivity(intent);
+                            //A user is signed in
                         }
                     }
                 });

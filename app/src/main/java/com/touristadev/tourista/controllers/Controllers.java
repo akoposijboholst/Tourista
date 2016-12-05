@@ -20,6 +20,8 @@ public class Controllers {
     static ArrayList<Spots> spotList = new ArrayList<>();
     static ArrayList<Packages> packageList = new ArrayList<>();
     static ArrayList<Packages> BookedList = new ArrayList<>();
+
+    static ArrayList<Packages> RequestList = new ArrayList<>();
     static ArrayList<Packages> WishList = new ArrayList<>();
     private static int positionwew;
     public void Controllers() {
@@ -346,7 +348,7 @@ public class Controllers {
         L.add(new TourRequest("Shanyl Jimenez","December 6, 2016",2,this.getControllerPackaaes().get(0),"S"));
         L.add(new TourRequest("Chan Ferolino","December 7, 2016",3,this.getControllerPackaaes().get(0),"S"));
         L.add(new TourRequest("Justine Boholst","December 8, 2016",3,this.getControllerPackaaes().get(1),"S"));
-        L.add(new TourRequest("Nicolas James Chiong","December 8, 2016",2,this.getControllerPackaaes().get(3),"S"));
+        L.add(new TourRequest("Nicolas James Chiong","December 8, 2016",2,this.getControllerPackaaes().get(2),"S"));
 
 
         return L;
@@ -356,6 +358,11 @@ public class Controllers {
 
 
     public void addBookedPackages(Packages pa)
+    {
+        BookedList.add(pa);
+
+    }
+    public void addRequestPackage(Packages pa)
     {
         BookedList.add(pa);
 
@@ -375,11 +382,23 @@ public class Controllers {
         BookedList.remove(pos);
 
     }
+    public void removeRequestPackage(int pos)
+    {
+        RequestList.remove(pos);
+
+    }
     public ArrayList<Packages> getBookedList()
     {
 
 
         return BookedList;
+
+    }
+    public ArrayList<Packages> getRequestList()
+    {
+
+
+        return RequestList;
 
     }
     public ArrayList<Packages> getWishList()

@@ -89,11 +89,12 @@ public class PaypalActivity extends AppCompatActivity {
                     for (int x = 0; x < mList.size(); x++) {
                         if (mList.get(x).getPackageName().equals(packageTitle)) {
                             mControllers.addWishPackages(mList.get(x));
+
                             JSONObject jsonObject = new JSONObject();
                             try {
                                 jsonObject.put("to", "/topics/news");
                                 JSONObject data = new JSONObject();
-                                data.put("message", "This is a notification from Tourista.");
+                                data.put("message", mList.get(x).getPackageName());
                                 jsonObject.put("data", data);
                                 JSONObject notification = new JSONObject();
                                 notification.put("title", "Incoming Request..");
@@ -107,6 +108,7 @@ public class PaypalActivity extends AppCompatActivity {
                             Log.d("chan", "added package");
                             Toast.makeText(getApplicationContext(), "Added " + mList.get(x).getPackageName() + " to Wish List",
                                     Toast.LENGTH_LONG).show();
+
                             Intent i = new Intent(PaypalActivity.this, TourActivity.class);
                             startActivity(i);
 
