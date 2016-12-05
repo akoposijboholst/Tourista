@@ -22,6 +22,7 @@ public class Controllers {
     static ArrayList<Packages> BookedList = new ArrayList<>();
     static ArrayList<Packages> WishList = new ArrayList<>();
     private static int positionwew;
+    private static boolean tourguidemode;
     public void Controllers() {
 
         ArrayList<String> activities0 = new ArrayList<>();
@@ -346,7 +347,7 @@ public class Controllers {
         L.add(new TourRequest("Shanyl Jimenez","December 6, 2016",2,this.getControllerPackaaes().get(0),"S"));
         L.add(new TourRequest("Chan Ferolino","December 7, 2016",3,this.getControllerPackaaes().get(0),"S"));
         L.add(new TourRequest("Justine Boholst","December 8, 2016",3,this.getControllerPackaaes().get(1),"S"));
-        L.add(new TourRequest("Nicolas James Chiong","December 8, 2016",2,this.getControllerPackaaes().get(3),"S"));
+        L.add(new TourRequest("Nicolas James Chiong","December 8, 2016",2,this.getControllerPackaaes().get(2),"S"));
 
 
         return L;
@@ -396,8 +397,11 @@ public class Controllers {
         return positionwew;
     }
 
+    public static boolean isTourguidemode() {
+        return tourguidemode;
+    }
 
-
-
-
+    public static void setTourguidemode(boolean tourguidemode) {
+        Controllers.tourguidemode = tourguidemode;
+    }
 }

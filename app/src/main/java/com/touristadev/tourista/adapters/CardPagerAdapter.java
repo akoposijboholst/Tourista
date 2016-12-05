@@ -109,7 +109,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         txtPrice = (TextView) view.findViewById(R.id.txtPrice);
         txtPrice.setTypeface(FontPoppinsBold);
 
-        txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+        txtTitle = (TextView) view.findViewById(R.id.txtTGTitle);
         txtTitle.setTypeface(FontPoppinsLight);
 
         txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);
@@ -122,11 +122,11 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
         container.addView(view);
         CardView cardView = (CardView) view.findViewById(R.id.cardView);
-        txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+        txtTitle = (TextView) view.findViewById(R.id.txtTGTitle);
         txtPrice = (TextView) view.findViewById(R.id.txtPrice);
         txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);
         txtHours = (TextView) view.findViewById(R.id.NoHours);
-        rtBar = (RatingBar) view.findViewById(R.id.rtBar);
+        rtBar = (RatingBar) view.findViewById(R.id.rtTGBar);
         imgVi = (ImageView) view.findViewById(R.id.imgCard);
         pos = position;
         imgVi.setImageResource(mData.get(position).getImgView());
@@ -136,11 +136,11 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         txtHours.setText(mData.get(position).getNoHours());
         rtBar.setRating((Float.parseFloat(String.valueOf(mData.get(position).getRating()))));
         rtBar.setFocusable(false);
-        txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+        txtTitle = (TextView) view.findViewById(R.id.txtTGTitle);
         txtPrice = (TextView) view.findViewById(R.id.txtPrice);
         txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);
         txtHours = (TextView) view.findViewById(R.id.NoHours);
-        rtBar = (RatingBar) view.findViewById(R.id.rtBar);
+        rtBar = (RatingBar) view.findViewById(R.id.rtTGBar);
         imgVi = (ImageView) view.findViewById(R.id.imgCard);
         pos = position;
         imgVi.setImageResource(mData.get(position).getImgView());

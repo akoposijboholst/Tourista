@@ -67,8 +67,6 @@ public class TGTourActivity extends AppCompatActivity {
                     startActivity(i);
                 }
                 if (menuItemId == R.id.bbrequestbar) {
-//                    getSupportFragmentManager().beginTransaction().
-//                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_container)).commit();
                     Intent i = new Intent(TGTourActivity.this, RequestActivity.class);
                     startActivity(i);
                 }
@@ -76,20 +74,13 @@ public class TGTourActivity extends AppCompatActivity {
 
                     t = new TGTourFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containerTGTour, t).commit();
-//                    getSupportFragmentManager().beginTransaction().
-//                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_containerF)).commit();
-//                    Intent i = new Intent(ExploreActivity.this, TourActivity.class);
-//                    startActivity(i);
+
                 }
-//                if (menuItemId == R.id.bottombar4) {
-//                    getSupportFragmentManager().beginTransaction().
-//                            remove(getSupportFragmentManager().findFragmentById(R.id.fragment_containerF)).commit();
-//                    Intent intent = new Intent(ExploreActivity.this, PassportActivity.class);
-//                    intent.putExtra("firstName", firstName);
-//                    intent.putExtra("lastName", lastName);
-//                    intent.putExtra("email", email);
-//                    startActivity(intent);
-//                }
+                if (menuItemId == R.id.bbprofile) {
+                    Intent intent = new Intent(TGTourActivity.this, PassportActivity.class);
+                    intent.putExtra("tourguidemode",true);
+                    startActivity(intent);
+                }
             }
 
             @Override

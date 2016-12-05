@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.IdRes;
-import android.os.Bundle;
-import android.view.KeyEvent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,11 +35,6 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 import com.touristadev.tourista.R;
-import com.touristadev.tourista.activities.ExploreActivity;
-import com.touristadev.tourista.activities.PackageListActivity;
-import com.touristadev.tourista.activities.PassportActivity;
-import com.touristadev.tourista.activities.TourActivity;
-import com.touristadev.tourista.fragments.HotToursFragment;
 import com.touristadev.tourista.models.CityMaps;
 
 import java.util.ArrayList;
@@ -148,8 +143,8 @@ public class DiscoverActivity extends AppCompatActivity implements OnMapReadyCal
                 }
                 if(menuItemId== R.id.bottombar4)
                 {
-
                     Intent i = new Intent(DiscoverActivity.this, PassportActivity.class);
+                    i.putExtra("tourguidemode",false);
                     startActivity(i);
                 }
             }

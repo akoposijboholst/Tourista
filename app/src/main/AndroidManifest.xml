@@ -17,13 +17,11 @@
 
         <activity
             android:name=".activities.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".activities.LoginActivity" />
         <activity
             android:name=".activities.DiscoverActivity"
-            android:theme="@style/AppTheme.NoActionBarWithHead" >
+            android:theme="@style/AppTheme.NoActionBarWithHead">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -70,7 +68,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBhlvfTahR4vl4kGLNmVXQvcUU8etoTEFc" />
 
-
         <activity
             android:name=".activities.BottomNavigationActivity"
             android:label="@string/title_activity_tours"
@@ -82,7 +79,6 @@
             android:name=".activities.PassportActivity"
             android:label="@string/title_activity_passport"
             android:theme="@style/noAnimTheme" />
-
         <activity android:name=".activities.TGTourActivity" />
         <activity android:name=".activities.TourActivity" />
         <activity android:name=".activities.PackageListActivity" />
@@ -101,12 +97,10 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".activities.PaypalActivity"></activity>
-        <activity android:name=".activities.RequestActivity"></activity>
-        <activity android:name=".SpotActivity"></activity>
-
-
-
+        <activity android:name=".activities.PaypalActivity" />
+        <activity android:name=".activities.RequestActivity" />
+        <activity android:name=".SpotActivity" />
+        <activity android:name=".activities.TGSpotDetailActivity"></activity>
     </application>
 
 </manifest>

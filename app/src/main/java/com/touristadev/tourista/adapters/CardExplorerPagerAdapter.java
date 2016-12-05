@@ -91,11 +91,11 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
             super(v);
             View view = v;
              cardView = (CardView) view.findViewById(R.id.cardView);
-            txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+            txtTitle = (TextView) view.findViewById(R.id.txtTGTitle);
             txtPrice = (TextView) view.findViewById(R.id.txtPrice);
             txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);
             txtHours = (TextView) view.findViewById(R.id.NoHours);
-            rtBar = (RatingBar) view.findViewById(R.id.rtBar);
+            rtBar = (RatingBar) view.findViewById(R.id.rtTGBar);
             imageV = (ImageView) view.findViewById(R.id.imgCard);
             cardView.setOnClickListener(this);
         }
@@ -131,7 +131,7 @@ public class CardExplorerPagerAdapter extends RecyclerView.Adapter<CardExplorerP
         txtPrice = (TextView) view.findViewById(R.id.txtPrice);
         txtPrice.setTypeface(FontPoppinsBold);
 
-        txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+        txtTitle = (TextView) view.findViewById(R.id.txtTGTitle);
         txtTitle.setTypeface(FontPoppinsLight);
 
         txtSpots = (TextView) view.findViewById(R.id.txtNoSpots);

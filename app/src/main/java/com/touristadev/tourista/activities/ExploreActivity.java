@@ -16,9 +16,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.google.android.gms.vision.text.Text;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 import com.touristadev.tourista.R;
@@ -35,7 +33,6 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerInd
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -121,6 +118,7 @@ public class ExploreActivity extends AppCompatActivity {
                     intent.putExtra("firstName", firstName);
                     intent.putExtra("lastName", lastName);
                     intent.putExtra("email", email);
+                    intent.putExtra("tourguidemode",false);
                     startActivity(intent);
                 }
 

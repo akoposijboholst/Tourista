@@ -109,6 +109,7 @@ public class TourActivity extends AppCompatActivity {
                     intent.putExtra("firstName", firstName);
                     intent.putExtra("lastName", lastName);
                     intent.putExtra("email", email);
+                    intent.putExtra("tourguidemode",false);
                     startActivity(intent);
                 }
             }

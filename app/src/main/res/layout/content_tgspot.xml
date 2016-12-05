@@ -2,20 +2,20 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_package_details"
+    android:id="@+id/TGcontent_spot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.touristadev.tourista.activities.PackageDetailsActivity"
-    tools:showIn="@layout/activity_package_details">
+    tools:context="com.touristadev.tourista.SpotActivity"
+    tools:showIn="@layout/activity_spot">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="215dp"
-            app:srcCompat="@mipmap/ic_launcher"
-            android:id="@+id/imgPackage"
+            app:srcCompat="@mipmap/boracay"
+            android:id="@+id/TGimgSpot"
             android:layout_alignParentEnd="true" />
 
         <RelativeLayout
@@ -30,66 +30,98 @@
 
         <TextView
             android:text="TextView"
-            android:id="@+id/txtTGTitle"
+
             android:layout_marginTop="15dp"
+            android:id="@+id/txtTGTitle"
             android:textSize="25sp"
             app:layout_anchor="@+id/include"
             android:layout_width="250dp"
             android:layout_height="70dp"
             android:textStyle="bold"
-            android:layout_below="@+id/imgPackage"
-            android:layout_alignParentStart="true"
-            android:layout_alignEnd="@+id/btnBook" />
+            android:layout_below="@+id/TGimgSpot"
+            android:layout_alignStart="@+id/txtTGSpotAddress" />
+
         <TextView
             android:text="TextView"
-            android:layout_width="180dp"
+            android:layout_width="250dp"
             android:layout_height="25dp"
-            android:id="@+id/txtNumberSpot"
+            android:id="@+id/txtTGSpotAddress"
             android:layout_marginStart="12dp"
             android:layout_marginTop="5dp"
             android:layout_below="@+id/TGrelLay"
             android:layout_alignParentStart="true" />
+
         <TextView
             android:text="TextView"
-            android:layout_width="180dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtNumberHours"
+            android:id="@+id/txtTGSpotBudget"
             android:layout_alignEnd="@+id/rtTGBar"
-            android:layout_toEndOf="@+id/txtNumberSpot"
-            android:layout_alignBottom="@+id/txtNumberSpot"
-            android:layout_alignTop="@+id/txtNumberSpot" />
+            android:layout_toEndOf="@+id/txtTGSpotAddress"
+            android:layout_alignBottom="@+id/txtTGSpotAddress"
+            android:layout_alignTop="@+id/txtTGSpotAddress" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_below="@+id/txtTGSpotAddress"
+            android:layout_alignStart="@+id/txtTGSpotAddress"
+            android:layout_marginTop="15dp"
+            android:id="@+id/txtTGOpenTime"
+            android:layout_width="180dp"
+            android:layout_height="25dp" />
+
+        <TextView
+            android:text="TextView"
+            android:id="@+id/txtTGCloseTime"
+            android:layout_width="180dp"
+            android:layout_alignBaseline="@+id/txtTGOpenTime"
+            android:layout_alignBottom="@+id/txtTGOpenTime"
+            android:layout_toEndOf="@+id/txtTGOpenTime"
+            android:layout_height="25dp" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="@drawable/background_border"
-            android:layout_below="@+id/txtNumberHours"
+            android:layout_below="@+id/txtTGCloseTime"
             android:id="@+id/TGrelLay2"
             android:layout_alignParentStart="true"
             android:layout_marginTop="15dp">
         </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/background_border"
+            android:layout_below="@+id/txtTGSpotDesc"
+            android:id="@+id/TGrelLay3"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="15dp">
+        </RelativeLayout>
         <TextView
+
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Package Itinerary"
+            android:text="Activities Available"
             android:layout_marginLeft="15dp"
             android:textSize="20sp"
-            android:layout_below="@+id/TGrelLay2"
+            android:layout_below="@id/TGrelLay3"
             android:id="@+id/TGActivityTitle"/>
+
         <ListView
             android:divider="@null"
             android:dividerHeight="0dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/PackageItineraryListView"
+            android:id="@+id/TGSpotActivityListView"
             android:layout_marginTop="5dp"
             android:layout_below="@+id/TGActivityTitle"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="@drawable/background_border"
-            android:layout_below="@+id/PackageItineraryListView"
+            android:layout_below="@+id/TGSpotActivityListView"
             android:id="@+id/TGrelLay4"
             android:layout_alignParentStart="true"
             android:layout_marginTop="15dp"
@@ -101,23 +133,23 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:layout_marginLeft="15dp"
-            android:text="Package Category"
+            android:text="Spot Category"
             android:textSize="20sp"
-            android:layout_below="@+id/TGrelLay4"
+            android:layout_below="@id/TGrelLay4"
             android:id="@+id/TGCategoryTitle"/>
         <ListView
             android:divider="@null"
             android:dividerHeight="0dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/PackageCategoryListView"
+            android:id="@+id/TGSpotCategoryListView"
             android:layout_marginTop="5dp"
             android:layout_below="@+id/TGCategoryTitle"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="@drawable/background_border"
-            android:layout_below="@+id/PackageCategoryListView"
+            android:layout_below="@+id/SpotCategoryListView"
             android:id="@+id/TGreyLay5"
             android:layout_alignParentStart="true"
             android:layout_marginTop="15dp"
@@ -130,29 +162,28 @@
             android:textStyle="bold"
             android:layout_marginLeft="15dp"
             android:layout_height="wrap_content"
-            android:text="Package Tribe"
+            android:text="Spot Tribe"
             android:textSize="20sp"
-            android:layout_below="@+id/TGreyLay5"
+            android:layout_below="@id/TGreyLay5"
             android:id="@+id/TGTribeTitle"/>
         <ListView
             android:divider="@null"
             android:dividerHeight="0dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/PackageTribeListView"
+            android:id="@+id/TGSpotTriListView"
             android:layout_marginTop="5dp"
             android:layout_below="@+id/TGTribeTitle"/>
 
-        <Button
-            android:text="Book Now!"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
+        <TextView
+            android:text="txtSpotDesc"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnBook"
-            android:layout_below="@+id/btnCancellationPollicy"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:id="@+id/txtTGSpotDesc"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/TGrelLay2"
+            android:layout_alignStart="@+id/txtTGOpenTime"
+            android:layout_alignEnd="@+id/txtTGSpotBudget" />
 
         <RatingBar
             android:layout_height="wrap_content"
@@ -160,28 +191,9 @@
             android:isIndicator="true"
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
-            android:layout_marginBottom="11dp"
+            android:layout_marginBottom="14dp"
             android:layout_above="@+id/TGrelLay"
-            android:layout_toEndOf="@+id/txtTGTitle" />
-
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPackPrice"
-            android:layout_alignBaseline="@+id/txtTGTitle"
-            android:layout_alignBottom="@+id/txtTGTitle"
-            android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@+id/txtTGTitle" />
-
-        <Button
-            android:text="Cancellation Policy"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnCancellationPollicy"
-            android:layout_marginTop="17dp"
-            android:layout_below="@+id/PackageTribeListView"
-            android:layout_alignParentStart="true" />
+            android:layout_alignEnd="@+id/txtTGCloseTime"
+            android:layout_marginEnd="13dp" />
     </RelativeLayout>
 </ScrollView>
