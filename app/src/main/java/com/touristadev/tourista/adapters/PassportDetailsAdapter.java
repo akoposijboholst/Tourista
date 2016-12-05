@@ -14,10 +14,12 @@ import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
+import com.touristadev.tourista.activities.FeedActivity;
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.activities.ExploreActivity;
 import com.touristadev.tourista.activities.FeedActivity;
 import com.touristadev.tourista.controllers.Controllers;
+import com.touristadev.tourista.models.CurrentUser;
 
 import java.util.List;
 

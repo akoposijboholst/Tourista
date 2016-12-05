@@ -80,6 +80,7 @@ public class ExploreActivity extends AppCompatActivity {
         switchPages(0);
 
 
+
         Intent i = getIntent();
 
         firstName = i.getStringExtra("firstName");
@@ -88,6 +89,7 @@ public class ExploreActivity extends AppCompatActivity {
 
         mBottomBar = BottomBar.attach(this, savedInstanceState);
         mBottomBar.useFixedMode();
+        mBottomBar.setDefaultTabPosition(0);
         mBottomBar.setTypeFace("fonts/Poppins-Regular.ttf");
         mBottomBar.setActiveTabColor(Color.parseColor("#fecd23"));
         mBottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener() {

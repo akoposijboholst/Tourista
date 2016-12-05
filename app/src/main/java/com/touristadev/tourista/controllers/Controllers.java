@@ -20,6 +20,8 @@ public class Controllers {
     static ArrayList<Spots> spotList = new ArrayList<>();
     static ArrayList<Packages> packageList = new ArrayList<>();
     static ArrayList<Packages> BookedList = new ArrayList<>();
+
+    static ArrayList<Packages> RequestList = new ArrayList<>();
     static ArrayList<Packages> WishList = new ArrayList<>();
     private static int positionwew;
     private static boolean tourguidemode;
@@ -361,6 +363,11 @@ public class Controllers {
         BookedList.add(pa);
 
     }
+    public void addRequestPackage(Packages pa)
+    {
+        BookedList.add(pa);
+
+    }
     public void addWishPackages(Packages pa)
     {
         WishList.add(pa);
@@ -376,11 +383,23 @@ public class Controllers {
         BookedList.remove(pos);
 
     }
+    public void removeRequestPackage(int pos)
+    {
+        RequestList.remove(pos);
+
+    }
     public ArrayList<Packages> getBookedList()
     {
 
 
         return BookedList;
+
+    }
+    public ArrayList<Packages> getRequestList()
+    {
+
+
+        return RequestList;
 
     }
     public ArrayList<Packages> getWishList()
