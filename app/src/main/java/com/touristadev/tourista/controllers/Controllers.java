@@ -398,16 +398,17 @@ public class Controllers {
     public ArrayList<Packages> getRequestList()
     {
 
-
         return RequestList;
 
     }
-    public ArrayList<Packages> getWishList()
+    public ArrayList<TourRequest> getWishList()
     {
-
-
-        return WishList;
-
+        ArrayList<TourRequest> temp= new ArrayList<>();
+        for (int i=0;i<WishList.size();i++)
+        {
+            temp.add(new TourRequest("Nick Nicolas Chiong", "December 8, 2016",3,WishList.get(i),"Medium"));
+        }
+        return temp;
     }
     public static void setPosition(int position2){
         positionwew = position2;

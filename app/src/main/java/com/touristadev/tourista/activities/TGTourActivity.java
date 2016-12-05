@@ -40,7 +40,7 @@ public class TGTourActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tgtour);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarT);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         fragmentManager = getSupportFragmentManager();

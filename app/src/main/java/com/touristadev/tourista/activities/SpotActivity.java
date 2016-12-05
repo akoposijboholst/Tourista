@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.touristadev.tourista.R;
 import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Spots;
 

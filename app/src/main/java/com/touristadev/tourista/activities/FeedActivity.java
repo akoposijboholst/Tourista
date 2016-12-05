@@ -36,7 +36,7 @@ public class FeedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarL);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         fragmentManager = getSupportFragmentManager();
