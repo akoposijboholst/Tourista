@@ -16,6 +16,7 @@ import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.touristadev.tourista.activities.FeedActivity;
 import com.touristadev.tourista.R;
+import com.touristadev.tourista.models.CurrentUser;
 
 import java.util.List;
 
@@ -61,6 +62,7 @@ public class PassportDetailsAdapter extends RecyclerView.Adapter<PassportDetails
             public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean b, int i) {
                 if (b==true)
                 {
+                    CurrentUser.toggle = true;
                     Intent intent= new Intent(view.getContext(), FeedActivity.class);
                     parent.getContext().startActivity(intent);
                 }

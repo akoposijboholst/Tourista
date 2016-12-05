@@ -93,7 +93,7 @@ public class PaypalActivity extends AppCompatActivity {
                             try {
                                 jsonObject.put("to", "/topics/news");
                                 JSONObject data = new JSONObject();
-                                data.put("message", "This is a notification from Tourista.");
+                                data.put("message", mList.get(x).getPackageName());
                                 jsonObject.put("data", data);
                                 JSONObject notification = new JSONObject();
                                 notification.put("title", "Incoming Request..");
