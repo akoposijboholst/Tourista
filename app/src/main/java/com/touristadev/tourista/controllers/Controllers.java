@@ -361,6 +361,7 @@ public class Controllers {
     public void addBookedPackages(Packages pa)
     {
         BookedList.add(pa);
+        WishList.remove(pa);
 
     }
     public void addRequestPackage(Packages pa)

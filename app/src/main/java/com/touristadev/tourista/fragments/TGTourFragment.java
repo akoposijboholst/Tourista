@@ -81,7 +81,7 @@ public class TGTourFragment extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
         mControllers = new Controllers();
-        list=mControllers.getControllerPackaaes();
+        list=mControllers.getBookedList();
 //
 //        mCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mCardAdapter);
 //        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPagerTours, mFragmentCardAdapter);
