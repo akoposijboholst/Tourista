@@ -2,6 +2,7 @@ package com.touristadev.tourista.controllers;
 
 import android.util.Log;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.dataModels.Categories;
 import com.touristadev.tourista.dataModels.Itinerary;
@@ -20,7 +21,7 @@ public class Controllers {
     static ArrayList<Spots> spotList = new ArrayList<>();
     static ArrayList<Packages> packageList = new ArrayList<>();
     static ArrayList<Packages> BookedList = new ArrayList<>();
-
+    private FirebaseUser user;
     static ArrayList<Packages> RequestList = new ArrayList<>();
     static ArrayList<Packages> WishList = new ArrayList<>();
     private static int positionwew;
@@ -185,6 +186,28 @@ public class Controllers {
         // SPOT ////////////////////////////////////////////////////////////////////////////////////
 
 
+        ArrayList<String> activities7 = new ArrayList<>();
+        ArrayList<Categories> categories7 = new ArrayList<>();
+        ArrayList<Tribes> tribes7 = new ArrayList<>();
+
+        activities7.add("Cultural exhibits near a historic church.");
+        activities7.add("Iconic citadel and with a hero's memorial.");
+
+        categories7.add(new Categories("Art Galleries"));
+        categories7.add(new Categories("Building and Structure"));
+        categories7.add(new Categories("Church"));
+        categories7.add(new Categories("Historical"));
+        categories7.add(new Categories("Museums"));
+
+        tribes7.add(new Tribes("Thrill-Seeker"));
+        tribes7.add(new Tribes("Collector"));
+        tribes7.add(new Tribes("Genuinely Curious"));
+        tribes7.add(new Tribes("Pilgrim"));
+        tribes7.add(new Tribes("Pilgrim"));
+
+        spotList.add(new Spots(7,"Intrauros","Bonifacio Dr & Padre Burgos St, Manila, Luzon 1002, Philippines",
+                "8:00 AM","10:00 PM","Intramuros is the oldest district and historic core of Manila, Philippines. ... Map of Metro Manila showing the location of Intramuros."
+                , "1000","9.811219", "123.374875",activities6,categories6,tribes6,4,R.mipmap.kws));
 
 
     }
@@ -361,6 +384,7 @@ public class Controllers {
     public void addBookedPackages(Packages pa)
     {
         BookedList.add(pa);
+        WishList.remove(pa);
 
     }
     public void addRequestPackage(Packages pa)
@@ -373,6 +397,18 @@ public class Controllers {
         WishList.add(pa);
 
     }
+    public void addUser(FirebaseUser us)
+    {
+        user = us;
+
+
+    }public FirebaseUser getUser()
+    {
+
+        return user;
+
+    }
+
     public void removeWishPackage(int pos)
     {
         WishList.remove(pos);
