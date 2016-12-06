@@ -35,7 +35,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         mProceed.setOnClickListener(this);
 
         //FONTS
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Poppins-Bold.ttf");
 
         btnProceed= (Button) findViewById(R.id.btnProceed) ;
         btnProceed.setTypeface(myCustomFont);

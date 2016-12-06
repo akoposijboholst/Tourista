@@ -50,7 +50,7 @@ public class TutorialActivity extends AppCompatActivity {
         ArrayList<String> images = new ArrayList<>();
         images.add("http://usjr.edu.ph/wp-content/uploads/2016/11/tutorial_discover.png");
         images.add("http://usjr.edu.ph/wp-content/uploads/2016/11/tutorial_explore.png");
-        images.add("http://usjr.edu.ph/wp-content/uploads/2016/11/tutorial_tours.png");
+        images.add("http://i.imgur.com/w88UMgL.png");
         viewPager.setAdapter(new ImageAdapterTutorial(images));
         InkPageIndicator inkPageIndicator = (InkPageIndicator) findViewById(R.id.ink_pager_indicator);
         inkPageIndicator.setViewPager(viewPager);
