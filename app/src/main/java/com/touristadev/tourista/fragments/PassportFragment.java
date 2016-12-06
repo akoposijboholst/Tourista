@@ -19,6 +19,7 @@ import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.google.firebase.auth.FirebaseUser;
 import com.touristadev.tourista.R;
 import com.touristadev.tourista.controllers.Controllers;
+import com.touristadev.tourista.models.CurrentUser;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -67,7 +68,7 @@ public class PassportFragment extends Fragment {
             public CharSequence getPageTitle(int position) {
                 switch (position) {
                     case 0:
-                        return user.getDisplayName();
+                        return CurrentUser.name;
                     default:
                         return "Page " + position;
                 }
@@ -75,7 +76,7 @@ public class PassportFragment extends Fragment {
         });
         this.materialViewPager.getViewPager().setOffscreenPageLimit(tabCount);
         this.materialViewPager.getPagerTitleStrip().setViewPager(this.materialViewPager.getViewPager());
-        Glide.with(this.getActivity()).load(user.getPhotoUrl()).into(imageView);
+        Glide.with(this.getActivity()).load(CurrentUser.photoUrl).into(imageView);
     }
 
     @Nullable

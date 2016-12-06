@@ -21,7 +21,7 @@ public class Controllers {
     static ArrayList<Spots> spotList = new ArrayList<>();
     static ArrayList<Packages> packageList = new ArrayList<>();
     static ArrayList<Packages> BookedList = new ArrayList<>();
-    private FirebaseUser user;
+    static FirebaseUser user;
     static ArrayList<Packages> RequestList = new ArrayList<>();
     static ArrayList<Packages> WishList = new ArrayList<>();
     private static int positionwew;
