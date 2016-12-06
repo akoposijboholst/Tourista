@@ -44,7 +44,7 @@ public class Controllers {
         spotList.add(new Spots(0,"Masters Resort Cebu","4044 Oslob, Cebu, Philippines",
                 "8:00","21:00","The southern part of the province is one of the areas where you can enjoy various sorts of seawater activities, do adventurous trips, have fun and cherish the tranquil ambiance and surroundings."
                 ,"2000","9.459556960067692","123.37731275707483",
-                activities0,categories0,tribes0,4, R.mipmap.mrc));
+                activities0,categories0,tribes0,4, R.mipmap.spot_oslobwhalshark));
 
         // SPOT ////////////////////////////////////////////////////////////////////////////////////
 
@@ -66,7 +66,7 @@ public class Controllers {
         spotList.add(new Spots(1,"Oslob Whale Shark Watching","Tan-awan Oslob, Cebu, Ph",
                 "8:00","12:00","Oslob Whalesharks watching was born to give information about whale shark interaction in Oslob, we are here to organize day tour trips on whale shark encounters with side trip to Tumalog waterfalls. We"
                 ,"1000","9.47008451293314","123.38275127112864",
-                activities1,categories1,tribes1,4,R.mipmap.owsw));
+                activities1,categories1,tribes1,4,R.mipmap.spot_oslobwhalshark));
 
 
         // SPOT ////////////////////////////////////////////////////////////////////////////////////
@@ -283,7 +283,7 @@ public class Controllers {
         itineraries1.add(new Itinerary("Lunch","11:00","13:00"));
         itineraries1.add(new Itinerary(spotList.get(0).getSpotName(),"13:00","16:00"));
 
-        L1.add(new Packages("South Cebu Tours",categories1,itineraries1,"Local",tribes2,4,2,8,R.mipmap.spot_boracay));
+        L1.add(new Packages("South Cebu Tours",categories1,itineraries1,"Local",tribes2,4,2,8,R.mipmap.spot_cebusouthtour));
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
@@ -305,7 +305,7 @@ public class Controllers {
         itineraries2.add(new Itinerary(spotList.get(3).getSpotAddress(),"13:00","15:00"));
         itineraries2.add(new Itinerary(spotList.get(4).getSpotName(),"15:00","17:00"));
 
-        L2.add(new Packages("Cebu Pilgrimage",categories2,itineraries2,"Local",tribes2,4,3,8,R.mipmap.spot_boracay));
+        L2.add(new Packages("Cebu Pilgrimage",categories2,itineraries2,"Local",tribes2,4,3,8,R.mipmap.spot_stonino));
 
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
@@ -328,7 +328,7 @@ public class Controllers {
         itineraries3.add(new Itinerary(spotList.get(5).getSpotName(),"12:00","15:00"));
         itineraries3.add(new Itinerary("Departure Time","15:00","17:00"));
 
-        L3.add(new Packages("Oslob Whale Watching",categories3,itineraries3,"Local",tribes3,4,2,12,R.mipmap.pck3));
+        L3.add(new Packages("Oslob Whale Watching",categories3,itineraries3,"Local",tribes3,4,2,12,R.mipmap.spot_oslobwhalshark));
 
         /// PACKAGE ////////////////////////////////////////////////////////////////////////////////
 
