@@ -64,17 +64,17 @@
             android:layout_width="match_parent"
             android:layout_height="21dp"
             android:layout_marginLeft="30dp"
-            android:padding="0dp">
+            android:padding="0dp"
+            android:weightSum="1">
 
             <RatingBar
                 android:id="@+id/rtTGBar"
                 style="@style/Widget.AppCompat.RatingBar.Small"
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="3dp"
+                android:layout_marginRight="5dp"
                 android:isIndicator="true"
-                android:paddingLeft="5dp"
-                />
+                android:paddingLeft="8dp" />
 
 
             <TextView
