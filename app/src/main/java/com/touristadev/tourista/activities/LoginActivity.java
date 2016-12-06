@@ -3,9 +3,9 @@ package com.touristadev.tourista.activities;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,7 +21,6 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.vision.text.Text;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
@@ -29,7 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.touristadev.tourista.R;
-import com.touristadev.tourista.activities.RegisterActivity;
+import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.models.CurrentUser;
 
 import java.util.Arrays;
@@ -41,6 +40,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseUser user;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private CallbackManager mCallbackManager;
+    private Controllers mControllers = new Controllers();
     private String firstName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 user = firebaseAuth.getCurrentUser();
-
+                mControllers.addUser(user);
 
 
             }

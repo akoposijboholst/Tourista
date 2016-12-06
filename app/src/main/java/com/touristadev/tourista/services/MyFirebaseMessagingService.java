@@ -18,7 +18,6 @@ package com.touristadev.tourista.services;
 import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
@@ -30,13 +29,8 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.touristadev.tourista.R;
+import com.touristadev.tourista.activities.PassportActivity;
 import com.touristadev.tourista.activities.TGTourActivity;
-import com.touristadev.tourista.controllers.Controllers;
-import com.touristadev.tourista.dataModels.Packages;
-import com.touristadev.tourista.models.CurrentUser;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
@@ -73,6 +67,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if (remoteMessage.getNotification() != null) {
 //            if (CurrentUser.toggle) {
             String packagename = remoteMessage.getData().get("message");
+//            String date = remoteMessage.getData().get("date");
+//            String numpass = remoteMessage.getData().get("numpass");
+//            String packagename = remoteMessage.getData().get("message");
+//
+//            if(remoteMessage.getData().get("numpass")>)
+
             sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(), packagename);
 //            }
         }
@@ -136,7 +136,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 //        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
 
 
-        Intent intent2 = new Intent(getApplicationContext(), TGTourActivity.class);
+        Intent intent2 = new Intent(getApplicationContext(), PassportActivity.class);
         intent2.putExtra("PackageName", packagename);
         // your application to the Home screen.
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
