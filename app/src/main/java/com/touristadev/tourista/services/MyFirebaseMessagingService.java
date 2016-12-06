@@ -30,6 +30,7 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.touristadev.tourista.R;
+import com.touristadev.tourista.activities.PassportActivity;
 import com.touristadev.tourista.activities.TGTourActivity;
 import com.touristadev.tourista.controllers.Controllers;
 import com.touristadev.tourista.dataModels.Packages;
@@ -136,7 +137,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 //        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
 
 
-        Intent intent2 = new Intent(getApplicationContext(), TGTourActivity.class);
+        Intent intent2 = new Intent(getApplicationContext(), PassportActivity.class);
         intent2.putExtra("PackageName", packagename);
         // your application to the Home screen.
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
